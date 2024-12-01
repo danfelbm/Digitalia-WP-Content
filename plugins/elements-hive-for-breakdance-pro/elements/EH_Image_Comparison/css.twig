@@ -1,0 +1,17 @@
+%%SELECTOR%% { 
+ width: {{ design.size.width.style }};
+  height: {{ design.size.height.style }};
+  {{ macros.borders(design.borders) }}
+  {{ macros.spacing_margin_y(design.spacing) }}
+}
+
+%%SELECTOR%% .eh-image-comparison__before {
+  {{ macros.filters(design.filters.before_image) }}
+}
+
+%%SELECTOR%% .eh-image-comparison__after {
+  clip-path: url("#eh-image-comparison-%%ID%%__clip");
+  -webkit-clip-path: url("#eh-image-comparison-%%ID%%__clip");
+  {{ macros.filters(design.filters.after_image) }}
+}
+

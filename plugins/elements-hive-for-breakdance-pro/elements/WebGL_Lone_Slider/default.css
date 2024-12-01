@@ -1,0 +1,63 @@
+ .eh-webgl-lone-slider {
+   position: relative;
+   width: 100%;
+   overflow: hidden;
+}
+
+.eh-webgl-lone-slider .eh-webgl-lone-slider__canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+ .eh-webgl-lone-slider .eh-webgl-lone-slider__image-placeholder {
+  display: block;
+   width: 50%;
+   height: auto;
+  position: relative;
+    top:  0%;
+  left:  100%;
+  transform: translate(-100%,-0%);
+   opacity: 0;
+  pointer-events: none;
+}
+
+
+
+ .eh-webgl-lone-slider .eh-webgl-lone-slider__slides {
+  position: absolute;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: start;
+  top: 30%;
+  left: 17%;
+  transform: translate(-30%, -17%);
+}
+
+ .eh-webgl-lone-slider .eh-webgl-lone-slide {
+  grid-row-start: 1;
+  grid-column-start: 1;
+   opacity: 0;
+}
+
+ .eh-webgl-lone-slider .eh-webgl-lone-slide:first-child {
+   opacity: 1;
+}
+
+ .eh-webgl-lone-slider .eh-webgl-lone-slider__btn {
+  position: absolute;
+  cursor: pointer;
+}
+
+.eh-webgl-lone-slider .eh-webgl-lone-slider__btn--next {
+  left: 30% ;
+  top: 80% ;
+  transform: translate(-30%, -80%);
+}
+
+.eh-webgl-lone-slider .eh-webgl-lone-slider__btn--previous {
+  left: 10% ;
+  top: 80% ;
+  transform: translate(-10%, -80%);
+}

@@ -1,0 +1,37 @@
+.eh-gooey-overlay {
+  position: relative;
+  display: block;
+}
+
+.eh-gooey-overlay .eh-gooey-overlay__svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.eh-gooey-overlay .eh-gooey-overlay__content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .4s ease-in-out;
+  z-index: initial;
+}
+
+.eh-gooey-overlay.eh-show .eh-gooey-overlay__content {
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity .4s ease-out;
+}
+
+.eh-gooey-overlay.is-opened .eh-gooey-overlay__svg {
+  pointer-events: auto;
+}

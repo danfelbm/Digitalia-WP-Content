@@ -1,0 +1,11 @@
+.eh-morph-masker {
+   display: flex;
+  flex-direction: column;
+   max-width: 100%;
+}
+
+ .eh-morph-masker .eh-morph-masker__svg {
+  position: absolute; 
+  transform-origin: center center;
+  z-index: -2;
+}

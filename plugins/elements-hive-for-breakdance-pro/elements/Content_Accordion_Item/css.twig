@@ -1,0 +1,22 @@
+%%SELECTOR%%,
+%%SELECTOR%% .eh-content-accordion-item__inner {
+  {{ design.layout.default_width.style }};
+  {{ macros.borders(design.layout.borders) }};
+  {{ macros.simpleLayout(design.layout.layout, breakpoint) }};
+  {{ macros.spacing_padding_all(design.padding) }}
+}
+
+{{ macros.fancyBackgroundCss('%%SELECTOR%%', design.background, breakpoint, false, true) }}
+
+%%SELECTOR%% .eh-content-accordion-item__default-content {
+	{{ macros.simpleLayout(design.default_content.layout, breakpoint) }}
+}
+
+%%SELECTOR%% .eh-content-accordion-item__default-content .eh-content-accordion-item__text {
+ {{ macros.typography(design.default_content.text_typography, globalSettings) }}
+}
+
+%%SELECTOR%% .eh-content-accordion-item__default-content .eh-content-accordion-item__icon {
+  color: {{ design.default_content.icon_color }};
+  font-size: {{ design.default_content.icon_size.style }};
+}

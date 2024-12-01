@@ -1,0 +1,20 @@
+{% set beforeImage = content.images.before %}
+{% set afterImage = content.images.after %}
+{% set lazyLoad = content.images.lazy_load %}
+
+{% if design.settings.direction == 'horizontal' %}
+  {% set path = "m 0 0 h .5 q 0.2 0.5 0 1 h -1 z" %}
+{% elseif design.settings.direction == 'vertical' %}
+  {% set path = "m 0 0 v .5 q 0.5 0.6 1 0 v -1 z" %}
+{% endif %}
+
+
+{{ macros.image(beforeImage, '' , alt, lazyLoad, 'eh-image-comparison__before') }}
+{{ macros.image(afterImage, '' , alt, lazyLoad, 'eh-image-comparison__after') }}
+<svg height="0" width="0">
+  <defs>
+    <clipPath clipPathUnits="objectBoundingBox" id="eh-image-comparison-%%ID%%__clip">
+      <path id="path-1" d="{{path}}"></path>
+    </clipPath>
+  </defs>
+</svg>

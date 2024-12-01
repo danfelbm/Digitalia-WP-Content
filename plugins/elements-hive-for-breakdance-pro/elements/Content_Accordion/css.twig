@@ -1,0 +1,17 @@
+%%SELECTOR%% { 
+  {{ macros.spacing_margin_y(design.spacing) }}
+  width: {{design.layout.width.style}};
+  height: {{design.layout.height.style}};
+  gap: {{ design.layout.gap.style }};
+  {% if design.layout.orientation == 'vertical' or breakpoint == design.layout.vertical_at %}
+    flex-direction: column;
+  {% endif %}
+}
+
+{% if design.content_animation.type|default('visibility') == 'visibility' %}
+  %%SELECTOR%% .eh-content-accordion-item__inner>* {
+    opacity: 0;
+    visibility: hidden;
+  }
+{% endif %}
+

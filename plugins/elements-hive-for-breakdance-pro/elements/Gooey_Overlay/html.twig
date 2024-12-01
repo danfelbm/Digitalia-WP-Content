@@ -1,0 +1,16 @@
+{% if isBuilder and not design.builder_mode_helpers.disable_placeholder %}
+	<div class="eh-gooey-overlay__builder-marker">Google Overlay
+		{% if design.trigger.selector is empty %}
+			<br>Trigger selector missing!
+		{% endif %}
+	</div>
+{% endif %}
+
+<svg class="eh-gooey-overlay__svg" viewbox="0 0 100 100" preserveaspectratio="none">
+	{% for item in content.layers.layers %}
+		<path class="eh-gooey-overlay__path"></path>
+	{% endfor %}
+</svg>
+<div class="eh-gooey-overlay__content">
+	%%CHILDREN%%
+</div>

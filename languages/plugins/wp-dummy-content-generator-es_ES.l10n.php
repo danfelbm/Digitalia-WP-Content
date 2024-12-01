@@ -1,0 +1,2 @@
+<?php
+return ['x-generator'=>'GlotPress/4.0.1','translation-revision-date'=>'2022-09-24 23:01:37+0000','plural-forms'=>'nplurals=2; plural=n != 1;','project-id-version'=>'Plugins - WP Dummy Content Generator - Development (trunk)','language'=>'es','messages'=>['WP Dummy Content Generator'=>'WP Dummy Content Generator','Deepak anand'=>'Deepak anand','Manage dummy data'=>'Gestionar mis datos ficticios']];

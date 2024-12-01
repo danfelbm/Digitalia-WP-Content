@@ -1,0 +1,20 @@
+
+<div class="eh-webgl-image-carousel__carousel">
+  {% for item in content.images.images %}
+  	{{ macros.getMedia(item.image) }}
+  {% endfor %}
+  {% if design.effects.duplicate_images|default(false) %}
+  	{% for item in content.images.images %}
+      {{ macros.getMedia(item.image) }}
+    {% endfor %}
+ {% endif %}
+</div>
+
+{% if isBuilder and not content.images.images|length %}
+  <div class="breakdance-canvas-empty-element">
+    <svg class="breakdance-canvas-empty-element__icon" width="40" viewBox="0 0 640 512">
+      <path fill="currentColor" d="M608 0H160a32 32 0 0 0-32 32v96h160V64h192v320h128a32 32 0 0 0 32-32V32a32 32 0 0 0-32-32zM232 103a9 9 0 0 1-9 9h-30a9 9 0 0 1-9-9V73a9 9 0 0 1 9-9h30a9 9 0 0 1 9 9zm352 208a9 9 0 0 1-9 9h-30a9 9 0 0 1-9-9v-30a9 9 0 0 1 9-9h30a9 9 0 0 1 9 9zm0-104a9 9 0 0 1-9 9h-30a9 9 0 0 1-9-9v-30a9 9 0 0 1 9-9h30a9 9 0 0 1 9 9zm0-104a9 9 0 0 1-9 9h-30a9 9 0 0 1-9-9V73a9 9 0 0 1 9-9h30a9 9 0 0 1 9 9zm-168 57H32a32 32 0 0 0-32 32v288a32 32 0 0 0 32 32h384a32 32 0 0 0 32-32V192a32 32 0 0 0-32-32zM96 224a32 32 0 1 1-32 32 32 32 0 0 1 32-32zm288 224H64v-32l64-64 32 32 128-128 96 96z"></path>
+    </svg>
+    <h3 class="breakdance-canvas-empty-element__title">No media selected.</h3>
+  </div>
+{% endif %}

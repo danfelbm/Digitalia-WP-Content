@@ -1,0 +1,65 @@
+%%SELECTOR%% {
+  width: {{ design.container.width.style }};
+  height: {{ design.container.height.style }};
+  {{ macros.borders(design.borders) }}
+  {{ macros.spacing_margin_y(design.spacing) }}
+}
+
+%%SELECTOR%% .eh-gooey-overlay__content {
+  {{ macros.simpleLayout(design.layout, breakpoint) }}
+   {{ macros.borders(design.borders) }}
+  {{ macros.typography(design.typography, globalSettings) }}
+  {{ macros.spacing_padding_all(design.padding) }}
+}
+
+%%SELECTOR%% .eh-gooey-overlay__svg {
+   {{ macros.borders(design.borders) }}
+}
+
+{% for item in content.layers.layers %}
+  %%SELECTOR%% .eh-gooey-overlay__path:nth-of-type({{loop.index}}) {
+    fill: {{item.background_color}};
+  }
+{% endfor %}
+
+{% if isBuilder %}
+	 %%SELECTOR%%:not(.eh-is-opened)  {
+        z-index: inherit;
+      }
+	{% if design.builder_mode_helpers.disable_placeholder and not design.builder_mode_helpers.toggle_overlay %}
+      %%SELECTOR%%:not(.eh-is-opened)  {
+        z-index: -1;
+      }
+	{% endif %}
+
+	{% if not design.builder_mode_helpers.disable_placeholder  %}
+        %%SELECTOR%%  .eh-gooey-overlay__builder-marker {
+            display: none;
+        }
+        %%SELECTOR%%:not(.eh-is-opened)  .eh-gooey-overlay__builder-marker {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          color: black;
+          font-size: 1.5rem;
+          font-weight: bold;
+          background-color: transparent;
+          opacity: 0.4;
+          background-image:  radial-gradient(#FD5A00 2px, transparent 2px), radial-gradient(#FD5A00 0.5px, transparent 0.5px);
+          background-size: 20px 20px;
+          background-position: 0 0,10px 10px;
+          z-index: 1;
+        }
+    {% endif %}
+
+{% else %}
+  %%SELECTOR%%:not(.eh-is-opened)  {
+        z-index: -1;
+      }
+{% endif %}
+

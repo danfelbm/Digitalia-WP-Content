@@ -1,0 +1,13 @@
+%%SELECTOR%%  {
+  width: {{ design.container.width.style }};
+  min-height: {{ design.container.min_height.style }};
+   clip-path: url('#eh-morph-masker__shape-%%ID%%');
+ {{ macros.simpleLayout(design.layout, breakpoint) }}
+  {{ macros.borders(design.borders) }}
+  {{ macros.spacing_padding_all(design.padding) }}
+  {{ macros.spacing_margin_y(design.spacing) }}
+}
+
+{{ macros.fancyBackgroundCss('%%SELECTOR%%', design.background, breakpoint, false, true) }}
+
+

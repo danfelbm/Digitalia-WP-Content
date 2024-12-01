@@ -1,0 +1,47 @@
+%%SELECTOR%% {
+  width: {{ design.slider.width.style }};
+  height: {{ design.slider.height.style }};
+  {{ macros.spacing_padding_all(design.padding) }}
+  {{ macros.spacing_margin_y(design.spacing) }}
+}
+
+
+%%SELECTOR%% .eh-webgl-lone-slider__image-placeholder {
+	top: {{ design.images.position.y}}%;
+  left: {{ design.images.position.x}}%;
+  transform: translate(-{{ design.images.position.x}}%, -{{ design.images.position.y}}%);
+  width: {{ design.images.width.style }};
+  height: {{ design.images.height.style }};
+}
+
+
+%%SELECTOR%% .eh-webgl-lone-slider__slides {
+  top: {{ design.content_items_container.position.y}}%;
+  left: {{ design.content_items_container.position.x}}%;
+  transform: translate(-{{ design.content_items_container.position.x}}%, -{{ design.content_items_container.position.y}}%);
+  width: {{ design.content_items_container.width.style }};
+  height: {{ design.content_items_container.height.style }};
+  {{ macros.background(design.content_items_container.background) }}
+  {{ macros.spacing_padding_all(design.content_items_container.padding) }}
+}
+
+ {{ macros.ElementsHiveForBreakdancePro_iconCss(design.navigation.previous_icon.icon, 'eh-webgl-lone-slider__btn--previous', '%%SELECTOR%%', false, true) }}
+ {{ macros.ElementsHiveForBreakdancePro_iconCss(design.navigation.next_icon.icon, 'eh-webgl-lone-slider__btn--next', '%%SELECTOR%%', false, true) }}
+
+%%SELECTOR%% .eh-webgl-lone-slider__btn--previous {
+  left: {{design.navigation.previous_icon.position.x}}% ;
+  top: {{design.navigation.previous_icon.position.y}}% ;
+  transform: translate(-{{ design.navigation.previous_icon.position.x }}%, -{{ design.navigation.previous_icon.position.y }}%);
+}
+
+%%SELECTOR%% .eh-webgl-lone-slider__btn--next {
+  left: {{design.navigation.next_icon.position.x}}% ;
+  top: {{design.navigation.next_icon.position.y}}% ;
+  transform: translate(-{{ design.navigation.next_icon.position.x }}%, -{{ design.navigation.next_icon.position.y }}%);
+}
+
+{{ macros.effects(design.content_items_container.effects, '%%SELECTOR%% .eh-webgl-lone-slider__slides') }}
+
+%%SELECTOR%% .eh-webgl-lone-slider__builder-images {
+	display: none;
+}

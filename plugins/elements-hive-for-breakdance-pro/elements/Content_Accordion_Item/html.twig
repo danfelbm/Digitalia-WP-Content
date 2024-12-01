@@ -1,0 +1,18 @@
+<div class="eh-content-accordion-item__inner" data-eh-is-trigger="true">
+  %%CHILDREN%%
+</div>
+{{ macros.fancyBackgroundHtml(design.background) }}
+{% if content.default_content.enable_default_text or content.default_content.enable_default_icon %}
+	<div class="eh-content-accordion-item__default-content" data-eh-is-trigger="true">
+      {% if content.default_content.enable_default_icon %}
+      	<div class="eh-content-accordion-item__icon"> {{ content.default_content.icon.svgCode }} </div>
+      {% endif %}
+      {% if content.default_content.enable_default_text %}
+      	<div class="eh-content-accordion-item__text"> {{ content.default_content.text }} </div>
+      {% endif %}
+	</div>
+{% endif %}
+
+
+
+

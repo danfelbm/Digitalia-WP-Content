@@ -1,0 +1,16 @@
+%%SELECTOR%% {
+  width: {{ design.layout.width.style }};
+  {{ macros.spacing_margin_y(design.spacing) }}
+}
+
+%%SELECTOR%% .eh-webgl-image-carousel__carousel {
+  justify-content: {{design.layout.align}};
+  gap: {{ design.layout.gap.style }};
+}
+
+
+%%SELECTOR%% .eh-webgl-image-carousel__carousel img {
+  max-width: inherit;
+  width: {{design.image_size.width.style}};
+  height: {{ design.image_size.height.style}};
+}

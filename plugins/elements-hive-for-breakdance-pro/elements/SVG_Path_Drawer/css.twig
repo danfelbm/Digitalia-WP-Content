@@ -1,0 +1,20 @@
+%%SELECTOR%% {
+  font-size: {{ design.svg.width.style }};
+  width: {{ design.svg.width.style }};
+  {{ macros.spacing_margin_y(design.spacing) }}
+}
+
+%%SELECTOR%% path {
+  {% if design.svg.override_stroke_color %}
+  	stroke: {{ design.svg.stroke_color }};
+  {% endif %}
+  {% if design.svg.override_stroke_width %}
+  	stroke-width: {{ design.svg.stroke_width }};
+  {% endif %}
+}
+
+{% if design.animation_trigger.trigger == 'inViewport' and design.mouse_interaction.redraw_on_click %}
+%%SELECTOR%% svg {
+	cursor: pointer;
+}
+{% endif %}

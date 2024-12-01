@@ -1,0 +1,7 @@
+%%SELECTOR%%  {
+{{ macros.simpleLayout(design.layout, breakpoint) }};
+{{ macros.typography(design.typography, globalSettings) }}
+{{ macros.spacing_padding_all(design.padding) }}
+}
+
+{{ macros.fancyBackgroundCss('%%SELECTOR%% ', design.background, breakpoint, false, true) }}

@@ -1,0 +1,6 @@
+.eh-webgl-lone-slide {
+	display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  width: 100%;
+}

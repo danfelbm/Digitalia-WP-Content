@@ -1,0 +1,9 @@
+{{ macros.fancyBackgroundHtml(design.background) }}
+%%CHILDREN%%
+<svg height="0" width="0" class="eh-morph-masker__svg" viewBox="0 0 100 100" > 
+  <defs> 
+    <clipPath id="eh-morph-masker__shape-%%ID%%" clipPathUnits="objectBoundingBox"> 
+    	{{ macros.ElementsHiveForBreakdancePro_GetMaskerMorphPath(design.mask.mask|default('curve_horizontal')) }}
+    </clipPath> 
+  </defs> 
+</svg>
