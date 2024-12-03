@@ -189,6 +189,67 @@ function digitalia_register_page_templates($templates) {
 add_filter('theme_page_templates', 'digitalia_register_page_templates');
 
 /**
+ * Define color schemes for different modules
+ *
+ * @param string $type Optional. Type of color scheme to return ('full' or 'pill'). Default 'full'.
+ * @return array Color schemes for different modules
+ */
+function digitalia_get_color_schemes($type = 'full') {
+    $full_schemes = array(
+        'academia' => array(
+            'bg' => 'bg-yellow-200',
+            'text' => 'text-yellow-950',
+            'subtitle' => 'text-yellow-800',
+            'highlight' => 'bg-yellow-300/30',
+            'grid' => 'bg-yellow-300',
+            'button' => 'bg-yellow-500 hover:bg-yellow-600 text-white',
+        ),
+        'en-linea' => array(
+            'bg' => 'bg-red-200',
+            'text' => 'text-red-950',
+            'subtitle' => 'text-red-800',
+            'highlight' => 'bg-red-300/30',
+            'grid' => 'bg-red-300',
+            'button' => 'bg-red-500 hover:bg-red-600 text-white',
+        ),
+        'colaboratorio' => array(
+            'bg' => 'bg-teal-200',
+            'text' => 'text-teal-950',
+            'subtitle' => 'text-teal-800',
+            'highlight' => 'bg-teal-300/30',
+            'grid' => 'bg-teal-300',
+            'button' => 'bg-teal-500 hover:bg-teal-600 text-white',
+        ),
+        'total-transmedia' => array(
+            'bg' => 'bg-blue-200',
+            'text' => 'text-blue-950',
+            'subtitle' => 'text-blue-800',
+            'highlight' => 'bg-blue-300/30',
+            'grid' => 'bg-blue-300',
+            'button' => 'bg-blue-500 hover:bg-blue-600 text-white',
+        ),
+        'ready' => array(
+            'bg' => 'bg-purple-200',
+            'text' => 'text-purple-950',
+            'subtitle' => 'text-purple-800',
+            'highlight' => 'bg-purple-300/30',
+            'grid' => 'bg-purple-300',
+            'button' => 'bg-purple-500 hover:bg-purple-600 text-white',
+        ),
+    );
+
+    if ($type === 'pill') {
+        $pill_schemes = array();
+        foreach ($full_schemes as $key => $scheme) {
+            $pill_schemes[$key] = $scheme['highlight'];
+        }
+        return $pill_schemes;
+    }
+
+    return $full_schemes;
+}
+
+/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';
