@@ -155,6 +155,40 @@ function digitalia_scripts() {
 add_action( 'wp_enqueue_scripts', 'digitalia_scripts' );
 
 /**
+ * Register custom page templates from subdirectories
+ */
+function digitalia_register_page_templates($templates) {
+    $theme_dir = get_template_directory();
+    
+    // Regular page templates
+    $regular_templates_dir = $theme_dir . '/page-templates';
+    if (is_dir($regular_templates_dir)) {
+        $regular_files = glob($regular_templates_dir . '/*.php');
+        foreach ($regular_files as $file) {
+            $template_data = get_file_data($file, array('Template Name' => 'Template Name'));
+            if (!empty($template_data['Template Name'])) {
+                $templates[str_replace($theme_dir . '/', '', $file)] = $template_data['Template Name'];
+            }
+        }
+    }
+    
+    // Subpage templates
+    $subpage_templates_dir = $regular_templates_dir . '/subpage-templates';
+    if (is_dir($subpage_templates_dir)) {
+        $subpage_files = glob($subpage_templates_dir . '/*.php');
+        foreach ($subpage_files as $file) {
+            $template_data = get_file_data($file, array('Template Name' => 'Template Name'));
+            if (!empty($template_data['Template Name'])) {
+                $templates[str_replace($theme_dir . '/', '', $file)] = $template_data['Template Name'];
+            }
+        }
+    }
+    
+    return $templates;
+}
+add_filter('theme_page_templates', 'digitalia_register_page_templates');
+
+/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';

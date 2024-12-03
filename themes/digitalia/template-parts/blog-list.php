@@ -46,11 +46,10 @@
     });
 </script>
 
-<section class="py-32 bg-slate-100">
+<section class="py-32 bg-white">
     <div class="container">
-        <div class="mb-8 md:mb-10 lg:mb-12">
-            <h2 class="mb-6 w-full text-4xl font-medium md:mb-14 md:text-5xl lg:mb-16 lg:text-6xl">Todo el contenido Digital·IA</h2>
-            
+        <div class="mb-8 md:mb-10 lg:mb-12">      
+                  
             <!-- Filters Section -->
             <div class="mb-10 flex flex-wrap items-center gap-x-4 gap-y-3 lg:gap-x-3">
                 <!-- Categories Filter -->
@@ -117,7 +116,7 @@
 <!-- Templates -->
 <template id="post-template">
     {{#data}}
-    <a href="{{link}}" class="group flex flex-col justify-between rounded-xl border border-border bg-white p-6">
+    <a href="{{link}}" class="group flex flex-col justify-between rounded-xl border border-border bg-slate-100 p-6">
         <div>
             <div class="flex aspect-[3/2] text-clip rounded-xl">
                 <div class="flex-1">
