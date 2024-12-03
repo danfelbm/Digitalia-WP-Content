@@ -140,8 +140,13 @@ add_action( 'widgets_init', 'digitalia_widgets_init' );
 function digitalia_scripts() {
 	wp_enqueue_style( 'digitalia-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'digitalia-style', 'rtl', 'replace' );
+	wp_enqueue_style( 'digitalia-tailwind-menu', get_template_directory_uri() . '/css/tailwind-menu.css', array(), _S_VERSION );
 
 	wp_enqueue_script( 'digitalia-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'digitalia-menu', get_template_directory_uri() . '/js/menu.js', array(), _S_VERSION, true );
+
+	wp_enqueue_script('alpine-js', 'https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js', array(), null, true);
+	wp_script_add_data('alpine-js', 'defer', true);
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -165,6 +170,11 @@ require get_template_directory() . '/inc/template-tags.php';
 require get_template_directory() . '/inc/template-functions.php';
 
 /**
+ * Custom Nav Walker for Tailwind CSS
+ */
+require get_template_directory() . '/inc/class-tailwind-nav-walker.php';
+
+/**
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
@@ -175,4 +185,3 @@ require get_template_directory() . '/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
-
