@@ -10,7 +10,7 @@
       <div class="flex flex-col items-center py-32 text-center lg:mx-auto lg:items-start lg:px-0 lg:text-left">
         <p>Educomunicación Para la Paz</p>
         <h1 class="my-6 text-pretty text-4xl font-bold lg:text-6xl">Digital·IA</h1>
-        <p class="mb-8 max-w-xl text-muted-foreground lg:text-xl">Lorem ipsum dolor sit amet consectetur adipisicing elit. Elig doloremque mollitia fugiat omnis! Porro facilis quo animi consequatur. Explicabo.</p>
+        <p class="mb-8 max-w-xl text-muted-foreground lg:text-xl">Digital-IA es un programa nacional de educomunicación que fortalece las capacidades ciudadanas frente a los desafíos de las tecnologías emergentes, promoviendo la alfabetización mediática e informacional con enfoque de paz.</p>
         <div class="flex w-full flex-col justify-center gap-2 sm:flex-row lg:justify-start">
           <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-full sm:w-auto">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right mr-2 size-4">

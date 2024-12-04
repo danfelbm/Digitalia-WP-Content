@@ -108,42 +108,42 @@
 														<img src="/wp-content/uploads/2024/11/Screenshot-2024-11-26-at-12.25.25%E2%80%AFPM.jpg" alt="" class="w-8 h-8" />
 														<div>
 															<div class="font-medium">Módulos Digitalia</div>
-															<div class="text-sm text-gray-500">Your customers' data will be safe and secure.</div>
+															<div class="text-xs text-gray-500">El proyecto Digitalia se desarrolla en cinco módulos.</div>
 														</div>
 													</a>
 													<a href="/modulos/academia/" class="flex items-center space-x-3 p-2 rounded-md hover:bg-gray-100">
 														<img src="/wp-content/uploads/2024/11/Screenshot-2024-11-18-at-12.27.21 PM.jpg" alt="" class="w-8 h-8" />
 														<div>
 															<div class="font-medium">Academia</div>
-															<div class="text-sm text-gray-500">Your customers' data will be safe and secure.</div>
+															<div class="text-xs text-gray-500">Plataforma de autoformación en paradigmas tecnológicos y paz mediática.</div>
 														</div>
 													</a>
 													<a href="/modulos/en-linea/" class="flex items-center space-x-3 p-2 rounded-md hover:bg-gray-100">
 														<img src="/wp-content/uploads/2024/11/Screenshot-2024-11-18-at-2.21.48 PM.jpg" alt="" class="w-8 h-8" />
 														<div>
 															<div class="font-medium">En Línea</div>
-															<div class="text-sm text-gray-500">Get a better understanding of where your traffic is coming from.</div>
+															<div class="text-xs text-gray-500">Serie web sobre acciones ciudadanas y públicas por la paz.</div>
 														</div>
 													</a>
 													<a href="/modulos/total-transmedia/" class="flex items-center space-x-3 p-2 rounded-md hover:bg-gray-100">
 														<img src="/wp-content/uploads/2024/11/Screenshot-2024-11-18-at-2.21.05 PM.jpg" alt="" class="w-8 h-8" />
 														<div>
 															<div class="font-medium">Total Transmedia</div>
-															<div class="text-sm text-gray-500">Connect with third-party tools that you're already using.</div>
+															<div class="text-xs text-gray-500">Estrategia de expansión Digital-IA y sinergias ciudadanas.</div>
 														</div>
 													</a>
 													<a href="/modulos/colaboratorios/" class="flex items-center space-x-3 p-2 rounded-md hover:bg-gray-100">
 														<img src="/wp-content/uploads/2024/11/Screenshot-2024-11-18-at-2.22.28 PM.jpg" alt="" class="w-8 h-8" />
 														<div>
 															<div class="font-medium">CoLaboratorios</div>
-															<div class="text-sm text-gray-500">Speak directly to your customers in a more meaningful way.</div>
+															<div class="text-xs text-gray-500">Espacios de aprendizaje y construcción de paz mediática.</div>
 														</div>
 													</a>
 													<a href="/modulos/ready/" class="flex items-center space-x-3 p-2 rounded-md hover:bg-gray-100">
 														<img src="/wp-content/uploads/2024/11/Screenshot-2024-11-18-at-2.23.02 PM.jpg" alt="" class="w-8 h-8" />
 														<div>
 															<div class="font-medium">REaDy</div>
-															<div class="text-sm text-gray-500">Speak directly to your customers in a more meaningful way.</div>
+															<div class="text-xs text-gray-500">Red de alfabetizadores en paz mediática y tecnologías.</div>
 														</div>
 													</a>
 												</div>
@@ -167,10 +167,7 @@
 											<div class="w-48 bg-white rounded-md shadow-lg z-50">
 												<div class="py-1">
 													<a href="/biblioteca-digital/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Biblioteca Digitalia</a>
-													<a href="/video/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Video</a>
-													<a href="/audio/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Audio</a>
-													<a href="/academia" class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Academia</a>
-													<a href="/plataforma/courses" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Cursos</a>
+													<a href="/video/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Kit social media</a>
 													<a href="/redes-sociales/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Redes sociales</a>
 												</div>
 											</div>
@@ -235,42 +232,42 @@
 							<img src="/wp-content/uploads/2024/11/Screenshot-2024-11-26-at-12.25.25%E2%80%AFPM.jpg" alt="" class="w-8 h-8" />
 							<div>
 								<div class="font-medium">Módulos Digitalia</div>
-								<div class="text-sm text-gray-500">Your customers' data will be safe and secure.</div>
+								<div class="text-xs text-gray-500">El proyecto Digitalia se desarrolla en cinco módulos.</div>
 							</div>
 						</a>
 						<a href="/modulos/academia/" class="flex items-center space-x-3 p-2 rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">
 							<img src="/wp-content/uploads/2024/11/Screenshot-2024-11-18-at-12.27.21 PM.jpg" alt="" class="w-8 h-8" />
 							<div>
 								<div class="font-medium">Academia</div>
-								<div class="text-sm text-gray-500">Your customers' data will be safe and secure.</div>
+								<div class="text-xs text-gray-500">Plataforma de autoformación en paradigmas tecnológicos y paz mediática.</div>
 							</div>
 						</a>
 						<a href="/modulos/en-linea/" class="flex items-center space-x-3 p-2 rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">
 							<img src="/wp-content/uploads/2024/11/Screenshot-2024-11-18-at-2.21.48 PM.jpg" alt="" class="w-8 h-8" />
 							<div>
 								<div class="font-medium">En Línea</div>
-								<div class="text-sm text-gray-500">Get a better understanding of where your traffic is coming from.</div>
+								<div class="text-xs text-gray-500">Serie web sobre acciones ciudadanas y públicas por la paz.</div>
 							</div>
 						</a>
 						<a href="/modulos/total-transmedia/" class="flex items-center space-x-3 p-2 rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">
 							<img src="/wp-content/uploads/2024/11/Screenshot-2024-11-18-at-2.21.05 PM.jpg" alt="" class="w-8 h-8" />
 							<div>
 								<div class="font-medium">Total Transmedia</div>
-								<div class="text-sm text-gray-500">Connect with third-party tools that you're already using.</div>
+								<div class="text-xs text-gray-500">Estrategia de expansión Digital-IA y sinergias ciudadanas.</div>
 							</div>
 						</a>
 						<a href="/modulos/colaboratorios/" class="flex items-center space-x-3 p-2 rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">
 							<img src="/wp-content/uploads/2024/11/Screenshot-2024-11-18-at-2.22.28 PM.jpg" alt="" class="w-8 h-8" />
 							<div>
 								<div class="font-medium">CoLaboratorios</div>
-								<div class="text-sm text-gray-500">Speak directly to your customers in a more meaningful way.</div>
+								<div class="text-xs text-gray-500">Espacios de aprendizaje y construcción de paz mediática.</div>
 							</div>
 						</a>
 						<a href="/modulos/ready/" class="flex items-center space-x-3 p-2 rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">
 							<img src="/wp-content/uploads/2024/11/Screenshot-2024-11-18-at-2.23.02 PM.jpg" alt="" class="w-8 h-8" />
 							<div>
 								<div class="font-medium">REaDy</div>
-								<div class="text-sm text-gray-500">Speak directly to your customers in a more meaningful way.</div>
+								<div class="text-xs text-gray-500">Red de alfabetizadores en paz mediática y tecnologías.</div>
 							</div>
 						</a>
 					</div>
@@ -286,10 +283,7 @@
 					</button>
 					<div x-show="bibliotecaOpen" class="px-4 py-2 space-y-1">
 						<a href="/biblioteca-digital/" class="block px-3 py-2 text-base text-gray-300 hover:bg-gray-700 hover:text-white rounded-md">Biblioteca Digitalia</a>
-						<a href="/video/" class="block px-3 py-2 text-base text-gray-300 hover:bg-gray-700 hover:text-white rounded-md">Video</a>
-						<a href="/audio/" class="block px-3 py-2 text-base text-gray-300 hover:bg-gray-700 hover:text-white rounded-md">Audio</a>
-						<a href="/academia" class="block px-3 py-2 text-base text-gray-300 hover:bg-gray-700 hover:text-white rounded-md">Academia</a>
-						<a href="/plataforma/courses" class="block px-3 py-2 text-base text-gray-300 hover:bg-gray-700 hover:text-white rounded-md">Cursos</a>
+						<a href="/video/" class="block px-3 py-2 text-base text-gray-300 hover:bg-gray-700 hover:text-white rounded-md">Kit Social Media</a
 						<a href="/redes-sociales/" class="block px-3 py-2 text-base text-gray-300 hover:bg-gray-700 hover:text-white rounded-md">Redes sociales</a>
 					</div>
 				</div>

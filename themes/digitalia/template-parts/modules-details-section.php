@@ -14,7 +14,7 @@
         <div class="grid gap-8 mt-8 max-w-7xl mx-auto">
             <!-- Academia (Yellow) -->
             <div class="group relative rounded-lg bg-yellow-100 transition-transform hover:scale-[1.02]">
-                <a class="flex flex-col lg:flex-row h-full">
+                <a href="/modulos/academia/" class="flex flex-col lg:flex-row h-full">
                     <div class="flex flex-col justify-between p-8 lg:p-12 lg:w-1/2">
                         <div>
                             <div class="mb-4 text-xs text-yellow-600">MÓDULO 1</div>
@@ -33,7 +33,7 @@
 
             <!-- En Línea (Red) -->
             <div class="group relative rounded-lg bg-red-100 transition-transform hover:scale-[1.02]">
-                <a class="flex flex-col lg:flex-row h-full">
+                <a href="/modulos/en-linea/" class="flex flex-col lg:flex-row h-full">
                     <div class="flex flex-col justify-between p-8 lg:p-12 lg:w-1/2">
                         <div>
                             <div class="mb-4 text-xs text-red-600">MÓDULO 2</div>
@@ -52,7 +52,7 @@
 
             <!-- Total Transmedia (Blue) -->
             <div class="group relative rounded-lg bg-blue-100 transition-transform hover:scale-[1.02]">
-                <a class="flex flex-col lg:flex-row h-full">
+                <a href="/modulos/total-transmedia/" class="flex flex-col lg:flex-row h-full">
                     <div class="flex flex-col justify-between p-8 lg:p-12 lg:w-1/2">
                         <div>
                             <div class="mb-4 text-xs text-blue-600">MÓDULO 3</div>
@@ -71,7 +71,7 @@
 
             <!-- Colaboratorios (Teal) -->
             <div class="group relative rounded-lg bg-teal-100 transition-transform hover:scale-[1.02]">
-                <a class="flex flex-col lg:flex-row h-full">
+                <a href="/modulos/colaboratorios/" class="flex flex-col lg:flex-row h-full">
                     <div class="flex flex-col justify-between p-8 lg:p-12 lg:w-1/2">
                         <div>
                             <div class="mb-4 text-xs text-teal-600">MÓDULO 4</div>
@@ -90,7 +90,7 @@
 
             <!-- REaDy (Purple) -->
             <div class="group relative rounded-lg bg-purple-100 transition-transform hover:scale-[1.02]">
-                <a class="flex flex-col lg:flex-row h-full">
+                <a href="/modulos/ready/" class="flex flex-col lg:flex-row h-full">
                     <div class="flex flex-col justify-between p-8 lg:p-12 lg:w-1/2">
                         <div>
                             <div class="mb-4 text-xs text-purple-600">MÓDULO 5</div>

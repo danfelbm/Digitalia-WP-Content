@@ -163,7 +163,7 @@ get_header();
     </section>
 
     <section class="py-32">
-        <div class="container flex flex-col items-start gap-16 lg:px-16">
+        <div class="container flex flex-col items-start gap-16 lg:px-9">
             <div class="text-left">
                 <p class="mb-6 text-xs font-medium uppercase tracking-wider text-muted-foreground">Blog y Noticias</p>
                 <h2 class="mb-3 text-pretty text-3xl font-semibold md:mb-4 md:text-4xl lg:mb-6 lg:max-w-3xl lg:text-5xl">Últimas publicaciones</h2>

@@ -8,85 +8,86 @@
 
 <section class="container py-32" style="margin-top: -15rem;">
   <div class="mb-4 grid grid-cols-1 gap-4 md:grid-cols-3 md:grid-rows-3">
-    <a href="/academia" class="flex w-full cursor-pointer flex-col rounded-lg bg-accent p-5 lg:p-8 group">
-      <h3 class="mb-2 w-fit border-b-2 border-solid border-transparent text-xl font-semibold transition lg:text-2xl group-hover:!border-primary/90">AcadeMÍA Digital·IA</h3>
-      <p class="mb-4 text-sm text-muted-foreground lg:text-base">Plataforma de autoformación ciudadana disponible 24/7 con contenidos educativos sobre alfabetización mediática e IA.</p>
+    <a href="/academia" class="flex w-full cursor-pointer flex-col rounded-lg bg-yellow-200 p-5 lg:p-8 group">
+      <h3 class="mb-2 w-fit border-b-2 border-solid border-transparent text-xl font-semibold transition text-yellow-950 lg:text-2xl group-hover:!border-yellow-500/90">AcadeMÍA Digital·IA</h3>
+      <p class="mb-4 text-sm text-yellow-800 lg:text-base">Plataforma de autoformación ciudadana disponible 24/7 con contenidos educativos sobre alfabetización mediática e IA.</p>
       <div class="mt-auto flex items-end justify-between">
         <div>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle-more size-8 text-primary md:size-12">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle-more size-8 text-yellow-500 md:size-12">
             <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path>
             <path d="M8 12h.01"></path>
             <path d="M12 12h.01"></path>
             <path d="M16 12h.01"></path>
           </svg>
         </div>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right size-7 h-fit transition group-hover:size-7 group-hover:translate-x-2 group-hover:transform">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right size-7 h-fit text-yellow-950 transition group-hover:size-7 group-hover:translate-x-2 group-hover:transform">
           <path d="M5 12h14"></path>
           <path d="m12 5 7 7-7 7"></path>
         </svg>
       </div>
     </a>
     
-    <a href="/en-linea" class="flex w-full cursor-pointer flex-col rounded-lg bg-accent p-5 lg:p-8 group">
-      <h3 class="mb-2 w-fit border-b-2 border-solid border-transparent text-xl font-semibold transition lg:text-2xl group-hover:!border-primary/90">En Línea con Digital·IA</h3>
-      <p class="mb-4 text-sm text-muted-foreground lg:text-base">Serie web que explora historias y experiencias sobre el impacto de la tecnología en la sociedad colombiana.</p>
+    <a href="/en-linea" class="flex w-full cursor-pointer flex-col rounded-lg bg-red-200 p-5 lg:p-8 group">
+      <h3 class="mb-2 w-fit border-b-2 border-solid border-transparent text-xl font-semibold transition text-red-950 lg:text-2xl group-hover:!border-red-500/90">En Línea con Digital·IA</h3>
+      <p class="mb-4 text-sm text-red-800 lg:text-base">Serie web que explora historias y experiencias sobre el impacto de la tecnología en la sociedad colombiana.</p>
       <div class="mt-auto flex items-end justify-between">
         <div>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-blocks size-8 text-primary md:size-12">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-blocks size-8 text-red-500 md:size-12">
             <rect width="7" height="7" x="14" y="3" rx="1"></rect>
             <path d="M10 21V8a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-5a1 1 0 0 0-1-1H3"></path>
           </svg>
         </div>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right size-7 h-fit transition group-hover:size-7 group-hover:translate-x-2 group-hover:transform">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right size-7 h-fit text-red-950 transition group-hover:size-7 group-hover:translate-x-2 group-hover:transform">
           <path d="M5 12h14"></path>
           <path d="m12 5 7 7-7 7"></path>
         </svg>
       </div>
     </a>
     
-    <a href="/total-transmedia" class="flex w-full cursor-pointer flex-col rounded-lg bg-accent p-5 lg:p-8 group">
-      <h3 class="mb-2 w-fit border-b-2 border-solid border-transparent text-xl font-semibold transition lg:text-2xl group-hover:!border-primary/90">Total Transmedia</h3>
-      <p class="mb-4 text-sm text-muted-foreground lg:text-base">Estrategia integral de comunicación y difusión para el posicionamiento y alcance nacional del programa.</p>
+    <a href="/total-transmedia" class="flex w-full cursor-pointer flex-col rounded-lg bg-blue-200 p-5 lg:p-8 group">
+      <h3 class="mb-2 w-fit border-b-2 border-solid border-transparent text-xl font-semibold transition text-blue-950 lg:text-2xl group-hover:!border-blue-500/90">Total Transmedia</h3>
+      <p class="mb-4 text-sm text-blue-800 lg:text-base">Estrategia integral de comunicación y difusión para el posicionamiento y alcance nacional del programa.</p>
       <div class="mt-auto flex items-end justify-between">
         <div>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users size-8 text-primary md:size-12">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users size-8 text-blue-500 md:size-12">
             <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
             <circle cx="9" cy="7" r="4"></circle>
             <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
             <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
           </svg>
         </div>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right size-7 h-fit transition group-hover:size-7 group-hover:translate-x-2 group-hover:transform">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right size-7 h-fit text-blue-950 transition group-hover:size-7 group-hover:translate-x-2 group-hover:transform">
           <path d="M5 12h14"></path>
           <path d="m12 5 7 7-7 7"></path>
         </svg>
       </div>
     </a>
     
-    <a href="/colaboratorios" class="flex w-full cursor-pointer flex-col rounded-lg bg-accent p-5 lg:p-8 group">
-      <h3 class="mb-2 w-fit border-b-2 border-solid border-transparent text-xl font-semibold transition lg:text-2xl group-hover:!border-primary/90">Colaboratorios</h3>
-      <p class="mb-4 text-sm text-muted-foreground lg:text-base">Espacios de co-creación y aprendizaje colaborativo para el desarrollo de proyectos y soluciones tecnológicas.</p>
+    <a href="/colaboratorios" class="flex w-full cursor-pointer flex-col rounded-lg bg-teal-200 p-5 lg:p-8 group">
+      <h3 class="mb-2 w-fit border-b-2 border-solid border-transparent text-xl font-semibold transition text-teal-950 lg:text-2xl group-hover:!border-teal-500/90">Colaboratorios</h3>
+      <p class="mb-4 text-sm text-teal-800 lg:text-base">Espacios de co-creación y aprendizaje colaborativo para el desarrollo de soluciones digitales.</p>
       <div class="mt-auto flex items-end justify-between">
         <div>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layout-panel-top size-8 text-primary md:size-12">
-            <rect width="18" height="7" x="3" y="3" rx="1"></rect>
-            <rect width="7" height="7" x="3" y="14" rx="1"></rect>
-            <rect width="7" height="7" x="14" y="14" rx="1"></rect>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users size-8 text-teal-500 md:size-12">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+            <circle cx="9" cy="7" r="4"></circle>
+            <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
           </svg>
         </div>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right size-7 h-fit transition group-hover:size-7 group-hover:translate-x-2 group-hover:transform">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right size-7 h-fit text-teal-950 transition group-hover:size-7 group-hover:translate-x-2 group-hover:transform">
           <path d="M5 12h14"></path>
           <path d="m12 5 7 7-7 7"></path>
         </svg>
       </div>
     </a>
     
-    <a href="/ready" class="flex w-full cursor-pointer flex-col rounded-lg bg-accent p-5 lg:p-8 group">
-      <h3 class="mb-2 w-fit border-b-2 border-solid border-transparent text-xl font-semibold transition lg:text-2xl group-hover:!border-primary/90">Ready</h3>
-      <p class="mb-4 text-sm text-muted-foreground lg:text-base">Red Nacional de Alfabetización Digital y mediática para la transformación social y la paz.</p>
+    <a href="/ready" class="flex w-full cursor-pointer flex-col rounded-lg bg-purple-200 p-5 lg:p-8 group">
+      <h3 class="mb-2 w-fit border-b-2 border-solid border-transparent text-xl font-semibold transition text-purple-950 lg:text-2xl group-hover:!border-purple-500/90">Ready</h3>
+      <p class="mb-4 text-sm text-purple-800 lg:text-base">Red Nacional de Alfabetización Digital y mediática para la transformación social y la paz.</p>
       <div class="mt-auto flex items-end justify-between">
         <div>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-fingerprint size-8 text-primary md:size-12">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-fingerprint size-8 text-purple-500 md:size-12">
             <path d="M12 10a2 2 0 0 0-2 2c0 1.02-.1 2.51-.26 4"></path>
             <path d="M14 13.12c0 2.38 0 6.38-1 8.88"></path>
             <path d="M17.29 21.02c.12-.6.43-2.3.5-3.02"></path>
@@ -98,19 +99,19 @@
             <path d="M9 6.8a6 6 0 0 1 9 5.2v2"></path>
           </svg>
         </div>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right size-7 h-fit transition group-hover:size-7 group-hover:translate-x-2 group-hover:transform">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right size-7 h-fit text-purple-950 transition group-hover:size-7 group-hover:translate-x-2 group-hover:transform">
           <path d="M5 12h14"></path>
           <path d="m12 5 7 7-7 7"></path>
         </svg>
       </div>
     </a>
     
-    <div class="flex w-full flex-grow flex-col gap-4 rounded-lg bg-accent p-5 md:col-span-2 md:col-start-2 md:row-span-2 md:row-start-2 lg:p-8">
+    <div class="flex w-full flex-grow flex-col gap-4 rounded-lg bg-black p-5 md:col-span-2 md:col-start-2 md:row-span-2 md:row-start-2 lg:p-8">
       <div class="flex flex-col items-start justify-between gap-4 md:flex-row md:items-center md:gap-2">
-        <h3 class="max-w-[80%] text-2xl font-bold md:max-w-[60%] lg:text-4xl">Más sobre Digital·IA</h3>
-        <a href="#" class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-11 rounded-md px-8 w-full md:w-auto">Conoce más</a>
+        <h3 class="max-w-[80%] text-2xl font-bold text-white md:max-w-[60%] lg:text-4xl">Más sobre Digital·IA</h3>
+        <a href="#" class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-white text-black hover:bg-white/90 h-11 rounded-md px-8 w-full md:w-auto">Conoce más</a>
       </div>
-      <img src="https://www.shadcnblocks.com/images/block/placeholder-dark-1.svg" alt="Digital·IA" class="aspect-square h-full w-full rounded-lg object-cover md:aspect-[3]">
+      <img src="https://www.shadcnblocks.com/images/block/placeholder-dark-1.svg" alt="Digital·IA" class="invert aspect-square h-full w-full rounded-lg object-cover md:aspect-[3]">
     </div>
   </div>
 </section>
