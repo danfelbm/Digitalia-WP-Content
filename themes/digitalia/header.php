@@ -14,6 +14,8 @@
 	<script src="https://cdn.tailwindcss.com"></script>
 	<link rel="stylesheet" href="https://www.shadcnblocks.com/_astro/index.By6RUMn0.css">
 	<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@700&family=Work+Sans:wght@400&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+	<!-- Add Radix UI -->
+	<script src="https://unpkg.com/@radix-ui/tabs@latest/dist/index.umd.js"></script>
 	<style>
 		/* Base font styles */
 		body { font-family: 'Work Sans', sans-serif; }
@@ -43,6 +45,55 @@
 			}
 		}
 	</style>
+	<!-- Add tab functionality -->
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			// Handle mobile accordion
+			document.querySelectorAll('[data-orientation="vertical"] button').forEach(button => {
+				button.addEventListener('click', function() {
+					const panel = document.getElementById(this.getAttribute('aria-controls'));
+					const isOpen = this.getAttribute('aria-expanded') === 'true';
+					
+					this.setAttribute('aria-expanded', !isOpen);
+					this.setAttribute('data-state', isOpen ? 'closed' : 'open');
+					panel.hidden = isOpen;
+					panel.setAttribute('data-state', isOpen ? 'closed' : 'open');
+				});
+			});
+
+			// Handle desktop tabs
+			const tabButtons = document.querySelectorAll('[role="tab"]');
+			const tabPanels = document.querySelectorAll('[role="tabpanel"]');
+
+			tabButtons.forEach(button => {
+				button.addEventListener('click', function() {
+					// Deactivate all tabs
+					tabButtons.forEach(btn => {
+						btn.setAttribute('aria-selected', 'false');
+						btn.setAttribute('data-state', 'inactive');
+						btn.setAttribute('tabindex', '-1');
+					});
+
+					// Hide all panels
+					tabPanels.forEach(panel => {
+						panel.setAttribute('data-state', 'inactive');
+						panel.hidden = true;
+					});
+
+					// Activate clicked tab
+					this.setAttribute('aria-selected', 'true');
+					this.setAttribute('data-state', 'active');
+					this.setAttribute('tabindex', '0');
+
+					// Show corresponding panel
+					const panelId = this.getAttribute('aria-controls');
+					const panel = document.getElementById(panelId);
+					panel.setAttribute('data-state', 'active');
+					panel.hidden = false;
+				});
+			});
+		});
+	</script>
 	<?php wp_head(); ?>
 </head>
 

@@ -250,6 +250,76 @@ function digitalia_get_color_schemes($type = 'full') {
 }
 
 /**
+ * Register Custom Post Type Cursos and its taxonomies
+ */
+function digitalia_register_cursos_post_type() {
+    // Register Cursos Post Type
+    $labels = array(
+        'name'                  => _x( 'Cursos', 'Post type general name', 'digitalia' ),
+        'singular_name'         => _x( 'Curso', 'Post type singular name', 'digitalia' ),
+        'menu_name'            => _x( 'Cursos', 'Admin Menu text', 'digitalia' ),
+        'add_new'              => __( 'Añadir Nuevo', 'digitalia' ),
+        'add_new_item'         => __( 'Añadir Nuevo Curso', 'digitalia' ),
+        'edit_item'            => __( 'Editar Curso', 'digitalia' ),
+        'new_item'             => __( 'Nuevo Curso', 'digitalia' ),
+        'view_item'            => __( 'Ver Curso', 'digitalia' ),
+        'view_items'           => __( 'Ver Cursos', 'digitalia' ),
+        'search_items'         => __( 'Buscar Cursos', 'digitalia' ),
+        'not_found'            => __( 'No se encontraron cursos', 'digitalia' ),
+        'not_found_in_trash'   => __( 'No se encontraron cursos en la papelera', 'digitalia' ),
+        'all_items'            => __( 'Todos los Cursos', 'digitalia' ),
+        'archives'             => __( 'Archivo de Cursos', 'digitalia' ),
+    );
+
+    $args = array(
+        'labels'             => $labels,
+        'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'query_var'          => true,
+        'rewrite'            => array( 'slug' => 'cursos' ),
+        'capability_type'    => 'post',
+        'has_archive'        => true,
+        'hierarchical'       => false,
+        'menu_position'      => 5,
+        'supports'           => array( 'title', 'editor', 'thumbnail', 'excerpt' ),
+        'show_in_rest'       => true,
+        'taxonomies'         => array('post_tag') // Add support for post tags
+    );
+
+    register_post_type( 'curso', $args );
+
+    // Register Categorias Taxonomy
+    $taxonomy_labels = array(
+        'name'              => _x( 'Categorías de Cursos', 'taxonomy general name', 'digitalia' ),
+        'singular_name'     => _x( 'Categoría de Curso', 'taxonomy singular name', 'digitalia' ),
+        'search_items'      => __( 'Buscar Categorías', 'digitalia' ),
+        'all_items'         => __( 'Todas las Categorías', 'digitalia' ),
+        'parent_item'       => __( 'Categoría Padre', 'digitalia' ),
+        'parent_item_colon' => __( 'Categoría Padre:', 'digitalia' ),
+        'edit_item'         => __( 'Editar Categoría', 'digitalia' ),
+        'update_item'       => __( 'Actualizar Categoría', 'digitalia' ),
+        'add_new_item'      => __( 'Añadir Nueva Categoría', 'digitalia' ),
+        'new_item_name'     => __( 'Nuevo Nombre de Categoría', 'digitalia' ),
+        'menu_name'         => __( 'Categorías', 'digitalia' ),
+    );
+
+    $taxonomy_args = array(
+        'hierarchical'      => true,
+        'labels'            => $taxonomy_labels,
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'query_var'         => true,
+        'rewrite'           => array( 'slug' => 'categoria-curso' ),
+        'show_in_rest'      => true,
+    );
+
+    register_taxonomy( 'categoria-curso', array( 'curso' ), $taxonomy_args );
+}
+add_action( 'init', 'digitalia_register_cursos_post_type' );
+
+/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';
