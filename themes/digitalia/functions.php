@@ -155,6 +155,31 @@ function digitalia_scripts() {
 add_action( 'wp_enqueue_scripts', 'digitalia_scripts' );
 
 /**
+ * Enqueue Swiper.js for modules carousel
+ */
+function digitalia_enqueue_swiper() {
+    if (is_page_template('page-templates/modulos.php')) {
+        // Enqueue Swiper CSS from CDN
+        wp_enqueue_style(
+            'swiper-css',
+            'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css',
+            array(),
+            '11.0.5'
+        );
+
+        // Enqueue Swiper JS from CDN
+        wp_enqueue_script(
+            'swiper-js',
+            'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js',
+            array(),
+            '11.0.5',
+            true
+        );
+    }
+}
+add_action('wp_enqueue_scripts', 'digitalia_enqueue_swiper');
+
+/**
  * Register custom page templates from subdirectories
  */
 function digitalia_register_page_templates($templates) {

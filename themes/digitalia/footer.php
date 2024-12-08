@@ -15,7 +15,7 @@
 </div><!-- #page -->
 
 <section class="py-32 bg-slate-300 text-black font-mono">
-    <div class="container mx-auto px-4">
+    <div class="container mx-auto max-w-7xl px-2 sm:px-6 lg:px-8"> <!-- container mx-auto px-4 -->
         <footer>
             <div class="grid grid-cols-4 justify-between gap-10 lg:grid-cols-6 lg:text-left">
                 <div class="col-span-4 flex w-full flex-col justify-between gap-6 lg:col-span-2">

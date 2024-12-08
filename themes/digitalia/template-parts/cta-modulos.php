@@ -23,7 +23,7 @@ $args = wp_parse_args($args, array(
 
 <section class="bg-slate-100">
     <div>
-        <div class="grid grid-cols-1 flex-col gap-10 rounded-lg border p-6 shadow-sm lg:grid-cols-2 lg:px-20 lg:py-16">
+        <div class="grid grid-cols-1 flex-col gap-10 p-6 lg:grid-cols-2 lg:py-16 mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
             <div>
                 <h4 class="mb-2 text-2xl font-bold lg:text-4xl"><?php echo esc_html($args['title']); ?></h4>
                 <p class="text-muted-foreground"><?php echo esc_html($args['description']); ?></p>
