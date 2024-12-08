@@ -9,6 +9,7 @@ get_header();
 ?>
 
 <main id="primary" class="site-main">
+
     <?php
     get_template_part('template-parts/subpage-header', null, array(
         'title' => 'Academia',
@@ -17,70 +18,119 @@ get_header();
         'cta_text' => 'Explorar cursos',
         'cta_url' => '/plataforma/courses'
     ));
+
+    get_template_part('template-parts/floating-nav', null, array(
+        'nav_items' => array(
+            array(
+                'anchor' => 'acerca',
+                'text' => 'Qué es'
+            ),
+            array(
+                'anchor' => 'registro',
+                'text' => 'Registro'
+            ),
+            array(
+                'anchor' => 'cursos',
+                'text' => 'Cursos'
+            ),
+            array(
+                'anchor' => 'ventajas',
+                'text' => 'Ventajas'
+            ),
+            array(
+                'anchor' => 'comparacion',
+                'text' => 'Comparación'
+            )
+        )
+    ));
     ?>
 
-    <section class="overflow-hidden py-32">
-        <div class="container relative">
-            <div class="pointer-events-none absolute inset-0 -top-20 -z-10 mx-auto hidden size-[500px] bg-[radial-gradient(hsl(var(--muted-foreground))_1px,transparent_1px)] opacity-25 [background-size:6px_6px] [mask-image:radial-gradient(circle_at_center,white_250px,transparent_250px)] lg:block"></div>
-            <div class="relative flex justify-between gap-16">
-                <div class="pointer-events-none absolute inset-0 hidden bg-gradient-to-t from-background via-transparent to-transparent lg:block"></div>
-                <div class="w-full max-w-96 shrink-0 justify-between">
-                    <p class="font-mono text-xs text-muted-foreground">¿Por qué Academia Digital-IA?</p>
-                    <h2 class="mb-3 mt-6 text-3xl font-medium lg:text-4xl">Formación para la era digital</h2>
-                    <p class="text-sm text-muted-foreground">Academia Digital-IA es un ecosistema de soluciones tecnológicas diseñado para ofrecer servicios educativos e informativos que te preparan para los desafíos de las tecnologías emergentes.</p>
+    <section id="acerca" class="pb-32 pt-12">
+        <div class="container">
+            <div class="grid place-content-center gap-10 lg:grid-cols-2">
+                <div class="mx-auto flex max-w-screen-md flex-col items-center justify-center gap-4 lg:items-start">
+                    <div class="rounded-full border font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 text-foreground flex items-center gap-1 px-2.5 py-1.5 text-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-graduation-cap h-auto w-4">
+                            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                            <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                        </svg>
+                        Academia Digital-IA
+                    </div>
+                    <h2 class="text-center text-3xl font-semibold lg:text-left lg:text-4xl">Formación para la era digital</h2>
+                    <p class="text-center text-muted-foreground lg:text-left lg:text-lg">Academia Digital-IA es un ecosistema de soluciones tecnológicas diseñado para ofrecer servicios educativos e informativos que te preparan para los desafíos de las tecnologías emergentes.</p>
+                    <a href="#cursos" class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-11 rounded-md px-8">Conoce los programas</a>
+                    <div class="mt-9 flex w-full flex-col justify-center gap-6 md:flex-row lg:justify-start">
+                        <div class="flex justify-between gap-6">
+                            <div class="mx-auto">
+                                <p class="mb-1.5 text-3xl font-bold">24/7</p>
+                                <p class="text-muted-foreground">Acceso</p>
+                            </div>
+                            <div data-orientation="vertical" role="none" class="shrink-0 bg-border w-[1px] h-auto"></div>
+                            <div class="mx-auto">
+                                <p class="mb-1.5 text-3xl font-bold">100%</p>
+                                <p class="text-muted-foreground">Online</p>
+                            </div>
+                        </div>
+                        <div data-orientation="vertical" role="none" class="shrink-0 bg-border w-[1px] hidden h-auto md:block"></div>
+                        <div data-orientation="horizontal" role="none" class="shrink-0 bg-border h-[1px] w-full block md:hidden"></div>
+                        <div class="flex justify-between gap-6">
+                            <div class="mx-auto">
+                                <p class="mb-1.5 text-3xl font-bold">+700</p>
+                                <p class="text-muted-foreground">Contenidos</p>
+                            </div>
+                            <div data-orientation="vertical" role="none" class="shrink-0 bg-border w-[1px] h-auto"></div>
+                            <div class="mx-auto">
+                                <p class="mb-1.5 text-3xl font-bold">100%</p>
+                                <p class="text-muted-foreground">Gratuito</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="hidden w-full max-w-3xl shrink-0 lg:block">
-                    <img src="https://www.shadcnblocks.com/images/block/placeholder-1.svg" alt="Academia Digital-IA" class="max-h-[450px] w-full min-w-[450px] max-w-3xl rounded-lg border object-cover">
-                </div>
+                <img src="https://www.shadcnblocks.com/images/block/placeholder-1.svg" alt="Academia Digital-IA" class="ml-auto max-h-[450px] w-full rounded-xl object-cover">
             </div>
-            <div class="relative mt-8 grid md:grid-cols-3">
-                <div class="flex flex-col gap-y-6 px-2 py-10 md:p-6 lg:p-8">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-timer">
-                        <line x1="10" x2="14" y1="2" y2="2"></line>
-                        <line x1="12" x2="15" y1="14" y2="11"></line>
-                        <circle cx="12" cy="14" r="8"></circle>
-                    </svg>
-                    <div>
-                        <h3 class="text-lg font-medium">Acceso 24/7</h3>
-                        <p class="mt-1 text-sm text-muted-foreground">Accede a contenidos educativos de alta calidad en cualquier momento y lugar, adaptándose a tu ritmo de aprendizaje y disponibilidad.</p>
+            <div class="mt-10 grid gap-6 md:grid-cols-3">
+                <div class="flex flex-col gap-4">
+                    <div class="gap flex flex-col gap-3 rounded-lg border p-6">
+                        <div class="flex flex-col items-center gap-2 lg:flex-row">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-timer h-auto w-6">
+                                <line x1="10" x2="14" y1="2" y2="2"></line>
+                                <line x1="12" x2="15" y1="14" y2="11"></line>
+                                <circle cx="12" cy="14" r="8"></circle>
+                            </svg>
+                            <h3 class="text-center text-lg font-medium lg:text-left">Acceso 24/7</h3>
+                        </div>
+                        <p class="text-center text-sm text-muted-foreground md:text-base lg:text-left">Accede a contenidos educativos de alta calidad en cualquier momento y lugar, adaptándose a tu ritmo de aprendizaje y disponibilidad.</p>
                     </div>
                 </div>
-                <div class="flex flex-col gap-y-6 px-2 py-10 md:p-6 lg:p-8">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-graduation-cap">
-                        <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
-                        <path d="M6 12v5c3 3 9 3 12 0v-5"/>
-                    </svg>
-                    <div>
-                        <h3 class="text-lg font-medium">Desarrollo de talento digital</h3>
-                        <p class="mt-1 text-sm text-muted-foreground">Mejora tu empleabilidad y productividad laboral a través de programas formativos diseñados para las demandas del mercado actual.</p>
+                <div class="flex flex-col gap-4">
+                    <div class="gap flex flex-col gap-3 rounded-lg border p-6">
+                        <div class="flex flex-col items-center gap-2 lg:flex-row">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-graduation-cap h-auto w-6">
+                                <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                                <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                            </svg>
+                            <h3 class="text-center text-lg font-medium lg:text-left">Mayor talento digital</h3>
+                        </div>
+                        <p class="text-center text-sm text-muted-foreground md:text-base lg:text-left">Mejora tu empleabilidad y productividad laboral a través de programas formativos diseñados para las demandas del mercado actual.</p>
                     </div>
                 </div>
-                <div class="flex flex-col gap-y-6 px-2 py-10 md:p-6 lg:p-8">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-key-round">
-                        <path d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z"></path>
-                        <circle cx="16.5" cy="7.5" r=".5" fill="currentColor"></circle>
-                    </svg>
-                    <div>
-                        <h3 class="text-lg font-medium">Alfabetización mediática</h3>
-                        <p class="mt-1 text-sm text-muted-foreground">Desarrolla habilidades críticas para navegar el mundo digital, identificar desinformación y utilizar las tecnologías emergentes de manera ética.</p>
+                <div class="flex flex-col gap-4">
+                    <div class="gap flex flex-col gap-3 rounded-lg border p-6">
+                        <div class="flex flex-col items-center gap-2 lg:flex-row">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-key-round h-auto w-6">
+                                <path d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z"></path>
+                                <circle cx="16.5" cy="7.5" r=".5" fill="currentColor"></circle>
+                            </svg>
+                            <h3 class="text-center text-lg font-medium lg:text-left">Alfabetización mediática</h3>
+                        </div>
+                        <p class="text-center text-sm text-muted-foreground md:text-base lg:text-left">Desarrolla habilidades críticas para navegar el mundo digital, identificar desinformación y utilizar las tecnologías emergentes de manera ética.</p>
                     </div>
                 </div>
-                <div class="absolute -inset-x-4 top-0 h-px bg-input md:hidden"></div>
-                <div class="absolute -inset-x-4 top-[-0.5px] row-start-2 h-px bg-input md:hidden"></div>
-                <div class="absolute -inset-x-4 top-[-0.5px] row-start-3 h-px bg-input md:hidden"></div>
-                <div class="absolute -inset-x-4 bottom-0 row-start-4 h-px bg-input md:hidden"></div>
-                <div class="absolute -left-2 -top-2 bottom-0 w-px bg-input md:hidden"></div>
-                <div class="absolute -right-2 -top-2 bottom-0 col-start-2 w-px bg-input md:hidden"></div>
-                <div class="absolute -inset-x-2 top-0 hidden h-px bg-input md:block"></div>
-                <div class="absolute -top-2 bottom-0 left-0 hidden w-px bg-input md:block"></div>
-                <div class="absolute -left-[0.5px] -top-2 bottom-0 col-start-2 hidden w-px bg-input md:block"></div>
-                <div class="absolute -left-[0.5px] -top-2 bottom-0 col-start-3 hidden w-px bg-input md:block"></div>
-                <div class="absolute -top-2 bottom-0 right-0 hidden w-px bg-input md:block"></div>
             </div>
         </div>
     </section>
 
-    <section class="bg-yellow-200 text-yellow-950 py-32">
+    <section id="registro" class="bg-yellow-200 text-yellow-950 py-32">
         <div class="container">
             <div class="mx-auto flex max-w-screen-md flex-col justify-center gap-7 md:text-center">
                 <h2 class="text-2xl md:text-4xl">Regístrate en 3 Simples Pasos</h2>
@@ -135,7 +185,7 @@ get_header();
         </div>
     </section>
 
-    <section class="py-32">
+    <section id="cursos" class="py-32">
         <div class="container flex flex-col items-center gap-16 lg:px-16">
             <div class="text-center">
                 <p class="mb-6 text-xs font-medium uppercase tracking-wider">Formación Digital</p>
@@ -199,7 +249,7 @@ get_header();
         </div>
     </section>
 
-    <section class="py-32">
+    <section id="ventajas" class="py-32">
         <div class="container">
             <?php if (have_rows('platform_features')) : ?>
                 <!-- Mobile Accordion -->
@@ -259,7 +309,7 @@ get_header();
                                         <span class="font-medium"><?php echo esc_html($tab_title); ?></span>
                                     </div>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right h-auto w-4">
-                                        <path d="m9 18 6-6-6-6"></path>
+                                        <path d="m9 18 6-6 6 6-6 6-6-6"></path>
                                     </svg>
                                 </div>
                                 <p class="text-left"><?php echo esc_html($tab_description); ?></p>
@@ -295,7 +345,7 @@ get_header();
         </div>
     </section>
 
-    <section class="py-32">
+    <section id="comparacion" class="py-32">
         <div class="container">
             <div class="mx-auto grid max-w-screen-xl gap-y-6 lg:grid-cols-2">
                 <div class="rounded-md border p-6 md:p-10 lg:rounded-l-md lg:rounded-r-none lg:border-y lg:border-l lg:border-r-0">

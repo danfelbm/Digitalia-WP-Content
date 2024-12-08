@@ -110,31 +110,20 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e('Skip to content', 'digitalia'); ?></a>
 
-	<nav x-data="{ open: false }" class="sticky top-0 z-50 bg-black font-mono">
+	<nav x-data="{ open: false }" class="sticky top-0 z-[60] bg-black font-mono">
 		<div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
 			<div class="relative flex h-16 items-center justify-between">
-				<div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
-					<!-- Mobile menu button-->
-					<button type="button" class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white z-50" aria-controls="mobile-menu" @click="open = !open" aria-expanded="false" x-bind:aria-expanded="open.toString()">
-						<span class="absolute -inset-0.5"></span>
-						<span class="sr-only">Open main menu</span>
-						<svg x-description="Icon when menu is closed." x-state:on="Menu open" x-state:off="Menu closed" class="block size-6" :class="{ 'hidden': open, 'block': !(open) }" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-							<path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
-						</svg>
-						<svg x-description="Icon when menu is open." x-state:on="Menu open" x-state:off="Menu closed" class="hidden size-6" :class="{ 'block': open, 'hidden': !(open) }" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-							<path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
-						</svg>
-					</button>
-				</div>
-				<div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start z-40">
+				<div class="flex flex-1 items-center">
 					<div class="flex shrink-0 items-center">
 						<a href="<?php echo esc_url(home_url('/')); ?>">
 							<img class="h-8 w-auto" src="/wp-content/uploads/2024/11/logo3-white.png" alt="<?php bloginfo('name'); ?>">
 						</a>
 					</div>
-					<div class="hidden sm:ml-6 sm:block">
-						<div class="flex space-x-4">
-							<ul class="flex space-x-4">
+				</div>
+				<div class="flex-grow flex items-center justify-center sm:items-stretch sm:justify-end z-40">
+					<div class="hidden sm:ml-6 sm:block w-full">
+						<div class="flex space-x-4 justify-end">
+							<ul class="flex space-x-6">
 								<li class="flex items-center">
 									<a href="/que-es-digitalia/" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium uppercase">
 										Qué es Digitalia
@@ -264,8 +253,8 @@
 		</div>
 
 		<!-- Mobile menu -->
-		<div x-description="Mobile menu, show/hide based on menu state." class="sm:hidden" id="mobile-menu" x-show="open">
-			<div class="space-y-1 px-2 pb-3 pt-2">
+		<div x-description="Mobile menu, show/hide based on menu state." class="sm:hidden fixed bottom-16 left-0 right-0 bg-black z-50" id="mobile-menu" x-show="open" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="transform translate-y-full" x-transition:enter-end="transform translate-y-0" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="transform translate-y-0" x-transition:leave-end="transform translate-y-full">
+			<div class="space-y-1 px-2 pb-3 pt-2 max-h-[80vh] overflow-y-auto">
 				<a href="/que-es-digitalia/" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium uppercase">
 					Qué es Digitalia
 				</a>

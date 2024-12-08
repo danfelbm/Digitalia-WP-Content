@@ -75,9 +75,9 @@ get_header();
                 <div data-state="active" data-orientation="horizontal" role="tabpanel" aria-labelledby="radix-:r2R0:-trigger-digitalia" id="radix-:r2R0:-content-digitalia" tabindex="0" class="mt-2 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 bg-gray-100">
                     <div class="grid grid-cols-1 md:grid-cols-16 gap-8">
                         <div class="md:col-span-4 p-8 text-gray-950">
-                            <h2 class="text-3xl font-bold mb-4">DIGITAL-IA</h2>
-                            <p class="mb-6">Programa público de alfabetización mediática e informacional enmarcado en los desafíos de las tecnologías emergentes. Abordamos los retos de la comunicación digital y sus efectos en la toma de decisiones ciudadanas.</p>
-                            <a href="#" class="inline-block px-6 py-3 bg-black text-white rounded-md hover:bg-gray-800">Conoce más</a>
+                            <h2 class="text-3xl font-bold mb-4">Digital·IA</h2>
+                            <p class="mb-6">Es un programa del ministerio TIC de alfabetización mediática e informacional enmarcado en los desafíos de las tecnologías emergentes. Abordamos los retos de la comunicación digital y sus efectos en la toma de decisiones ciudadanas.</p>
+                            <a href="/que-es-digitalia" class="inline-block px-6 py-3 bg-black text-white rounded-md hover:bg-gray-800">Conoce más sobre el programa</a>
                         </div>
                         <div class="md:col-span-12 flex items-center justify-center p-8 bg-gray-200">
                             <img src="/wp-content/uploads/2024/11/digitalia-high.png" alt="Digitalia" class="max-w-96 h-auto">
@@ -91,7 +91,7 @@ get_header();
                         <div class="md:col-span-4 p-8 text-yellow-950">
                             <h2 class="text-3xl font-bold mb-4">Academia</h2>
                             <p class="mb-6">Formación especializada en tecnologías emergentes y comunicación digital. Programas académicos diseñados para enfrentar los desafíos del presente y futuro digital.</p>
-                            <a href="#" class="inline-block px-6 py-3 bg-yellow-500 text-yellow-950 rounded-md hover:bg-yellow-600">Explorar programas</a>
+                            <a href="/modulos/academia" class="inline-block px-6 py-3 bg-yellow-500 text-yellow-950 rounded-md hover:bg-yellow-600">Más sobre la plataforma</a>
                         </div>
                         <div class="md:col-span-12 flex items-center justify-center p-8 bg-yellow-100">
                             <?php
@@ -108,7 +108,7 @@ get_header();
                         <div class="md:col-span-4 p-8 text-red-950">
                             <h2 class="text-3xl font-bold mb-4">En Línea</h2>
                             <p class="mb-6">Plataforma de aprendizaje digital que permite acceder a contenido educativo de alta calidad desde cualquier lugar. Experiencias de aprendizaje interactivas y flexibles.</p>
-                            <a href="#" class="inline-block px-6 py-3 bg-red-600 text-white rounded-md hover:bg-red-700">Acceder</a>
+                            <a href="/modulos/en-linea" class="inline-block px-6 py-3 bg-red-600 text-white rounded-md hover:bg-red-700">Conoce la historia</a>
                         </div>
                         <div class="md:col-span-12 flex items-center justify-center p-8 bg-red-100">
                             <?php
@@ -125,7 +125,7 @@ get_header();
                         <div class="md:col-span-4 p-8 text-blue-950">
                             <h2 class="text-3xl font-bold mb-4">Total Transmedia</h2>
                             <p class="mb-6">Experiencias educativas que integran múltiples plataformas y formatos. Narrativas innovadoras que transforman el aprendizaje en una experiencia inmersiva.</p>
-                            <a href="#" class="inline-block px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700">Descubrir</a>
+                            <a href="/modulos/total-transmedia" class="inline-block px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700">Descubrir</a>
                         </div>
                         <div class="md:col-span-12 flex items-center justify-center p-8 bg-blue-100">
                             <?php
@@ -142,7 +142,7 @@ get_header();
                         <div class="md:col-span-4 p-8 text-teal-950">
                             <h2 class="text-3xl font-bold mb-4">Colaboratorios</h2>
                             <p class="mb-6">Espacios de co-creación y experimentación donde la tecnología se encuentra con la creatividad. Proyectos colaborativos que impulsan la innovación educativa.</p>
-                            <a href="#" class="inline-block px-6 py-3 bg-teal-600 text-white rounded-md hover:bg-teal-700">Participar</a>
+                            <a href="/modulos/colaboratorios" class="inline-block px-6 py-3 bg-teal-600 text-white rounded-md hover:bg-teal-700">Participa en un Colaboratorio</a>
                         </div>
                         <div class="md:col-span-12 flex items-center justify-center p-8 bg-teal-100">
                             <?php
@@ -159,7 +159,7 @@ get_header();
                         <div class="md:col-span-4 p-8 text-purple-950">
                             <h2 class="text-3xl font-bold mb-4">Ready</h2>
                             <p class="mb-6">Soluciones tecnológicas listas para implementar en entornos educativos. Herramientas y recursos que facilitan la transformación digital de la educación.</p>
-                            <a href="#" class="inline-block px-6 py-3 bg-purple-600 text-white rounded-md hover:bg-purple-700">Comenzar</a>
+                            <a href="/modulos/ready" class="inline-block px-6 py-3 bg-purple-600 text-white rounded-md hover:bg-purple-700">Conoce la red</a>
                         </div>
                         <div class="md:col-span-12 flex items-center justify-center p-8 bg-purple-100">
                             <?php

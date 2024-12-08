@@ -80,6 +80,8 @@
     </div>
 </section>
 
+<?php get_template_part('template-parts/mobile-footer-nav'); ?>
+
 <?php wp_footer(); ?>
 
 </body>
