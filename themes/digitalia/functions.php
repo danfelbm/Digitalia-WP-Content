@@ -519,6 +519,54 @@ function digitalia_register_personajes_post_type() {
 add_action( 'init', 'digitalia_register_personajes_post_type' );
 
 /**
+ * Register Custom Post Type Series
+ */
+function digitalia_register_series_post_type() {
+    $labels = array(
+        'name'                  => _x( 'Series', 'Post Type General Name', 'digitalia' ),
+        'singular_name'         => _x( 'Serie', 'Post Type Singular Name', 'digitalia' ),
+        'menu_name'            => __( 'Series', 'digitalia' ),
+        'name_admin_bar'       => __( 'Serie', 'digitalia' ),
+        'archives'             => __( 'Serie Archives', 'digitalia' ),
+        'attributes'           => __( 'Serie Attributes', 'digitalia' ),
+        'parent_item_colon'    => __( 'Parent Serie:', 'digitalia' ),
+        'all_items'            => __( 'All Series', 'digitalia' ),
+        'add_new_item'         => __( 'Add New Serie', 'digitalia' ),
+        'add_new'              => __( 'Add New', 'digitalia' ),
+        'new_item'             => __( 'New Serie', 'digitalia' ),
+        'edit_item'            => __( 'Edit Serie', 'digitalia' ),
+        'update_item'          => __( 'Update Serie', 'digitalia' ),
+        'view_item'            => __( 'View Serie', 'digitalia' ),
+        'view_items'           => __( 'View Series', 'digitalia' ),
+        'search_items'         => __( 'Search Serie', 'digitalia' ),
+    );
+    
+    $args = array(
+        'label'               => __( 'Serie', 'digitalia' ),
+        'labels'              => $labels,
+        'supports'            => array( 'title', 'editor', 'thumbnail', 'excerpt' ),
+        'taxonomies'          => array( 'category', 'post_tag' ),
+        'hierarchical'        => false,
+        'public'              => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'menu_position'      => 5,
+        'menu_icon'          => 'dashicons-video-alt',
+        'show_in_admin_bar'  => true,
+        'show_in_nav_menus'  => true,
+        'can_export'         => true,
+        'has_archive'        => true,
+        'exclude_from_search'=> false,
+        'publicly_queryable' => true,
+        'capability_type'    => 'post',
+        'show_in_rest'       => true,
+    );
+    
+    register_post_type( 'series', $args );
+}
+add_action( 'init', 'digitalia_register_series_post_type' );
+
+/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';
@@ -548,4 +596,27 @@ require get_template_directory() . '/inc/customizer.php';
  */
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
+}
+
+add_action( 'rest_api_init', 'add_thumbnail_to_JSON' );
+function add_thumbnail_to_JSON() {
+    //Add featured image
+    register_rest_field( 
+        'post', // Where to add the field (Here, blog posts. Could be an array)
+        'featured_image_src', // Name of new field (You can call this anything)
+        array(
+            'get_callback'    => 'get_image_src',
+            'update_callback' => null,
+            'schema'          => null,
+        )
+    );
+}
+
+function get_image_src( $object, $field_name, $request ) {
+    $feat_img_array = wp_get_attachment_image_src(
+        $object['featured_media'], // Image attachment ID
+        'full',  // Size.  Ex. "thumbnail", "large", "full", etc..
+        true // Whether the image should be treated as an icon.
+    );
+    return $feat_img_array[0];
 }

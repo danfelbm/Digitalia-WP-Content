@@ -7,45 +7,79 @@ get_header(); ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class('bg-gray-100'); ?>>
     <!-- Profile Header Section -->
-    <div class="relative bg-gradient-to-r from-blue-500 to-red-500 text-white">
-        <div class="absolute inset-0">
-            <div class="absolute inset-0 bg-blue opacity-50"></div>
-        </div>
+    <div class="relative bg-gradient-to-br from-red-500 via-red-800 to-indigo-900 text-white">
+        <div class="absolute inset-0 bg-black opacity-20"></div>
         
-        <div class="relative container mx-auto px-6 py-16">
-            <div class="md:flex items-center space-y-8 md:space-y-0 md:space-x-12">
-                <!-- Profile Image -->
-                <div class="flex justify-center">
-                    <div class="w-48 h-48 md:w-64 md:h-64 rounded-full border-4 border-white shadow-xl overflow-hidden">
-                        <img class="w-full h-full object-cover" src="https://pbs.twimg.com/profile_images/1460440947867758593/aJ113NyF_400x400.jpg" alt="Nombre del Actor">
-                    </div>
-                </div>
-                
-                <!-- Profile Info -->
-                <div class="flex-1 text-center md:text-left">
-                    <div class="mb-6">
-                        <h1 class="text-4xl md:text-5xl font-bold mb-2">Diego Velez</h1>
-                        <p class="text-xl text-gray-300">Actor • Director</p>
+        <div class="relative container mx-auto px-4 sm:px-6 py-20">
+            <div class="max-w-7xl mx-auto">
+                <div class="md:flex items-start space-y-8 md:space-y-0 md:space-x-12">
+                    <!-- Profile Image -->
+                    <div class="flex-shrink-0">
+                        <div class="w-48 h-48 md:w-64 md:h-64 rounded-2xl border-4 border-white/20 shadow-2xl overflow-hidden backdrop-blur-sm">
+                            <?php if (get_field('avatar')): ?>
+                                <img src="<?php echo esc_url(get_field('avatar')); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" class="w-full h-full object-cover">
+                            <?php elseif (has_post_thumbnail()): ?>
+                                <?php the_post_thumbnail('full', array('class' => 'w-full h-full object-cover')); ?>
+                            <?php endif; ?>
+                        </div>
                     </div>
                     
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8 text-gray-200">
-                        <div>
-                            <h3 class="text-sm font-medium opacity-75">Fecha de Nacimiento</h3>
-                            <p>15 de Marzo, 1985</p>
+                    <!-- Profile Info -->
+                    <div class="flex-1">
+                        <div class="mb-8">
+                            <h1 class="text-4xl md:text-6xl font-bold mb-3 text-white"><?php the_title(); ?></h1>
+                            <?php if (get_field('habilidades')): ?>
+                                <p class="text-xl text-gray-200 font-medium"><?php echo implode(' • ', get_field('habilidades')); ?></p>
+                            <?php endif; ?>
                         </div>
-                        <div>
-                            <h3 class="text-sm font-medium opacity-75">Lugar de Nacimiento</h3>
-                            <p>Madrid, España</p>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+                            <?php if (get_field('fecha_de_nacimiento')): ?>
+                            <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                                <h3 class="text-sm font-medium text-gray-300 mb-1">Fecha de Nacimiento</h3>
+                                <p class="text-lg"><?php echo date_i18n('j \d\e F, Y', strtotime(get_field('fecha_de_nacimiento'))); ?></p>
+                            </div>
+                            <?php endif; ?>
+                            <?php if (get_field('lugar_de_nacimiento')): ?>
+                            <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                                <h3 class="text-sm font-medium text-gray-300 mb-1">Lugar de Nacimiento</h3>
+                                <p class="text-lg"><?php echo get_field('lugar_de_nacimiento'); ?></p>
+                            </div>
+                            <?php endif; ?>
                         </div>
-                        <div class="flex justify-center md:justify-start space-x-4">
-                            <a href="#" class="flex-1 bg-white text-[#E4405F] py-2 px-4 rounded-md hover:bg-gray-50 text-center"><i class="fab fa-instagram text-xl"></i><span class="text-sm ml-1">Instagram</span></a>
-                            <a href="#" class="flex-1 bg-white text-[#1DA1F2] py-2 px-4 rounded-md hover:bg-gray-50 text-center"><i class="fab fa-twitter text-xl"></i><span class="text-sm ml-1">Twitter</span></a>
-                            <a href="#" class="flex-1 bg-white text-[#0A66C2] py-2 px-4 rounded-md hover:bg-gray-50 text-center"><i class="fab fa-linkedin text-xl"></i><span class="text-sm ml-1">LinkedIn</span></a>
-                        </div>
-                    </div>
 
-                    <!-- Social Media Links -->
-                    
+                        <!-- Social Media Links -->
+                        <?php if (have_rows('redes_sociales')): ?>
+                        <div class="flex flex-wrap gap-4">
+                            <?php while (have_rows('redes_sociales')): the_row(); 
+                                $red_social = strtolower(get_sub_field('red_social'));
+                                $link = get_sub_field('link');
+                                $gradients = [
+                                    'facebook' => 'from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900',
+                                    'twitter' => 'from-blue-400 to-blue-600 hover:from-blue-500 hover:to-blue-700',
+                                    'instagram' => 'from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700',
+                                    'tiktok' => 'from-gray-800 to-black hover:from-gray-900 hover:to-black',
+                                    'linkedin' => 'from-blue-700 to-blue-900 hover:from-blue-800 hover:to-blue-950'
+                                ];
+                                $icons = [
+                                    'facebook' => 'fa-facebook-f',
+                                    'twitter' => 'fa-twitter',
+                                    'instagram' => 'fa-instagram',
+                                    'tiktok' => 'fa-tiktok',
+                                    'linkedin' => 'fa-linkedin-in'
+                                ];
+                                
+                                $gradient = isset($gradients[$red_social]) ? $gradients[$red_social] : 'from-gray-600 to-gray-800 hover:from-gray-700 hover:to-gray-900';
+                                $icon = isset($icons[$red_social]) ? $icons[$red_social] : 'fa-link';
+                            ?>
+                            <a href="<?php echo esc_url($link); ?>" class="inline-flex items-center px-6 py-3 rounded-lg bg-gradient-to-r <?php echo $gradient; ?> transition-all duration-200 shadow-lg hover:shadow-xl">
+                                <i class="fab <?php echo $icon; ?> text-xl"></i>
+                                <span class="ml-2 font-medium"><?php echo ucfirst($red_social); ?></span>
+                            </a>
+                            <?php endwhile; ?>
+                        </div>
+                        <?php endif; ?>
+                    </div>
                 </div>
             </div>
         </div>
@@ -57,95 +91,131 @@ get_header(); ?>
             <!-- Left Column - Main Info -->
             <div class="lg:col-span-2">
                 <!-- Biography -->
+                <?php if (get_field('biografia')): ?>
                 <div class="bg-white rounded-lg shadow-md p-8 mb-8">
                     <h2 class="text-2xl font-semibold mb-6">Biografía</h2>
                     <div class="prose max-w-none">
-                        <p class="text-gray-600">
-                            Diego Torres comenzó su carrera en el teatro a una edad temprana, participando en numerosas obras escolares antes de dar el salto a la televisión. Su breakthrough llegó con el papel protagonista en "La Ciudad Perdida" (2010), que le valió varios reconocimientos incluyendo el Premio Goya a Mejor Actor Revelación.
-                        </p>
-                        <p class="text-gray-600 mt-4">
-                            Además de su trabajo frente a las cámaras, Diego ha dirigido varios cortometrajes y ha participado como productor en proyectos independientes. Su versatilidad como artista le ha permitido mantener una carrera diversa y exitosa en la industria del entretenimiento español.
-                        </p>
+                        <?php echo get_field('biografia'); ?>
                     </div>
                 </div>
+                <?php endif; ?>
 
                 <!-- Episodes -->
-                <div class="bg-white rounded-lg shadow-md p-8">
-                    <h2 class="text-2xl font-semibold mb-6">Episodios</h2>
-                    <div class="space-y-6">
-                        <!-- Episode -->
-                        <div class="flex items-start space-x-4">
-                            <img class="w-24 h-36 object-cover rounded-md" src="https://picsum.photos/200/300" alt="El Secreto del Valle - Episodio 5">
-                            <div>
-                                <h3 class="text-lg font-medium">El Secreto del Valle</h3>
-                                <p class="text-gray-500">Temporada 2, Episodio 5</p>
-                                <p class="text-gray-600 mt-2">Como Carlos Ruiz</p>
-                                <p class="text-sm text-gray-500 mt-1">15 de Marzo, 2024</p>
-                            </div>
-                        </div>
+                <?php 
+                // Get all episodes
+                $episodios = get_posts(array(
+                    'post_type' => 'episodio',
+                    'posts_per_page' => -1,
+                    'orderby' => 'date',
+                    'order' => 'DESC'
+                ));
 
-                        <!-- Episode -->
-                        <div class="flex items-start space-x-4">
-                            <img class="w-24 h-36 object-cover rounded-md" src="https://picsum.photos/201/300" alt="El Secreto del Valle - Episodio 4">
-                            <div>
-                                <h3 class="text-lg font-medium">El Secreto del Valle</h3>
-                                <p class="text-gray-500">Temporada 2, Episodio 4</p>
-                                <p class="text-gray-600 mt-2">Como Carlos Ruiz</p>
-                                <p class="text-sm text-gray-500 mt-1">8 de Marzo, 2024</p>
-                            </div>
-                        </div>
-
-                        <!-- Episode -->
-                        <div class="flex items-start space-x-4">
-                            <img class="w-24 h-36 object-cover rounded-md" src="https://picsum.photos/202/300" alt="El Secreto del Valle - Episodio 3">
-                            <div>
-                                <h3 class="text-lg font-medium">El Secreto del Valle</h3>
-                                <p class="text-gray-500">Temporada 2, Episodio 3</p>
-                                <p class="text-gray-600 mt-2">Como Carlos Ruiz</p>
-                                <p class="text-sm text-gray-500 mt-1">1 de Marzo, 2024</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+                $series_mostradas = array();
+                
+                if ($episodios): 
+                    foreach ($episodios as $episodio) {
+                        // Get the serie for this episode
+                        $serie = get_field('serie', $episodio->ID);
+                        
+                        if ($serie && !in_array($serie->ID, $series_mostradas)) {
+                            // Check if current actor is in the reparto
+                            $actor_found = false;
+                            $personaje_name = '';
+                            
+                            if (have_rows('reparto', $episodio->ID)) {
+                                while (have_rows('reparto', $episodio->ID)) {
+                                    the_row();
+                                    $actor = get_sub_field('actor');
+                                    if ($actor && $actor->ID == get_the_ID()) {
+                                        $actor_found = true;
+                                        $personaje = get_sub_field('personaje');
+                                        if ($personaje) {
+                                            $personaje_name = get_the_title($personaje);
+                                        }
+                                        break;
+                                    }
+                                }
+                            }
+                            
+                            if ($actor_found):
+                                $series_mostradas[] = $serie->ID; // Add to shown series array
+                ?>
+                                <div class="bg-white rounded-lg shadow-md p-8 mb-8">
+                                    <h2 class="text-2xl font-semibold mb-6">Series</h2>
+                                    <div class="space-y-6">
+                                        <div class="flex items-start space-x-4">
+                                            <?php if (has_post_thumbnail($serie->ID)): ?>
+                                                <?php echo get_the_post_thumbnail($serie->ID, 'medium', array('class' => 'w-24 h-36 object-cover rounded-md')); ?>
+                                            <?php endif; ?>
+                                            <div>
+                                                <h3 class="text-lg font-medium">
+                                                    <a href="<?php echo get_permalink($serie); ?>" class="hover:text-red-600 transition-colors">
+                                                        <?php echo get_the_title($serie); ?>
+                                                    </a>
+                                                </h3>
+                                                <?php if ($personaje_name && $personaje): ?>
+                                                    <p class="text-gray-600 mt-2">Como 
+                                                        <a href="<?php echo get_permalink($personaje); ?>" class="hover:text-red-600 transition-colors">
+                                                            <?php echo $personaje_name; ?>
+                                                        </a>
+                                                    </p>
+                                                <?php endif; ?>
+                                                <p class="text-sm text-gray-500 mt-1"><?php echo get_the_date('j \d\e F, Y', $episodio->ID); ?></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                <?php 
+                            endif;
+                        }
+                    }
+                endif; 
+                ?>
             </div>
 
             <!-- Right Column - Sidebar -->
             <div class="lg:col-span-1">
                 <!-- Awards & Recognition -->
+                <?php if (have_rows('premios_reconocimientos')): ?>
                 <div class="bg-white rounded-lg shadow-md p-6 mb-8">
                     <h3 class="text-xl font-semibold mb-4">Premios y Reconocimientos</h3>
                     <ul class="space-y-4">
+                        <?php while (have_rows('premios_reconocimientos')): the_row(); ?>
                         <li class="border-b pb-4">
-                            <p class="font-medium">Premio Goya</p>
-                            <p class="text-sm text-gray-600">Mejor Actor Revelación</p>
-                            <p class="text-sm text-gray-500">La Ciudad Perdida (2010)</p>
+                            <h4 class="font-medium"><?php echo get_sub_field('titulo_premio'); ?></h4>
+                            <p class="text-sm text-gray-600 mt-1"><?php echo get_sub_field('motivo'); ?></p>
+                            <p class="text-sm text-gray-500 mt-1"><?php echo get_sub_field('obra'); ?></p>
                         </li>
-                        <li class="border-b pb-4">
-                            <p class="font-medium">Festival de San Sebastián</p>
-                            <p class="text-sm text-gray-600">Concha de Plata</p>
-                            <p class="text-sm text-gray-500">El Camino (2015)</p>
-                        </li>
-                        <li>
-                            <p class="font-medium">Premios Feroz</p>
-                            <p class="text-sm text-gray-600">Mejor Actor de Reparto</p>
-                            <p class="text-sm text-gray-500">La Última Noche (2018)</p>
-                        </li>
+                        <?php endwhile; ?>
                     </ul>
                 </div>
+                <?php endif; ?>
 
-                <!-- Skills & Specialties -->
+                <!-- Skills -->
+                <?php if (get_field('habilidades')): 
+                    $habilidades = get_field('habilidades');
+                    $colors = array(
+                        'bg-blue-100 text-blue-800',
+                        'bg-green-100 text-green-800',
+                        'bg-yellow-100 text-yellow-800',
+                        'bg-red-100 text-red-800',
+                        'bg-purple-100 text-purple-800',
+                        'bg-pink-100 text-pink-800'
+                    );
+                ?>
                 <div class="bg-white rounded-lg shadow-md p-6">
                     <h3 class="text-xl font-semibold mb-4">Habilidades</h3>
                     <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-gray-100 rounded-full text-sm text-gray-700">Drama</span>
-                        <span class="px-3 py-1 bg-gray-100 rounded-full text-sm text-gray-700">Comedia</span>
-                        <span class="px-3 py-1 bg-gray-100 rounded-full text-sm text-gray-700">Teatro</span>
-                        <span class="px-3 py-1 bg-gray-100 rounded-full text-sm text-gray-700">Voz en Off</span>
-                        <span class="px-3 py-1 bg-gray-100 rounded-full text-sm text-gray-700">Dirección</span>
-                        <span class="px-3 py-1 bg-gray-100 rounded-full text-sm text-gray-700">Producción</span>
+                        <?php foreach ($habilidades as $index => $habilidad): 
+                            $color_index = $index % count($colors);
+                        ?>
+                        <span class="px-3 py-1 rounded-full text-sm font-medium <?php echo $colors[$color_index]; ?>">
+                            <?php echo $habilidad; ?>
+                        </span>
+                        <?php endforeach; ?>
                     </div>
                 </div>
+                <?php endif; ?>
             </div>
         </div>
     </div>
