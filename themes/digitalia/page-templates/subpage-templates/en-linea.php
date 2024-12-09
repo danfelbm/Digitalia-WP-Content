@@ -157,7 +157,7 @@ get_header();
             <div class="mb-8 flex items-end justify-between md:mb-14 lg:mb-16">
                 <div class="max-w-4xl">
                     <h2 class="text-3xl font-medium md:text-4xl lg:text-5xl mb-8">Episodios</h2>
-                    <p class="text-2xl md:text-4xl lg:text-2xl md:text-base">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+                    <p class="text-2xl md:text-4xl lg:text-2xl md:text-base">Ya han salido dos temporadas con 20 episodios en total, que abordan la alfabetización mediática de una forma innovadora y emocionante. A través de la ficción, exploramos los desafíos del mundo real y cómo la transformación digital está cambiando la forma en que nos relacionamos, aprendemos y vivimos.</p>
                 </div>
                 <div class="hidden shrink-0 gap-2 md:flex">
                     <button class="carousel-prev inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10 disabled:pointer-events-auto">

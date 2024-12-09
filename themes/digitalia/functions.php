@@ -312,6 +312,7 @@ function digitalia_register_cursos_post_type() {
         'has_archive'        => true,
         'hierarchical'       => false,
         'menu_position'      => 5,
+        'menu_icon'          => 'dashicons-welcome-learn-more',
         'supports'           => array( 'title', 'editor', 'thumbnail', 'excerpt' ),
         'show_in_rest'       => true,
         'taxonomies'         => array('post_tag') // Add support for post tags
@@ -382,6 +383,7 @@ function digitalia_register_episodios_post_type() {
         'has_archive'        => true,
         'hierarchical'       => false,
         'menu_position'      => 6,
+        'menu_icon'          => 'dashicons-video-alt3',
         'supports'           => array( 'title', 'editor', 'thumbnail', 'excerpt' ),
         'show_in_rest'       => true,
         'taxonomies'         => array('temporadas', 'post_tag') // Add support for Temporadas taxonomy and post tags
@@ -417,6 +419,104 @@ function digitalia_register_episodios_post_type() {
     register_taxonomy( 'temporadas', array( 'episodio' ), $taxonomy_args );
 }
 add_action( 'init', 'digitalia_register_episodios_post_type' );
+
+/**
+ * Register Custom Post Type Actores
+ */
+function digitalia_register_actores_post_type() {
+    $labels = array(
+        'name'                  => _x( 'Actores', 'Post Type General Name', 'digitalia' ),
+        'singular_name'         => _x( 'Actor', 'Post Type Singular Name', 'digitalia' ),
+        'menu_name'            => __( 'Actores', 'digitalia' ),
+        'name_admin_bar'       => __( 'Actor', 'digitalia' ),
+        'archives'             => __( 'Archivo de Actores', 'digitalia' ),
+        'attributes'           => __( 'Atributos del Actor', 'digitalia' ),
+        'parent_item_colon'    => __( 'Actor Padre:', 'digitalia' ),
+        'all_items'            => __( 'Todos los Actores', 'digitalia' ),
+        'add_new_item'         => __( 'Añadir Nuevo Actor', 'digitalia' ),
+        'add_new'              => __( 'Añadir Nuevo', 'digitalia' ),
+        'new_item'             => __( 'Nuevo Actor', 'digitalia' ),
+        'edit_item'            => __( 'Editar Actor', 'digitalia' ),
+        'update_item'          => __( 'Actualizar Actor', 'digitalia' ),
+        'view_item'            => __( 'Ver Actor', 'digitalia' ),
+        'view_items'           => __( 'Ver Actores', 'digitalia' ),
+        'search_items'         => __( 'Buscar Actor', 'digitalia' ),
+    );
+    
+    $args = array(
+        'label'                 => __( 'Actor', 'digitalia' ),
+        'description'           => __( 'Actores', 'digitalia' ),
+        'labels'                => $labels,
+        'supports'              => array( 'title', 'editor', 'thumbnail', 'excerpt', 'custom-fields' ),
+        'taxonomies'            => array( 'post_tag' ),
+        'hierarchical'          => false,
+        'public'                => true,
+        'show_ui'               => true,
+        'show_in_menu'          => true,
+        'menu_position'         => 7,
+        'menu_icon'             => 'dashicons-businessman',
+        'show_in_admin_bar'     => true,
+        'show_in_nav_menus'     => true,
+        'can_export'            => true,
+        'has_archive'           => true,
+        'exclude_from_search'   => false,
+        'publicly_queryable'    => true,
+        'capability_type'       => 'post',
+        'show_in_rest'          => true,
+    );
+    
+    register_post_type( 'actores', $args );
+}
+add_action( 'init', 'digitalia_register_actores_post_type' );
+
+/**
+ * Register Custom Post Type Personajes
+ */
+function digitalia_register_personajes_post_type() {
+    $labels = array(
+        'name'                  => _x( 'Personajes', 'Post Type General Name', 'digitalia' ),
+        'singular_name'         => _x( 'Personaje', 'Post Type Singular Name', 'digitalia' ),
+        'menu_name'            => __( 'Personajes', 'digitalia' ),
+        'name_admin_bar'       => __( 'Personaje', 'digitalia' ),
+        'archives'             => __( 'Archivo de Personajes', 'digitalia' ),
+        'attributes'           => __( 'Atributos del Personaje', 'digitalia' ),
+        'parent_item_colon'    => __( 'Personaje Padre:', 'digitalia' ),
+        'all_items'            => __( 'Todos los Personajes', 'digitalia' ),
+        'add_new_item'         => __( 'Añadir Nuevo Personaje', 'digitalia' ),
+        'add_new'              => __( 'Añadir Nuevo', 'digitalia' ),
+        'new_item'             => __( 'Nuevo Personaje', 'digitalia' ),
+        'edit_item'            => __( 'Editar Personaje', 'digitalia' ),
+        'update_item'          => __( 'Actualizar Personaje', 'digitalia' ),
+        'view_item'            => __( 'Ver Personaje', 'digitalia' ),
+        'view_items'           => __( 'Ver Personajes', 'digitalia' ),
+        'search_items'         => __( 'Buscar Personaje', 'digitalia' ),
+    );
+    
+    $args = array(
+        'label'                 => __( 'Personaje', 'digitalia' ),
+        'description'           => __( 'Personajes', 'digitalia' ),
+        'labels'                => $labels,
+        'supports'              => array( 'title', 'editor', 'thumbnail', 'excerpt', 'custom-fields' ),
+        'taxonomies'            => array( 'post_tag' ),
+        'hierarchical'          => false,
+        'public'                => true,
+        'show_ui'               => true,
+        'show_in_menu'          => true,
+        'menu_position'         => 5,
+        'menu_icon'             => 'dashicons-groups',
+        'show_in_admin_bar'     => true,
+        'show_in_nav_menus'     => true,
+        'can_export'            => true,
+        'has_archive'           => true,
+        'exclude_from_search'   => false,
+        'publicly_queryable'    => true,
+        'capability_type'       => 'post',
+        'show_in_rest'          => true,
+    );
+    
+    register_post_type( 'personajes', $args );
+}
+add_action( 'init', 'digitalia_register_personajes_post_type' );
 
 /**
  * Implement the Custom Header feature.

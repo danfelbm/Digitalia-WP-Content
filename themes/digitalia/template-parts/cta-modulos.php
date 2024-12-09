@@ -17,11 +17,12 @@ $args = wp_parse_args($args, array(
     'doc_url' => '#',
     'guide_title' => 'Getting Started',
     'guide_description' => 'Lorem ipsum dolor, sit amet consectetur.',
-    'guide_url' => '#'
+    'guide_url' => '#',
+    'background_class' => 'bg-slate-100'
 ));
 ?>
 
-<section class="bg-slate-100">
+<section class="<?php echo esc_attr($args['background_class']); ?>">
     <div>
         <div class="grid grid-cols-1 flex-col gap-10 p-6 lg:grid-cols-2 lg:py-16 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div>
