@@ -56,7 +56,7 @@ get_header();
                             </div>
                         </div>
                     </div>
-                    <a href="#ver-episodios" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-fit">
+                    <a href="#ver-episodios" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-red-500 text-primary-foreground hover:bg-red-600 h-10 px-4 py-2 w-fit">
                         Ver Episodios
                     </a>
                 </div>
@@ -65,19 +65,19 @@ get_header();
             <div data-orientation="horizontal" role="none" class="shrink-0 bg-border h-[1px] w-full my-12"></div>
             <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
                 <div>
-                    <h2 class="mb-2 text-4xl font-semibold md:text-6xl">32+</h2>
+                    <h2 class="mb-2 text-4xl text-red-500 font-semibold md:text-6xl">32+</h2>
                     <p class="text-muted-foreground">Departamentos alcanzados</p>
                 </div>
                 <div>
-                    <h2 class="mb-2 text-4xl font-semibold md:text-6xl">1000+</h2>
+                    <h2 class="mb-2 text-4xl text-red-500 font-semibold md:text-6xl">1000+</h2>
                     <p class="text-muted-foreground">Historias documentadas</p>
                 </div>
                 <div>
-                    <h2 class="mb-2 text-4xl font-semibold md:text-6xl">12</h2>
+                    <h2 class="mb-2 text-4xl text-red-500 font-semibold md:text-6xl">12</h2>
                     <p class="text-muted-foreground">Episodios producidos</p>
                 </div>
                 <div>
-                    <h2 class="mb-2 text-4xl font-semibold md:text-6xl">>50k</h2>
+                    <h2 class="mb-2 text-4xl text-red-500 font-semibold md:text-6xl">>50k</h2>
                     <p class="text-muted-foreground">Espectadores alcanzados</p>
                 </div>
             </div>
@@ -107,7 +107,8 @@ get_header();
                         </div>
                     </div>
                     <div class="flex flex-col justify-center gap-2 sm:flex-row pb-16">
-                        <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-11 rounded-md px-8 bg-background text-primary hover:bg-background">Conoce Más</button>
+                        <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-11 rounded-md px-8 bg-red-500 text-white hover:bg-red-600">Conoce Más</button>
+
                         <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border-input h-11 rounded-md px-8 border-0 bg-background/20 backdrop-blur-sm hover:bg-background/30 hover:text-primary-foreground">Contáctanos</button>
                     </div>
                 </div>
@@ -116,23 +117,23 @@ get_header();
     </section>
     
     <!-- section screenshots grid -->
-    <section class="relative -mt-32">
+    <section class="relative -mt-72 md:-mt-32">
         <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <!-- Column 1 -->
                 <div class="flex flex-col gap-6 md:-translate-y-12">
-                    <img src="/wp-content/uploads/2024/12/placeholder-1.svg" alt="Screenshot 1" class="w-full rounded-2xl" />
-                    <img src="/wp-content/uploads/2024/12/placeholder-4.svg" alt="Screenshot 4" class="w-full rounded-2xl" />
+                    <img src="/wp-content/uploads/2024/12/yvuqlyrljsw.jpg" alt="Screenshot 1" class="w-full rounded-2xl" />
+                    <img src="/wp-content/uploads/2024/12/71shxwblp5w.jpg" alt="Screenshot 4" class="w-full rounded-2xl" />
                 </div>
                 <!-- Column 2 (offset up) -->
                 <div class="flex flex-col gap-6 md:-translate-y-32">
-                    <img src="/wp-content/uploads/2024/12/placeholder-2.svg" alt="Screenshot 2" class="w-full rounded-2xl" />
-                    <img src="/wp-content/uploads/2024/12/placeholder-5.svg" alt="Screenshot 5" class="w-full rounded-2xl" />
+                    <img src="/wp-content/uploads/2024/12/2upcveoxoxc.jpg" alt="Screenshot 2" class="w-full rounded-2xl" />
+                    <img src="/wp-content/uploads/2024/12/rncpixixooy.jpg" alt="Screenshot 5" class="w-full rounded-2xl" />
                 </div>
                 <!-- Column 3 (no offset) -->
                 <div class="flex flex-col gap-6 md:-translate-y-12">
-                    <img src="/wp-content/uploads/2024/12/placeholder-3.svg" alt="Screenshot 3" class="w-full rounded-2xl" />
-                    <img src="/wp-content/uploads/2024/12/placeholder-1.svg" alt="Screenshot 6" class="w-full rounded-2xl" />
+                    <img src="/wp-content/uploads/2024/12/mzjobxoxbt0.jpg" alt="Screenshot 3" class="w-full rounded-2xl" />
+                    <img src="/wp-content/uploads/2024/12/lme2ye2jvo8.jpg" class="w-full rounded-2xl" />
                 </div>
             </div>
         </div>
@@ -151,10 +152,13 @@ get_header();
     
     if ($episodios->have_posts()) :
     ?>
-    <section id="ver-episodios" class="py-32">
+    <section id="ver-episodios" class="py-32 md:-mt-28">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="mb-8 flex items-end justify-between md:mb-14 lg:mb-16">
-                <h2 class="text-3xl font-medium md:text-4xl lg:text-5xl">Episodios</h2>
+                <div class="max-w-4xl">
+                    <h2 class="text-3xl font-medium md:text-4xl lg:text-5xl mb-8">Episodios</h2>
+                    <p class="text-2xl md:text-4xl lg:text-2xl md:text-base">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+                </div>
                 <div class="hidden shrink-0 gap-2 md:flex">
                     <button class="carousel-prev inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10 disabled:pointer-events-auto">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left size-5"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg>
