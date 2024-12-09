@@ -149,6 +149,9 @@ function digitalia_scripts() {
 	wp_enqueue_script('alpine-js', 'https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js', array(), null, true);
 	wp_script_add_data('alpine-js', 'defer', true);
 
+	// Enqueue carousel script
+	wp_enqueue_script('digitalia-carousel', get_template_directory_uri() . '/js/carousel.js', array(), _S_VERSION, true);
+
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
@@ -344,6 +347,76 @@ function digitalia_register_cursos_post_type() {
     register_taxonomy( 'categoria-curso', array( 'curso' ), $taxonomy_args );
 }
 add_action( 'init', 'digitalia_register_cursos_post_type' );
+
+/**
+ * Register Custom Post Type Episodios and its taxonomies
+ */
+function digitalia_register_episodios_post_type() {
+    // Register Episodios Post Type
+    $labels = array(
+        'name'                  => _x( 'Episodios', 'Post type general name', 'digitalia' ),
+        'singular_name'         => _x( 'Episodio', 'Post type singular name', 'digitalia' ),
+        'menu_name'            => _x( 'Episodios', 'Admin Menu text', 'digitalia' ),
+        'add_new'              => __( 'Añadir Nuevo', 'digitalia' ),
+        'add_new_item'         => __( 'Añadir Nuevo Episodio', 'digitalia' ),
+        'edit_item'            => __( 'Editar Episodio', 'digitalia' ),
+        'new_item'             => __( 'Nuevo Episodio', 'digitalia' ),
+        'view_item'            => __( 'Ver Episodio', 'digitalia' ),
+        'view_items'           => __( 'Ver Episodios', 'digitalia' ),
+        'search_items'         => __( 'Buscar Episodios', 'digitalia' ),
+        'not_found'            => __( 'No se encontraron episodios', 'digitalia' ),
+        'not_found_in_trash'   => __( 'No se encontraron episodios en la papelera', 'digitalia' ),
+        'all_items'            => __( 'Todos los Episodios', 'digitalia' ),
+        'archives'             => __( 'Archivo de Episodios', 'digitalia' ),
+    );
+
+    $args = array(
+        'labels'             => $labels,
+        'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'query_var'          => true,
+        'rewrite'            => array( 'slug' => 'episodios' ),
+        'capability_type'    => 'post',
+        'has_archive'        => true,
+        'hierarchical'       => false,
+        'menu_position'      => 6,
+        'supports'           => array( 'title', 'editor', 'thumbnail', 'excerpt' ),
+        'show_in_rest'       => true,
+        'taxonomies'         => array('temporadas', 'post_tag') // Add support for Temporadas taxonomy and post tags
+    );
+
+    register_post_type( 'episodio', $args );
+
+    // Register Temporadas Taxonomy
+    $taxonomy_labels = array(
+        'name'              => _x( 'Temporadas', 'taxonomy general name', 'digitalia' ),
+        'singular_name'     => _x( 'Temporada', 'taxonomy singular name', 'digitalia' ),
+        'search_items'      => __( 'Buscar Temporadas', 'digitalia' ),
+        'all_items'         => __( 'Todas las Temporadas', 'digitalia' ),
+        'parent_item'       => __( 'Temporada Padre', 'digitalia' ),
+        'parent_item_colon' => __( 'Temporada Padre:', 'digitalia' ),
+        'edit_item'         => __( 'Editar Temporada', 'digitalia' ),
+        'update_item'       => __( 'Actualizar Temporada', 'digitalia' ),
+        'add_new_item'      => __( 'Añadir Nueva Temporada', 'digitalia' ),
+        'new_item_name'     => __( 'Nuevo Nombre de Temporada', 'digitalia' ),
+        'menu_name'         => __( 'Temporadas', 'digitalia' ),
+    );
+
+    $taxonomy_args = array(
+        'hierarchical'      => true,
+        'labels'            => $taxonomy_labels,
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'query_var'         => true,
+        'rewrite'           => array( 'slug' => 'temporada' ),
+        'show_in_rest'      => true,
+    );
+
+    register_taxonomy( 'temporadas', array( 'episodio' ), $taxonomy_args );
+}
+add_action( 'init', 'digitalia_register_episodios_post_type' );
 
 /**
  * Implement the Custom Header feature.

@@ -116,7 +116,7 @@
   </div>
 </section>
 
-<div class="max-w-screen-xl px-4 py-10 sm:px-6 lg:px-8 lg:py-32 mx-auto" style="margin-top: -8rem;">
+<div class="max-w-screen-xl px-8 py-10 sm:px-6 lg:px-8 lg:py-32 mx-auto" style="margin-top: -8rem;">
   <div class="grid md:grid-cols-2 gap-12">
     <!-- Nuestra Visión -->
     <div>

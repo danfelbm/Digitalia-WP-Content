@@ -28,7 +28,20 @@
 				extend: {
 					colors: {
 						primary: '#4a5568',
-					},
+						red: {
+								50: '#fff0f4',
+								100: '#ffe1e9',
+								200: '#ffc3d4',
+								300: '#ff95b3',
+								400: '#ff4d7f',
+								500: '#ff0044',  // main color
+								600: '#e6003d',
+								700: '#bf0032',
+								800: '#99002a',
+								900: '#800023',
+								950: '#4c0014',
+							},
+						},
 					fontFamily: {
 						sans: ['Work Sans', 'sans-serif'],
 						heading: ['Lexend', 'sans-serif'],
