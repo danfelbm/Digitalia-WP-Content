@@ -620,3 +620,16 @@ function get_image_src( $object, $field_name, $request ) {
     );
     return $feat_img_array[0];
 }
+
+/**
+ * Calculate estimated reading time for posts
+ *
+ * @return int Estimated reading time in minutes
+ */
+function get_reading_time() {
+    $content = get_post_field('post_content', get_the_ID());
+    $word_count = str_word_count(strip_tags($content));
+    $reading_time = ceil($word_count / 200); // Assuming average reading speed of 200 words per minute
+    
+    return max(1, $reading_time); // Return at least 1 minute
+}

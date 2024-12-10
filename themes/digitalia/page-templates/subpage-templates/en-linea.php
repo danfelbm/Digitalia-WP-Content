@@ -145,7 +145,7 @@ get_header();
         'post_type' => 'episodio',
         'posts_per_page' => 20,
         'orderby' => 'date',
-        'order' => 'DESC'
+        'order' => 'ASC'
     );
     
     $episodios = new WP_Query($args);
@@ -183,7 +183,9 @@ get_header();
                         <div role="group" aria-roledescription="slide" class="min-w-0 shrink-0 grow-0 basis-full max-w-[320px] pl-5 lg:max-w-[360px]">
                             <a href="<?php the_permalink(); ?>" class="group rounded-xl">
                                 <div class="group relative h-full min-h-[27rem] max-w-full overflow-hidden rounded-xl bg-red-200 md:aspect-[5/4] lg:aspect-[16/9]">
-                                    <img src="<?php echo esc_url($thumbnail); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" class="absolute size-full object-cover object-center transition-transform duration-300 group-hover:scale-105">
+                                        <?php if (has_post_thumbnail()) : ?>
+                                            <?php the_post_thumbnail('large', array('class' => 'absolute size-full object-cover object-center transition-transform duration-300 group-hover:scale-105')); ?>
+                                        <?php endif; ?>
                                     <div class="absolute inset-0 h-full bg-gradient-to-b from-black/20 to-black/80 mix-blend-multiply"></div>
                                     <div class="absolute inset-x-0 bottom-0 flex flex-col items-start p-6 text-white md:p-8">
                                         <?php
@@ -196,9 +198,11 @@ get_header();
                                             </span>
                                         <?php } ?>
                                         <div class="mb-2 pt-4 text-xl font-semibold md:mb-3 md:pt-4 lg:pt-4"><?php the_title(); ?></div>
-                                        <div class="mb-8 line-clamp-2 md:mb-12 lg:mb-9"><?php echo wp_trim_words(get_the_excerpt(), 20); ?></div>
+                                        <div class="mb-8 line-clamp-2 md:mb-12 lg:mb-9"><?php 
+                                            echo esc_html(get_field('sinopsis_single')); 
+                                        ?></div>
                                         <div class="flex items-center text-sm">
-                                            Read more
+                                            Leer más
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right ml-2 size-5 transition-transform group-hover:translate-x-1">
                                                 <path d="M5 12h14"></path>
                                                 <path d="m12 5 7 7-7 7"></path>
@@ -218,6 +222,176 @@ get_header();
         </div>
     </section>
     <?php endif; ?>
+
+    <?php
+    $personajes_args = array(
+        'post_type' => 'personajes',
+        'posts_per_page' => -1,
+        'meta_query' => array(
+            array(
+                'key' => 'serie',
+                'value' => '642',
+                'compare' => '='
+            )
+        )
+    );
+
+    $personajes = new WP_Query($personajes_args);
+    
+    if ($personajes->have_posts()) :
+        $serie = get_post(642);
+    ?>
+    <section id="personajes" class="py-32 md:-mt-28">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-8 flex items-end justify-between md:mb-14 lg:mb-16">
+                <div class="max-w-4xl">
+                    <h2 class="text-3xl font-medium md:text-4xl lg:text-5xl mb-8">Personajes</h2>
+                    <p class="text-2xl md:text-4xl lg:text-2xl md:text-base">Conoce a los personajes que dan vida a esta historia.</p>
+                </div>
+                <div class="hidden shrink-0 gap-2 md:flex">
+                    <button class="carousel-prev inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10 disabled:pointer-events-auto">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left size-5">
+                            <path d="m12 19-7-7 7-7"></path>
+                            <path d="M19 12H5"></path>
+                        </svg>
+                    </button>
+                    <button class="carousel-next inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10 disabled:pointer-events-auto">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right size-5">
+                            <path d="M5 12h14"></path>
+                            <path d="m12 5 7 7-7 7"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="w-full overflow-hidden">
+            <div class="relative" role="region" aria-roledescription="carousel">
+                <div class="overflow-hidden">
+                    <div class="carousel-container flex transition-transform duration-300 md:pl-24" style="cursor: grab; transition: transform .3s ease-out; transform: translateX(0)">
+                        <?php while ($personajes->have_posts()) : $personajes->the_post(); 
+                            $frase_celebre = get_field('frase_celebre');
+                        ?>
+                            <div role="group" aria-roledescription="slide" class="min-w-0 shrink-0 grow-0 basis-full max-w-[320px] pl-5 lg:max-w-[360px]">
+                                <a href="<?php the_permalink(); ?>" class="group rounded-xl">
+                                    <div class="group relative h-full min-h-[27rem] max-w-full overflow-hidden rounded-xl bg-red-200 md:aspect-[5/4] lg:aspect-[16/9]">
+                                            <?php 
+                                                $avatar = get_field('avatar');
+                                                if ($avatar) : 
+                                            ?>
+                                            <img src="<?php echo esc_url($avatar); ?>" alt="<?php the_title_attribute(); ?>" class="absolute size-full object-cover object-center transition-transform duration-300 group-hover:scale-105">
+                                        <?php endif; ?>
+                                        <div class="absolute inset-0 h-full bg-gradient-to-b from-black/20 to-black/80 mix-blend-multiply"></div>
+                                        <div class="absolute inset-x-0 bottom-0 flex flex-col items-start p-6 text-white md:p-8">
+                                            <span class="mb-2 inline-flex items-center rounded-full bg-red-500 px-3 py-1 text-xs font-medium text-white"><?php echo esc_html($serie->post_title); ?></span>
+                                            <div class="mb-2 pt-4 text-xl font-semibold md:mb-3 md:pt-4 lg:pt-4"><?php the_title(); ?></div>
+                                            <?php if ($frase_celebre) : ?>
+                                                <div class="mb-8 line-clamp-2 md:mb-12 lg:mb-9"><?php echo esc_html($frase_celebre); ?></div>
+                                            <?php endif; ?>
+                                            <div class="flex items-center text-sm">
+                                                Leer más
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right ml-2 size-5 transition-transform group-hover:translate-x-1">
+                                                    <path d="M5 12h14"></path>
+                                                    <path d="m12 5 7 7-7 7"></path>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        <?php endwhile; wp_reset_postdata(); ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <?php endif; ?>
+
+    <?php
+    $blog_args = array(
+        'post_type' => 'post',
+        'posts_per_page' => 3,
+        'cat' => 21
+    );
+    
+    $blog_query = new WP_Query($blog_args);
+    
+    if ($blog_query->have_posts()) :
+    ?>
+    <section id="blog" class="py-32">
+        <div class="container">
+            <div class="mx-auto flex max-w-screen-md flex-col items-center gap-4 text-center">
+                <div class="inline-flex items-center rounded-full border px-2.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 text-foreground gap-1 py-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text h-full w-4">
+                        <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path>
+                        <path d="M14 2v4a2 2 0 0 0 2 2h4"></path>
+                        <path d="M10 9H8"></path>
+                        <path d="M16 13H8"></path>
+                        <path d="M16 17H8"></path>
+                    </svg>
+                    Nuestros Blogs
+                </div>
+                <h1 class="text-balance text-4xl font-semibold">Educación Digital para la Paz Mediática</h1>
+                <p class="text-muted-foreground">Explora nuestro blog para conocer artículos sobre alfabetización mediática, inteligencia artificial y transformación digital para la paz en Colombia.</p>
+            </div>
+            
+            <div class="mt-20 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+                <?php while ($blog_query->have_posts()) : $blog_query->the_post(); ?>
+                    <a class="rounded-xl border" href="<?php the_permalink(); ?>">
+                        <div class="p-2">
+                            <?php if (has_post_thumbnail()) : ?>
+                                <?php the_post_thumbnail('large', array('class' => 'aspect-video w-full rounded-lg object-cover')); ?>
+                            <?php endif; ?>
+                        </div>
+                        <div class="px-3 pb-4 pt-2">
+                            <h2 class="mb-1 font-medium"><?php the_title(); ?></h2>
+                            <p class="line-clamp-2 text-sm text-muted-foreground"><?php echo wp_trim_words(get_the_excerpt(), 20); ?></p>
+                            <div data-orientation="horizontal" role="none" class="shrink-0 bg-border h-[1px] w-full my-5"></div>
+                            <div class="flex items-center justify-between gap-4">
+                                <div class="flex items-center gap-3">
+                                    <?php echo get_avatar(get_the_author_meta('ID'), 36, '', '', array('class' => 'relative flex shrink-0 overflow-hidden size-9 rounded-full ring-1 ring-input')); ?>
+                                    <span class="text-sm font-medium"><?php the_author(); ?></span>
+                                </div>
+                                <div class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 h-fit">
+                                    <?php echo get_reading_time(); ?> Min Read
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                <?php endwhile; ?>
+            </div>
+
+            <div class="mt-10 flex justify-center">
+                <a href="<?php echo get_category_link(21); ?>" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
+                    Ver todos los blogs
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right ml-2 h-full w-4">
+                        <path d="M5 12h14"></path>
+                        <path d="m12 5 7 7-7 7"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+    <?php 
+    endif;
+    wp_reset_postdata();
+    ?>
+
+    <?php
+    get_template_part('template-parts/cta-modulos', null, array(
+        'title' => 'Únete a Academia',
+        'description' => 'Descubre una nueva forma de aprender y desarrollarte profesionalmente. Accede a todos nuestros módulos y contenido exclusivo.',
+        'cta_primary_text' => 'Comenzar ahora',
+        'cta_primary_url' => '/registro',
+        'cta_secondary_text' => 'Contactar con ventas',
+        'cta_secondary_url' => '/contacto',
+        'doc_title' => 'Planes y precios',
+        'doc_description' => 'Conoce nuestros planes y encuentra el que mejor se adapte a ti.',
+        'doc_url' => '/planes',
+        'guide_title' => 'Primeros pasos',
+        'guide_description' => 'Guía completa para comenzar tu viaje en Academia.',
+        'guide_url' => '/guia'
+    ));
+    ?>
 
 </main>
 
