@@ -18,9 +18,9 @@ get_header(); ?>
         </div>
         
         <div class="relative container mx-auto px-6 h-full flex items-end pb-20">
-            <div class="flex items-start space-x-8 max-w-3xl">
-                <div class="flex-shrink-0">
-                    <div class="w-48 h-48 md:w-64 md:h-64 rounded-2xl border-4 border-white/20 shadow-2xl overflow-hidden backdrop-blur-sm">
+            <div class="flex flex-col md:flex-row items-center md:items-start md:space-x-8 max-w-3xl w-full">
+                <div class="flex-shrink-0 mb-6 md:mb-0">
+                    <div class="w-40 h-40 md:w-64 md:h-64 rounded-2xl border-4 border-white/20 shadow-2xl overflow-hidden backdrop-blur-sm">
                         <?php 
                         $avatar = get_field('avatar');
                         if ($avatar) {
@@ -29,7 +29,7 @@ get_header(); ?>
                         ?>
                     </div>
                 </div>
-                <div>
+                <div class="text-center md:text-left">
                     <?php 
                     $rol = get_field('rol');
                     $frase_celebre = get_field('frase_celebre');

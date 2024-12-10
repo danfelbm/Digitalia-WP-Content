@@ -101,13 +101,13 @@ get_header(); ?>
                                     <?php endif; ?>
                                 </div>
                                 <div>
-                                    <p class="text-sm font-medium text-gray-900">
+                                    <p class="text-lg md:text-base font-medium text-gray-900">
                                         <a href="<?php echo get_permalink($actor->ID); ?>" class="hover:text-blue-600">
                                             <?php echo esc_html($actor->post_title); ?>
                                         </a>
                                     </p>
                                     <?php if ($personaje) : ?>
-                                        <p class="text-sm text-gray-500">como 
+                                        <p class="text-lg md:text-base text-gray-500">como 
                                             <a href="<?php echo get_permalink($personaje->ID); ?>" class="hover:text-blue-600">
                                                 <?php echo esc_html($personaje->post_title); ?>
                                             </a>

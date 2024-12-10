@@ -199,9 +199,9 @@ while (have_posts()) :
                         }
                 ?>
                         <a href="<?php the_permalink(); ?>" class="block bg-white rounded-lg p-4 hover:bg-gray-50 transition shadow-sm episode-item" data-seasons='<?php echo json_encode($season_ids); ?>'>
-                            <div class="flex gap-4">
-                                <div class="relative w-60">
-                                    <img src="<?php echo esc_url($thumbnail); ?>" alt="<?php the_title_attribute(); ?>" class="w-60 h-[140px] object-cover rounded">
+                            <div class="flex flex-col md:flex-row gap-4">
+                                <div class="relative w-full md:w-60">
+                                    <img src="<?php echo esc_url($thumbnail); ?>" alt="<?php the_title_attribute(); ?>" class="w-full md:w-60 h-[200px] md:h-[140px] object-cover rounded">
                                     <div class="absolute inset-0 flex items-center justify-center">
                                         <div class="w-12 h-12 bg-white/90 rounded-full flex items-center justify-center shadow-lg group-hover:bg-white transition">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-900" viewBox="0 0 20 20" fill="currentColor">
