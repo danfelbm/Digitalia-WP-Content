@@ -127,7 +127,7 @@
 	<nav x-data="{ open: false }" class="sticky top-0 z-[60] bg-black font-mono">
 		<div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
 			<div class="relative flex h-16 items-center justify-between">
-				<div class="flex flex-1 items-center">
+				<div class="flex flex-1 items-center z-50">
 					<div class="flex shrink-0 items-center">
 						<a href="<?php echo esc_url(home_url('/')); ?>">
 							<img class="h-8 w-auto" src="/wp-content/uploads/2024/11/logo3-white.png" alt="<?php bloginfo('name'); ?>">

@@ -11,35 +11,37 @@ get_header();
 <main id="primary" class="site-main">
 
     <?php
+    $header = get_field('header');
     get_template_part('template-parts/subpage-header', null, array(
-        'title' => 'Academia',
-        'subtitle' => 'Plataforma de autoformación con contenidos audiovisuales educativos disponible 24/7',
+        'title' => $header['title'],
+        'subtitle' => $header['subtitle'],
         'show_cta' => true,
-        'cta_text' => 'Explorar cursos',
-        'cta_url' => '/plataforma/courses'
+        'cta_text' => $header['cta']['title'],
+        'cta_url' => $header['cta']['url']
     ));
 
+    $nav_menu = get_field('nav_menu');
     get_template_part('template-parts/floating-nav', null, array(
         'nav_items' => array(
             array(
                 'anchor' => 'acerca',
-                'text' => 'Qué es'
+                'text' => $nav_menu['item_1']
             ),
             array(
                 'anchor' => 'registro',
-                'text' => 'Registro'
+                'text' => $nav_menu['item_2']
             ),
             array(
                 'anchor' => 'cursos',
-                'text' => 'Cursos'
+                'text' => $nav_menu['item_3']
             ),
             array(
                 'anchor' => 'ventajas',
-                'text' => 'Ventajas'
+                'text' => $nav_menu['item_4']
             ),
             array(
                 'anchor' => 'comparacion',
-                'text' => 'Comparación'
+                'text' => $nav_menu['item_5']
             )
         )
     ));
@@ -49,44 +51,51 @@ get_header();
         <div class="container">
             <div class="grid place-content-center gap-10 lg:grid-cols-2">
                 <div class="mx-auto flex max-w-screen-md flex-col items-center justify-center gap-4 lg:items-start">
+                    <?php 
+                    $formacion = get_field('formacion_digital');
+                    ?>
                     <div class="rounded-full border font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 text-foreground flex items-center gap-1 px-2.5 py-1.5 text-sm">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-graduation-cap h-auto w-4">
                             <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
                             <path d="M6 12v5c3 3 9 3 12 0v-5"/>
                         </svg>
-                        Academia Digital-IA
+                        <?php echo esc_html($formacion['badge_text']); ?>
                     </div>
-                    <h2 class="text-center text-3xl font-semibold lg:text-left lg:text-4xl">Formación para la era digital</h2>
-                    <p class="text-center text-muted-foreground lg:text-left lg:text-lg">Academia Digital-IA es un ecosistema de soluciones tecnológicas diseñado para ofrecer servicios educativos e informativos que te preparan para los desafíos de las tecnologías emergentes.</p>
-                    <a href="#cursos" class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-11 rounded-md px-8">Conoce los programas</a>
+                    <h2 class="text-center text-3xl font-semibold lg:text-left lg:text-4xl"><?php echo esc_html($formacion['title']); ?></h2>
+                    <p class="text-center text-muted-foreground lg:text-left lg:text-lg"><?php echo esc_html($formacion['description']); ?></p>
+                    <a href="<?php echo esc_url($formacion['cta']['url']); ?>" class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-11 rounded-md px-8"><?php echo esc_html($formacion['cta']['title']); ?></a>
                     <div class="mt-9 flex w-full flex-col justify-center gap-6 md:flex-row lg:justify-start">
                         <div class="flex justify-between gap-6">
                             <div class="mx-auto">
-                                <p class="mb-1.5 text-3xl font-bold">24/7</p>
-                                <p class="text-muted-foreground">Acceso</p>
+                                <p class="mb-1.5 text-3xl font-bold"><?php echo esc_html($formacion['feature_1']['number']); ?></p>
+                                <p class="text-muted-foreground"><?php echo esc_html($formacion['feature_1']['text']); ?></p>
                             </div>
                             <div data-orientation="vertical" role="none" class="shrink-0 bg-border w-[1px] h-auto"></div>
                             <div class="mx-auto">
-                                <p class="mb-1.5 text-3xl font-bold">100%</p>
-                                <p class="text-muted-foreground">Online</p>
+                                <p class="mb-1.5 text-3xl font-bold"><?php echo esc_html($formacion['feature_2']['number']); ?></p>
+                                <p class="text-muted-foreground"><?php echo esc_html($formacion['feature_2']['text']); ?></p>
                             </div>
                         </div>
                         <div data-orientation="vertical" role="none" class="shrink-0 bg-border w-[1px] hidden h-auto md:block"></div>
                         <div data-orientation="horizontal" role="none" class="shrink-0 bg-border h-[1px] w-full block md:hidden"></div>
                         <div class="flex justify-between gap-6">
                             <div class="mx-auto">
-                                <p class="mb-1.5 text-3xl font-bold">+700</p>
-                                <p class="text-muted-foreground">Contenidos</p>
+                                <p class="mb-1.5 text-3xl font-bold"><?php echo esc_html($formacion['feature_3']['number']); ?></p>
+                                <p class="text-muted-foreground"><?php echo esc_html($formacion['feature_3']['text']); ?></p>
                             </div>
                             <div data-orientation="vertical" role="none" class="shrink-0 bg-border w-[1px] h-auto"></div>
                             <div class="mx-auto">
-                                <p class="mb-1.5 text-3xl font-bold">100%</p>
-                                <p class="text-muted-foreground">Gratuito</p>
+                                <p class="mb-1.5 text-3xl font-bold"><?php echo esc_html($formacion['feature_4']['number']); ?></p>
+                                <p class="text-muted-foreground"><?php echo esc_html($formacion['feature_4']['text']); ?></p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <img src="https://www.shadcnblocks.com/images/block/placeholder-1.svg" alt="Academia Digital-IA" class="ml-auto max-h-[450px] w-full rounded-xl object-cover">
+                <div class="mx-auto">
+                    <?php if (!empty($formacion['image'])): ?>
+                        <img src="<?php echo esc_url($formacion['image']); ?>" alt="Academia Digital-IA" class="ml-auto max-h-[450px] w-full rounded-xl object-cover">
+                    <?php endif; ?>
+                </div>
             </div>
             <div class="mt-10 grid gap-6 md:grid-cols-3">
                 <div class="flex flex-col gap-4">
@@ -132,9 +141,10 @@ get_header();
 
     <section id="registro" class="bg-yellow-200 text-yellow-950 py-32">
         <div class="container">
+            <?php $registration = get_field('registration_steps'); ?>
             <div class="mx-auto flex max-w-screen-md flex-col justify-center gap-7 md:text-center">
-                <h2 class="text-2xl md:text-4xl">Regístrate en 3 Simples Pasos</h2>
-                <p class="text-sm md:text-base">Accede a nuestra plataforma educativa de manera rápida y sencilla para comenzar tu viaje de aprendizaje en alfabetización mediática e informacional.</p>
+                <h2 class="text-2xl md:text-4xl"><?php echo esc_html($registration['title']); ?></h2>
+                <p class="text-sm md:text-base"><?php echo esc_html($registration['description']); ?></p>
             </div>
             <div class="mx-auto mt-14 flex max-w-screen-lg flex-col gap-4 lg:px-16">
                 <div class="flex flex-col items-center justify-between min-[960px]:flex-row min-[960px]:gap-10">
@@ -145,11 +155,11 @@ get_header();
                             <span class="h-20 w-[3px] shrink-0 bg-gradient-to-b from-transparent to-yellow-500 opacity-70"></span>
                         </div>
                         <div class="flex flex-col justify-center gap-5 px-0 min-[960px]:gap-6 min-[960px]:p-4">
-                            <h3 class="text-xl min-[960px]:text-2xl">Crea tu Cuenta</h3>
-                            <p class="text-sm min-[960px]:text-base">Completa un sencillo formulario con tus datos básicos para crear tu perfil en la plataforma Academia Digital-IA.</p>
+                            <h3 class="text-xl min-[960px]:text-2xl"><?php echo esc_html($registration['step_1']['title']); ?></h3>
+                            <p class="text-sm min-[960px]:text-base"><?php echo esc_html($registration['step_1']['description']); ?></p>
                         </div>
                     </div>
-                    <img src="/wp-content/uploads/2024/12/hero-sections.webp" alt="Crear cuenta" class="z-10 aspect-video w-full rounded-xl border object-cover min-[960px]:max-h-56 min-[960px]:w-auto">
+                    <img src="<?php echo esc_url($registration['step_1']['image']); ?>" alt="<?php echo esc_attr($registration['step_1']['title']); ?>" class="z-10 aspect-video w-full rounded-xl border object-cover min-[960px]:max-h-56 min-[960px]:w-auto">
                 </div>
                 <div class="flex flex-col items-center justify-between min-[960px]:flex-row min-[960px]:gap-10">
                     <div class="flex gap-4 min-[960px]:max-w-md">
@@ -161,11 +171,11 @@ get_header();
                             <span class="h-20 w-[3px] shrink-0 bg-yellow-500 opacity-70"></span>
                         </div>
                         <div class="flex flex-col justify-center gap-5 px-0 min-[960px]:gap-6 min-[960px]:p-4">
-                            <h3 class="text-xl min-[960px]:text-2xl">Explora el Catálogo</h3>
-                            <p class="text-sm min-[960px]:text-base">Descubre nuestra amplia biblioteca de contenidos educativos y selecciona los cursos que más te interesen.</p>
+                            <h3 class="text-xl min-[960px]:text-2xl"><?php echo esc_html($registration['step_2']['title']); ?></h3>
+                            <p class="text-sm min-[960px]:text-base"><?php echo esc_html($registration['step_2']['description']); ?></p>
                         </div>
                     </div>
-                    <img src="/wp-content/uploads/2024/12/icon-sections.webp" alt="Explorar catálogo" class="z-10 max-h-56 w-full rounded-xl border object-cover min-[960px]:aspect-video min-[960px]:w-auto">
+                    <img src="<?php echo esc_url($registration['step_2']['image']); ?>" alt="<?php echo esc_attr($registration['step_2']['title']); ?>" class="z-10 max-h-56 w-full rounded-xl border object-cover min-[960px]:aspect-video min-[960px]:w-auto">
                 </div>
                 <div class="flex flex-col items-center justify-between min-[960px]:flex-row min-[960px]:gap-10">
                     <div class="flex gap-4 min-[960px]:max-w-md">
@@ -175,11 +185,11 @@ get_header();
                             <span class="h-20 shrink-0"></span>
                         </div>
                         <div class="flex flex-col justify-center gap-5 px-0 min-[960px]:gap-6 min-[960px]:p-4">
-                            <h3 class="text-xl min-[960px]:text-2xl">Comienza a Aprender</h3>
-                            <p class="text-sm min-[960px]:text-base">Accede inmediatamente a los cursos seleccionados y comienza tu formación en alfabetización mediática e informacional.</p>
+                            <h3 class="text-xl min-[960px]:text-2xl"><?php echo esc_html($registration['step_3']['title']); ?></h3>
+                            <p class="text-sm min-[960px]:text-base"><?php echo esc_html($registration['step_3']['description']); ?></p>
                         </div>
                     </div>
-                    <img src="/wp-content/uploads/2024/12/features-navs.webp" alt="Comenzar aprendizaje" class="z-10 max-h-56 w-full rounded-xl border object-cover min-[960px]:aspect-video min-[960px]:w-auto">
+                    <img src="<?php echo esc_url($registration['step_3']['image']); ?>" alt="<?php echo esc_attr($registration['step_3']['title']); ?>" class="z-10 max-h-56 w-full rounded-xl border object-cover min-[960px]:aspect-video min-[960px]:w-auto">
                 </div>
             </div>
         </div>
@@ -187,12 +197,13 @@ get_header();
 
     <section id="cursos" class="py-32">
         <div class="container flex flex-col items-center gap-16 lg:px-16">
+            <?php $courses = get_field('courses_section'); ?>
             <div class="text-center">
                 <p class="mb-6 text-xs font-medium uppercase tracking-wider">Formación Digital</p>
-                <h2 class="mb-3 text-pretty text-3xl font-semibold md:mb-4 md:text-4xl lg:mb-6 lg:max-w-3xl lg:text-5xl">Cursos de Alfabetización Mediática e Informacional</h2>
-                <p class="mb-8 text-muted-foreground md:text-base lg:max-w-2xl lg:text-lg">Explora nuestro catálogo de cursos diseñados para desarrollar habilidades críticas en el uso de tecnologías emergentes y la navegación del mundo digital.</p>
-                <a href="/plataforma/courses" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-primary underline-offset-4 hover:underline h-10 px-4 py-2 w-full sm:w-auto">
-                    Ver todos los cursos
+                <h2 class="mb-3 text-pretty text-3xl font-semibold md:mb-4 md:text-4xl lg:mb-6 lg:max-w-3xl lg:text-5xl"><?php echo esc_html($courses['title']); ?></h2>
+                <p class="mb-8 text-muted-foreground md:text-base lg:max-w-2xl lg:text-lg"><?php echo esc_html($courses['description']); ?></p>
+                <a href="<?php echo esc_url($courses['cta']['url']); ?>" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-primary underline-offset-4 hover:underline h-10 px-4 py-2 w-full sm:w-auto">
+                    <?php echo esc_html($courses['cta']['title']); ?>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right ml-2 size-4">
                         <path d="M5 12h14"></path>
                         <path d="m12 5 7 7-7 7"></path>
@@ -273,7 +284,7 @@ get_header();
                                         <p class="text-sm text-muted-foreground"><?php echo esc_html($tab_description); ?></p>
                                     </div>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down h-4 w-4 shrink-0 transition-transform duration-200">
-                                        <path d="m6 9 6 6 6-6"></path>
+                                        <path d="m6 9 6 6 6-6-6-6"></path>
                                     </svg>
                                 </button>
                             </h3>
@@ -347,66 +358,44 @@ get_header();
 
     <section id="comparacion" class="py-32">
         <div class="container">
+            <?php $comparison = get_field('comparison_section'); ?>
             <div class="mx-auto grid max-w-screen-xl gap-y-6 lg:grid-cols-2">
                 <div class="rounded-md border p-6 md:p-10 lg:rounded-l-md lg:rounded-r-none lg:border-y lg:border-l lg:border-r-0">
-                    <h2 class="mb-6 text-3xl font-semibold md:text-4xl">Cursos Comerciales Tradicionales</h2>
-                    <p class="mb-6 text-lg text-muted-foreground">Los cursos comerciales tradicionales suelen presentar limitaciones que pueden afectar tu experiencia de aprendizaje y desarrollo profesional.</p>
+                    <h2 class="mb-6 text-3xl font-semibold md:text-4xl"><?php echo esc_html($comparison['traditional_courses']['title']); ?></h2>
+                    <p class="mb-6 text-lg text-muted-foreground"><?php echo esc_html($comparison['traditional_courses']['description']); ?></p>
                     <div class="mt-10">
-                        <div class="flex items-center gap-7 py-6">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock h-auto w-8 shrink-0">
-                                <circle cx="12" cy="12" r="10"/>
-                                <polyline points="12 6 12 12 16 14"/>
-                            </svg>
-                            <p>Cursos extensos que requieren mayor inversión de tiempo y recursos.</p>
-                        </div>
-                        <div class="flex items-center gap-7 border-y border-dashed border-primary py-6">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wallet h-auto w-8 shrink-0">
-                                <path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/>
-                                <path d="M3 5v14a2 2 0 0 0 2 2h16v-5"/>
-                                <path d="M18 12a2 2 0 0 0 0 4h4v-4Z"/>
-                            </svg>
-                            <p>Acceso limitado al contenido y costos recurrentes de suscripción.</p>
-                        </div>
-                        <div class="flex items-center gap-7 py-6">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open h-auto w-8 shrink-0">
-                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
-                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
-                            </svg>
-                            <p>Contenido generalista que no se enfoca en tecnologías emergentes ni IA.</p>
-                        </div>
+                        <?php if (!empty($comparison['traditional_courses']['features'])) : ?>
+                            <?php 
+                            $feature_count = 0;
+                            foreach ($comparison['traditional_courses']['features'] as $feature) : 
+                                $feature_count++;
+                                $class = $feature_count === 2 ? 'border-y border-dashed border-primary' : '';
+                            ?>
+                                <div class="flex items-center gap-7 <?php echo $class; ?> py-6">
+                                    <i class="fa <?php echo esc_attr($feature['icon']); ?> h-auto w-8 shrink-0"></i>
+                                    <p><?php echo esc_html($feature['text']); ?></p>
+                                </div>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
                     </div>
                 </div>
                 <div class="rounded-md border border-yellow-300 bg-yellow-200 p-6 text-yellow-950 md:p-10 lg:rounded-l-none lg:rounded-r-md">
-                    <h2 class="mb-6 text-3xl font-semibold md:text-4xl">Academia Digital-IA</h2>
-                    <p class="mb-6 text-lg text-yellow-950">Nuestra plataforma está diseñada para ofrecer una experiencia de aprendizaje superior, adaptada a las necesidades actuales.</p>
-                    <div class="flex flex-col gap-4">
-                        <a href="#" class="flex items-center gap-2 text-lg font-medium">Access documentation <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right h-auto w-4">
-                            <path d="M5 12h14"></path>
-                            <path d="m12 5 7 7-7 7"></path>
-                            </svg>
-                        </a>
-                    </div>
+                    <h2 class="mb-6 text-3xl font-semibold md:text-4xl"><?php echo esc_html($comparison['digitalia_courses']['title']); ?></h2>
+                    <p class="mb-6 text-lg text-yellow-950"><?php echo esc_html($comparison['digitalia_courses']['description']); ?></p>
                     <div class="mt-10">
-                        <div class="flex items-center gap-7 py-6">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap h-auto w-8 shrink-0">
-                                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-                            </svg>
-                            <p>Cursos concisos y efectivos, diseñados por expertos en tecnologías emergentes.</p>
-                        </div>
-                        <div class="flex items-center gap-7 border-y border-dashed border-yellow-800 py-6">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-infinity h-auto w-8 shrink-0">
-                                <path d="M12 12c-2-2.67-4-4-6-4a4 4 0 1 0 0 8c2 0 4-1.33 6-4Zm0 0c2 2.67 4 4 6 4a4 4 0 0 0 0-8c-2 0-4 1.33-6 4Z"/>
-                            </svg>
-                            <p>Acceso gratuito y permanente a todo el contenido de la plataforma.</p>
-                        </div>
-                        <div class="flex items-center gap-7 py-6">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-database h-auto w-8 shrink-0">
-                                <ellipse cx="12" cy="5" rx="9" ry="3"/>
-                                <path d="M3 5V19A9 3 0 0 0 21 19V5"/>
-                                <path d="M3 12A9 3 0 0 0 21 12"/>
-                            </svg>
-                            <p>Extensa base de datos enfocada en IA y tecnologías emergentes.</p>
-                        </div>
+                        <?php if (!empty($comparison['digitalia_courses']['features'])) : ?>
+                            <?php 
+                            $feature_count = 0;
+                            foreach ($comparison['digitalia_courses']['features'] as $feature) : 
+                                $feature_count++;
+                                $class = $feature_count === 2 ? 'border-y border-dashed border-yellow-800' : '';
+                            ?>
+                                <div class="flex items-center gap-7 <?php echo $class; ?> py-6">
+                                    <i class="fa <?php echo esc_attr($feature['icon']); ?> h-auto w-8 shrink-0"></i>
+                                    <p><?php echo esc_html($feature['text']); ?></p>
+                                </div>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>

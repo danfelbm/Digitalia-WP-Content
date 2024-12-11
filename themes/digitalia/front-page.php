@@ -30,13 +30,21 @@ get_header();
 
 	<section class="py-32">
 		<div class="container">
-			<div class="flex items-center justify-center rounded-2xl border bg-[url('https://www.shadcnblocks.com/images/block/circles.svg')] bg-cover bg-center px-8 py-20 text-center md:p-20">
+			<div class="flex items-center justify-center rounded-2xl border bg-[url('<?php echo get_field('intro_background') ?: 'https://www.shadcnblocks.com/images/block/circles.svg'; ?>')] bg-cover bg-center px-8 py-20 text-center md:p-20">
 				<div class="mx-auto max-w-screen-md">
-					<h1 class="mb-4 text-balance text-3xl font-semibold md:text-5xl">Únete a la revolución educativa digital</h1>
-					<p class="text-muted-foreground md:text-lg">Explora Digital-IA, un programa innovador de alfabetización mediática e informacional. Desarrolla habilidades digitales y contribuye a la construcción de paz a través de la educomunicación.</p>
+					<h1 class="mb-4 text-balance text-3xl font-semibold md:text-5xl"><?php echo get_field('intro_title'); ?></h1>
+					<p class="text-muted-foreground md:text-lg"><?php echo get_field('intro_description'); ?></p>
 					<div class="mt-11 flex flex-col justify-center gap-2 sm:flex-row">
-						<button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-11 rounded-md px-8">Comenzar Ahora</button>
-						<button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-11 rounded-md px-8">Saber Más</button>
+						<?php if ($primary_button = get_field('intro_primary_button')): ?>
+						<a href="<?php echo esc_url($primary_button['url']); ?>" class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-11 rounded-md px-8">
+							<?php echo esc_html($primary_button['text']); ?>
+						</a>
+						<?php endif; ?>
+						<?php if ($secondary_button = get_field('intro_secondary_button')): ?>
+						<a href="<?php echo esc_url($secondary_button['url']); ?>" class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-11 rounded-md px-8">
+							<?php echo esc_html($secondary_button['text']); ?>
+						</a>
+						<?php endif; ?>
 					</div>
 				</div>
 			</div>

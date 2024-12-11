@@ -567,6 +567,30 @@ function digitalia_register_series_post_type() {
 add_action( 'init', 'digitalia_register_series_post_type' );
 
 /**
+ * Register Hero Block
+ */
+function digitalia_register_hero_block() {
+    if ( ! function_exists( 'register_block_type' ) ) {
+        return;
+    }
+
+    // Register the block
+    register_block_type( get_template_directory() . '/blocks/hero' );
+}
+add_action( 'init', 'digitalia_register_hero_block' );
+
+/**
+ * Load ACF Fields
+ */
+require get_template_directory() . '/inc/acf_fields/frontpage-acf-fields.php';
+require get_template_directory() . '/inc/acf_fields/modulos-acf-fields.php';
+require get_template_directory() . '/inc/acf_fields/academia-acf-fields.php';
+require get_template_directory() . '/inc/acf_fields/enlinea-acf-fields.php';
+require get_template_directory() . '/inc/acf_fields/queesdigitalia-acf-fields.php';
+
+add_action('acf/init', 'digitalia_register_acf_fields');
+
+/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';

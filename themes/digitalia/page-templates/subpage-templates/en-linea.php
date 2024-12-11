@@ -11,21 +11,22 @@ get_header();
 <main id="primary" class="site-main">
     <?php
     get_template_part('template-parts/subpage-header', null, array(
-        'title' => 'En Línea',
-        'subtitle' => 'Serie web que explora historias de transformación digital y paz mediática en Colombia',
+        'title' => get_field('enlinea_header')['title'],
+        'subtitle' => get_field('enlinea_header')['subtitle'],
         'show_cta' => true,
-        'cta_text' => 'Ver episodios',
-        'cta_url' => '/video'
+        'cta_text' => get_field('enlinea_header')['cta']['title'],
+        'cta_url' => get_field('enlinea_header')['cta']['url']
     ));
     ?>
     
     <?php
+    $nav_items = get_field('enlinea_nav');
     get_template_part('template-parts/floating-nav', null, array(
         'nav_items' => array(
-            array('anchor' => 'la-historia', 'text' => 'La Historia'),
-            array('anchor' => 'ver-episodios', 'text' => 'Ver Episodios'),
-            array('anchor' => 'personajes', 'text' => 'Personajes'),
-            array('anchor' => 'blog', 'text' => 'Blog'),
+            array('anchor' => 'la-historia', 'text' => $nav_items['item1_text']),
+            array('anchor' => 'ver-episodios', 'text' => $nav_items['item2_text']),
+            array('anchor' => 'personajes', 'text' => $nav_items['item3_text']),
+            array('anchor' => 'blog', 'text' => $nav_items['item4_text']),
         )
     ));
     ?>
@@ -34,52 +35,71 @@ get_header();
         <div class="container">
             <div class="grid items-center gap-10 md:gap-20 lg:grid-cols-2">
                 <div class="flex flex-col gap-2.5 py-8">
-                    <h1 class="text-4xl font-bold lg:text-5xl">Serie Web y Alfabetización Mediática</h1>
-                    <p class="text-muted-foreground">Explorando historias de innovación y cambio social a través del Gobierno del Cambio, las tecnologías y la paz mediática en Colombia.</p>
+                    <h1 class="text-4xl font-bold lg:text-5xl"><?php echo get_field('enlinea_main_content')['main_title']; ?></h1>
+                    <p class="text-muted-foreground"><?php echo get_field('enlinea_main_content')['main_description']; ?></p>
                     <div class="flex flex-col gap-6 py-10 sm:flex-row sm:gap-16">
                         <div class="flex gap-4 leading-5">
                             <span class="relative flex shrink-0 overflow-hidden size-9 rounded-full ring-1 ring-input">
-                                <img class="aspect-square h-full w-full" alt="avatar" src="https://www.shadcnblocks.com/images/block/avatar-1.webp">
+                                <?php 
+                                $member1 = get_field('enlinea_team')['member_1'];
+                                $member1_image = $member1['image'];
+                                ?>
+                                <img class="aspect-square h-full w-full" alt="<?php echo esc_attr($member1['name']); ?>" 
+                                     src="<?php echo esc_url($member1_image['url']); ?>">
                             </span>
                             <div class="text-sm">
-                                <p class="font-medium">María González</p>
-                                <p class="text-muted-foreground">Directora de Proyecto</p>
+                                <p class="font-medium"><?php echo $member1['name']; ?></p>
+                                <p class="text-muted-foreground"><?php echo $member1['position']; ?></p>
                             </div>
                         </div>
                         <div class="flex gap-4 leading-5">
                             <span class="relative flex shrink-0 overflow-hidden size-9 rounded-full ring-1 ring-input">
-                                <img class="aspect-square h-full w-full" alt="avatar" src="https://www.shadcnblocks.com/images/block/avatar-2.webp">
+                                <?php 
+                                $member2 = get_field('enlinea_team')['member_2'];
+                                $member2_image = $member2['image'];
+                                ?>
+                                <img class="aspect-square h-full w-full" alt="<?php echo esc_attr($member2['name']); ?>" 
+                                     src="<?php echo esc_url($member2_image['url']); ?>">
                             </span>
                             <div class="text-sm">
-                                <p class="font-medium">Carlos Ramírez</p>
-                                <p class="text-muted-foreground">Director Creativo</p>
+                                <p class="font-medium"><?php echo $member2['name']; ?></p>
+                                <p class="text-muted-foreground"><?php echo $member2['position']; ?></p>
                             </div>
                         </div>
                     </div>
-                    <a href="#ver-episodios" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-red-500 text-primary-foreground hover:bg-red-600 h-10 px-4 py-2 w-fit">
-                        Ver Episodios
+                    <?php 
+                    $cta_button = get_field('enlinea_main_content')['cta_button'];
+                    if ($cta_button): ?>
+                    <a href="<?php echo esc_url($cta_button['url']); ?>" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-red-500 text-primary-foreground hover:bg-red-600 h-10 px-4 py-2 w-fit">
+                        <?php echo esc_html($cta_button['title']); ?>
                     </a>
+                    <?php endif; ?>
                 </div>
-                <img src="https://www.shadcnblocks.com/images/block/placeholder-1.svg" alt="Digital-IA Hero" class="h-full max-h-[420px] w-full rounded-xl object-cover">
+                <?php 
+                $main_image = get_field('enlinea_main_content')['main_image'];
+                if ($main_image): ?>
+                <img src="<?php echo esc_url($main_image['url']); ?>" 
+                     alt="<?php echo esc_attr($main_image['alt']); ?>" 
+                     class="h-full max-h-[420px] w-full rounded-xl object-cover">
+                <?php endif; ?>
             </div>
             <div data-orientation="horizontal" role="none" class="shrink-0 bg-border h-[1px] w-full my-12"></div>
             <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+                <?php 
+                $stats = get_field('enlinea_stats');
+                $stat_items = array(
+                    $stats['stat_1'],
+                    $stats['stat_2'],
+                    $stats['stat_3'],
+                    $stats['stat_4']
+                );
+                
+                foreach ($stat_items as $stat): ?>
                 <div>
-                    <h2 class="mb-2 text-4xl text-red-500 font-semibold md:text-6xl">32+</h2>
-                    <p class="text-muted-foreground">Departamentos alcanzados</p>
+                    <h2 class="mb-2 text-4xl text-red-500 font-semibold md:text-6xl"><?php echo esc_html($stat['number']); ?></h2>
+                    <p class="text-muted-foreground"><?php echo esc_html($stat['label']); ?></p>
                 </div>
-                <div>
-                    <h2 class="mb-2 text-4xl text-red-500 font-semibold md:text-6xl">1000+</h2>
-                    <p class="text-muted-foreground">Historias documentadas</p>
-                </div>
-                <div>
-                    <h2 class="mb-2 text-4xl text-red-500 font-semibold md:text-6xl">12</h2>
-                    <p class="text-muted-foreground">Episodios producidos</p>
-                </div>
-                <div>
-                    <h2 class="mb-2 text-4xl text-red-500 font-semibold md:text-6xl">>50k</h2>
-                    <p class="text-muted-foreground">Espectadores alcanzados</p>
-                </div>
+                <?php endforeach; ?>
             </div>
         </div>
     </section>
@@ -87,29 +107,38 @@ get_header();
     <!-- section la historia -->
     <section class="py-32">
         <div>
-            <div id="la-historia" class="flex py-40 items-center justify-center bg-[linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),url(&quot;https://images.unsplash.com/photo-1536735561749-fc87494598cb?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2NDI3NzN8MHwxfGFsbHwxNzd8fHx8fHwyfHwxNzIzNjM0NDc0fA&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080&quot;)] bg-cover bg-center">
+            <?php $historia = get_field('enlinea_historia'); ?>
+            <div id="la-historia" class="flex py-40 items-center justify-center bg-[linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),url('<?php echo esc_url($historia['background_image']); ?>')] bg-cover bg-center">
                 <div class="flex flex-col gap-8 text-center text-primary-foreground max-w-6xl mx-auto px-4 md:px-8">
                     <div class="flex items-center justify-center gap-2 text-2xl font-medium">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap h-full w-7">
                             <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path>
                         </svg> 
-                        La Historia
+                        <?php echo esc_html($historia['subtitle']); ?>
                     </div>
-                    <h2 class="text-5xl font-bold">Una Serie Web que Transforma Vidas</h2>
+                    <h2 class="text-5xl font-bold"><?php echo esc_html($historia['title']); ?></h2>
                     <div class="py-8 grid grid-cols-1 md:grid-cols-2 gap-8 text-left text-lg">
                         <div>
-                            <p class="mb-4">"En Línea" es una serie web de 20 episodios que sigue las vidas entrelazadas de jóvenes colombianos mientras navegan por los desafíos de la era digital. A través de historias profundamente humanas, exploramos cómo la transformación digital está cambiando la forma en que nos relacionamos, aprendemos y vivimos.</p>
-                            <p>La serie recorre diversos rincones de Colombia, desde las calles de Bogotá hasta las comunidades rurales, mostrando cómo la alfabetización mediática se convierte en una herramienta de empoderamiento y cambio social.</p>
+                            <?php echo wpautop(esc_html($historia['column_1'])); ?>
                         </div>
                         <div>
-                            <p class="mb-4">Cada episodio de 15 minutos teje una narrativa cautivadora donde nuestros personajes enfrentan dilemas éticos, descubren el poder de la información y aprenden a navegar en un mundo cada vez más conectado, mientras forjan amistades y relaciones que trascienden las pantallas.</p>
-                            <p>Una historia que combina drama, educación y esperanza, mostrando cómo la alfabetización mediática puede transformar vidas y comunidades enteras en la era de la información digital.</p>
+                            <?php echo wpautop(esc_html($historia['column_2'])); ?>
                         </div>
                     </div>
                     <div class="flex flex-col justify-center gap-2 sm:flex-row pb-16">
-                        <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-11 rounded-md px-8 bg-red-500 text-white hover:bg-red-600">Conoce Más</button>
+                        <?php if ($historia['cta_primary']): ?>
+                        <a href="<?php echo esc_url($historia['cta_primary']['url']); ?>" 
+                           class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-11 rounded-md px-8 bg-red-500 text-white hover:bg-red-600">
+                            <?php echo esc_html($historia['cta_primary']['title']); ?>
+                        </a>
+                        <?php endif; ?>
 
-                        <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border-input h-11 rounded-md px-8 border-0 bg-background/20 backdrop-blur-sm hover:bg-background/30 hover:text-primary-foreground">Contáctanos</button>
+                        <?php if ($historia['cta_secondary']): ?>
+                        <a href="<?php echo esc_url($historia['cta_secondary']['url']); ?>" 
+                           class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border-input h-11 rounded-md px-8 border-0 bg-background/20 backdrop-blur-sm hover:bg-background/30 hover:text-primary-foreground">
+                            <?php echo esc_html($historia['cta_secondary']['title']); ?>
+                        </a>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
@@ -120,20 +149,51 @@ get_header();
     <section class="relative -mt-72 md:-mt-32">
         <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <?php $screenshots = get_field('enlinea_screenshots'); ?>
                 <!-- Column 1 -->
                 <div class="flex flex-col gap-6 md:-translate-y-12">
-                    <img src="/wp-content/uploads/2024/12/yvuqlyrljsw.jpg" alt="Screenshot 1" class="w-full rounded-2xl" />
-                    <img src="/wp-content/uploads/2024/12/71shxwblp5w.jpg" alt="Screenshot 4" class="w-full rounded-2xl" />
+                    <?php 
+                    $col1 = $screenshots['column_1'];
+                    if ($col1['image_1']): ?>
+                        <img src="<?php echo esc_url($col1['image_1']['url']); ?>" 
+                             alt="<?php echo esc_attr($col1['image_1']['alt']); ?>" 
+                             class="w-full rounded-2xl" />
+                    <?php endif; 
+                    if ($col1['image_2']): ?>
+                        <img src="<?php echo esc_url($col1['image_2']['url']); ?>" 
+                             alt="<?php echo esc_attr($col1['image_2']['alt']); ?>" 
+                             class="w-full rounded-2xl" />
+                    <?php endif; ?>
                 </div>
                 <!-- Column 2 (offset up) -->
                 <div class="flex flex-col gap-6 md:-translate-y-32">
-                    <img src="/wp-content/uploads/2024/12/2upcveoxoxc.jpg" alt="Screenshot 2" class="w-full rounded-2xl" />
-                    <img src="/wp-content/uploads/2024/12/rncpixixooy.jpg" alt="Screenshot 5" class="w-full rounded-2xl" />
+                    <?php 
+                    $col2 = $screenshots['column_2'];
+                    if ($col2['image_1']): ?>
+                        <img src="<?php echo esc_url($col2['image_1']['url']); ?>" 
+                             alt="<?php echo esc_attr($col2['image_1']['alt']); ?>" 
+                             class="w-full rounded-2xl" />
+                    <?php endif; 
+                    if ($col2['image_2']): ?>
+                        <img src="<?php echo esc_url($col2['image_2']['url']); ?>" 
+                             alt="<?php echo esc_attr($col2['image_2']['alt']); ?>" 
+                             class="w-full rounded-2xl" />
+                    <?php endif; ?>
                 </div>
                 <!-- Column 3 (no offset) -->
                 <div class="flex flex-col gap-6 md:-translate-y-12">
-                    <img src="/wp-content/uploads/2024/12/mzjobxoxbt0.jpg" alt="Screenshot 3" class="w-full rounded-2xl" />
-                    <img src="/wp-content/uploads/2024/12/lme2ye2jvo8.jpg" class="w-full rounded-2xl" />
+                    <?php 
+                    $col3 = $screenshots['column_3'];
+                    if ($col3['image_1']): ?>
+                        <img src="<?php echo esc_url($col3['image_1']['url']); ?>" 
+                             alt="<?php echo esc_attr($col3['image_1']['alt']); ?>" 
+                             class="w-full rounded-2xl" />
+                    <?php endif; 
+                    if ($col3['image_2']): ?>
+                        <img src="<?php echo esc_url($col3['image_2']['url']); ?>" 
+                             alt="<?php echo esc_attr($col3['image_2']['alt']); ?>" 
+                             class="w-full rounded-2xl" />
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
@@ -156,8 +216,9 @@ get_header();
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="mb-8 flex items-end justify-between md:mb-14 lg:mb-16">
                 <div class="max-w-4xl">
-                    <h2 class="text-3xl font-medium md:text-4xl lg:text-5xl mb-8">Episodios</h2>
-                    <p class="text-2xl md:text-4xl lg:text-2xl md:text-base">Ya han salido dos temporadas con 20 episodios en total, que abordan la alfabetización mediática de una forma innovadora y emocionante. A través de la ficción, exploramos los desafíos del mundo real y cómo la transformación digital está cambiando la forma en que nos relacionamos, aprendemos y vivimos.</p>
+                    <?php $episodes_header = get_field('enlinea_episodes_header'); ?>
+                    <h2 class="text-3xl font-medium md:text-4xl lg:text-5xl mb-8"><?php echo esc_html($episodes_header['title']); ?></h2>
+                    <p class="text-2xl md:text-4xl lg:text-2xl md:text-base"><?php echo esc_html($episodes_header['description']); ?></p>
                 </div>
                 <div class="hidden shrink-0 gap-2 md:flex">
                     <button class="carousel-prev inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10 disabled:pointer-events-auto">
@@ -193,9 +254,7 @@ get_header();
                                         if (!empty($temporadas) && !is_wp_error($temporadas)) {
                                             $temporada = $temporadas[0]; // Get the first temporada
                                         ?>
-                                            <span class="mb-2 inline-flex items-center rounded-full bg-red-500 px-3 py-1 text-xs font-medium text-white">
-                                                <?php echo esc_html($temporada->name); ?>
-                                            </span>
+                                            <span class="mb-2 inline-flex items-center rounded-full bg-red-500 px-3 py-1 text-xs font-medium text-white"><?php echo esc_html($temporada->name); ?></span>
                                         <?php } ?>
                                         <div class="mb-2 pt-4 text-xl font-semibold md:mb-3 md:pt-4 lg:pt-4"><?php the_title(); ?></div>
                                         <div class="mb-8 line-clamp-2 md:mb-12 lg:mb-9"><?php 
@@ -245,8 +304,9 @@ get_header();
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="mb-8 flex items-end justify-between md:mb-14 lg:mb-16">
                 <div class="max-w-4xl">
-                    <h2 class="text-3xl font-medium md:text-4xl lg:text-5xl mb-8">Personajes</h2>
-                    <p class="text-2xl md:text-4xl lg:text-2xl md:text-base">Conoce a los personajes que dan vida a esta historia.</p>
+                    <?php $characters_header = get_field('enlinea_characters_header'); ?>
+                    <h2 class="text-3xl font-medium md:text-4xl lg:text-5xl mb-8"><?php echo esc_html($characters_header['title']); ?></h2>
+                    <p class="text-2xl md:text-4xl lg:text-2xl md:text-base"><?php echo esc_html($characters_header['description']); ?></p>
                 </div>
                 <div class="hidden shrink-0 gap-2 md:flex">
                     <button class="carousel-prev inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10 disabled:pointer-events-auto">
@@ -282,7 +342,10 @@ get_header();
                                         <?php endif; ?>
                                         <div class="absolute inset-0 h-full bg-gradient-to-b from-black/20 to-black/80 mix-blend-multiply"></div>
                                         <div class="absolute inset-x-0 bottom-0 flex flex-col items-start p-6 text-white md:p-8">
-                                            <span class="mb-2 inline-flex items-center rounded-full bg-red-500 px-3 py-1 text-xs font-medium text-white"><?php echo esc_html($serie->post_title); ?></span>
+                                            <?php
+                                            $temporada = $serie; // Get the first temporada
+                                            ?>
+                                            <span class="mb-2 inline-flex items-center rounded-full bg-red-500 px-3 py-1 text-xs font-medium text-white"><?php echo esc_html($temporada->post_title); ?></span>
                                             <div class="mb-2 pt-4 text-xl font-semibold md:mb-3 md:pt-4 lg:pt-4"><?php the_title(); ?></div>
                                             <?php if ($frase_celebre) : ?>
                                                 <div class="mb-8 line-clamp-2 md:mb-12 lg:mb-9"><?php echo esc_html($frase_celebre); ?></div>
@@ -320,6 +383,7 @@ get_header();
     <section id="blog" class="py-32">
         <div class="container">
             <div class="mx-auto flex max-w-screen-md flex-col items-center gap-4 text-center">
+                <?php $blog_header = get_field('enlinea_blog_header'); ?>
                 <div class="inline-flex items-center rounded-full border px-2.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 text-foreground gap-1 py-1">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text h-full w-4">
                         <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path>
@@ -328,10 +392,10 @@ get_header();
                         <path d="M16 13H8"></path>
                         <path d="M16 17H8"></path>
                     </svg>
-                    Nuestros Blogs
+                    <?php echo esc_html($blog_header['subtitle']); ?>
                 </div>
-                <h1 class="text-balance text-4xl font-semibold">Educación Digital para la Paz Mediática</h1>
-                <p class="text-muted-foreground">Explora nuestro blog para conocer artículos sobre alfabetización mediática, inteligencia artificial y transformación digital para la paz en Colombia.</p>
+                <h1 class="text-balance text-4xl font-semibold"><?php echo esc_html($blog_header['title']); ?></h1>
+                <p class="text-muted-foreground"><?php echo esc_html($blog_header['description']); ?></p>
             </div>
             
             <div class="mt-20 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -376,20 +440,21 @@ get_header();
     wp_reset_postdata();
     ?>
 
-    <?php
+    <?php 
+    $cta = get_field('enlinea_bottom_cta');
     get_template_part('template-parts/cta-modulos', null, array(
-        'title' => 'Únete a Academia',
-        'description' => 'Descubre una nueva forma de aprender y desarrollarte profesionalmente. Accede a todos nuestros módulos y contenido exclusivo.',
-        'cta_primary_text' => 'Comenzar ahora',
-        'cta_primary_url' => '/registro',
-        'cta_secondary_text' => 'Contactar con ventas',
-        'cta_secondary_url' => '/contacto',
-        'doc_title' => 'Planes y precios',
-        'doc_description' => 'Conoce nuestros planes y encuentra el que mejor se adapte a ti.',
-        'doc_url' => '/planes',
-        'guide_title' => 'Primeros pasos',
-        'guide_description' => 'Guía completa para comenzar tu viaje en Academia.',
-        'guide_url' => '/guia'
+        'title' => $cta['title'],
+        'description' => $cta['description'],
+        'cta_primary_text' => $cta['cta_primary_text'],
+        'cta_primary_url' => $cta['cta_primary_url'],
+        'cta_secondary_text' => $cta['cta_secondary_text'],
+        'cta_secondary_url' => $cta['cta_secondary_url'],
+        'doc_title' => $cta['doc_title'],
+        'doc_description' => $cta['doc_description'],
+        'doc_url' => $cta['doc_url'],
+        'guide_title' => $cta['guide_title'],
+        'guide_description' => $cta['guide_description'],
+        'guide_url' => $cta['guide_url']
     ));
     ?>
 
