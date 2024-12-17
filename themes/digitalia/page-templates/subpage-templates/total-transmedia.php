@@ -191,8 +191,8 @@ get_header();
     <section class="flex flex-col gap-16 lg:px-16 pt-16 text-blue-100 bg-blue-700">
         <div class="container mb-14 flex flex-col gap-16 lg:mb-16 lg:px-16">
             <div class="lg:max-w-lg">
-                <h2 class="mb-3 text-xl font-semibold md:mb-4 md:text-4xl lg:mb-6">Componentes Clave</h2>
-                <p class="mb-8 lg:text-lg">Explora los elementos fundamentales de nuestro programa de educomunicación y alfabetización mediática con énfasis en inteligencia artificial y enfoque de paz.</p>
+                <h2 class="mb-3 text-xl font-semibold md:mb-4 md:text-4xl lg:mb-6">Portafolio y componentes clave</h2>
+                <p class="mb-8 lg:text-lg">Explora los elementos fundamentales de nuestro programa de educomunicación, las estrategias, las herramientas de alfabetización mediática con énfasis en inteligencia artificial y enfoque de paz.</p>
                 <a href="#" class="group flex items-center text-xs font-medium md:text-base lg:text-lg">
                     Conoce más
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right ml-2 size-4 transition-transform group-hover:translate-x-1">

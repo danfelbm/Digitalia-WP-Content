@@ -221,8 +221,7 @@
 											<div class="w-48 bg-white rounded-md shadow-lg z-50">
 												<div class="py-1">
 													<a href="/biblioteca-digital/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Biblioteca Digitalia</a>
-													<a href="/video/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Kit social media</a>
-													<a href="/redes-sociales/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Redes sociales</a>
+													<a href="/kit-social-media/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Kit social media</a>
 												</div>
 											</div>
 										</div>
