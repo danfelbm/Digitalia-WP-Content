@@ -12,7 +12,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 	<script src="https://cdn.tailwindcss.com"></script>
-	<link rel="stylesheet" href="https://www.shadcnblocks.com/_astro/index.By6RUMn0.css">
+	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/blocks.css">
 	<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@700&family=Work+Sans:wght@400&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 	<!-- Add Radix UI -->
 	<script src="https://unpkg.com/@radix-ui/tabs@latest/dist/index.umd.js"></script>

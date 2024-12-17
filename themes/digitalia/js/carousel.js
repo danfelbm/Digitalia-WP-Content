@@ -1,184 +1,233 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const carousel = document.querySelector('.carousel-container');
-    const prevButton = document.querySelector('.carousel-prev');
-    const nextButton = document.querySelector('.carousel-next');
-
-    if (!carousel || !prevButton || !nextButton) return;
-
-    const slideWidth = 360; // Width of each slide including padding
-    let currentPosition = 0;
-    const slides = carousel.children;
-    const totalWidth = slides.length * slideWidth;
-    const viewportWidth = carousel.parentElement.offsetWidth;
-    
-    // Interaction handling variables
-    let startX = 0;
-    let isDragging = false;
-    let startPosition = 0;
-    let hasMoved = false;
-    
-    function updateButtons() {
-        prevButton.disabled = currentPosition >= 0;
-        nextButton.disabled = currentPosition <= -totalWidth + viewportWidth;
-    }
-
-    function setTransform(position, withTransition = true) {
-        carousel.style.transition = withTransition ? 'transform 0.3s ease-out' : 'none';
-        carousel.style.transform = `translateX(${position}px)`;
-    }
-
-    // Button click handler
-    function slide(direction) {
-        const step = direction * slideWidth;
-        let newPosition = currentPosition + step;
+    // Initialize traditional carousels
+    function initTraditionalCarousel() {
+        const carousels = document.querySelectorAll('.carousel-container');
         
-        // Prevent overscrolling
-        if (newPosition > 0) {
-            newPosition = 0;
-        } else if (newPosition < -totalWidth + viewportWidth) {
-            newPosition = -totalWidth + viewportWidth;
-        }
-        
-        currentPosition = newPosition;
-        setTransform(currentPosition);
-        updateButtons();
-    }
+        carousels.forEach(carousel => {
+            if (!carousel) return;
+            
+            const prevButton = carousel.closest('section').querySelector('.carousel-prev');
+            const nextButton = carousel.closest('section').querySelector('.carousel-next');
+            
+            if (!prevButton || !nextButton) return;
 
-    // Generic drag handler for both mouse and touch
-    function handleDragMove(clientX) {
-        if (!isDragging) return;
-        
-        const diff = clientX - startX;
-        let newPosition = startPosition + diff;
+            const slideWidth = 360; // Width of each slide including padding
+            let currentPosition = 0;
+            const slides = carousel.children;
+            const totalWidth = slides.length * slideWidth;
+            const viewportWidth = carousel.parentElement.offsetWidth;
+            
+            let startX = 0;
+            let isDragging = false;
+            let startPosition = 0;
+            let hasMoved = false;
 
-        // Add slight resistance at the edges
-        if (newPosition > 0) {
-            newPosition = newPosition * 0.5;
-        } else if (newPosition < -totalWidth + viewportWidth) {
-            const overscroll = newPosition + totalWidth - viewportWidth;
-            newPosition = -totalWidth + viewportWidth + (overscroll * 0.5);
-        }
+            function updateButtons() {
+                prevButton.disabled = currentPosition >= 0;
+                nextButton.disabled = currentPosition <= -totalWidth + viewportWidth;
+            }
 
-        setTransform(newPosition, false);
-        return newPosition;
-    }
+            function setTransform(position, withTransition = true) {
+                carousel.style.transition = withTransition ? 'transform 0.3s ease-out' : 'none';
+                carousel.style.transform = `translateX(${position}px)`;
+            }
 
-    // Mouse event handlers
-    function handleMouseDown(e) {
-        // Prevent default drag behavior
-        e.preventDefault();
-        isDragging = true;
-        startX = e.clientX;
-        startPosition = currentPosition;
-        setTransform(currentPosition, false);
-        
-        // Change cursor
-        carousel.style.cursor = 'grabbing';
-        carousel.style.userSelect = 'none';
-    }
+            function slide(direction) {
+                const step = direction * slideWidth;
+                let newPosition = currentPosition + step;
+                
+                if (newPosition > 0) {
+                    newPosition = 0;
+                } else if (newPosition < -totalWidth + viewportWidth) {
+                    newPosition = -totalWidth + viewportWidth;
+                }
+                
+                currentPosition = newPosition;
+                setTransform(currentPosition);
+                updateButtons();
+            }
 
-    function handleMouseMove(e) {
-        e.preventDefault();
-        if (handleDragMove(e.clientX)) {
-            hasMoved = true;
-        }
-    }
+            function handleDragStart(e) {
+                if (e.type === 'mousedown') {
+                    e.preventDefault();
+                }
+                isDragging = true;
+                startX = e.type === 'mousedown' ? e.clientX : e.touches[0].clientX;
+                startPosition = currentPosition;
+                setTransform(currentPosition, false);
+                
+                carousel.style.cursor = 'grabbing';
+                carousel.style.userSelect = 'none';
+            }
 
-    function handleMouseUp(e) {
-        if (!isDragging) return;
-        isDragging = false;
-        
-        // If we've dragged, prevent the upcoming click
-        if (hasMoved) {
-            e.preventDefault();
-            // Add click prevention for a short duration after drag
-            const preventClick = (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                carousel.removeEventListener('click', preventClick, true);
-            };
-            carousel.addEventListener('click', preventClick, true);
-        }
-        
-        // Reset cursor and flags
-        carousel.style.cursor = 'grab';
-        carousel.style.userSelect = '';
-        hasMoved = false;
-        
-        const finalPosition = parseFloat(carousel.style.transform.replace('translateX(', '').replace('px)', ''));
-        
-        // Bounce back if overscrolled
-        if (finalPosition > 0) {
-            currentPosition = 0;
-        } else if (finalPosition < -totalWidth + viewportWidth) {
-            currentPosition = -totalWidth + viewportWidth;
-        } else {
-            currentPosition = finalPosition;
-        }
-        
-        setTransform(currentPosition, true);
-        updateButtons();
-    }
+            function handleDragMove(e) {
+                if (!isDragging) return;
+                
+                const x = e.type === 'mousemove' ? e.clientX : e.touches[0].clientX;
+                const diff = x - startX;
+                let newPosition = startPosition + diff;
 
-    // Touch event handlers
-    function handleTouchStart(e) {
-        isDragging = true;
-        startX = e.touches[0].clientX;
-        startPosition = currentPosition;
-        setTransform(currentPosition, false);
-    }
+                if (newPosition > 0) {
+                    newPosition = newPosition * 0.5;
+                } else if (newPosition < -totalWidth + viewportWidth) {
+                    const overscroll = newPosition + totalWidth - viewportWidth;
+                    newPosition = -totalWidth + viewportWidth + (overscroll * 0.5);
+                }
 
-    function handleTouchMove(e) {
-        e.preventDefault();
-        handleDragMove(e.touches[0].clientX);
-    }
+                setTransform(newPosition, false);
+                hasMoved = true;
+            }
 
-    function handleTouchEnd(e) {
-        handleMouseUp(e);
-    }
+            function handleDragEnd() {
+                if (!isDragging) return;
+                isDragging = false;
+                
+                carousel.style.cursor = 'grab';
+                carousel.style.userSelect = '';
+                
+                const finalPosition = parseFloat(carousel.style.transform.replace('translateX(', '').replace('px)', ''));
+                
+                if (finalPosition > 0) {
+                    currentPosition = 0;
+                } else if (finalPosition < -totalWidth + viewportWidth) {
+                    currentPosition = -totalWidth + viewportWidth;
+                } else {
+                    currentPosition = finalPosition;
+                }
+                
+                setTransform(currentPosition, true);
+                updateButtons();
+                hasMoved = false;
+            }
 
-    // Add event listeners
-    prevButton.addEventListener('click', () => slide(1));
-    nextButton.addEventListener('click', () => slide(-1));
+            // Add event listeners
+            prevButton.addEventListener('click', () => slide(1));
+            nextButton.addEventListener('click', () => slide(-1));
 
-    // Mouse events
-    carousel.addEventListener('mousedown', handleMouseDown);
-    window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('mouseup', handleMouseUp);
-    carousel.addEventListener('mouseleave', handleMouseUp);
+            carousel.addEventListener('mousedown', handleDragStart);
+            carousel.addEventListener('touchstart', handleDragStart, { passive: true });
+            
+            window.addEventListener('mousemove', handleDragMove);
+            window.addEventListener('touchmove', handleDragMove, { passive: true });
+            
+            window.addEventListener('mouseup', handleDragEnd);
+            window.addEventListener('touchend', handleDragEnd);
+            carousel.addEventListener('mouseleave', handleDragEnd);
 
-    // Prevent default drag on all carousel items
-    Array.from(carousel.children).forEach(item => {
-        item.addEventListener('dragstart', e => e.preventDefault());
-    });
+            // Prevent default drag on carousel items
+            Array.from(carousel.children).forEach(item => {
+                item.addEventListener('dragstart', e => e.preventDefault());
+            });
 
-    // Touch events
-    carousel.addEventListener('touchstart', handleTouchStart, { passive: false });
-    carousel.addEventListener('touchmove', handleTouchMove, { passive: false });
-    carousel.addEventListener('touchend', handleTouchEnd);
-
-    // Prevent click events when dragging
-    carousel.addEventListener('click', (e) => {
-        if (isDragging) {
-            e.preventDefault();
-            e.stopPropagation();
-        }
-    }, true);
-
-    // Set initial grab cursor
-    carousel.style.cursor = 'grab';
-
-    // Initial button state
-    updateButtons();
-
-    // Handle window resize
-    let resizeTimer;
-    window.addEventListener('resize', () => {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(() => {
-            currentPosition = 0;
-            setTransform(0);
+            // Set initial state
+            carousel.style.cursor = 'grab';
             updateButtons();
-        }, 250);
-    });
+        });
+    }
+
+    // Initialize Radix UI carousels
+    function initRadixCarousel() {
+        const radixCarousels = document.querySelectorAll('[role="region"][aria-roledescription="carousel"]');
+        
+        radixCarousels.forEach(carousel => {
+            // Skip if it's a traditional carousel
+            if (carousel.querySelector('.carousel-container')) return;
+
+            const slides = carousel.querySelectorAll('[role="tabpanel"]');
+            const buttons = document.querySelectorAll('[role="radio"]');
+            
+            if (!slides.length || !buttons.length) return;
+
+            let currentIndex = 0;
+            let startX = 0;
+            let currentX = 0;
+            let isDragging = false;
+
+            function updateCarousel(index, withAnimation = true) {
+                const slideWidth = slides[0].offsetWidth;
+                const offset = -index * slideWidth;
+                
+                const container = carousel.querySelector('.flex');
+                container.style.transition = withAnimation ? 'transform 0.3s ease-out' : 'none';
+                container.style.transform = `translate3d(${offset}px, 0px, 0px)`;
+
+                buttons.forEach((button, i) => {
+                    button.setAttribute('aria-checked', i === index ? 'true' : 'false');
+                    button.setAttribute('data-state', i === index ? 'on' : 'off');
+                });
+
+                slides.forEach((slide, i) => {
+                    if (i === index) {
+                        slide.setAttribute('data-active', 'true');
+                        slide.setAttribute('tabindex', '0');
+                    } else {
+                        slide.setAttribute('data-active', 'false');
+                        slide.setAttribute('tabindex', '-1');
+                    }
+                });
+
+                currentIndex = index;
+            }
+
+            buttons.forEach((button, index) => {
+                button.addEventListener('click', () => {
+                    updateCarousel(index);
+                });
+            });
+
+            function handleDragStart(event) {
+                isDragging = true;
+                startX = event.type === 'mousedown' ? event.clientX : event.touches[0].clientX;
+                currentX = -currentIndex * slides[0].offsetWidth;
+                
+                const container = carousel.querySelector('.flex');
+                container.style.transition = 'none';
+            }
+
+            function handleDragMove(event) {
+                if (!isDragging) return;
+                event.preventDefault();
+
+                const x = event.type === 'mousemove' ? event.clientX : event.touches[0].clientX;
+                const diff = x - startX;
+                const newX = currentX + diff;
+                
+                const container = carousel.querySelector('.flex');
+                container.style.transform = `translate3d(${newX}px, 0px, 0px)`;
+            }
+
+            function handleDragEnd(event) {
+                if (!isDragging) return;
+                isDragging = false;
+
+                const x = event.type === 'mouseup' ? event.clientX : 
+                         event.type === 'touchend' ? event.changedTouches[0].clientX : startX;
+                const diff = x - startX;
+                const threshold = slides[0].offsetWidth * 0.2;
+
+                let newIndex = currentIndex;
+                if (Math.abs(diff) > threshold) {
+                    newIndex = diff > 0 ? Math.max(0, currentIndex - 1) : 
+                                        Math.min(slides.length - 1, currentIndex + 1);
+                }
+
+                updateCarousel(newIndex);
+            }
+
+            carousel.addEventListener('mousedown', handleDragStart);
+            carousel.addEventListener('touchstart', handleDragStart, { passive: true });
+            
+            window.addEventListener('mousemove', handleDragMove);
+            window.addEventListener('touchmove', handleDragMove, { passive: false });
+            
+            window.addEventListener('mouseup', handleDragEnd);
+            window.addEventListener('touchend', handleDragEnd);
+
+            updateCarousel(0, false);
+        });
+    }
+
+    // Initialize both types of carousels
+    initTraditionalCarousel();
+    initRadixCarousel();
 });

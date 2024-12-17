@@ -1,0 +1,17 @@
+{
+	"nodes":[
+		{"id":"p1","x":-500,"y":-300,"width":400,"height":100,"type":"text","text":"Prompt: Create a PHP application for a task manager."},
+		{"id":"p2","x":100,"y":-300,"width":300,"height":300,"type":"text","text":"Step 1: Define application requirements, such as user roles, task CRUD operations, and deadlines."},
+		{"id":"p3","x":-300,"y":100,"width":300,"height":300,"type":"text","text":"Step 2: Database structure - Tables for Users, Tasks, and Roles."},
+		{"id":"p4","x":300,"y":200,"width":400,"height":100,"type":"text","text":"Step 3: Backend development using PHP and frameworks like Laravel."},
+		{"id":"p5","x":0,"y":500,"width":300,"height":300,"type":"text","text":"Step 4: Frontend implementation using HTML, CSS, and JS frameworks like Vue.js."},
+		{"id":"p6","x":600,"y":500,"width":300,"height":300,"type":"text","text":"Step 5: Testing and deployment to a hosting service."}
+	],
+	"edges":[
+		{"id":"e1","fromNode":"p1","fromSide":"right","toNode":"p2","toSide":"left"},
+		{"id":"e2","fromNode":"p2","fromSide":"bottom","toNode":"p3","toSide":"top"},
+		{"id":"e3","fromNode":"p3","fromSide":"right","toNode":"p4","toSide":"left"},
+		{"id":"e4","fromNode":"p4","fromSide":"bottom","toNode":"p5","toSide":"top"},
+		{"id":"e5","fromNode":"p5","fromSide":"right","toNode":"p6","toSide":"left"}
+	]
+}

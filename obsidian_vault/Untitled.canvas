@@ -1,0 +1,11 @@
+{
+	"nodes":[
+		{"id":"b1b8e497fe3bb8b6","type":"link","url":"https://google.com","x":240,"y":-60,"width":400,"height":400},
+		{"id":"74dcc8b4f1640fb8","type":"text","text":"So how about I write a prompt here.","x":-65,"y":420,"width":250,"height":60},
+		{"id":"d66b00c90754f8d7","type":"file","file":"Welcome.md","x":-440,"y":-160,"width":400,"height":400}
+	],
+	"edges":[
+		{"id":"839864e10cd497ce","fromNode":"d66b00c90754f8d7","fromSide":"right","toNode":"b1b8e497fe3bb8b6","toSide":"left"},
+		{"id":"e7ba844493a927cb","fromNode":"d66b00c90754f8d7","fromSide":"bottom","toNode":"74dcc8b4f1640fb8","toSide":"top"}
+	]
+}

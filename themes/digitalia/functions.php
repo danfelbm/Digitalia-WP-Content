@@ -250,7 +250,7 @@ function digitalia_get_color_schemes($type = 'full') {
             'button' => 'bg-teal-500 hover:bg-teal-600 text-white',
         ),
         'total-transmedia' => array(
-            'bg' => 'bg-blue-200',
+            'bg' => 'bg-blue-300',
             'text' => 'text-blue-950',
             'subtitle' => 'text-blue-800',
             'highlight' => 'bg-blue-300/30',
