@@ -370,6 +370,24 @@ get_header();
     </section>
     <?php endif; ?>
 
+    <?php /*
+    $cta = get_field('enlinea_bottom_cta');
+    get_template_part('template-parts/cta-modulos', null, array(
+        'title' => $cta['title'],
+        'description' => $cta['description'],
+        'cta_primary_text' => $cta['cta_primary_text'],
+        'cta_primary_url' => $cta['cta_primary_url'],
+        'cta_secondary_text' => $cta['cta_secondary_text'],
+        'cta_secondary_url' => $cta['cta_secondary_url'],
+        'doc_title' => $cta['doc_title'],
+        'doc_description' => $cta['doc_description'],
+        'doc_url' => $cta['doc_url'],
+        'guide_title' => $cta['guide_title'],
+        'guide_description' => $cta['guide_description'],
+        'guide_url' => $cta['guide_url']
+    )); */
+    ?>
+
 </main>
 
 <?php
