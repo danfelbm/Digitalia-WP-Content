@@ -135,32 +135,32 @@ get_header();
                                         switch ($social_type) {
                                             case 'facebook': ?>
                                                 <a href="<?php echo esc_url($profile_link); ?>">
-                                                    <i class="fa fa-facebook size-4 text-muted-foreground"></i>
+                                                    <i class="fa-brands fa-facebook size-4 text-muted-foreground"></i>
                                                 </a>
                                             <?php break;
                                             case 'twitter': ?>
                                                 <a href="<?php echo esc_url($profile_link); ?>">
-                                                    <i class="fa fa-twitter size-4 text-muted-foreground"></i>
+                                                    <i class="fa-brands fa-twitter size-4 text-muted-foreground"></i>
                                                 </a>
                                             <?php break;
                                             case 'instagram': ?>
                                                 <a href="<?php echo esc_url($profile_link); ?>">
-                                                    <i class="fa fa-instagram size-4 text-muted-foreground"></i>
+                                                    <i class="fa-brands fa-instagram size-4 text-muted-foreground"></i>
                                                 </a>
                                             <?php break;
                                             case 'tiktok': ?>
                                                 <a href="<?php echo esc_url($profile_link); ?>">
-                                                    <i class="fa fa-tiktok size-4 text-muted-foreground"></i>
+                                                    <i class="fa-brands fa-tiktok size-4 text-muted-foreground"></i>
                                                 </a>
                                             <?php break;
                                             case 'linkedin': ?>
                                                 <a href="<?php echo esc_url($profile_link); ?>">
-                                                    <i class="fa fa-linkedin size-4 text-muted-foreground"></i>
+                                                    <i class="fa-brands fa-linkedin size-4 text-muted-foreground"></i>
                                                 </a>
                                             <?php break;
                                             case 'youtube': ?>
                                                 <a href="<?php echo esc_url($profile_link); ?>">
-                                                    <i class="fa fa-youtube size-4 text-muted-foreground"></i>
+                                                    <i class="fa-brands fa-youtube size-4 text-muted-foreground"></i>
                                                 </a>
                                             <?php break;
                                         }

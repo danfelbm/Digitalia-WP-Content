@@ -25,7 +25,7 @@
                         </span>
                         <p class="mt-6 text-muted-foreground">Transformando el futuro digital a través de soluciones innovadoras y sostenibles.</p>
                     </div>
-                    <ul class="flex items-center space-x-6">
+                    <ul class="flex flex-wrap lg:flex-nowrap items-center space-x-6">
                         <li class="font-medium duration-200 hover:scale-110 hover:text-muted-foreground">
                             <a href="https://bit.ly/49vhs86"><i class="fa-brands fa-instagram size-6"></i></a>
                         </li>
@@ -87,7 +87,7 @@
                 </div>
             </div>
             <div class="mt-20 flex flex-col justify-between gap-4 border-t border-gray-800 pt-8 text-sm font-medium text-gray-600 lg:flex-row lg:items-center lg:text-left">
-                <p><span class="mr-1 font-bold text-black">Digitalia</span> Todos los derechos reservados.</p>
+                <p><span class="mr-1 font-bold text-black">Digitalia</span> Copyleft <?php echo date('Y'); ?>. </p>
             </div>
         </footer>
     </div>
