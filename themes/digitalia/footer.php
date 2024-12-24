@@ -14,6 +14,81 @@
 
 </div><!-- #page -->
 
+<?php
+// Get CTAs from options page
+if (function_exists('get_field')) {
+    $ctas = get_field('ctas', 'option');
+    if ($ctas) {
+        $current_page_id = get_queried_object_id();
+        $current_post_type = get_post_type();
+        
+        foreach ($ctas as $cta) {
+            $should_display = false;
+            
+            // Check regular pages
+            if (is_page() && !empty($cta['display_pages'])) {
+                $should_display = in_array($current_page_id, $cta['display_pages']);
+            }
+            
+            // Check post type specific settings
+            if (!$should_display && !empty($cta['post_types_display'])) {
+                $post_type_config = null;
+                
+                switch ($current_post_type) {
+                    case 'post':
+                        $post_type_config = $cta['post_types_display']['posts_config'];
+                        break;
+                    case 'personajes':
+                        $post_type_config = $cta['post_types_display']['personajes_config'];
+                        break;
+                    case 'actores':
+                        $post_type_config = $cta['post_types_display']['actores_config'];
+                        break;
+                    case 'episodio':
+                        $post_type_config = $cta['post_types_display']['episodios_config'];
+                        break;
+                    case 'series':
+                        $post_type_config = $cta['post_types_display']['series_config'];
+                        break;
+                    case 'curso':
+                        $post_type_config = $cta['post_types_display']['cursos_config'];
+                        break;
+                }
+                
+                if ($post_type_config && $post_type_config['enable']) {
+                    if ($post_type_config['display_type'] === 'all') {
+                        $should_display = true;
+                    } elseif ($post_type_config['display_type'] === 'specific' && 
+                            !empty($post_type_config['specific_items']) && 
+                            in_array($current_page_id, $post_type_config['specific_items'])) {
+                        $should_display = true;
+                    }
+                }
+            }
+            
+            if ($should_display) {
+                get_template_part('template-parts/cta-modulos', null, array(
+                    'title' => $cta['title'],
+                    'description' => $cta['description'],
+                    'cta_primary_text' => $cta['cta_primary_text'],
+                    'cta_primary_url' => $cta['cta_primary_url'],
+                    'cta_secondary_text' => $cta['cta_secondary_text'],
+                    'cta_secondary_url' => $cta['cta_secondary_url'],
+                    'doc_title' => $cta['doc_title'],
+                    'doc_description' => $cta['doc_description'],
+                    'doc_url' => $cta['doc_url'],
+                    'guide_title' => $cta['guide_title'],
+                    'guide_description' => $cta['guide_description'],
+                    'guide_url' => $cta['guide_url'],
+                    'background_class' => $cta['background_class']
+                ));
+                break; // Show only the first matching CTA
+            }
+        }
+    }
+}
+?>
+
 <section class="py-32 bg-slate-300 text-black font-mono">
     <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"> <!-- container mx-auto px-4 -->
         <footer>

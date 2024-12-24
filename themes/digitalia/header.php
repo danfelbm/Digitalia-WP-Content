@@ -11,101 +11,57 @@
 	<meta charset="<?php bloginfo('charset'); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
-	<script src="https://cdn.tailwindcss.com"></script>
-	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/blocks.css">
 	<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@700&family=Work+Sans:wght@400&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 	<!-- Add Radix UI -->
 	<script src="https://unpkg.com/@radix-ui/tabs@latest/dist/index.umd.js"></script>
-	<style>
-		/* Base font styles */
-		body { font-family: 'Work Sans', sans-serif; }
-		h1, h2 { font-family: 'Lexend', sans-serif; font-weight: 700; }
-		h3, h4 { font-family: 'JetBrains Mono', monospace; font-weight: 500; }
-	</style>
-	<script>
-		tailwind.config = {
-			theme: {
-				extend: {
-					colors: {
-						primary: '#4a5568',
-						red: {
-								50: '#fff0f4',
-								100: '#ffe1e9',
-								200: '#ffc3d4',
-								300: '#ff95b3',
-								400: '#ff4d7f',
-								500: '#ff0044',  // main color
-								600: '#e6003d',
-								700: '#bf0032',
-								800: '#99002a',
-								900: '#800023',
-								950: '#4c0014',
-							},
-						},
-					fontFamily: {
-						sans: ['Work Sans', 'sans-serif'],
-						heading: ['Lexend', 'sans-serif'],
-						mono: ['JetBrains Mono', 'monospace'],
-					},
-				},
-			},
-		}
-	</script>
-	<style type="text/tailwindcss">
-		@layer utilities {
-			.content-auto {
-				content-visibility: auto;
-			}
-		}
-	</style>
 	<!-- Add tab functionality -->
 	<script>
-		document.addEventListener('DOMContentLoaded', function() {
-			// Handle mobile accordion
-			document.querySelectorAll('[data-orientation="vertical"] button').forEach(button => {
-				button.addEventListener('click', function() {
-					const panel = document.getElementById(this.getAttribute('aria-controls'));
-					const isOpen = this.getAttribute('aria-expanded') === 'true';
-					
-					this.setAttribute('aria-expanded', !isOpen);
-					this.setAttribute('data-state', isOpen ? 'closed' : 'open');
-					panel.hidden = isOpen;
-					panel.setAttribute('data-state', isOpen ? 'closed' : 'open');
-				});
-			});
-
-			// Handle desktop tabs
-			const tabButtons = document.querySelectorAll('[role="tab"]');
-			const tabPanels = document.querySelectorAll('[role="tabpanel"]');
-
-			tabButtons.forEach(button => {
-				button.addEventListener('click', function() {
-					// Deactivate all tabs
-					tabButtons.forEach(btn => {
-						btn.setAttribute('aria-selected', 'false');
-						btn.setAttribute('data-state', 'inactive');
-						btn.setAttribute('tabindex', '-1');
-					});
-
-					// Hide all panels
-					tabPanels.forEach(panel => {
-						panel.setAttribute('data-state', 'inactive');
-						panel.hidden = true;
-					});
-
-					// Activate clicked tab
-					this.setAttribute('aria-selected', 'true');
-					this.setAttribute('data-state', 'active');
-					this.setAttribute('tabindex', '0');
-
-					// Show corresponding panel
-					const panelId = this.getAttribute('aria-controls');
-					const panel = document.getElementById(panelId);
-					panel.setAttribute('data-state', 'active');
-					panel.hidden = false;
-				});
+	document.addEventListener('DOMContentLoaded', function() {
+		// Handle mobile accordion
+		document.querySelectorAll('[data-orientation="vertical"] button').forEach(button => {
+			button.addEventListener('click', function() {
+				const panel = document.getElementById(this.getAttribute('aria-controls'));
+				const isOpen = this.getAttribute('aria-expanded') === 'true';
+				
+				this.setAttribute('aria-expanded', !isOpen);
+				this.setAttribute('data-state', isOpen ? 'closed' : 'open');
+				panel.hidden = isOpen;
+				panel.setAttribute('data-state', isOpen ? 'closed' : 'open');
 			});
 		});
+
+		// Handle desktop tabs
+		const tabButtons = document.querySelectorAll('[role="tab"]');
+		const tabPanels = document.querySelectorAll('[role="tabpanel"]');
+
+		tabButtons.forEach(button => {
+			button.addEventListener('click', function() {
+				// Deactivate all tabs
+				tabButtons.forEach(btn => {
+					btn.setAttribute('aria-selected', 'false');
+					btn.setAttribute('data-state', 'inactive');
+					btn.setAttribute('tabindex', '-1');
+				});
+
+				// Hide all panels
+				tabPanels.forEach(panel => {
+					panel.setAttribute('data-state', 'inactive');
+					panel.hidden = true;
+				});
+
+				// Activate clicked tab
+				this.setAttribute('aria-selected', 'true');
+				this.setAttribute('data-state', 'active');
+				this.setAttribute('tabindex', '0');
+
+				// Show corresponding panel
+				const panelId = this.getAttribute('aria-controls');
+				const panel = document.getElementById(panelId);
+				panel.setAttribute('data-state', 'active');
+				panel.hidden = false;
+			});
+		});
+	});
 	</script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/p5.js"></script>

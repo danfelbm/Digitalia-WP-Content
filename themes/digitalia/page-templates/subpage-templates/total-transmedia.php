@@ -19,19 +19,19 @@ get_header();
     ));
     ?>
 
-    <?php /*
+    <?php
     $nav_items = get_field('enlinea_nav');
     get_template_part('template-parts/floating-nav', null, array(
         'nav_items' => array(
-            array('anchor' => 'la-historia', 'text' => $nav_items['item1_text']),
-            array('anchor' => 'ver-episodios', 'text' => $nav_items['item2_text']),
-            array('anchor' => 'personajes', 'text' => $nav_items['item3_text']),
-            array('anchor' => 'blog', 'text' => $nav_items['item4_text']),
+            array('anchor' => 'estrategia', 'text' => 'Estrategia'),
+            array('anchor' => 'equipo', 'text' => 'Equipo'),
+            array('anchor' => 'portafolio', 'text' => 'Portafolio'),
+            array('anchor' => 'blog', 'text' => 'Blog'),
         )
-    )); */
+    ));
     ?>
     
-    <section class="py-32 bg-blue-200 text-blue-900">
+    <section id="estrategia" class="py-32 bg-blue-200 text-blue-900" style="margin-top: -70px;">
         <div class="container">
             <div class="grid place-content-center gap-10 lg:grid-cols-2">
                 <div class="mx-auto flex max-w-screen-md flex-col items-center justify-center gap-4 lg:items-start">
@@ -102,7 +102,8 @@ get_header();
             </div>
         </div>
     </section>
-    <section class="py-32 bg-blue-100 text-blue-900">
+
+    <section id="equipo" class="py-32 bg-blue-100 text-blue-900">
         <div class="container flex flex-col items-center text-center">
             <p class="semibold">Equipo Profesional</p>
             <h2 class="my-6 text-pretty text-2xl font-bold lg:text-4xl">Nuestro Equipo Transmedia</h2>
@@ -188,7 +189,8 @@ get_header();
             ?>
         </div>
     </section>
-    <section class="flex flex-col gap-16 lg:px-16 pt-16 text-blue-100 bg-blue-700">
+
+    <section id="portafolio" class="flex flex-col gap-16 lg:px-16 pt-16 text-blue-100 bg-blue-700">
         <div class="container mb-14 flex flex-col gap-16 lg:mb-16 lg:px-16">
             <div class="lg:max-w-lg">
                 <h2 class="mb-3 text-xl font-semibold md:mb-4 md:text-4xl lg:mb-6">Portafolio y componentes clave</h2>
@@ -213,6 +215,7 @@ get_header();
             </div>
         </div>
     </section>
+
     <section class="pb-32 pt-16 bg-blue-400">
         <div class="w-full">
             <div class="relative" role="region" aria-roledescription="carousel">
@@ -303,7 +306,7 @@ get_header();
 
     if ($blog_query->have_posts()) :
     ?>
-    <section class="flex flex-col gap-16 lg:px-16 pt-16 text-blue-900 bg-blue-200">
+    <section id="blog" class="flex flex-col gap-16 lg:px-16 pt-16 text-blue-900 bg-blue-200">
         <div class="container mb-14 flex flex-col gap-16 lg:mb-16 lg:px-16">
             <div class="lg:max-w-lg">
                 <h2 class="mb-3 text-xl font-semibold md:mb-4 md:text-4xl lg:mb-6">Entradas del blog</h2>
@@ -369,24 +372,6 @@ get_header();
         </div>
     </section>
     <?php endif; ?>
-
-    <?php /*
-    $cta = get_field('enlinea_bottom_cta');
-    get_template_part('template-parts/cta-modulos', null, array(
-        'title' => $cta['title'],
-        'description' => $cta['description'],
-        'cta_primary_text' => $cta['cta_primary_text'],
-        'cta_primary_url' => $cta['cta_primary_url'],
-        'cta_secondary_text' => $cta['cta_secondary_text'],
-        'cta_secondary_url' => $cta['cta_secondary_url'],
-        'doc_title' => $cta['doc_title'],
-        'doc_description' => $cta['doc_description'],
-        'doc_url' => $cta['doc_url'],
-        'guide_title' => $cta['guide_title'],
-        'guide_description' => $cta['guide_description'],
-        'guide_url' => $cta['guide_url']
-    )); */
-    ?>
 
 </main>
 

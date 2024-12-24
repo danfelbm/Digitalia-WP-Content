@@ -198,7 +198,7 @@ get_header();
 
 	<section class="py-32">
 		<div class="container">
-			<div class="flex items-center justify-center rounded-2xl border bg-[url('<?php echo get_field('intro_background') ?: 'https://www.shadcnblocks.com/images/block/circles.svg'; ?>')] bg-cover bg-center px-8 py-20 text-center md:p-20">
+			<div class="flex items-center justify-center rounded-2xl border bg-cover bg-center px-8 py-20 text-center md:p-20" style="background-image: url('<?php echo get_field('intro_background') ?: 'https://www.shadcnblocks.com/images/block/circles.svg'; ?>">
 				<div class="mx-auto max-w-screen-md">
 					<h1 class="mb-4 text-balance text-3xl font-semibold md:text-5xl"><?php echo get_field('intro_title'); ?></h1>
 					<p class="text-muted-foreground md:text-lg"><?php echo get_field('intro_description'); ?></p>

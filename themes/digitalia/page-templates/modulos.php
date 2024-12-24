@@ -179,23 +179,6 @@ get_header();
             </div>
         </div>
     </section>
-
-    <?php
-    get_template_part('template-parts/cta-modulos', null, array(
-        'title' => 'Únete a Academia',
-        'description' => 'Descubre una nueva forma de aprender y desarrollarte profesionalmente. Accede a todos nuestros módulos y contenido exclusivo.',
-        'cta_primary_text' => 'Comenzar ahora',
-        'cta_primary_url' => '/registro',
-        'cta_secondary_text' => 'Contactar con ventas',
-        'cta_secondary_url' => '/contacto',
-        'doc_title' => 'Planes y precios',
-        'doc_description' => 'Conoce nuestros planes y encuentra el que mejor se adapte a ti.',
-        'doc_url' => '/planes',
-        'guide_title' => 'Primeros pasos',
-        'guide_description' => 'Guía completa para comenzar tu viaje en Academia.',
-        'guide_url' => '/guia'
-    ));
-    ?>
 </main>
 
 <?php

@@ -108,7 +108,7 @@ get_header();
     <section class="py-32">
         <div>
             <?php $historia = get_field('enlinea_historia'); ?>
-            <div id="la-historia" class="flex py-40 items-center justify-center bg-[linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),url('<?php echo esc_url($historia['background_image']); ?>')] bg-cover bg-center">
+            <div id="la-historia" class="flex py-40 items-center justify-center bg-[linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),url('/wp-content/uploads/2024/12/Screenshot-2024-12-23-at-4.06.02%E2%80%AFAM.jpg')] bg-cover bg-center">
                 <div class="flex flex-col gap-8 text-center text-primary-foreground max-w-6xl mx-auto px-4 md:px-8">
                     <div class="flex items-center justify-center gap-2 text-2xl font-medium">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap h-full w-7">
@@ -438,24 +438,6 @@ get_header();
     <?php 
     endif;
     wp_reset_postdata();
-    ?>
-
-    <?php 
-    $cta = get_field('enlinea_bottom_cta');
-    get_template_part('template-parts/cta-modulos', null, array(
-        'title' => $cta['title'],
-        'description' => $cta['description'],
-        'cta_primary_text' => $cta['cta_primary_text'],
-        'cta_primary_url' => $cta['cta_primary_url'],
-        'cta_secondary_text' => $cta['cta_secondary_text'],
-        'cta_secondary_url' => $cta['cta_secondary_url'],
-        'doc_title' => $cta['doc_title'],
-        'doc_description' => $cta['doc_description'],
-        'doc_url' => $cta['doc_url'],
-        'guide_title' => $cta['guide_title'],
-        'guide_description' => $cta['guide_description'],
-        'guide_url' => $cta['guide_url']
-    ));
     ?>
 
 </main>

@@ -244,21 +244,4 @@ get_header(); ?>
     </div>
 </article>
 
-<?php
-get_template_part('template-parts/cta-modulos', null, array(
-    'title' => 'Academia Digital-IA',
-    'description' => 'Ecosistema de soluciones tecnológicas diseñado para ofrecer servicios educativos e informativos que te preparan para los desafíos de las tecnologías emergentes.',
-    'cta_primary_text' => 'Comenzar ahora',
-    'cta_primary_url' => '/plataforma/register',
-    'cta_secondary_text' => 'Explorar cursos',
-    'cta_secondary_url' => '/plataforma/courses',
-    'doc_title' => 'Documentación',
-    'doc_description' => 'Accede a guías detalladas sobre el uso de la plataforma y recursos educativos.',
-    'doc_url' => '/plataforma/docs',
-    'guide_title' => 'Primeros pasos',
-    'guide_description' => 'Aprende a utilizar la plataforma y comienza tu formación en alfabetización mediática.',
-    'guide_url' => '/plataforma/getting-started'
-));
-?>
-
 <?php get_footer(); ?>

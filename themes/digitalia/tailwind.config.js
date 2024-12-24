@@ -1,22 +1,26 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./*.php",
-    "./**/*.php",
-    "./templates/**/*.php",
+    "./page-templates/**/*.php",
     "./template-parts/**/*.php",
     "./parts/**/*.php",
     "./inc/**/*.php",
-    "./js/**/*.js"
+    "./js/**/*.js",
+    "./*.php",
+    "./test.php",
+    "./functions.php"  // explicitly include functions.php
   ],
+  /*
+  safelist: [
+    {
+      pattern: /(bg|text|border)-(purple|teal)-(50|100|200|300|400|500|600|700|800|900|950)/,
+    }
+  ],
+  */
   theme: {
     extend: {
-      fontFamily: {
-        sans: ['Work Sans', 'sans-serif'],
-        heading: ['Lexend', 'sans-serif'],
-        mono: ['JetBrains Mono', 'monospace'],
-      },
       colors: {
+        primary: '#4a5568',
         red: {
           50: '#fff0f4',
           100: '#ffe1e9',
@@ -29,7 +33,16 @@ module.exports = {
           800: '#99002a',
           900: '#800023',
           950: '#4c0014',
-        },
+        }
+      },
+      container: {
+        center: true,
+        padding: '1rem',
+      },
+      fontFamily: {
+        sans: ['Work Sans', 'sans-serif'],
+        heading: ['Lexend', 'sans-serif'],
+        mono: ['JetBrains Mono', 'monospace'],
       },
     },
   },

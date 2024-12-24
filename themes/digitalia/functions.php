@@ -140,8 +140,9 @@ add_action( 'widgets_init', 'digitalia_widgets_init' );
 function digitalia_scripts() {
 	wp_enqueue_style( 'digitalia-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'digitalia-style', 'rtl', 'replace' );
-	wp_enqueue_style( 'digitalia-tailwind-menu', get_template_directory_uri() . '/css/tailwind-menu.css', array(), _S_VERSION );
-
+    wp_enqueue_style( 'digitalia-blocks', get_template_directory_uri() . '/css/blocks.css', array(), _S_VERSION );
+    wp_enqueue_style( 'digitalia-tailwind-menu', get_template_directory_uri() . '/css/tailwind-menu.css', array('digitalia-blocks'), _S_VERSION );
+    wp_enqueue_style( 'digitalia-tailwind', get_template_directory_uri() . '/style.css', array('digitalia-blocks', 'digitalia-tailwind-menu'), _S_VERSION );
 	wp_enqueue_script( 'digitalia-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'digitalia-menu', get_template_directory_uri() . '/js/menu.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'digitalia-smooth-scroll', get_template_directory_uri() . '/assets/js/smooth-scroll.js', array(), _S_VERSION, true );
@@ -587,6 +588,12 @@ require get_template_directory() . '/inc/acf_fields/modulos-acf-fields.php';
 require get_template_directory() . '/inc/acf_fields/academia-acf-fields.php';
 require get_template_directory() . '/inc/acf_fields/enlinea-acf-fields.php';
 require get_template_directory() . '/inc/acf_fields/queesdigitalia-acf-fields.php';
+require get_template_directory() . '/inc/acf_fields/parametros-acf-fields.php';
+
+/**
+ * Load Admin Pages
+ */
+require_once get_template_directory() . '/inc/admin/parametros-page.php';
 
 add_action('acf/init', 'digitalia_register_acf_fields');
 
