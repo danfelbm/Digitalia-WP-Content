@@ -69,7 +69,7 @@ get_header();
                         </div>
                     </div>
                 </div>
-                <img src="/wp-content/uploads/2024/12/placeholder-dark-1.svg" alt="Total Transmedia" class="ml-auto max-h-[450px] w-full rounded-xl object-cover">
+                <img src="/wp-content/uploads/2024/12/1-1-06-100.jpg" alt="Total Transmedia" class="ml-auto max-h-[450px] w-full rounded-xl object-cover">
             </div>
             <div class="mt-10 grid gap-6 md:grid-cols-3">
                 <div class="flex flex-col gap-4">
@@ -225,7 +225,7 @@ get_header();
                             <a href="#" class="group rounded-xl">
                                 <div class="bg-blue-200 text-blue-900 flex flex-col text-clip rounded-xl border border-border md:col-span-2 md:grid md:grid-cols-2 md:gap-6 lg:gap-8">
                                     <div class="md:min-h-96 lg:min-h-[28rem] xl:min-h-[32rem]">
-                                        <img src="/wp-content/uploads/2024/12/placeholder-dark-1.svg" alt="Alfabetización Mediática" class="aspect-[16/9] size-full object-cover object-center">
+                                        <img src="/wp-content/uploads/2024/12/1-1-02-100.jpg" alt="Alfabetización Mediática" class="aspect-[16/9] size-full object-cover object-center">
                                     </div>
                                     <div class="flex flex-col justify-center px-6 py-8 md:px-8 md:py-10 lg:px-10 lg:py-12">
                                         <h3 class="mb-3 text-lg font-semibold md:mb-4 md:text-2xl lg:mb-6">Alfabetización Mediática</h3>
@@ -239,7 +239,7 @@ get_header();
                             <a href="#" class="group rounded-xl">
                                 <div class="bg-blue-200 text-blue-900 flex flex-col text-clip rounded-xl border border-border md:col-span-2 md:grid md:grid-cols-2 md:gap-6 lg:gap-8">
                                     <div class="md:min-h-96 lg:min-h-[28rem] xl:min-h-[32rem]">
-                                        <img src="/wp-content/uploads/2024/12/placeholder-dark-1.svg" alt="Tecnologías Emergentes" class="aspect-[16/9] size-full object-cover object-center">
+                                        <img src="/wp-content/uploads/2024/12/4.png" alt="Tecnologías Emergentes" class="aspect-[16/9] size-full object-cover object-center">
                                     </div>
                                     <div class="flex flex-col justify-center px-6 py-8 md:px-8 md:py-10 lg:px-10 lg:py-12">
                                         <h3 class="mb-3 text-lg font-semibold md:mb-4 md:text-2xl lg:mb-6">Tecnologías Emergentes</h3>
@@ -253,7 +253,7 @@ get_header();
                             <a href="#" class="group rounded-xl">
                                 <div class="bg-blue-200 text-blue-900 flex flex-col text-clip rounded-xl border border-border md:col-span-2 md:grid md:grid-cols-2 md:gap-6 lg:gap-8">
                                     <div class="md:min-h-96 lg:min-h-[28rem] xl:min-h-[32rem]">
-                                        <img src="/wp-content/uploads/2024/12/placeholder-dark-1.svg" alt="Enfoque de Paz" class="aspect-[16/9] size-full object-cover object-center">
+                                        <img src="/wp-content/uploads/2024/12/3.png" alt="Enfoque de Paz" class="aspect-[16/9] size-full object-cover object-center">
                                     </div>
                                     <div class="flex flex-col justify-center px-6 py-8 md:px-8 md:py-10 lg:px-10 lg:py-12">
                                         <h3 class="mb-3 text-lg font-semibold md:mb-4 md:text-2xl lg:mb-6">Enfoque de Paz</h3>
@@ -267,7 +267,7 @@ get_header();
                             <a href="#" class="group rounded-xl">
                                 <div class="bg-blue-200 text-blue-900 flex flex-col text-clip rounded-xl border border-border md:col-span-2 md:grid md:grid-cols-2 md:gap-6 lg:gap-8">
                                     <div class="md:min-h-96 lg:min-h-[28rem] xl:min-h-[32rem]">
-                                        <img src="/wp-content/uploads/2024/12/placeholder-dark-1.svg" alt="Desarrollo Sostenible" class="aspect-[16/9] size-full object-cover object-center">
+                                        <img src="/wp-content/uploads/2024/12/2.png" alt="Desarrollo Sostenible" class="aspect-[16/9] size-full object-cover object-center">
                                     </div>
                                     <div class="flex flex-col justify-center px-6 py-8 md:px-8 md:py-10 lg:px-10 lg:py-12">
                                         <h3 class="mb-3 text-lg font-semibold md:mb-4 md:text-2xl lg:mb-6">Desarrollo Sostenible</h3>
@@ -281,7 +281,7 @@ get_header();
                             <a href="#" class="group rounded-xl">
                                 <div class="bg-blue-200 text-blue-900 flex flex-col text-clip rounded-xl border border-border md:col-span-2 md:grid md:grid-cols-2 md:gap-6 lg:gap-8">
                                     <div class="md:min-h-96 lg:min-h-[28rem] xl:min-h-[32rem]">
-                                        <img src="/wp-content/uploads/2024/12/placeholder-dark-1.svg" alt="Capacidades TIC" class="aspect-[16/9] size-full object-cover object-center">
+                                        <img src="/wp-content/uploads/2024/12/1.png" alt="Capacidades TIC" class="aspect-[16/9] size-full object-cover object-center">
                                     </div>
                                     <div class="flex flex-col justify-center px-6 py-8 md:px-8 md:py-10 lg:px-10 lg:py-12">
                                         <h3 class="mb-3 text-lg font-semibold md:mb-4 md:text-2xl lg:mb-6">Capacidades TIC</h3>

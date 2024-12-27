@@ -17,6 +17,8 @@
 <?php
 // Get CTAs from options page
 if (function_exists('get_field')) {
+    require_once get_template_directory() . '/inc/admin/post-type-utils.php';
+    
     $ctas = get_field('ctas', 'option');
     if ($ctas) {
         $current_page_id = get_queried_object_id();
@@ -31,31 +33,11 @@ if (function_exists('get_field')) {
             }
             
             // Check post type specific settings
-            if (!$should_display && !empty($cta['post_types_display'])) {
-                $post_type_config = null;
+            if (!$should_display && !empty($cta['post_types_display']) && $current_post_type) {
+                $config_key = digitalia_get_post_type_config_key($current_post_type);
+                $post_type_config = isset($cta['post_types_display'][$config_key]) ? $cta['post_types_display'][$config_key] : null;
                 
-                switch ($current_post_type) {
-                    case 'post':
-                        $post_type_config = $cta['post_types_display']['posts_config'];
-                        break;
-                    case 'personajes':
-                        $post_type_config = $cta['post_types_display']['personajes_config'];
-                        break;
-                    case 'actores':
-                        $post_type_config = $cta['post_types_display']['actores_config'];
-                        break;
-                    case 'episodio':
-                        $post_type_config = $cta['post_types_display']['episodios_config'];
-                        break;
-                    case 'series':
-                        $post_type_config = $cta['post_types_display']['series_config'];
-                        break;
-                    case 'curso':
-                        $post_type_config = $cta['post_types_display']['cursos_config'];
-                        break;
-                }
-                
-                if ($post_type_config && $post_type_config['enable']) {
+                if ($post_type_config && !empty($post_type_config['enable'])) {
                     if ($post_type_config['display_type'] === 'all') {
                         $should_display = true;
                     } elseif ($post_type_config['display_type'] === 'specific' && 

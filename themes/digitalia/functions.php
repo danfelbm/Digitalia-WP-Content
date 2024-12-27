@@ -138,11 +138,21 @@ add_action( 'widgets_init', 'digitalia_widgets_init' );
  * Enqueue scripts and styles.
  */
 function digitalia_scripts() {
-	wp_enqueue_style( 'digitalia-style', get_stylesheet_uri(), array(), _S_VERSION );
+	//wp_enqueue_style( 'digitalia-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'digitalia-style', 'rtl', 'replace' );
     wp_enqueue_style( 'digitalia-blocks', get_template_directory_uri() . '/css/blocks.css', array(), _S_VERSION );
     wp_enqueue_style( 'digitalia-tailwind-menu', get_template_directory_uri() . '/css/tailwind-menu.css', array('digitalia-blocks'), _S_VERSION );
     wp_enqueue_style( 'digitalia-tailwind', get_template_directory_uri() . '/style.css', array('digitalia-blocks', 'digitalia-tailwind-menu'), _S_VERSION );
+    
+    // Add Google Fonts
+    wp_enqueue_style( 'digitalia-google-fonts', 'https://fonts.googleapis.com/css2?family=Lexend:wght@700&family=Work+Sans:wght@400&family=JetBrains+Mono:wght@500&display=swap', array(), null );
+    
+    // Add Font Awesome
+    wp_enqueue_style( 'font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css', array(), '6.7.2' );
+    
+    // Add Radix UI
+    wp_enqueue_script( 'radix-ui-tabs', 'https://unpkg.com/@radix-ui/tabs@latest/dist/index.umd.js', array(), null, true );
+    
 	wp_enqueue_script( 'digitalia-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'digitalia-menu', get_template_directory_uri() . '/js/menu.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'digitalia-smooth-scroll', get_template_directory_uri() . '/assets/js/smooth-scroll.js', array(), _S_VERSION, true );
@@ -185,6 +195,28 @@ function digitalia_enqueue_swiper() {
 add_action('wp_enqueue_scripts', 'digitalia_enqueue_swiper');
 
 /**
+ * Helper function to recursively scan template directories
+ */
+function scan_template_dir($dir, $theme_dir, &$templates) {
+    if (!is_dir($dir)) return;
+    
+    // Get all PHP files in current directory
+    $files = glob($dir . '/*.php');
+    foreach ($files as $file) {
+        $template_data = get_file_data($file, array('Template Name' => 'Template Name'));
+        if (!empty($template_data['Template Name'])) {
+            $templates[str_replace($theme_dir . '/', '', $file)] = $template_data['Template Name'];
+        }
+    }
+    
+    // Scan subdirectories
+    $subdirs = glob($dir . '/*', GLOB_ONLYDIR);
+    foreach ($subdirs as $subdir) {
+        scan_template_dir($subdir, $theme_dir, $templates);
+    }
+}
+
+/**
  * Register custom page templates from subdirectories
  */
 function digitalia_register_page_templates($templates) {
@@ -202,17 +234,9 @@ function digitalia_register_page_templates($templates) {
         }
     }
     
-    // Subpage templates
+    // Start recursive scan from subpage-templates directory
     $subpage_templates_dir = $regular_templates_dir . '/subpage-templates';
-    if (is_dir($subpage_templates_dir)) {
-        $subpage_files = glob($subpage_templates_dir . '/*.php');
-        foreach ($subpage_files as $file) {
-            $template_data = get_file_data($file, array('Template Name' => 'Template Name'));
-            if (!empty($template_data['Template Name'])) {
-                $templates[str_replace($theme_dir . '/', '', $file)] = $template_data['Template Name'];
-            }
-        }
-    }
+    scan_template_dir($subpage_templates_dir, $theme_dir, $templates);
     
     return $templates;
 }

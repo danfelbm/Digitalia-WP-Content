@@ -16,16 +16,16 @@
         <div class="bg-yellow-200 p-6 rounded-lg">
             <h2 class="text-yellow-950 text-2xl font-bold">Academia</h2>
             <p class="text-yellow-800 mt-2">Subtitle text here</p>
-            <div class="bg-yellow-300/30 p-4 mt-4">Highlighted content</div>
+            <div class="bg-yellow-300/30 p-4 mt-4 text-yellow-600">Highlighted content</div>
             <div class="bg-yellow-300 p-4 mt-4">Grid content</div>
             <button class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded mt-4">Button</button>
         </div>
 
         <!-- En Linea -->
         <div class="bg-red-200 p-6 rounded-lg">
-            <h2 class="text-red-950 text-2xl font-bold">En Linea</h2>
+            <h2 class="text-red-950 text-2xl font-bold text-red-700">En Linea</h2>
             <p class="text-red-800 mt-2">Subtitle text here</p>
-            <div class="bg-red-300/30 p-4 mt-4">Highlighted content</div>
+            <div class="bg-red-300/30 p-4 mt-4 text-red-600">Highlighted content</div>
             <div class="bg-red-300 p-4 mt-4">Grid content</div>
             <button class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded mt-4">Button</button>
         </div>
@@ -41,7 +41,7 @@
 
         <!-- Total Transmedia -->
         <div class="bg-blue-300 p-6 rounded-lg">
-            <h2 class="text-blue-950 text-2xl font-bold">Total Transmedia</h2>
+            <h2 class="text-blue-950 text-2xl font-bold text-blue-700">Total Transmedia</h2>
             <p class="text-blue-800 mt-2">Subtitle text here</p>
             <div class="bg-blue-300/30 p-4 mt-4">Highlighted content</div>
             <div class="bg-blue-300 p-4 mt-4">Grid content</div>

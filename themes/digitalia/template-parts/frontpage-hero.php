@@ -40,54 +40,107 @@
 </section>
 
 <script>
-    let gridSize = 32;
-    let totalGlitches = 8;
-    let colors = ["#C700e3", "#10bed2", "#3f27ff", "#FFDA00", "#FFFFFF"];
-
-    function setup() {
-        let canvas = createCanvas(windowWidth, windowHeight);
-        canvas.parent('section1');
-        canvas.style('position', 'absolute');
-        canvas.style('top', '0');
-        canvas.style('left', '0');
-        canvas.style('z-index', '-5');
-        noLoop();
-        noStroke();
-    }
-
-    function windowResized() {
-        resizeCanvas(windowWidth, windowHeight);
-        draw();
-    }
-
-    function draw() {
-        clear();
+    class GlitchEffect {
+    constructor(parentId) {
+        // Configuration
+        this.gridSize = 32;
+        this.totalGlitches = 8;
+        this.colors = ["#C700e3", "#10bed2", "#3f27ff", "#FFDA00", "#FFFFFF"];
         
-        let cols = floor(width / gridSize);
-        let rows = floor(height / gridSize);
+        // Setup canvas
+        this.canvas = document.createElement('canvas');
+        this.ctx = this.canvas.getContext('2d');
         
-        let positions = [];
-
+        // Style canvas
+        this.canvas.style.position = 'absolute';
+        this.canvas.style.top = '0';
+        this.canvas.style.left = '0';
+        this.canvas.style.zIndex = '-5';
+        
+        // Add to parent element
+        const parent = document.getElementById(parentId) || document.body;
+        parent.appendChild(this.canvas);
+        
+        // Setup resize handler
+        this.resizeHandler = () => this.windowResized();
+        window.addEventListener('resize', this.resizeHandler);
+        
+        // Initial setup
+        this.windowResized();
+        this.draw();
+    }
+    
+    // Utility functions
+    random(min, max) {
+        if (max === undefined) {
+            max = min;
+            min = 0;
+        }
+        return Math.random() * (max - min) + min;
+    }
+    
+    floor(n) {
+        return Math.floor(n);
+    }
+    
+    // Fisher-Yates shuffle algorithm
+    shuffle(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
+    
+    windowResized() {
+        this.canvas.width = window.innerWidth;
+        this.canvas.height = window.innerHeight;
+        this.draw();
+    }
+    
+    draw() {
+        // Clear canvas
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        
+        const cols = this.floor(this.canvas.width / this.gridSize);
+        const rows = this.floor(this.canvas.height / this.gridSize);
+        
+        // Create positions array
+        const positions = [];
         for (let x = 0; x < cols; x++) {
             for (let y = 0; y < rows; y++) {
-                positions.push({ x: x, y: y });
+                positions.push({ x, y });
             }
         }
-
-        shuffle(positions, true);
-        let glitchPositions = positions.slice(0, totalGlitches);
-
-        for (let pos of glitchPositions) {
-            let glitchWidth = gridSize * floor(random(1, 3));
-            let glitchHeight = gridSize * floor(random(1, 1));
-            let c = random(colors);
-
-            let px = pos.x * gridSize;
-            let py = pos.y * gridSize;
-            if (px + glitchWidth <= width && py + glitchHeight <= height) {
-                fill(c);
-                rect(px, py, glitchWidth, glitchHeight);
+        
+        // Shuffle and slice positions
+        this.shuffle(positions);
+        const glitchPositions = positions.slice(0, this.totalGlitches);
+        
+        // Draw glitches
+        for (const pos of glitchPositions) {
+            const glitchWidth = this.gridSize * this.floor(this.random(1, 3));
+            const glitchHeight = this.gridSize * this.floor(this.random(1, 1));
+            const color = this.colors[this.floor(this.random(this.colors.length))];
+            
+            const px = pos.x * this.gridSize;
+            const py = pos.y * this.gridSize;
+            
+            if (px + glitchWidth <= this.canvas.width && 
+                py + glitchHeight <= this.canvas.height) {
+                this.ctx.fillStyle = color;
+                this.ctx.fillRect(px, py, glitchWidth, glitchHeight);
             }
         }
     }
+    
+    // Cleanup method
+    destroy() {
+        window.removeEventListener('resize', this.resizeHandler);
+        this.canvas.remove();
+    }
+}
+
+// Usage example:
+const glitchEffect = new GlitchEffect('section1');
 </script>

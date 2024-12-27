@@ -18,18 +18,6 @@ get_header();
         'cta_url' => get_field('enlinea_header')['cta']['url']
     ));
     ?>
-    
-    <?php
-    $nav_items = get_field('enlinea_nav');
-    get_template_part('template-parts/floating-nav', null, array(
-        'nav_items' => array(
-            array('anchor' => 'la-historia', 'text' => $nav_items['item1_text']),
-            array('anchor' => 'ver-episodios', 'text' => $nav_items['item2_text']),
-            array('anchor' => 'personajes', 'text' => $nav_items['item3_text']),
-            array('anchor' => 'blog', 'text' => $nav_items['item4_text']),
-        )
-    ));
-    ?>
 
     <section class="pb-8 pt-12">
         <div class="container">

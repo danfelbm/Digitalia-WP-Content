@@ -11,9 +11,7 @@
 	<meta charset="<?php bloginfo('charset'); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
-	<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@700&family=Work+Sans:wght@400&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-	<!-- Add Radix UI -->
-	<script src="https://unpkg.com/@radix-ui/tabs@latest/dist/index.umd.js"></script>
+	<?php wp_head(); ?>
 	<!-- Add tab functionality -->
 	<script>
 	document.addEventListener('DOMContentLoaded', function() {
@@ -63,9 +61,6 @@
 		});
 	});
 	</script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/p5.js"></script>
-	<?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
@@ -312,6 +307,8 @@
 			</div>
 		</div>
 	</nav>
+
+	<?php get_template_part('template-parts/secondary-nav'); ?>
 
 	<header id="masthead" class="site-header">
 		<div class="site-branding">

@@ -19,32 +19,6 @@ get_header();
         'cta_text' => $header['cta']['title'],
         'cta_url' => $header['cta']['url']
     ));
-
-    $nav_menu = get_field('nav_menu');
-    get_template_part('template-parts/floating-nav', null, array(
-        'nav_items' => array(
-            array(
-                'anchor' => 'acerca',
-                'text' => $nav_menu['item_1']
-            ),
-            array(
-                'anchor' => 'registro',
-                'text' => $nav_menu['item_2']
-            ),
-            array(
-                'anchor' => 'cursos',
-                'text' => $nav_menu['item_3']
-            ),
-            array(
-                'anchor' => 'ventajas',
-                'text' => $nav_menu['item_4']
-            ),
-            array(
-                'anchor' => 'comparacion',
-                'text' => $nav_menu['item_5']
-            )
-        )
-    ));
     ?>
 
     <section id="acerca" class="pb-32 pt-12">
