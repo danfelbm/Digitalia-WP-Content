@@ -19,6 +19,29 @@ get_header();
     ));
     ?>
 
+    <?php
+    get_template_part('template-parts/floating-nav', null, array(
+        'nav_items' => array(
+            array(
+                'anchor' => 'la-historia',
+                'text' => 'La Historia'
+            ),
+            array(
+                'anchor' => 'ver-episodios',
+                'text' => 'Ver Episodios'
+            ),
+            array(
+                'anchor' => 'personajes',
+                'text' => 'Personajes'
+            ),
+            array(
+                'anchor' => 'blog',
+                'text' => 'Blog'
+            )
+        )
+    ));
+    ?>
+
     <section class="pb-8 pt-12">
         <div class="container">
             <div class="grid items-center gap-10 md:gap-20 lg:grid-cols-2">

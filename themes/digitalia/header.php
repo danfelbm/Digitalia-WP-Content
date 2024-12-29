@@ -76,80 +76,80 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e('Skip to content', 'digitalia'); ?></a>
 
-	<nav x-data="{ open: false }" class="sticky top-0 z-[60] bg-black font-mono">
+	<nav x-data="{ open: false }" class="sticky top-0 z-[60] bg-black font-mono" id="main-navigation">
 		<div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
 			<div class="relative flex h-16 items-center justify-between">
 				<div class="flex flex-1 items-center z-50">
-					<div class="flex shrink-0 items-center">
+					<div class="flex shrink-0 items-center" id="site-logo">
 						<a href="<?php echo esc_url(home_url('/')); ?>">
-							<img class="h-8 w-auto" src="/wp-content/uploads/2024/11/logo3-white.png" alt="<?php bloginfo('name'); ?>">
+							<img class="h-8 w-auto nav-logo" src="/wp-content/uploads/2024/11/logo3-white.png" alt="<?php bloginfo('name'); ?>">
 						</a>
 					</div>
 				</div>
 				<div class="flex-grow flex items-center justify-center sm:items-stretch sm:justify-end z-40">
 					<div class="hidden sm:ml-6 sm:block w-full">
-						<div class="flex space-x-4 justify-end">
+						<div class="flex space-x-4 justify-end" id="desktop-menu">
 							<ul class="flex space-x-6">
 								<li class="flex items-center">
-									<a href="/que-es-digitalia/" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium uppercase">
+									<a href="/que-es-digitalia/" class="nav-top-link nav-main-link text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium uppercase">
 										Qué es Digitalia
 									</a>
 								</li>
 								<li class="relative group">
 									<div class="flex flex-col">
 										<div class="flex items-center">
-											<a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium uppercase">
+											<a href="#" class="nav-top-link nav-main-link text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium uppercase">
 												Módulos
 											</a>
-											<button type="button" class="ml-1 text-gray-300">
+											<button type="button" class="ml-1 text-gray-300 nav-chevron">
 												<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 													<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
 												</svg>
 											</button>
 										</div>
-										<div class="hidden group-hover:block absolute top-full pt-2 left-0">
+										<div class="hidden group-hover:block absolute top-full pt-2 left-0 nav-submenu">
 											<div class="w-96 bg-white rounded-md shadow-lg z-50">
 												<div class="p-4 grid grid-cols-1 gap-4">
-													<a href="/modulos/" class="flex items-center space-x-3 p-2 rounded-md hover:bg-gray-100">
+													<a href="/modulos/" class="flex items-center space-x-3 p-2 rounded-md hover:bg-gray-100 nav-submenu-item">
 														<img src="/wp-content/uploads/2024/11/Screenshot-2024-11-26-at-12.25.25%E2%80%AFPM.jpg" alt="" class="w-8 h-8" />
 														<div>
-															<div class="font-medium">Módulos Digitalia</div>
-															<div class="text-xs text-gray-500">El proyecto Digitalia se desarrolla en cinco módulos.</div>
+															<div class="font-medium nav-menu-title">Módulos Digitalia</div>
+															<div class="text-xs text-gray-500 nav-menu-description">El proyecto Digitalia se desarrolla en cinco módulos.</div>
 														</div>
 													</a>
-													<a href="/modulos/academia/" class="flex items-center space-x-3 p-2 rounded-md hover:bg-gray-100">
+													<a href="/modulos/academia/" class="flex items-center space-x-3 p-2 rounded-md hover:bg-gray-100 nav-submenu-item">
 														<img src="/wp-content/uploads/2024/11/Screenshot-2024-11-18-at-12.27.21 PM.jpg" alt="" class="w-8 h-8" />
 														<div>
-															<div class="font-medium">Academia</div>
-															<div class="text-xs text-gray-500">Plataforma de autoformación en paradigmas tecnológicos y paz mediática.</div>
+															<div class="font-medium nav-menu-title">Academia</div>
+															<div class="text-xs text-gray-500 nav-menu-description">Plataforma de autoformación en paradigmas tecnológicos y paz mediática.</div>
 														</div>
 													</a>
-													<a href="/modulos/en-linea/" class="flex items-center space-x-3 p-2 rounded-md hover:bg-gray-100">
+													<a href="/modulos/en-linea/" class="flex items-center space-x-3 p-2 rounded-md hover:bg-gray-100 nav-submenu-item">
 														<img src="/wp-content/uploads/2024/11/Screenshot-2024-11-18-at-2.21.48 PM.jpg" alt="" class="w-8 h-8" />
 														<div>
-															<div class="font-medium">En Línea</div>
-															<div class="text-xs text-gray-500">Serie web sobre acciones ciudadanas y públicas por la paz.</div>
+															<div class="font-medium nav-menu-title">En Línea</div>
+															<div class="text-xs text-gray-500 nav-menu-description">Serie web sobre acciones ciudadanas y públicas por la paz.</div>
 														</div>
 													</a>
-													<a href="/modulos/total-transmedia/" class="flex items-center space-x-3 p-2 rounded-md hover:bg-gray-100">
+													<a href="/modulos/total-transmedia/" class="flex items-center space-x-3 p-2 rounded-md hover:bg-gray-100 nav-submenu-item">
 														<img src="/wp-content/uploads/2024/11/Screenshot-2024-11-18-at-2.21.05 PM.jpg" alt="" class="w-8 h-8" />
 														<div>
-															<div class="font-medium">Total Transmedia</div>
-															<div class="text-xs text-gray-500">Estrategia de expansión Digital-IA y sinergias ciudadanas.</div>
+															<div class="font-medium nav-menu-title">Total Transmedia</div>
+															<div class="text-xs text-gray-500 nav-menu-description">Estrategia de expansión Digital-IA y sinergias ciudadanas.</div>
 														</div>
 													</a>
-													<a href="/modulos/colaboratorios/" class="flex items-center space-x-3 p-2 rounded-md hover:bg-gray-100">
+													<a href="/modulos/colaboratorios/" class="flex items-center space-x-3 p-2 rounded-md hover:bg-gray-100 nav-submenu-item">
 														<img src="/wp-content/uploads/2024/11/Screenshot-2024-11-18-at-2.22.28 PM.jpg" alt="" class="w-8 h-8" />
 														<div>
-															<div class="font-medium">CoLaboratorios</div>
-															<div class="text-xs text-gray-500">Espacios de aprendizaje y construcción de paz mediática.</div>
+															<div class="font-medium nav-menu-title">CoLaboratorios</div>
+															<div class="text-xs text-gray-500 nav-menu-description">Espacios de aprendizaje y construcción de paz mediática.</div>
 														</div>
 													</a>
-													<a href="/modulos/ready/" class="flex items-center space-x-3 p-2 rounded-md hover:bg-gray-100">
+													<a href="/modulos/ready/" class="flex items-center space-x-3 p-2 rounded-md hover:bg-gray-100 nav-submenu-item">
 														<img src="/wp-content/uploads/2024/11/Screenshot-2024-11-18-at-2.23.02 PM.jpg" alt="" class="w-8 h-8" />
 														<div>
-															<div class="font-medium">REaDy</div>
-															<div class="text-xs text-gray-500">Red de alfabetizadores en paz mediática y tecnologías.</div>
+															<div class="font-medium nav-menu-title">REaDy</div>
+															<div class="text-xs text-gray-500 nav-menu-description">Red de alfabetizadores en paz mediática y tecnologías.</div>
 														</div>
 													</a>
 												</div>
@@ -160,16 +160,16 @@
 								<li class="relative group">
 									<div class="flex flex-col">
 										<div class="flex items-center">
-											<a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium uppercase">
+											<a href="#" class="nav-top-link nav-main-link text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium uppercase">
 												Biblioteca Digital
 											</a>
-											<button type="button" class="ml-1 text-gray-300">
+											<button type="button" class="ml-1 text-gray-300 nav-chevron">
 												<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 													<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
 												</svg>
 											</button>
 										</div>
-										<div class="hidden group-hover:block absolute top-full pt-2 left-0">
+										<div class="hidden group-hover:block absolute top-full pt-2 left-0 nav-submenu">
 											<div class="w-48 bg-white rounded-md shadow-lg z-50">
 												<div class="py-1">
 													<a href="/biblioteca-digital/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Biblioteca Digitalia</a>
@@ -180,17 +180,17 @@
 									</div>
 								</li>
 								<li class="flex items-center">
-									<a href="/blog-y-noticias/" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium uppercase">
+									<a href="/blog-y-noticias/" class="nav-top-link nav-main-link text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium uppercase">
 										Blog
 									</a>
 								</li>
 								<li class="flex items-center">
-									<a href="/preguntas-frecuentes/" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium uppercase">
+									<a href="/preguntas-frecuentes/" class="nav-top-link nav-main-link text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium uppercase">
 										Preguntas Frecuentes
 									</a>
 								</li>
 								<li class="flex items-center">
-									<a href="/contacto/" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium uppercase">
+									<a href="/contacto/" class="nav-top-link nav-main-link text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium uppercase">
 										Contacto
 									</a>
 								</li>
@@ -199,7 +199,7 @@
 					</div>
 				</div>
 				<div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-					<ul class="flex items-center space-x-4">
+					<ul class="flex items-center space-x-4 nav-social-icons">
 						<li class="font-medium duration-200 hover:scale-110 text-white hover:text-slate-300">
 							<a href="https://bit.ly/49vhs86"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" class="size-5" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg></a>
 						</li>
@@ -232,47 +232,47 @@
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
 						</svg>
 					</button>
-					<div x-show="modulesOpen" class="px-4 py-2 space-y-2">
-						<a href="/modulos/" class="flex items-center space-x-3 p-2 rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">
+					<div x-show="modulesOpen" class="px-4 py-2 space-y-2 bg-white">
+						<a href="/modulos/" class="flex items-center space-x-3 p-2 rounded-md text-gray-300 hover:bg-gray-700 hover:text-white nav-submenu-item">
 							<img src="/wp-content/uploads/2024/11/Screenshot-2024-11-26-at-12.25.25%E2%80%AFPM.jpg" alt="" class="w-8 h-8" />
 							<div>
-								<div class="font-medium">Módulos Digitalia</div>
-								<div class="text-xs text-gray-500">El proyecto Digitalia se desarrolla en cinco módulos.</div>
+								<div class="font-medium nav-menu-title">Módulos Digitalia</div>
+								<div class="text-xs text-gray-500 nav-menu-description">El proyecto Digitalia se desarrolla en cinco módulos.</div>
 							</div>
 						</a>
-						<a href="/modulos/academia/" class="flex items-center space-x-3 p-2 rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">
+						<a href="/modulos/academia/" class="flex items-center space-x-3 p-2 rounded-md text-gray-300 hover:bg-gray-700 hover:text-white nav-submenu-item">
 							<img src="/wp-content/uploads/2024/11/Screenshot-2024-11-18-at-12.27.21 PM.jpg" alt="" class="w-8 h-8" />
 							<div>
-								<div class="font-medium">Academia</div>
-								<div class="text-xs text-gray-500">Plataforma de autoformación en paradigmas tecnológicos y paz mediática.</div>
+								<div class="font-medium nav-menu-title">Academia</div>
+								<div class="text-xs text-gray-500 nav-menu-description">Plataforma de autoformación en paradigmas tecnológicos y paz mediática.</div>
 							</div>
 						</a>
-						<a href="/modulos/en-linea/" class="flex items-center space-x-3 p-2 rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">
+						<a href="/modulos/en-linea/" class="flex items-center space-x-3 p-2 rounded-md text-gray-300 hover:bg-gray-700 hover:text-white nav-submenu-item">
 							<img src="/wp-content/uploads/2024/11/Screenshot-2024-11-18-at-2.21.48 PM.jpg" alt="" class="w-8 h-8" />
 							<div>
-								<div class="font-medium">En Línea</div>
-								<div class="text-xs text-gray-500">Serie web sobre acciones ciudadanas y públicas por la paz.</div>
+								<div class="font-medium nav-menu-title">En Línea</div>
+								<div class="text-xs text-gray-500 nav-menu-description">Serie web sobre acciones ciudadanas y públicas por la paz.</div>
 							</div>
 						</a>
-						<a href="/modulos/total-transmedia/" class="flex items-center space-x-3 p-2 rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">
+						<a href="/modulos/total-transmedia/" class="flex items-center space-x-3 p-2 rounded-md text-gray-300 hover:bg-gray-700 hover:text-white nav-submenu-item">
 							<img src="/wp-content/uploads/2024/11/Screenshot-2024-11-18-at-2.21.05 PM.jpg" alt="" class="w-8 h-8" />
 							<div>
-								<div class="font-medium">Total Transmedia</div>
-								<div class="text-xs text-gray-500">Estrategia de expansión Digital-IA y sinergias ciudadanas.</div>
+								<div class="font-medium nav-menu-title">Total Transmedia</div>
+								<div class="text-xs text-gray-500 nav-menu-description">Estrategia de expansión Digital-IA y sinergias ciudadanas.</div>
 							</div>
 						</a>
-						<a href="/modulos/colaboratorios/" class="flex items-center space-x-3 p-2 rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">
+						<a href="/modulos/colaboratorios/" class="flex items-center space-x-3 p-2 rounded-md text-gray-300 hover:bg-gray-700 hover:text-white nav-submenu-item">
 							<img src="/wp-content/uploads/2024/11/Screenshot-2024-11-18-at-2.22.28 PM.jpg" alt="" class="w-8 h-8" />
 							<div>
-								<div class="font-medium">CoLaboratorios</div>
-								<div class="text-xs text-gray-500">Espacios de aprendizaje y construcción de paz mediática.</div>
+								<div class="font-medium nav-menu-title">CoLaboratorios</div>
+								<div class="text-xs text-gray-500 nav-menu-description">Espacios de aprendizaje y construcción de paz mediática.</div>
 							</div>
 						</a>
-						<a href="/modulos/ready/" class="flex items-center space-x-3 p-2 rounded-md text-gray-300 hover:bg-gray-700 hover:text-white">
+						<a href="/modulos/ready/" class="flex items-center space-x-3 p-2 rounded-md text-gray-300 hover:bg-gray-700 hover:text-white nav-submenu-item">
 							<img src="/wp-content/uploads/2024/11/Screenshot-2024-11-18-at-2.23.02 PM.jpg" alt="" class="w-8 h-8" />
 							<div>
-								<div class="font-medium">REaDy</div>
-								<div class="text-xs text-gray-500">Red de alfabetizadores en paz mediática y tecnologías.</div>
+								<div class="font-medium nav-menu-title">REaDy</div>
+								<div class="text-xs text-gray-500 nav-menu-description">Red de alfabetizadores en paz mediática y tecnologías.</div>
 							</div>
 						</a>
 					</div>

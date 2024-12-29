@@ -9,6 +9,31 @@ get_header();
 ?>
 
 <main class="bg-white">
+    <section class="py-16 md:py-24 bg-yellow-50">
+        <div class="container mx-auto px-4">
+            <div class="grid items-center gap-8 lg:grid-cols-2">
+                <div class="flex flex-col items-center px-4 text-center lg:items-start lg:text-left">
+                    <p class="text-yellow-600 font-semibold mb-4">Recursos Educativos</p>
+                    <h1 class="text-4xl lg:text-6xl font-bold mb-6 text-yellow-900">Biblioteca de Conocimiento</h1>
+                    <p class="mb-8 max-w-xl text-yellow-900 lg:text-xl">
+                        Explora nuestra colección de recursos educativos, guías prácticas y herramientas interactivas diseñadas para potenciar tu aprendizaje en alfabetización mediática.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#biblioteca" class="inline-flex items-center justify-center px-6 py-3 bg-yellow-600 text-white rounded-lg hover:bg-yellow-700 transition-colors">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            Explorar Recursos
+                        </a>
+                        <a href="#herramientas" class="inline-flex items-center justify-center px-6 py-3 border border-yellow-600 text-yellow-600 rounded-lg hover:bg-yellow-50 transition-colors">
+                            Ver Herramientas
+                        </a>
+                    </div>
+                </div>
+                <img src="https://placehold.co/800x600/ca8a04/fef9c3" alt="Recursos Educativos" class="w-full rounded-lg shadow-xl">
+            </div>
+        </div>
+    </section>
     <!-- Biblioteca Digital Section -->
     <section class="py-24 sm:py-32 bg-slate-50">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">

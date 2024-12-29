@@ -18,18 +18,6 @@ get_header();
         'cta_url' => '/biblioteca-digital'
     ));
     ?>
-
-    <?php
-    $nav_items = get_field('enlinea_nav');
-    get_template_part('template-parts/floating-nav', null, array(
-        'nav_items' => array(
-            array('anchor' => 'estrategia', 'text' => 'Estrategia'),
-            array('anchor' => 'equipo', 'text' => 'Equipo'),
-            array('anchor' => 'portafolio', 'text' => 'Portafolio'),
-            array('anchor' => 'blog', 'text' => 'Blog'),
-        )
-    ));
-    ?>
     
     <section id="estrategia" class="py-32 bg-blue-200 text-blue-900" style="margin-top: -70px;">
         <div class="container">

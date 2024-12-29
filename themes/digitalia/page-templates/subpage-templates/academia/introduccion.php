@@ -24,8 +24,8 @@ get_header();
           </div>
         </div>
         <div class="mt-16 flow-root sm:mt-24">
-          <div class="relative -m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4">
-            <img src="https://placehold.co/1200x800" alt="App screenshot" class="rounded-md shadow-2xl ring-1 ring-gray-900/10">
+          <div class="relative -m-2 rounded-xl bg-yellow-100/5 p-2 ring-1 ring-inset ring-yellow-100/10 lg:-m-4 lg:rounded-2xl lg:p-4">
+            <img src="https://placehold.co/1200x800" alt="Total Transmedia" class="rounded-md shadow-2xl ring-1 ring-yellow-100/10">
           </div>
         </div>
       </div>

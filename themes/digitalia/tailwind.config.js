@@ -33,7 +33,8 @@ module.exports = {
           800: '#99002a',
           900: '#800023',
           950: '#4c0014',
-        }
+        },
+        'digitalia-yellow': '#ffda00',
       },
       container: {
         center: true,
