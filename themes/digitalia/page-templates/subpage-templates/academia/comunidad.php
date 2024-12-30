@@ -9,28 +9,18 @@ get_header();
 ?>
 
 <main class="bg-white">
-    <section class="py-16 md:py-24 bg-yellow-50">
-        <div class="container mx-auto px-4">
-            <div class="grid items-center gap-8 lg:grid-cols-2">
-                <div class="flex flex-col items-center px-4 text-center lg:items-start lg:text-left">
-                    <p class="text-yellow-600 font-semibold mb-4">Academia Digital-IA</p>
-                    <h1 class="text-4xl lg:text-6xl font-bold mb-6 text-yellow-900">Ecosistema Digital Educativo</h1>
-                    <p class="mb-8 max-w-xl text-yellow-900 lg:text-xl">
-                        Plataforma integral de formación que combina tecnología y educación para fortalecer las competencias digitales y promover la alfabetización mediática con enfoque de paz.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="#plataforma" class="inline-flex items-center justify-center px-6 py-3 bg-yellow-600 text-white rounded-lg hover:bg-yellow-700 transition-colors">
-                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                            Explorar Plataforma
-                        </a>
-                        <a href="#recursos" class="inline-flex items-center justify-center px-6 py-3 border border-yellow-600 text-yellow-600 rounded-lg hover:bg-yellow-50 transition-colors">
-                            Ver Recursos
-                        </a>
-                    </div>
-                </div>
-                <img src="https://placehold.co/800x600/ca8a04/fef9c3" alt="Academia Digital-IA" class="w-full rounded-lg shadow-xl">
+    <section id="hero" class="flex flex-col gap-16 lg:px-16 pt-16 text-yellow-950 bg-yellow-50">
+        <div class="container mb-14 flex flex-col gap-16 lg:mb-16 lg:px-16">
+            <div class="lg:max-w-lg">
+                <h2 class="mb-3 text-xl font-semibold md:mb-4 md:text-4xl lg:mb-6">Ecosistema Digital Educativo</h2>
+                <p class="mb-8 lg:text-lg">Plataforma integral de formación que combina tecnología y educación para fortalecer las competencias digitales y promover la alfabetización mediática con enfoque de paz.</p>
+                <a href="#" class="group flex items-center text-xs font-medium md:text-base lg:text-lg">
+                    Conoce más
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right ml-2 size-4 transition-transform group-hover:translate-x-1">
+                        <path d="M5 12h14"></path>
+                        <path d="m12 5 7 7-7 7"></path>
+                    </svg>
+                </a>
             </div>
         </div>
     </section>

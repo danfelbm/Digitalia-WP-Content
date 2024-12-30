@@ -9,15 +9,66 @@ get_header();
 ?>
 
 <main id="primary" class="site-main">
-    <?php
-    get_template_part('template-parts/subpage-header', null, array(
-        'title' => 'CoLaboratorios',
-        'subtitle' => 'Espacios de co-creación y aprendizaje colaborativo',
-        'show_cta' => true,
-        'cta_text' => 'Participar',
-        'cta_url' => '/contacto'
-    ));
-    ?>
+    <div class="absolute inset-x-0 top-0 -z-10 h-full w-full">
+        <div class="absolute inset-0 bg-gradient-to-b from-teal-50 to-white"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(#0f766e_0.8px,transparent_0.8px)] [background-size:16px_16px] opacity-[0.15]"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(#115e59_1.2px,transparent_1.2px)] [background-size:32px_32px] opacity-[0.1]"></div>
+    </div>
+    
+    <section class="pt-32">
+        <div class="container">
+            <div class="relative pb-16">
+                
+                <a href="#acerca" class="mx-auto flex w-fit items-center gap-2 rounded-lg bg-teal-50 p-3 sm:rounded-full sm:py-1 sm:pl-1 sm:pr-3">
+                    <div class="items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-teal-600 focus:ring-offset-2 border-transparent bg-teal-700 text-white hover:bg-teal-600 hidden sm:block">
+                        Digital-IA
+                    </div>
+                    <p class="flex items-center gap-1 text-sm text-teal-900">
+                        Descubre nuestros espacios de innovación
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right mt-0.5 size-4 shrink-0">
+                            <path d="m9 18 6-6-6-6"></path>
+                        </svg>
+                    </p>
+                </a>
+
+                <h1 class="mx-auto my-5 max-w-screen-lg text-balance text-center text-3xl md:text-5xl text-teal-900">
+                    Colaboratorios: Espacios de Innovación Social y Tecnológica
+                </h1>
+
+                <p class="mx-auto max-w-screen-md text-center text-sm text-teal-700 md:text-base">
+                    Los Colaboratorios representan una innovadora red de espacios físicos diseñados para democratizar el acceso a la tecnología y fomentar la alfabetización mediática en Colombia.
+                </p>
+
+                <div class="mt-8 flex items-center justify-center gap-3">
+                    <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-600 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-teal-700 text-white hover:bg-teal-600 h-10 px-4 py-2">
+                        Participar
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right ml-2 size-4">
+                            <path d="m9 18 6-6-6-6"></path>
+                        </svg>
+                    </button>
+                    <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-600 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-teal-200 bg-white hover:bg-teal-50 hover:text-teal-700 h-10 px-4 py-2 text-teal-900">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-play mr-2 size-4">
+                            <polygon points="6 3 20 12 6 21 6 3"></polygon>
+                        </svg>
+                        Ver Video
+                    </button>
+                </div>
+
+                <div class="mt-5 flex justify-center">
+                    <a href="#contacto" class="flex items-center gap-1 border-b border-dashed text-sm hover:border-solid hover:border-teal-600 text-teal-700">
+                        Agenda una visita
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right size-3.5">
+                            <path d="m9 18 6-6-6-6"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="rounded-t-lg border-x border-t border-teal-100 px-1 pt-1">
+                <img src="https://placehold.co/1200x430/teal/white/png?text=Colaboratorios(1200x430)" alt="Colaboratorios - Espacios de innovación" class="max-h-80 w-full rounded-t-lg object-cover md:max-h-[430px]">
+            </div>
+        </div>
+    </section>
 
     <section id="acerca" class="bg-teal-900 pb-32 pt-12">
         <div class="container">

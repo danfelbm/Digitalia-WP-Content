@@ -9,15 +9,34 @@ get_header();
 ?>
 
 <main id="primary" class="site-main">
-    <?php
-    get_template_part('template-parts/subpage-header', null, array(
-        'title' => get_field('enlinea_header')['title'],
-        'subtitle' => get_field('enlinea_header')['subtitle'],
-        'show_cta' => true,
-        'cta_text' => get_field('enlinea_header')['cta']['title'],
-        'cta_url' => get_field('enlinea_header')['cta']['url']
-    ));
-    ?>
+
+    <section class="overflow-hidden py-32 bg-red-50/80">
+    <div class="container">
+        <div class="flex flex-col gap-5">
+        <div class="relative flex flex-col gap-5">
+            <div style="transform:translate(-50%, -50%)" class="absolute left-1/2 top-1/2 -z-10 mx-auto size-[800px] rounded-full border-red-300/60 border-2 p-16 [mask-image:linear-gradient(to_top,transparent,transparent,rgba(255,255,255,0.9),white,rgba(255,255,255,0.9),transparent,transparent)] md:size-[1300px] md:p-32">
+            <div class="size-full rounded-full border-red-400/70 border-2 p-16 md:p-32">
+                <div class="size-full rounded-full border-red-500/80 border-2"></div>
+            </div>
+            </div>
+            <span class="mx-auto flex size-16 items-center justify-center rounded-full border-red-300 border bg-red-50 text-red-600 hover:bg-red-100 transition-colors md:size-20">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-play size-6 fill-red-600">
+                <polygon points="6 3 20 12 6 21 6 3"></polygon>
+            </svg>
+            </span>
+            <h1 class="mx-auto max-w-screen-lg text-balance text-center text-3xl font-medium text-red-950 md:text-6xl">Serie En Línea</h1>
+            <p class="mx-auto max-w-screen-md text-center text-red-700 md:text-lg">Serie web intergeneracional que amplía y fortalece nuestra perspectiva crítica ante los nuevos desafíos de las tecnologías y el consumo informativo.</p>
+            <div class="flex flex-col items-center justify-center gap-3 pb-12 pt-3">
+            <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-400 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-red-600 text-white hover:bg-red-700 h-11 rounded-md px-8 shadow-sm">Ver Episodios <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap ml-2 size-4">
+                <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86.46l1.92-6.02A1 1 0 0 0 11 14z"></path>
+                </svg>
+            </button>
+            <div class="text-xs text-red-500">Con el apoyo de Canal 13</div>
+            </div>
+        </div>
+        </div>
+    </div>
+    </section>
 
     <?php
     get_template_part('template-parts/floating-nav', null, array(
@@ -123,7 +142,11 @@ get_header();
                 <div class="flex flex-col gap-8 text-center text-primary-foreground max-w-6xl mx-auto px-4 md:px-8">
                     <div class="flex items-center justify-center gap-2 text-2xl font-medium">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap h-full w-7">
-                            <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path>
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path>
+                            <path d="M14 2v4a2 2 0 0 0 2 2h4"></path>
+                            <path d="M10 9H8"></path>
+                            <path d="M16 13H8"></path>
+                            <path d="M16 17H8"></path>
                         </svg> 
                         <?php echo esc_html($historia['subtitle']); ?>
                     </div>

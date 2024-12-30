@@ -9,17 +9,53 @@ get_header();
 ?>
 
 <main id="primary" class="site-main">
-    <?php
-    get_template_part('template-parts/subpage-header', null, array(
-        'title' => 'REaDy',
-        'subtitle' => 'Red de Aprendizaje Digital y recursos educativos',
-        'show_cta' => true,
-        'cta_text' => 'Unirse a la red',
-        'cta_url' => '/contacto'
-    ));
-    ?>
-    
-    <section id="acerca" class="bg-purple-900 pb-32 pt-12">
+
+<section class="relative py-32 bg-purple-50">
+    <div class="container absolute inset-x-0 top-0 hidden h-full overflow-hidden lg:block">
+        <div class="flex flex-col items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 520" class="-mx-[theme(container.padding)] w-[calc(100%+2*theme(container.padding))]">
+                <defs>
+                    <radialGradient id="text-backgroud" cx="50%" cy="50%" r="0.6">
+                        <stop stop-color="#F3E8FF" offset="0.4"></stop>
+                        <stop stop-color="#F3E8FF" offset="1" stop-opacity="0"></stop>
+                    </radialGradient>
+                    <linearGradient id="icon-backgroud" x1="0" y1="0" x2="1" y2="1">
+                        <stop stop-color="#F3E8FF" offset="0"></stop>
+                        <stop stop-color="#E9D5FF" offset="1"></stop>
+                    </linearGradient>
+                    <mask id="mask">
+                        <rect x="0" y="0" width="100%" height="100%" stroke="none" fill="black"></rect>
+                        <rect x="80" y="40" width="1260" height="380" rx="140" stroke="none" filter="url(#blur)" fill="white"></rect>
+                        <rect x="40" y="-120" width="1320" height="600" stroke="none" fill="url(#text-backgroud)"></rect>
+                    </mask>
+                    <filter id="blur" x="-50%" y="-50%" width="200%" height="200%">
+                        <feGaussianBlur in="SourceGraphic" stdDeviation="40"></feGaussianBlur>
+                    </filter>
+                </defs>
+                <path stroke="#E9D5FF" stroke-width="1" d="M0,40H1400M0,120H1400M0,200H1400M0,280H1400M0,360H1400M0,440H1400M60,0V520M140,0V520M220,0V520M300,0V520M380,0V520M460,0V520M540,0V520M620,0V520M700,0V520M780,0V520M860,0V520M940,0V520M1020,0V520M1100,0V520M1180,0V520M1260,0V520M1340,0V520" mask="url(#mask)"></path>
+                <rect x="140" y="120" width="80" height="80" stroke="#581C87" fill="url(#icon-backgroud)"></rect>
+                <image href="https://shadcnblocks.com/images/block/block-1.svg" x="160" y="140" width="40" height="40"></image>
+                <rect x="60" y="280" width="80" height="80" stroke="#581C87" fill="url(#icon-backgroud)"></rect>
+                <image href="https://shadcnblocks.com/images/block/block-2.svg" x="80" y="300" width="40" height="40"></image>
+                <rect x="300" y="360" width="80" height="80" stroke="#581C87" fill="url(#icon-backgroud)"></rect>
+                <image href="https://shadcnblocks.com/images/block/block-3.svg" x="320" y="380" width="40" height="40"></image>
+                <rect x="1180" y="40" width="80" height="80" stroke="#581C87" fill="url(#icon-backgroud)"></rect>
+                <image href="https://shadcnblocks.com/images/block/block-4.svg" x="1200" y="60" width="40" height="40"></image>
+                <rect x="1260" y="280" width="80" height="80" stroke="#581C87" fill="url(#icon-backgroud)"></rect>
+                <image href="https://shadcnblocks.com/images/block/block-5.svg" x="1280" y="300" width="40" height="40"></image>
+            </svg>
+        </div>
+    </div>
+    <div class="container relative flex flex-col items-center text-center">
+        <h1 class="my-6 text-pretty text-4xl font-bold lg:text-6xl">Red Nacional de Alfabetizadores</h1>
+        <p class="mb-8 max-w-3xl text-muted-foreground lg:text-xl">Formando líderes en alfabetización mediática e informacional para construir una Colombia más informada y en paz.</p>
+        <div>
+            <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-purple-700 text-white hover:bg-purple-800 h-10 px-4 py-2">Únete a la Red</button>
+        </div>
+    </div>
+</section>
+
+    <section id="acerca" class="bg-purple-800 pb-32 pt-24">
         <div class="container">
             <div class="grid place-content-center gap-10 lg:grid-cols-2">
                 <div class="mx-auto flex max-w-screen-md flex-col items-center justify-center gap-4 lg:items-start">
@@ -30,8 +66,8 @@ get_header();
                         </svg>
                         Red de Aprendizaje Digital
                     </div>
-                    <h2 class="text-center text-3xl font-semibold lg:text-left lg:text-4xl text-white">Alfabetización Mediática para el Futuro</h2>
-                    <p class="text-center text-purple-300 lg:text-left lg:text-lg">REaDy es una red nacional de alfabetización mediática e informacional que prepara a la ciudadanía para los desafíos de las tecnologías emergentes, con énfasis en inteligencia artificial y enfoque de paz.</p>
+                    <h2 class="text-center text-3xl font-semibold lg:text-left lg:text-4xl text-purple-100">Alfabetización Mediática para el Futuro</h2>
+                    <p class="text-center text-purple-100 lg:text-left lg:text-lg">REaDy es una red nacional de alfabetización mediática e informacional que prepara a la ciudadanía para los desafíos de las tecnologías emergentes, con énfasis en inteligencia artificial y enfoque de paz.</p>
                     <a href="/contacto" class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-purple-500 text-white hover:bg-purple-400 h-11 rounded-md px-8">Unirse a la red</a>
                     <div class="mt-9 flex w-full flex-col justify-center gap-6 md:flex-row lg:justify-start">
                         <div class="flex justify-between gap-6">

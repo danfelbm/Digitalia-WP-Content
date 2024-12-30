@@ -10,16 +10,98 @@ get_header();
 
 <main id="primary" class="site-main">
 
-    <?php
-    $header = get_field('header');
-    get_template_part('template-parts/subpage-header', null, array(
-        'title' => $header['title'],
-        'subtitle' => $header['subtitle'],
-        'show_cta' => true,
-        'cta_text' => $header['cta']['title'],
-        'cta_url' => $header['cta']['url']
-    ));
-    ?>
+    <section class="relative overflow-hidden py-32 bg-yellow-50 text-yellow-950">
+    <div class="container">
+        <div class="mx-auto flex max-w-5xl flex-col items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" class="absolute hidden opacity-25 [mask-image:linear-gradient(to_right,white,transparent,transparent,white)] lg:block">
+            <g clip-path="url(#clip0_4_5)">
+            <rect width="1920" height="1080"></rect>
+            <line y1="49.5" x2="1920" y2="49.5" class="stroke-muted-foreground"></line>
+            <line y1="99.5" x2="1920" y2="99.5" class="stroke-muted-foreground"></line>
+            <line y1="149.5" x2="1920" y2="149.5" class="stroke-muted-foreground"></line>
+            <line y1="199.5" x2="1920" y2="199.5" class="stroke-muted-foreground"></line>
+            <line y1="249.5" x2="1920" y2="249.5" class="stroke-muted-foreground"></line>
+            <line y1="299.5" x2="1920" y2="299.5" class="stroke-muted-foreground"></line>
+            <line y1="349.5" x2="1920" y2="349.5" class="stroke-muted-foreground"></line>
+            <line y1="399.5" x2="1920" y2="399.5" class="stroke-muted-foreground"></line>
+            <line y1="449.5" x2="1920" y2="449.5" class="stroke-muted-foreground"></line>
+            <line y1="499.5" x2="1920" y2="499.5" class="stroke-muted-foreground"></line>
+            <line y1="549.5" x2="1920" y2="549.5" class="stroke-muted-foreground"></line>
+            <line y1="599.5" x2="1920" y2="599.5" class="stroke-muted-foreground"></line>
+            <line y1="649.5" x2="1920" y2="649.5" class="stroke-muted-foreground"></line>
+            <line y1="699.5" x2="1920" y2="699.5" class="stroke-muted-foreground"></line>
+            <line y1="749.5" x2="1920" y2="749.5" class="stroke-muted-foreground"></line>
+            <line y1="799.5" x2="1920" y2="799.5" class="stroke-muted-foreground"></line>
+            <line y1="849.5" x2="1920" y2="849.5" class="stroke-muted-foreground"></line>
+            <line y1="899.5" x2="1920" y2="899.5" class="stroke-muted-foreground"></line>
+            <line y1="949.5" x2="1920" y2="949.5" class="stroke-muted-foreground"></line>
+            <line y1="999.5" x2="1920" y2="999.5" class="stroke-muted-foreground"></line>
+            <line y1="1049.5" x2="1920" y2="1049.5" class="stroke-muted-foreground"></line>
+            <g clip-path="url(#clip1_4_5)">
+                <line x1="49.6133" y1="3.99995" x2="49.7268" y2="1084" class="stroke-muted-foreground"></line>
+                <line x1="99.7275" y1="3.99995" x2="99.8411" y2="1084" class="stroke-muted-foreground"></line>
+                <line x1="149.841" y1="3.99995" x2="149.954" y2="1084" class="stroke-muted-foreground"></line>
+                <line x1="199.954" y1="3.99995" x2="200.068" y2="1084" class="stroke-muted-foreground"></line>
+                <line x1="250.067" y1="3.99995" x2="250.181" y2="1084" class="stroke-muted-foreground"></line>
+                <line x1="300.182" y1="3.99995" x2="300.295" y2="1084" class="stroke-muted-foreground"></line>
+                <line x1="350.295" y1="3.99995" x2="350.408" y2="1084" class="stroke-muted-foreground"></line>
+                <line x1="400.408" y1="3.99995" x2="400.522" y2="1084" class="stroke-muted-foreground"></line>
+                <line x1="450.521" y1="3.99995" x2="450.635" y2="1084" class="stroke-muted-foreground"></line>
+                <line x1="500.636" y1="3.99995" x2="500.749" y2="1084" class="stroke-muted-foreground"></line>
+                <line x1="550.749" y1="3.99995" x2="550.863" y2="1084" class="stroke-muted-foreground"></line>
+                <line x1="600.862" y1="3.99995" x2="600.976" y2="1084" class="stroke-muted-foreground"></line>
+                <line x1="650.976" y1="3.99995" x2="651.089" y2="1084" class="stroke-muted-foreground"></line>
+                <line x1="701.09" y1="3.99995" x2="701.203" y2="1084" class="stroke-muted-foreground"></line>
+                <line x1="751.203" y1="3.99995" x2="751.317" y2="1084" class="stroke-muted-foreground"></line>
+                <line x1="801.316" y1="3.99995" x2="801.43" y2="1084" class="stroke-muted-foreground"></line>
+                <line x1="851.43" y1="3.99995" x2="851.543" y2="1084" class="stroke-muted-foreground"></line>
+                <line x1="901.544" y1="3.99995" x2="901.657" y2="1084" class="stroke-muted-foreground"></line>
+                <line x1="951.657" y1="3.99995" x2="951.771" y2="1084" class="stroke-muted-foreground"></line>
+                <line x1="1001.77" y1="3.99995" x2="1001.88" y2="1084" class="stroke-muted-foreground"></line>
+                <line x1="1051.88" y1="3.99995" x2="1052" y2="1084" class="stroke-muted-foreground"></line>
+                <line x1="1102" y1="3.99995" x2="1102.11" y2="1084" class="stroke-muted-foreground"></line>
+                <line x1="1152.11" y1="3.99995" x2="1152.22" y2="1084" class="stroke-muted-foreground"></line>
+                <line x1="1202.22" y1="3.99995" x2="1202.34" y2="1084" class="stroke-muted-foreground"></line>
+                <line x1="1252.34" y1="3.99995" x2="1252.45" y2="1084" class="stroke-muted-foreground"></line>
+                <line x1="1302.45" y1="3.99995" x2="1302.57" y2="1084" class="stroke-muted-foreground"></line>
+                <line x1="1352.57" y1="3.99995" x2="1352.68" y2="1084" class="stroke-muted-foreground"></line>
+                <line x1="1402.68" y1="3.99995" x2="1402.79" y2="1084" class="stroke-muted-foreground"></line>
+                <line x1="1452.79" y1="3.99995" x2="1452.91" y2="1084" class="stroke-muted-foreground"></line>
+                <line x1="1502.91" y1="3.99995" x2="1503.02" y2="1084" class="stroke-muted-foreground"></line>
+                <line x1="1553.02" y1="3.99995" x2="1553.13" y2="1084" class="stroke-muted-foreground"></line>
+                <line x1="1603.13" y1="3.99995" x2="1603.25" y2="1084" class="stroke-muted-foreground"></line>
+                <line x1="1653.25" y1="3.99995" x2="1653.36" y2="1084" class="stroke-muted-foreground"></line>
+                <line x1="1703.36" y1="3.99995" x2="1703.47" y2="1084" class="stroke-muted-foreground"></line>
+                <line x1="1753.47" y1="3.99995" x2="1753.59" y2="1084" class="stroke-muted-foreground"></line>
+                <line x1="1803.59" y1="3.99995" x2="1803.7" y2="1084" class="stroke-muted-foreground"></line>
+                <line x1="1853.7" y1="3.99995" x2="1853.81" y2="1084" class="stroke-muted-foreground"></line>
+                <line x1="1903.81" y1="3.99995" x2="1903.93" y2="1084" class="stroke-muted-foreground"></line>
+            </g>
+            </g>
+            <defs>
+            <clipPath id="clip0_4_5">
+                <rect width="1920" height="1080" fill="#000000"></rect>
+            </clipPath>
+            <clipPath id="clip1_4_5">
+                <rect width="1920" height="1080" fill="#000000" transform="translate(-1 4)"></rect>
+            </clipPath>
+            </defs>
+        </svg>
+        <div class="z-10 mx-auto flex max-w-5xl flex-col items-center gap-6 text-center">
+            <div class="inline-flex items-center rounded-full border-yellow-600 border bg-yellow-100 px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 text-yellow-900">Cursos en línea <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-down-right ml-2 size-4">
+                <path d="m7 7 10 10"></path>
+                <path d="M17 7v10H7"></path>
+            </svg>
+            </div>
+            <div>
+            <h1 class="mb-6 text-pretty text-4xl font-bold lg:text-7xl">Plataforma Academia</h1>
+            <p class=" lg:text-xl">Plataforma de autoformación con contenidos audiovisuales educativos disponible 24/7.</p>
+            <a href="#" class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-yellow-300 text-yellow-950 hover:bg-yellow-300/90 h-11 rounded-md px-8 mt-8">Regístrate hoy<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-move-right ml-2"><path d="M18 8L22 12L18 16"></path><path d="M2 12H22"></path></svg></a>
+            </div>
+        </div>
+        </div>
+    </div>
+    </section>
 
     <section id="acerca" class="pb-32 pt-12">
         <div class="container">
