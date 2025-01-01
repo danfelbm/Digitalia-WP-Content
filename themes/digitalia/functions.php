@@ -9,7 +9,7 @@
 
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '1.4.0' );
+	define( '_S_VERSION', '1.4.1' );
 }
 
 /**
@@ -613,6 +613,7 @@ require get_template_directory() . '/inc/acf_fields/academia-acf-fields.php';
 require get_template_directory() . '/inc/acf_fields/enlinea-acf-fields.php';
 require get_template_directory() . '/inc/acf_fields/queesdigitalia-acf-fields.php';
 require get_template_directory() . '/inc/acf_fields/parametros-acf-fields.php';
+require get_template_directory() . '/inc/acf_fields/total-transmedia-acf-fields.php';
 
 /**
  * Load Admin Pages

@@ -138,7 +138,7 @@ $colors = get_section_colors($parent_slug);
 ?>
 
 <!-- Desktop Secondary Navigation -->
-<nav class="hidden md:block sticky top-16 z-50 <?php echo $colors['bg']; ?> shadow-md">
+<nav id="modulos-nav" class="hidden md:block sticky top-16 z-50 <?php echo $colors['bg']; ?> shadow-md">
     <div class="container mx-auto px-4">
         <div class="flex justify-center space-x-8 py-3">
             <!-- Parent page link -->

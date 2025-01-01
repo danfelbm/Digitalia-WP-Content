@@ -88,15 +88,15 @@ get_header();
             </defs>
         </svg>
         <div class="z-10 mx-auto flex max-w-5xl flex-col items-center gap-6 text-center">
-            <div class="inline-flex items-center rounded-full border-yellow-600 border bg-yellow-100 px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 text-yellow-900">Cursos en línea <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-down-right ml-2 size-4">
+            <div class="inline-flex items-center rounded-full border-yellow-600 border bg-yellow-100 px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 text-yellow-900"><?php echo esc_html(get_field('header')['badge_text']); ?> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-down-right ml-2 size-4">
                 <path d="m7 7 10 10"></path>
                 <path d="M17 7v10H7"></path>
             </svg>
             </div>
             <div>
-            <h1 class="mb-6 text-pretty text-4xl font-bold lg:text-7xl">Plataforma Academia</h1>
-            <p class=" lg:text-xl">Plataforma de autoformación con contenidos audiovisuales educativos disponible 24/7.</p>
-            <a href="#" class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-yellow-300 text-yellow-950 hover:bg-yellow-300/90 h-11 rounded-md px-8 mt-8">Regístrate hoy<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-move-right ml-2"><path d="M18 8L22 12L18 16"></path><path d="M2 12H22"></path></svg></a>
+            <h1 class="mb-6 text-pretty text-4xl font-bold lg:text-7xl"><?php echo esc_html(get_field('header')['title']); ?></h1>
+            <p class="lg:text-xl"><?php echo esc_html(get_field('header')['description']); ?></p>
+            <a href="<?php echo esc_url(get_field('header')['cta']['url']); ?>" class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-yellow-300 text-yellow-950 hover:bg-yellow-300/90 h-11 rounded-md px-8 mt-8"><?php echo esc_html(get_field('header')['cta']['text']); ?><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-move-right ml-2"><path d="M18 8L22 12L18 16"></path><path d="M2 12H22"></path></svg></a>
             </div>
         </div>
         </div>
