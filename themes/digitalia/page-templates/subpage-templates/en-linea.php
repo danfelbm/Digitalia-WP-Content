@@ -41,7 +41,8 @@ get_header();
     </section>
 
     <style>
-        #modulos-nav {
+        #modulos-nav,
+        #secondary-nav-mobile {
             display: none;
         }
     </style>
