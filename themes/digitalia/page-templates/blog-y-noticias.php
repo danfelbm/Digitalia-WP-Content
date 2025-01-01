@@ -20,8 +20,11 @@ get_header();
                         <path d="M16 13H8"></path>
                         <path d="M16 17H8"></path>
                     </svg>
-                    <h1 class="text-4xl font-extrabold lg:text-5xl">Blog y Noticias</h1>
-                    <p class="text-muted-foreground lg:text-xl">Mantente al día con las últimas noticias y artículos del sector digital.</p>
+                    <?php 
+                    $header = get_field('page_header') ?: array();
+                    ?>
+                    <h1 class="text-4xl font-extrabold lg:text-5xl"><?php echo isset($header['title']) ? $header['title'] : 'Blog y Noticias'; ?></h1>
+                    <p class="text-muted-foreground lg:text-xl"><?php echo isset($header['description']) ? $header['description'] : 'Mantente al día con las últimas noticias y artículos del sector digital.'; ?></p>
                     <div data-orientation="horizontal" role="none" class="shrink-0 bg-border h-[1px] w-full"></div>
                     <nav>
                         <ul class="flex flex-wrap items-center justify-center gap-4 lg:flex-col lg:items-start lg:gap-2">

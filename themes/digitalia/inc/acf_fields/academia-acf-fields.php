@@ -100,14 +100,14 @@ if (!function_exists('digitalia_register_academia_acf_fields')) {
                                     array(
                                         'key' => 'field_header_cta_text',
                                         'label' => 'Texto del botón',
-                                        'name' => 'text',
+                                        'name' => 'cta_text',
                                         'type' => 'text',
                                         'default_value' => 'Regístrate hoy',
                                     ),
                                     array(
                                         'key' => 'field_header_cta_url',
                                         'label' => 'URL del botón',
-                                        'name' => 'url',
+                                        'name' => 'cta_url',
                                         'type' => 'text',
                                         'default_value' => '#',
                                     ),

@@ -9,7 +9,7 @@
 
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '1.4.2' );
+	define( '_S_VERSION', '1.5.0' );
 }
 
 /**
@@ -607,13 +607,25 @@ add_action( 'init', 'digitalia_register_hero_block' );
 /**
  * Load ACF Fields
  */
-require get_template_directory() . '/inc/acf_fields/frontpage-acf-fields.php';
-require get_template_directory() . '/inc/acf_fields/modulos-acf-fields.php';
-require get_template_directory() . '/inc/acf_fields/academia-acf-fields.php';
-require get_template_directory() . '/inc/acf_fields/enlinea-acf-fields.php';
-require get_template_directory() . '/inc/acf_fields/queesdigitalia-acf-fields.php';
-require get_template_directory() . '/inc/acf_fields/parametros-acf-fields.php';
-require get_template_directory() . '/inc/acf_fields/total-transmedia-acf-fields.php';
+function digitalia_include_acf_fields($dir) {
+    if (!is_dir($dir)) {
+        return;
+    }
+    
+    // Get all PHP files including those in subdirectories
+    $files = new RecursiveIteratorIterator(
+        new RecursiveDirectoryIterator($dir, RecursiveDirectoryIterator::SKIP_DOTS),
+        RecursiveIteratorIterator::CHILD_FIRST
+    );
+    
+    foreach ($files as $file) {
+        if ($file->isFile() && $file->getExtension() === 'php') {
+            require $file->getRealPath();
+        }
+    }
+}
+
+digitalia_include_acf_fields(get_template_directory() . '/inc/acf_fields/');
 
 /**
  * Load Admin Pages

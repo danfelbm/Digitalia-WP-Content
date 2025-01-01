@@ -10,14 +10,15 @@ get_header();
 
 <main id="primary" class="site-main">
     <?php
+    $header = get_field('page_header') ?: array();
     get_template_part('template-parts/page-header', null, array(
-        'title' => 'Preguntas Frecuentes',
-        'subtitle' => 'Encuentra respuestas a las preguntas más comunes.',
-        'show_cta' => false,
-        'cta_text' => 'Contactar soporte',
-        'cta_url' => '/contacto',
-        'show_credit_card_text' => false,
-        'credit_card_text' => ''
+        'title' => isset($header['title']) ? $header['title'] : 'Preguntas Frecuentes',
+        'subtitle' => isset($header['subtitle']) ? $header['subtitle'] : 'Encuentra respuestas a las preguntas más comunes.',
+        'show_cta' => isset($header['show_cta']) ? $header['show_cta'] : false,
+        'cta_text' => isset($header['cta_text']) ? $header['cta_text'] : 'Contactar soporte',
+        'cta_url' => isset($header['cta_url']) ? $header['cta_url'] : '/contacto',
+        'show_credit_card_text' => isset($header['show_credit_card_text']) ? $header['show_credit_card_text'] : false,
+        'credit_card_text' => isset($header['credit_card_text']) ? $header['credit_card_text'] : ''
     ));
     ?>
 
@@ -39,9 +40,15 @@ get_header();
     <section class="py-32">
             <div class="container">
                 <div>
-                    <div class="inline-flex items-center rounded-full border px-2.5 py-0.5 transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-primary text-primary-foreground hover:bg-primary/80 text-xs font-medium">FAQ</div>
-                    <h1 class="mt-4 text-4xl font-semibold">Preguntas y Respuestas Frecuentes</h1>
-                    <p class="mt-6 font-medium text-muted-foreground">Descubre toda la información esencial sobre nuestra plataforma y cómo puede satisfacer tus necesidades.</p>
+                    <?php
+                    $faq_content = get_field('faq_content') ?: array();
+                    $badge_text = isset($faq_content['badge_text']) ? $faq_content['badge_text'] : 'FAQ';
+                    $main_title = isset($faq_content['main_title']) ? $faq_content['main_title'] : 'Preguntas y Respuestas Frecuentes';
+                    $description = isset($faq_content['description']) ? $faq_content['description'] : 'Descubre toda la información esencial sobre nuestra plataforma y cómo puede satisfacer tus necesidades.';
+                    ?>
+                    <div class="inline-flex items-center rounded-full border px-2.5 py-0.5 transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-primary text-primary-foreground hover:bg-primary/80 text-xs font-medium"><?php echo esc_html($badge_text); ?></div>
+                    <h1 class="mt-4 text-4xl font-semibold"><?php echo esc_html($main_title); ?></h1>
+                    <p class="mt-6 font-medium text-muted-foreground"><?php echo esc_html($description); ?></p>
             
             <!-- Tabs -->
             <div class="mt-8 mb-8">
