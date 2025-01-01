@@ -40,11 +40,11 @@ El programa de formación para alfabetizadores se estructura en módulos progres
 #### Sección 2: Competencias Clave
 Desarrollo detallado de las competencias esenciales que los alfabetizadores deben desarrollar, incluyendo habilidades pedagógicas, conocimiento técnico en herramientas digitales, comprensión de narrativas transmedia y capacidad para facilitar procesos de aprendizaje comunitario.
 
-#### Sección 3: Metodologías de Enseñanza
-Exploración de enfoques pedagógicos innovadores adaptados a diferentes contextos y poblaciones, con énfasis en metodologías que promueven el pensamiento crítico, la creatividad y la construcción colectiva de conocimiento.
+#### sección 3: metodologías de enseñanza
+exploración de enfoques pedagógicos innovadores adaptados a diferentes contextos y poblaciones, con énfasis en metodologías que promueven el pensamiento crítico, la creatividad y la construcción colectiva de conocimiento.
 
-#### Sección 4: Evaluación y Certificación
-Sistema integral de evaluación y reconocimiento de competencias, incluyendo procesos de certificación, seguimiento del desempeño y oportunidades de especialización continua.
+#### sección 4: evaluación y certificación
+sistema integral de evaluación y reconocimiento de competencias, incluyendo procesos de certificación, seguimiento del desempeño y oportunidades de especialización continua.
 
 ### 3. Recursos y Herramientas (slug: recursos-alfabetizadores)
 **Color: Teal shade #5F9EA0**
