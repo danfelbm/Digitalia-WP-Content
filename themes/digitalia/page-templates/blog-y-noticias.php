@@ -88,8 +88,8 @@ get_header();
                             </a>
                         <?php endwhile; ?>
                     </div>
-
-                    <?php if ($blog_query->max_num_pages > 1) : ?>
+            </div>
+            <?php if ($blog_query->max_num_pages > 1) : ?>
                     <div class="mt-8 border-t border-border py-2 md:mt-10 lg:mt-12">
                         <nav role="navigation" aria-label="pagination" class="mx-auto flex w-full justify-center">
                             <ul class="flex flex-row items-center gap-1 w-full justify-between">
@@ -137,7 +137,6 @@ get_header();
                     <?php endif; 
                     wp_reset_postdata();
                 endif; ?>
-            </div>
         </div>
     </section>
 </main>
