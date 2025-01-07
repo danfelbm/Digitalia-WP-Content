@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital-IA: Ecosistema Digital</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        .snap-container {
+            height: 100vh;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+        }
+
+        section {
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+        }
+
+        .bg-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .bg-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .font-mono {
+            font-family: 'Fira Code', monospace;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+    <div class="snap-container">
+        <!-- Portada -->
+        <section class="h-screen w-full flex items-center justify-center relative">
+            <img src="presentacion-assets/bg-main.jpg" alt="" class="absolute inset-0 w-full h-full object-cover">
+            <div class="bg-overlay"></div>
+            <div class="relative z-10 max-w-5xl mx-auto px-8 flex flex-col items-center">
+                <div class="text-center mb-12">
+                    <h1 class="text-7xl font-bold mb-8">Ecosistema Digital-IA</h1>
+                    <p class="text-3xl text-gray-300">Plataforma Integral de Alfabetización Mediática e Informacional</p>
+                </div>
+                <div class="w-full aspect-video rounded-lg overflow-hidden shadow-2xl">
+                    <video class="w-full h-full object-cover" controls autoplay loop>
+                        <source src="presentacion-assets/videopresentation.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- Visión General -->
+        <section class="h-screen w-full flex relative">
+            <div class="w-1/2 h-full flex items-center justify-center">
+                <div class="max-w-2xl px-8">
+                    <h2 class="text-5xl font-bold mb-8 text-blue-400">Visión General</h2>
+                    <p class="text-2xl leading-relaxed">Digital-IA es una iniciativa oficial del MinTIC que busca mejorar las competencias comunicacionales TIC de la población colombiana, con especial énfasis en inteligencia artificial y paz. Nuestro objetivo es elevar la alfabetización mediática e informacional, especialmente en poblaciones diferenciadas y organizaciones de la sociedad civil.</p>
+                </div>
+            </div>
+            <div class="w-1/2 h-full relative flex items-center justify-center">
+                <img src="presentacion-assets/bg1.jpg" alt="" class="bg-image">
+                <div class="bg-overlay"></div>
+                <div class="relative z-10 p-12 w-full flex items-center justify-center">
+                    <img src="presentacion-assets/modulos-desktop.jpeg" alt="Vista general del ecosistema" class="rounded-lg shadow-xl max-w-2xl w-full">
+                </div>
+            </div>
+        </section>
+
+        <!-- Arquitectura -->
+        <section class="h-screen w-full flex relative">
+            <div class="w-1/2 h-full flex items-center justify-center">
+                <div class="max-w-2xl px-8">
+                    <h2 class="text-5xl font-bold mb-8 text-blue-400">Arquitectura del Sistema</h2>
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="text-3xl font-mono text-purple-400 mb-4">Portal Informativo</h3>
+                            <ul class="text-2xl space-y-4">
+                                <li>• 45 landings construidos</li>
+                                <li>• Sistema CRM, PQR y ERP integrados</li>
+                                <li>• Métricas con Analytics</li>
+                                <li>• Blogs y Bibliotecas</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-3xl font-mono text-purple-400 mb-4">Plataformas</h3>
+                            <ul class="text-2xl space-y-4">
+                                <li>• WordPress</li>
+                                <li>• Moodle y H5P</li>
+                                <li>• Dolibarr</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-1/2 h-full relative flex items-center justify-center">
+                <img src="presentacion-assets/bg2.jpg" alt="" class="bg-image">
+                <div class="bg-overlay"></div>
+                <div class="relative z-10 p-12 w-full flex items-center justify-center">
+                    <img src="presentacion-assets/arquitectura.jpeg" alt="Arquitectura del sistema" class="rounded-lg shadow-xl max-w-2xl w-full">
+                </div>
+            </div>
+        </section>
+
+        <!-- Academia -->
+        <section class="h-screen w-full flex relative">
+            <div class="w-1/2 h-full flex items-center justify-center">
+                <div class="max-w-2xl px-8">
+                    <h2 class="text-5xl font-bold mb-8 text-blue-400">Academia</h2>
+                    <p class="text-2xl leading-relaxed">Ecosistema de autoformación que incluye un portal informativo, plataforma Moodle con 288 contenidos audiovisuales, y sistemas administrativos integrados. Ofrece 30 categorías temáticas enfocadas en alfabetización mediática, IA y paz.</p>
+                </div>
+            </div>
+            <div class="w-1/2 h-full relative flex items-center justify-center">
+                <img src="presentacion-assets/bg3.jpg" alt="" class="bg-image">
+                <div class="bg-overlay"></div>
+                <div class="relative z-10 p-12 w-full flex items-center justify-center">
+                    <img src="presentacion-assets/academia.jpeg" alt="Academia Digital-IA" class="rounded-lg shadow-xl max-w-2xl w-full">
+                </div>
+            </div>
+        </section>
+
+        <!-- En-Línea -->
+        <section class="h-screen w-full flex relative">
+            <div class="w-1/2 h-full flex items-center justify-center">
+                <div class="max-w-2xl px-8">
+                    <h2 class="text-5xl font-bold mb-8 text-blue-400">En-Línea</h2>
+                    <p class="text-2xl leading-relaxed">Incluye una serie web de 20 capítulos que, similar a IMDB, cataloga los episodios, personajes, actores e historias.</p>
+                </div>
+            </div>
+            <div class="w-1/2 h-full relative flex items-center justify-center">
+                <img src="presentacion-assets/bg4.jpg" alt="" class="bg-image">
+                <div class="bg-overlay"></div>
+                <div class="relative z-10 p-8 w-full grid grid-cols-2 gap-4">
+                    <img src="presentacion-assets/en-linea.jpeg" alt="En-Línea Principal" class="rounded-lg shadow-xl col-span-2">
+                    <img src="presentacion-assets/en-linea-2.jpeg" alt="En-Línea Episodios" class="rounded-lg shadow-xl">
+                    <img src="presentacion-assets/en-linea-3.jpeg" alt="En-Línea Personajes" class="rounded-lg shadow-xl">
+                </div>
+            </div>
+        </section>
+
+        <!-- Total Transmedia -->
+        <section class="h-screen w-full flex relative">
+            <div class="w-1/2 h-full flex items-center justify-center">
+                <div class="max-w-2xl px-8">
+                    <h2 class="text-5xl font-bold mb-8 text-blue-400">Total Transmedia</h2>
+                    <p class="text-2xl leading-relaxed">Espacio de convergencia multimedia que integra diferentes formatos y canales para una experiencia inmersiva y completa. Incluye Blogs y Sala de prensa.</p>
+                </div>
+            </div>
+            <div class="w-1/2 h-full relative flex items-center justify-center">
+                <img src="presentacion-assets/bg5.jpg" alt="" class="bg-image">
+                <div class="bg-overlay"></div>
+                <div class="relative z-10 p-12 w-full flex items-center justify-center">
+                    <img src="presentacion-assets/total-transmedia.jpeg" alt="Total Transmedia" class="rounded-lg shadow-xl max-w-2xl w-full">
+                </div>
+            </div>
+        </section>
+
+        <!-- Ready -->
+        <section class="h-screen w-full flex relative">
+            <div class="w-1/2 h-full flex items-center justify-center">
+                <div class="max-w-2xl px-8">
+                    <h2 class="text-5xl font-bold mb-8 text-blue-400">Ready</h2>
+                    <p class="text-2xl leading-relaxed">Red Nacional de Alfabetizadores Mediáticos e Informacionales que capacita líderes comunitarios y educativos. Ofrece programas de formación, certificación y una biblioteca de guías temáticas, además de organizar encuentros y foros para fortalecer la red nacional.</p>
+                </div>
+            </div>
+            <div class="w-1/2 h-full relative flex items-center justify-center">
+                <img src="presentacion-assets/bg1.jpg" alt="" class="bg-image">
+                <div class="bg-overlay"></div>
+                <div class="relative z-10 p-12 w-full flex items-center justify-center">
+                    <img src="presentacion-assets/ready.jpeg" alt="Ready" class="rounded-lg shadow-xl max-w-2xl w-full">
+                </div>
+            </div>
+        </section>
+
+        <!-- Co-laboratorios -->
+        <section class="h-screen w-full flex relative">
+            <div class="w-1/2 h-full flex items-center justify-center">
+                <div class="max-w-2xl px-8">
+                    <h2 class="text-5xl font-bold mb-8 text-blue-400">Co-laboratorios</h2>
+                    <p class="text-2xl leading-relaxed">Red de espacios colaborativos para la transmisión de saberes en educomunicación, enfocados en zonas rurales y poblaciones vulnerables. Incluye un mapa interactivo de talleres y eventos presenciales en diversas regiones del país, con acceso a herramientas y tecnologías de comunicación digital.</p>
+                </div>
+            </div>
+            <div class="w-1/2 h-full relative flex items-center justify-center">
+                <img src="presentacion-assets/bg2.jpg" alt="" class="bg-image">
+                <div class="bg-overlay"></div>
+                <div class="relative z-10 p-8 w-full grid grid-cols-2 gap-4">
+                    <img src="presentacion-assets/colaboratorios.jpeg" alt="Co-laboratorios Principal" class="rounded-lg shadow-xl col-span-2">
+                    <img src="presentacion-assets/colaboratorios-2.jpeg" alt="Co-laboratorios Actividades" class="rounded-lg shadow-xl">
+                    <img src="presentacion-assets/colaboratorios-3.jpeg" alt="Co-laboratorios Proyectos" class="rounded-lg shadow-xl">
+                </div>
+            </div>
+        </section>
+
+        <!-- Mobile App -->
+        <section class="h-screen w-full flex relative">
+            <div class="w-1/2 h-full flex items-center justify-center">
+                <div class="max-w-2xl px-8">
+                    <h2 class="text-5xl font-bold mb-8 text-blue-400">Aplicación Móvil</h2>
+                    <p class="text-2xl leading-relaxed">Acceso móvil al ecosistema Digital-IA, permitiendo a los usuarios mantenerse conectados y acceder a recursos educativos desde cualquier lugar. Incluye notificaciones en tiempo real y contenido offline.</p>
+                </div>
+            </div>
+            <div class="w-1/2 h-full relative flex items-center justify-center">
+                <img src="presentacion-assets/bg3.jpg" alt="" class="bg-image">
+                <div class="bg-overlay"></div>
+                <div class="relative z-10 p-12 w-full flex items-center justify-center">
+                    <img src="presentacion-assets/modulos-digitalia-mobile.jpeg" alt="Aplicación Móvil" class="rounded-lg shadow-xl max-w-md w-full">
+                </div>
+            </div>
+        </section>
+
+        <!-- Moodle Platform -->
+        <section class="h-screen w-full flex relative">
+            <div class="w-1/2 h-full flex items-center justify-center">
+                <div class="max-w-2xl px-8">
+                    <h2 class="text-5xl font-bold mb-8 text-blue-400">Plataforma Moodle</h2>
+                    <p class="text-2xl leading-relaxed">Sistema de gestión de aprendizaje personalizado con cursos interactivos, evaluaciones adaptativas y seguimiento del progreso. Integra H5P para contenido interactivo y facilita la colaboración entre estudiantes y educadores.</p>
+                </div>
+            </div>
+            <div class="w-1/2 h-full relative flex items-center justify-center">
+                <img src="presentacion-assets/bg4.jpg" alt="" class="bg-image">
+                <div class="bg-overlay"></div>
+                <div class="relative z-10 p-12 w-full flex items-center justify-center">
+                    <img src="presentacion-assets/moodle.jpeg" alt="Plataforma Moodle" class="rounded-lg shadow-xl max-w-2xl w-full">
+                </div>
+            </div>
+        </section>
+
+        <!-- Dolibarr Sistema Integrado -->
+        <section class="h-screen w-full flex relative">
+            <div class="w-1/2 h-full flex items-center justify-center">
+                <div class="max-w-2xl px-8">
+                    <h2 class="text-5xl font-bold mb-8 text-blue-400">Sistema Dolibarr</h2>
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="text-3xl font-mono text-purple-400 mb-4">ERP</h3>
+                            <p class="text-2xl leading-relaxed mb-4">Administra los recursos del ecosistema Digital-IA, optimizando la gestión de los cinco módulos y sus interacciones con la plataforma educativa.</p>
+                        </div>
+                        <div>
+                            <h3 class="text-3xl font-mono text-purple-400 mb-4">CRM</h3>
+                            <p class="text-2xl leading-relaxed mb-4">Centraliza la gestión de usuarios del ecosistema, facilitando el seguimiento y nuestro contacto de alfabetizadores y ciudadanos en todos los módulos de Digital-IA.</p>
+                        </div>
+                        <div>
+                            <h3 class="text-3xl font-mono text-purple-400 mb-4">Sistema PQRS</h3>
+                            <p class="text-2xl leading-relaxed">Sistema integrado de atención que conecta las peticiones, quejas y sugerencias con el ecosistema Digitalia.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-1/2 h-full relative flex items-center justify-center">
+                <img src="presentacion-assets/bg5.jpg" alt="" class="bg-image">
+                <div class="bg-overlay"></div>
+                <div class="relative z-10 p-8 w-full grid grid-cols-2 gap-4">
+                    <img src="presentacion-assets/dolibarr-erp.jpeg" alt="Dolibarr ERP" class="rounded-lg shadow-xl col-span-2">
+                    <img src="presentacion-assets/dolibarr-crm.jpeg" alt="Dolibarr CRM" class="rounded-lg shadow-xl">
+                    <img src="presentacion-assets/dolibarr-tickets.jpeg" alt="Sistema de Tickets" class="rounded-lg shadow-xl">
+                </div>
+            </div>
+        </section>        
+
+        <!-- WhatsApp Bot -->
+        <section class="h-screen w-full flex relative">
+            <div class="w-1/2 h-full flex items-center justify-center">
+                <div class="max-w-2xl px-8">
+                    <h2 class="text-5xl font-bold mb-8 text-blue-400">WhatsApp Bot</h2>
+                    <p class="text-2xl leading-relaxed">Un robusto asistente virtual integrado que proporciona acceso rápido a recursos educativos sobre alfabetización mediática y responde preguntas sobre Digitalia a través de WhatsApp. Disponible 24/7.</p>
+                </div>
+            </div>
+            <div class="w-1/2 h-full relative flex items-center justify-center">
+                <img src="presentacion-assets/bg2.jpg" alt="" class="bg-image">
+                <div class="bg-overlay"></div>
+                <div class="relative z-10 p-12 w-full flex items-center justify-center">
+                    <img src="presentacion-assets/whatsapp-bot.jpeg" alt="WhatsApp Bot" class="rounded-lg shadow-xl max-w-2xl w-full">
+                </div>
+            </div>
+        </section>
+
+        <!-- Características -->
+        <section class="h-screen w-full flex relative">
+            <div class="w-1/2 h-full flex items-center justify-center">
+                <div class="max-w-2xl px-8">
+                    <h2 class="text-5xl font-bold mb-8 text-blue-400">Características Principales</h2>
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="text-3xl font-mono text-purple-400 mb-4">Biblioteca Digital</h3>
+                            <ul class="text-2xl space-y-4">
+                                <li>• Repositorio educativo</li>
+                                <li>• Categorización avanzada</li>
+                                <li>• Control de acceso y marcadores</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-3xl font-mono text-purple-400 mb-4">Métricas con Analytics</h3>
+                            <ul class="text-2xl space-y-4">
+                                <li>• Análisis de visitantes</li>
+                                <li>• Seguimiento de conversiones y remarketing</li>
+                                <li>• Análisis de desempeños</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-1/2 h-full relative flex items-center justify-center">
+                <img src="presentacion-assets/bg3.jpg" alt="" class="bg-image">
+                <div class="bg-overlay"></div>
+                <div class="relative z-10 p-12 w-full flex flex-col gap-4 items-center justify-center">
+                    <img src="presentacion-assets/biblioteca.jpeg" alt="Biblioteca Digital" class="rounded-lg shadow-xl max-w-xl w-full">
+                    <img src="presentacion-assets/analytics.jpeg" alt="Analytics" class="rounded-lg shadow-xl max-w-xl w-full">
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <section class="h-screen w-full flex items-center justify-center relative">
+            <img src="presentacion-assets/bg-main.jpg" alt="" class="absolute inset-0 w-full h-full object-cover">
+            <div class="bg-overlay"></div>
+            <div class="relative z-10 max-w-5xl mx-auto px-8 text-center">
+                <h2 class="text-7xl font-bold mb-8">¡Gracias!</h2>
+                <p class="text-3xl text-gray-300 font-mono">Ecosistema de Digital-IA</p>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

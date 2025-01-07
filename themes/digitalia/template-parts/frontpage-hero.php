@@ -27,7 +27,7 @@
     <div class="flex flex-col items-center justify-between gap-20 lg:flex-row">
       <div class="absolute inset-0 -z-10 h-full w-full bg-[linear-gradient(to_right,rgba(59,130,246,0.1)_1px,transparent_1px),linear-gradient(to_bottom,rgba(45,212,191,0.1)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_50%_100%_at_50%_50%,#000_60%,transparent_100%)]"></div>
       <div class="min-w-[40%] flex flex-col items-center gap-6 text-center lg:items-start lg:text-left">
-        <h1 class="text-pretty text-6xl font-bold lg:max-w-md lg:text-6xl">Digital·IA</h1>
+        <h1 class="text-pretty text-6xl font-bold lg:max-w-md lg:text-6xl"><span id="typewriter"></span><span class="cursor">|</span></h1>
         <p class="max-w-xl text-xl font-medium lg:text-2xl">Digital-IA es un novedoso ecosistema público de Educomunicación destinado a crear y fortalecer capacidades, habilidades y competencias ciudadanas de cara a los nuevos desafíos de la desinformación.</p>
         <div class="flex w-full justify-center lg:justify-start">
           <a href="/que-es-digitalia" class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-11 rounded-md px-8 w-full sm:w-auto">
@@ -44,8 +44,10 @@
     constructor(parentId) {
         // Configuration
         this.gridSize = 32;
-        this.totalGlitches = 8;
+        this.totalGlitches = 15; // Increased from 8 to 20 tiles
         this.colors = ["#C700e3", "#10bed2", "#3f27ff", "#FFDA00", "#FFFFFF"];
+        this.tiles = [];
+        this.animationSpeed = 0.0005; // Even slower animation speed
         
         // Setup canvas
         this.canvas = document.createElement('canvas');
@@ -67,9 +69,65 @@
         
         // Initial setup
         this.windowResized();
-        this.draw();
+        this.initTiles();
+        this.animate();
     }
-    
+
+    initTiles() {
+        this.tiles = [];
+        const cols = Math.ceil(this.canvas.width / this.gridSize);
+        const rows = Math.ceil(this.canvas.height / this.gridSize);
+        
+        for (let i = 0; i < this.totalGlitches; i++) {
+            this.tiles.push({
+                x: this.random(0, cols) * this.gridSize,
+                y: this.random(0, rows) * this.gridSize,
+                size: this.gridSize,
+                color: this.colors[this.floor(this.random(this.colors.length))],
+                opacity: this.random(0.1, 0.3),
+                phase: this.random(0, Math.PI * 2),
+                visible: true
+            });
+        }
+    }
+
+    animate() {
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        
+        const time = Date.now() * this.animationSpeed;
+        
+        this.tiles.forEach((tile, index) => {
+            // Update tile properties
+            tile.opacity = 0.1 + Math.sin(time + tile.phase) * 0.15; // Reduced opacity variation
+            
+            // Randomly change visibility (much less frequently)
+            if (Math.random() < 0.001) { // Reduced probability
+                tile.visible = !tile.visible;
+            }
+            
+            if (tile.visible) {
+                this.ctx.save();
+                this.ctx.globalAlpha = tile.opacity;
+                
+                // Draw tile without rotation
+                this.ctx.fillStyle = tile.color;
+                this.ctx.fillRect(tile.x, tile.y, tile.size, tile.size);
+                
+                this.ctx.restore();
+            }
+            
+            // Occasionally move tiles to new positions (much less frequently)
+            if (Math.random() < 0.0002) { // Reduced probability
+                const cols = Math.ceil(this.canvas.width / this.gridSize);
+                const rows = Math.ceil(this.canvas.height / this.gridSize);
+                tile.x = this.random(0, cols) * this.gridSize;
+                tile.y = this.random(0, rows) * this.gridSize;
+            }
+        });
+        
+        requestAnimationFrame(() => this.animate());
+    }
+
     // Utility functions
     random(min, max) {
         if (max === undefined) {
@@ -95,43 +153,6 @@
     windowResized() {
         this.canvas.width = window.innerWidth;
         this.canvas.height = window.innerHeight;
-        this.draw();
-    }
-    
-    draw() {
-        // Clear canvas
-        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-        
-        const cols = this.floor(this.canvas.width / this.gridSize);
-        const rows = this.floor(this.canvas.height / this.gridSize);
-        
-        // Create positions array
-        const positions = [];
-        for (let x = 0; x < cols; x++) {
-            for (let y = 0; y < rows; y++) {
-                positions.push({ x, y });
-            }
-        }
-        
-        // Shuffle and slice positions
-        this.shuffle(positions);
-        const glitchPositions = positions.slice(0, this.totalGlitches);
-        
-        // Draw glitches
-        for (const pos of glitchPositions) {
-            const glitchWidth = this.gridSize * this.floor(this.random(1, 3));
-            const glitchHeight = this.gridSize * this.floor(this.random(1, 1));
-            const color = this.colors[this.floor(this.random(this.colors.length))];
-            
-            const px = pos.x * this.gridSize;
-            const py = pos.y * this.gridSize;
-            
-            if (px + glitchWidth <= this.canvas.width && 
-                py + glitchHeight <= this.canvas.height) {
-                this.ctx.fillStyle = color;
-                this.ctx.fillRect(px, py, glitchWidth, glitchHeight);
-            }
-        }
     }
     
     // Cleanup method
@@ -140,6 +161,57 @@
         this.canvas.remove();
     }
 }
+
+class Typewriter {
+        constructor(element, text, speed = 150) {
+            this.element = element;
+            this.text = text;
+            this.speed = speed;
+            this.currentChar = 0;
+            this.cursor = document.querySelector('.cursor');
+            this.isDeleting = false;
+            this.type();
+        }
+
+        type() {
+            const current = this.currentChar;
+            const fullText = this.text;
+            
+            if (!this.isDeleting && current < fullText.length) {
+                this.element.textContent = fullText.substring(0, current + 1);
+                this.currentChar++;
+            }
+            
+            const delta = this.speed + Math.random() * 100; // Add some randomness to typing speed
+            
+            if (this.currentChar < fullText.length) {
+                setTimeout(() => this.type(), delta);
+            }
+        }
+    }
+    
+    // Initialize typewriter when page loads
+    document.addEventListener('DOMContentLoaded', function() {
+        const typewriterElement = document.getElementById('typewriter');
+        new Typewriter(typewriterElement, 'Digital·IA', 150); // Slower typing speed (was 150)
+        
+        // Add CSS for cursor animation
+        const style = document.createElement('style');
+        style.textContent = `
+            .cursor {
+                opacity: 1;
+                animation: blink 1.5s infinite; // Slower cursor blink (was 1s)
+                font-weight: 100;
+                margin-left: 2px;
+            }
+            
+            @keyframes blink {
+                0%, 100% { opacity: 1; }
+                50% { opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+    });
 
 // Usage example:
 const glitchEffect = new GlitchEffect('section1');

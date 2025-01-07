@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital-IA: Ecosistema Digital</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600&family=Lexend+Deca:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --font-work: 'Work Sans', sans-serif;
+            --font-lexend: 'Lexend Deca', sans-serif;
+            --font-jetbrains: 'JetBrains Mono', monospace;
+        }
+        body {
+            font-family: var(--font-work);
+            font-size: 2xl;
+        }
+        h1, h2, h3 {
+            font-family: var(--font-lexend);
+        }
+        h1 {
+            font-size: 7xl;
+        }
+        h2 {
+            font-size: 5xl;
+        }
+        h3 {
+            font-size: 3xl;
+        }
+        .font-mono {
+            font-family: var(--font-jetbrains);
+        }
+        section {
+            scroll-snap-align: start;
+            position: relative;
+        }
+        .snap-container {
+            scroll-snap-type: y mandatory;
+            overflow-y: scroll;
+            height: 100vh;
+        }
+        .bg-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+        .bg-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+        .content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+    <div class="snap-container">
+        <!-- Portada -->
+        <section class="h-screen w-full flex items-center justify-center relative">
+            <img src="presentacion-assets/bg-main.jpg" alt="" class="absolute inset-0 w-full h-full object-cover">
+            <div class="bg-overlay"></div>
+            <div class="relative z-10 max-w-5xl mx-auto px-8 flex flex-col items-center">
+                <div class="text-center mb-12">
+                    <h1 class="text-7xl font-bold mb-8">Ecosistema Digital-IA</h1>
+                    <p class="text-3xl text-gray-300">Plataforma Integral de Alfabetización Mediática e Informacional</p>
+                </div>
+                <div class="w-full aspect-video rounded-lg overflow-hidden shadow-2xl">
+                    <video class="w-full h-full object-cover" controls autoplay loop>
+                        <source src="presentacion-assets/videopresentation.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- Visión General -->
+        <section class="h-screen w-full flex relative">
+            <div class="w-1/2 h-full flex items-center justify-center">
+                <div class="max-w-2xl px-8">
+                    <h2 class="text-5xl font-bold mb-8 text-blue-400">Visión General</h2>
+                    <p class="text-2xl leading-relaxed">Digital-IA es una plataforma integral diseñada para la alfabetización mediática e informacional, que combina múltiples tecnologías y herramientas para crear un ecosistema educativo completo.</p>
+                </div>
+            </div>
+            <div class="w-1/2 h-full relative flex items-center justify-center">
+                <img src="presentacion-assets/bg1.jpg" alt="" class="bg-image">
+                <div class="bg-overlay"></div>
+                <div class="relative z-10 p-12 w-full flex items-center justify-center">
+                    <img src="presentacion-assets/modulos-desktop.jpeg" alt="Vista general del ecosistema" class="rounded-lg shadow-xl max-w-2xl w-full">
+                </div>
+            </div>
+        </section>
+
+        <!-- Arquitectura -->
+        <section class="h-screen w-full flex relative">
+            <div class="w-1/2 h-full flex items-center justify-center">
+                <div class="max-w-2xl px-8">
+                    <h2 class="text-5xl font-bold mb-8 text-blue-400">Arquitectura del Sistema</h2>
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="text-3xl font-mono text-purple-400 mb-4">Portal Informativo</h3>
+                            <ul class="text-2xl space-y-4">
+                                <li>• 12 secciones principales</li>
+                                <li>• Sistema PQRS integrado</li>
+                                <li>• Métricas avanzadas</li>
+                                <li>• Blog de fact-checking</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-3xl font-mono text-purple-400 mb-4">Plataformas</h3>
+                            <ul class="text-2xl space-y-4">
+                                <li>• WordPress</li>
+                                <li>• Moodle</li>
+                                <li>• H5P</li>
+                                <li>• Dolibarr</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-1/2 h-full relative flex items-center justify-center">
+                <img src="presentacion-assets/bg2.jpg" alt="" class="bg-image">
+                <div class="bg-overlay"></div>
+                <div class="relative z-10 p-12 w-full flex items-center justify-center">
+                    <img src="https://placehold.to/800x600" alt="Arquitectura del sistema" class="rounded-lg shadow-xl max-w-2xl w-full">
+                </div>
+            </div>
+        </section>
+
+        <!-- Academia -->
+        <section class="h-screen w-full flex relative">
+            <div class="w-1/2 h-full flex items-center justify-center">
+                <div class="max-w-2xl px-8">
+                    <h2 class="text-5xl font-bold mb-8 text-blue-400">Academia</h2>
+                    <p class="text-2xl leading-relaxed">Plataforma de formación especializada en alfabetización mediática e informacional, diseñada para fortalecer las competencias ciudadanas en el entorno digital.</p>
+                </div>
+            </div>
+            <div class="w-1/2 h-full relative flex items-center justify-center">
+                <img src="presentacion-assets/bg3.jpg" alt="" class="bg-image">
+                <div class="bg-overlay"></div>
+                <div class="relative z-10 p-12 w-full flex items-center justify-center">
+                    <img src="presentacion-assets/academia.jpeg" alt="Academia Digital-IA" class="rounded-lg shadow-xl max-w-2xl w-full">
+                </div>
+            </div>
+        </section>
+
+        <!-- En-Línea -->
+        <section class="h-screen w-full flex relative">
+            <div class="w-1/2 h-full flex items-center justify-center">
+                <div class="max-w-2xl px-8">
+                    <h2 class="text-5xl font-bold mb-8 text-blue-400">En-Línea</h2>
+                    <p class="text-2xl leading-relaxed">Portal principal de recursos educativos y herramientas de verificación, facilitando el acceso a contenidos formativos de calidad.</p>
+                </div>
+            </div>
+            <div class="w-1/2 h-full relative flex items-center justify-center">
+                <img src="presentacion-assets/bg4.jpg" alt="" class="bg-image">
+                <div class="bg-overlay"></div>
+                <div class="relative z-10 p-12 w-full flex items-center justify-center">
+                    <img src="presentacion-assets/en-linea.jpeg" alt="En-Línea" class="rounded-lg shadow-xl max-w-2xl w-full">
+                </div>
+            </div>
+        </section>
+
+        <!-- Total Transmedia -->
+        <section class="h-screen w-full flex relative">
+            <div class="w-1/2 h-full flex items-center justify-center">
+                <div class="max-w-2xl px-8">
+                    <h2 class="text-5xl font-bold mb-8 text-blue-400">Total Transmedia</h2>
+                    <p class="text-2xl leading-relaxed">Espacio de convergencia multimedia que integra diferentes formatos y canales para una experiencia educativa inmersiva y completa.</p>
+                </div>
+            </div>
+            <div class="w-1/2 h-full relative flex items-center justify-center">
+                <img src="presentacion-assets/bg5.jpg" alt="" class="bg-image">
+                <div class="bg-overlay"></div>
+                <div class="relative z-10 p-12 w-full flex items-center justify-center">
+                    <img src="presentacion-assets/total-transmedia.jpeg" alt="Total Transmedia" class="rounded-lg shadow-xl max-w-2xl w-full">
+                </div>
+            </div>
+        </section>
+
+        <!-- Ready -->
+        <section class="h-screen w-full flex relative">
+            <div class="w-1/2 h-full flex items-center justify-center">
+                <div class="max-w-2xl px-8">
+                    <h2 class="text-5xl font-bold mb-8 text-blue-400">Ready</h2>
+                    <p class="text-2xl leading-relaxed">Plataforma de preparación y respuesta rápida, diseñada para enfrentar los desafíos de la desinformación en tiempo real.</p>
+                </div>
+            </div>
+            <div class="w-1/2 h-full relative flex items-center justify-center">
+                <img src="presentacion-assets/bg1.jpg" alt="" class="bg-image">
+                <div class="bg-overlay"></div>
+                <div class="relative z-10 p-12 w-full flex items-center justify-center">
+                    <img src="presentacion-assets/ready.jpeg" alt="Ready" class="rounded-lg shadow-xl max-w-2xl w-full">
+                </div>
+            </div>
+        </section>
+
+        <!-- Co-laboratorios -->
+        <section class="h-screen w-full flex relative">
+            <div class="w-1/2 h-full flex items-center justify-center">
+                <div class="max-w-2xl px-8">
+                    <h2 class="text-5xl font-bold mb-8 text-blue-400">Co-laboratorios</h2>
+                    <p class="text-2xl leading-relaxed">Espacios de colaboración y aprendizaje conjunto donde la comunidad puede desarrollar proyectos y compartir conocimientos.</p>
+                </div>
+            </div>
+            <div class="w-1/2 h-full relative flex items-center justify-center">
+                <img src="presentacion-assets/bg2.jpg" alt="" class="bg-image">
+                <div class="bg-overlay"></div>
+                <div class="relative z-10 p-12 w-full flex items-center justify-center">
+                    <img src="presentacion-assets/colaboratorios.jpeg" alt="Co-laboratorios" class="rounded-lg shadow-xl max-w-2xl w-full">
+                </div>
+            </div>
+        </section>
+
+        <!-- Características -->
+        <section class="h-screen w-full flex relative">
+            <div class="w-1/2 h-full flex items-center justify-center">
+                <div class="max-w-2xl px-8">
+                    <h2 class="text-5xl font-bold mb-8 text-blue-400">Características Principales</h2>
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="text-3xl font-mono text-purple-400 mb-4">Biblioteca Digital</h3>
+                            <ul class="text-2xl space-y-4">
+                                <li>• Repositorio educativo</li>
+                                <li>• Categorización avanzada</li>
+                                <li>• Control de acceso</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-3xl font-mono text-purple-400 mb-4">Métricas</h3>
+                            <ul class="text-2xl space-y-4">
+                                <li>• Análisis de visitantes</li>
+                                <li>• Mapas de calor</li>
+                                <li>• Exportación de datos</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-1/2 h-full relative flex items-center justify-center">
+                <img src="presentacion-assets/bg3.jpg" alt="" class="bg-image">
+                <div class="bg-overlay"></div>
+                <div class="relative z-10 p-12 w-full flex items-center justify-center">
+                    <img src="https://placehold.to/800x600" alt="Características" class="rounded-lg shadow-xl max-w-2xl w-full">
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <section class="h-screen w-full flex items-center justify-center relative">
+            <img src="presentacion-assets/bg-main.jpg" alt="" class="absolute inset-0 w-full h-full object-cover">
+            <div class="bg-overlay"></div>
+            <div class="relative z-10 max-w-5xl mx-auto px-8 text-center">
+                <h2 class="text-7xl font-bold mb-8">¡Gracias!</h2>
+                <p class="text-3xl text-gray-300 font-mono">Documentación oficial del proyecto Digital-IA</p>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
