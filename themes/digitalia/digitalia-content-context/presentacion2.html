@@ -14,6 +14,28 @@
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            overflow: hidden;
+            background-color: rgb(17, 24, 39);
+        }
+        #presentation-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .content-container {
+            width: 1440px;
+            height: 900px;
+            transform-origin: center center;
+        }
         .snap-container {
             height: 100vh;
             overflow-y: scroll;
@@ -53,306 +75,330 @@
     </style>
 </head>
 <body class="bg-gray-900 text-white">
-    <div class="snap-container">
-        <!-- Portada -->
-        <section class="h-screen w-full flex items-center justify-center relative">
-            <img src="presentacion-assets/bg-main.jpg" alt="" class="absolute inset-0 w-full h-full object-cover">
-            <div class="bg-overlay"></div>
-            <div class="relative z-10 max-w-5xl mx-auto px-8 flex flex-col items-center">
-                <div class="text-center mb-12">
-                    <h1 class="text-7xl font-bold mb-8">Ecosistema Digital-IA</h1>
-                    <p class="text-3xl text-gray-300">Plataforma Integral de Alfabetización Mediática e Informacional</p>
-                </div>
-                <div class="w-full aspect-video rounded-lg overflow-hidden shadow-2xl">
-                    <video class="w-full h-full object-cover" controls autoplay loop>
-                        <source src="presentacion-assets/videopresentation.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-            </div>
-        </section>
-
-        <!-- Visión General -->
-        <section class="h-screen w-full flex relative">
-            <div class="w-1/2 h-full flex items-center justify-center">
-                <div class="max-w-2xl px-8">
-                    <h2 class="text-5xl font-bold mb-8 text-blue-400">Visión General</h2>
-                    <p class="text-2xl leading-relaxed">Digital-IA es una iniciativa oficial del MinTIC que busca mejorar las competencias comunicacionales TIC de la población colombiana, con especial énfasis en inteligencia artificial y paz. Nuestro objetivo es elevar la alfabetización mediática e informacional, especialmente en poblaciones diferenciadas y organizaciones de la sociedad civil.</p>
-                </div>
-            </div>
-            <div class="w-1/2 h-full relative flex items-center justify-center">
-                <img src="presentacion-assets/bg1.jpg" alt="" class="bg-image">
-                <div class="bg-overlay"></div>
-                <div class="relative z-10 p-12 w-full flex items-center justify-center">
-                    <img src="presentacion-assets/modulos-desktop.jpeg" alt="Vista general del ecosistema" class="rounded-lg shadow-xl max-w-2xl w-full">
-                    <img src="https://media1.tenor.com/m/Oc4nf8N08jIAAAAC/mind-blow-galaxy.gif" alt="Galaxy Brain GIF" class="absolute -bottom-16 right-8 w-[300px] h-[250px] object-cover rounded-lg shadow-xl transform hover:scale-105 transition-transform duration-300" style="z-index: 20;">
-                </div>
-            </div>
-        </section>
-
-        <!-- Arquitectura -->
-        <section class="h-screen w-full flex relative">
-            <div class="w-1/2 h-full flex items-center justify-center">
-                <div class="max-w-2xl px-8">
-                    <h2 class="text-5xl font-bold mb-8 text-blue-400">Arquitectura del Sistema</h2>
-                    <div class="space-y-8">
-                        <div>
-                            <h3 class="text-3xl font-mono text-purple-400 mb-4">Portal Informativo</h3>
-                            <ul class="text-2xl space-y-4">
-                                <li>• 45 landings construidos</li>
-                                <li>• Sistema CRM, PQR y ERP integrados</li>
-                                <li>• Métricas con Analytics</li>
-                                <li>• Blogs y Bibliotecas</li>
-                            </ul>
+    <div id="presentation-wrapper">
+        <div class="content-container">
+            <div class="snap-container">
+                <!-- Portada -->
+                <section class="h-screen w-full flex items-center justify-center relative">
+                    <img src="presentacion-assets/bg-main.jpg" alt="" class="absolute inset-0 w-full h-full object-cover">
+                    <div class="bg-overlay"></div>
+                    <div class="relative z-10 max-w-5xl mx-auto px-8 flex flex-col items-center">
+                        <div class="text-center mb-12">
+                            <h1 class="text-7xl font-bold mb-8">Ecosistema Digital-IA</h1>
+                            <p class="text-3xl text-gray-300">Plataforma Integral de Alfabetización Mediática e Informacional</p>
                         </div>
-                        <div>
-                            <h3 class="text-3xl font-mono text-purple-400 mb-4">Plataformas</h3>
-                            <ul class="text-2xl space-y-4">
-                                <li>• WordPress</li>
-                                <li>• Moodle y H5P</li>
-                                <li>• Dolibarr</li>
-                            </ul>
+                        <div class="w-full aspect-video rounded-lg overflow-hidden shadow-2xl">
+                            <video class="w-full h-full object-cover" controls autoplay loop>
+                                <source src="presentacion-assets/videopresentation.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="w-1/2 h-full relative flex items-center justify-center">
-                <img src="presentacion-assets/bg2.jpg" alt="" class="bg-image">
-                <div class="bg-overlay"></div>
-                <div class="relative z-10 p-12 w-full flex items-center justify-center">
-                    <img src="presentacion-assets/arquitectura.jpeg" alt="Arquitectura del sistema" class="rounded-lg shadow-xl max-w-2xl w-full">
-                    <img src="https://i.imgur.com/yzOp4TV.jpeg" alt="Matrix Morpheus Meme" class="absolute -bottom-16 right-8 w-[300px] h-[250px] object-cover rounded-lg shadow-xl transform hover:scale-105 transition-transform duration-300" style="z-index: 20;">
-                </div>
-            </div>
-        </section>
+                </section>
 
-        <!-- Academia -->
-        <section class="h-screen w-full flex relative">
-            <div class="w-1/2 h-full flex items-center justify-center">
-                <div class="max-w-2xl px-8">
-                    <h2 class="text-5xl font-bold mb-8 text-blue-400">Academia</h2>
-                    <p class="text-2xl leading-relaxed">Ecosistema de autoformación que incluye un portal informativo, plataforma Moodle con 288 contenidos audiovisuales, y sistemas administrativos integrados. Ofrece 30 categorías temáticas enfocadas en alfabetización mediática, IA y paz.</p>
-                </div>
-            </div>
-            <div class="w-1/2 h-full relative flex items-center justify-center">
-                <img src="presentacion-assets/bg3.jpg" alt="" class="bg-image">
-                <div class="bg-overlay"></div>
-                <div class="relative z-10 p-12 w-full flex items-center justify-center">
-                    <img src="presentacion-assets/academia.jpeg" alt="Academia Digital-IA" class="rounded-lg shadow-xl max-w-2xl w-full">
-                    <img src="https://i.imgur.com/OCWzc8F.jpeg" alt="Drake Meme" class="absolute -bottom-32 right-8 w-[300px] h-[302px] object-contain rounded-lg shadow-xl transform hover:scale-105 transition-transform duration-300" style="z-index: 20;">
-                </div>
-            </div>
-        </section>
-
-        <!-- En-Línea -->
-        <section class="h-screen w-full flex relative">
-            <div class="w-1/2 h-full flex items-center justify-center">
-                <div class="max-w-2xl px-8">
-                    <h2 class="text-5xl font-bold mb-8 text-blue-400">En-Línea</h2>
-                    <p class="text-2xl leading-relaxed">Incluye una serie web de 20 capítulos que, similar a IMDB, cataloga los episodios, personajes, actores e historias.</p>
-                </div>
-            </div>
-            <div class="w-1/2 h-full relative flex items-center justify-center">
-                <img src="presentacion-assets/bg4.jpg" alt="" class="bg-image">
-                <div class="bg-overlay"></div>
-                <div class="relative z-10 p-8 w-full grid grid-cols-2 gap-4">
-                    <img src="presentacion-assets/en-linea.jpeg" alt="En-Línea Principal" class="rounded-lg shadow-xl col-span-2">
-                    <img src="presentacion-assets/en-linea-2.jpeg" alt="En-Línea Episodios" class="rounded-lg shadow-xl">
-                    <img src="presentacion-assets/en-linea-3.jpeg" alt="En-Línea Personajes" class="rounded-lg shadow-xl">
-                    <img src="https://i.imgur.com/ZoQBEOK.jpeg" alt="Leonardo DiCaprio Meme" class="absolute -bottom-16 right-6 w-[384px] h-[192px] object-contain rounded-lg shadow-xl transform hover:scale-105 transition-transform duration-300" style="z-index: 20;">
-                </div>
-            </div>
-        </section>
-
-        <!-- Total Transmedia -->
-        <section class="h-screen w-full flex relative">
-            <div class="w-1/2 h-full flex items-center justify-center">
-                <div class="max-w-2xl px-8">
-                    <h2 class="text-5xl font-bold mb-8 text-blue-400">Total Transmedia</h2>
-                    <p class="text-2xl leading-relaxed">Espacio de convergencia multimedia que integra diferentes formatos y canales para una experiencia inmersiva y completa. Incluye Blogs y Sala de prensa.</p>
-                </div>
-            </div>
-            <div class="w-1/2 h-full relative flex items-center justify-center">
-                <img src="presentacion-assets/bg5.jpg" alt="" class="bg-image">
-                <div class="bg-overlay"></div>
-                <div class="relative z-10 p-12 w-full flex items-center justify-center">
-                    <img src="presentacion-assets/total-transmedia.jpeg" alt="Total Transmedia" class="rounded-lg shadow-xl max-w-2xl w-full">
-                    <img src="https://i.imgur.com/hES5BeO.jpeg" alt="Expanding Brain Meme" class="absolute -bottom-20 right-8 w-[380px] h-[250px] object-contain rounded-lg shadow-xl transform hover:scale-105 transition-transform duration-300" style="z-index: 20;">
-                </div>
-            </div>
-        </section>
-
-        <!-- Ready -->
-        <section class="h-screen w-full flex relative">
-            <div class="w-1/2 h-full flex items-center justify-center">
-                <div class="max-w-2xl px-8">
-                    <h2 class="text-5xl font-bold mb-8 text-blue-400">Ready</h2>
-                    <p class="text-2xl leading-relaxed">Red Nacional de Alfabetizadores Mediáticos e Informacionales que capacita líderes comunitarios y educativos. Ofrece programas de formación, certificación y una biblioteca de guías temáticas, además de organizar encuentros y foros para fortalecer la red nacional.</p>
-                </div>
-            </div>
-            <div class="w-1/2 h-full relative flex items-center justify-center">
-                <img src="presentacion-assets/bg1.jpg" alt="" class="bg-image">
-                <div class="bg-overlay"></div>
-                <div class="relative z-10 p-12 w-full flex items-center justify-center">
-                    <img src="presentacion-assets/ready.jpeg" alt="Ready" class="rounded-lg shadow-xl max-w-2xl w-full">
-                    <img src="https://i.imgur.com/8DkWSpm.jpeg" alt="Avengers Assemble Meme" class="absolute -bottom-20 right-8 w-[300px] h-[265px] object-contain rounded-lg shadow-xl transform hover:scale-105 transition-transform duration-300" style="z-index: 20;">
-                </div>
-            </div>
-        </section>
-
-        <!-- Co-laboratorios -->
-        <section class="h-screen w-full flex relative">
-            <div class="w-1/2 h-full flex items-center justify-center">
-                <div class="max-w-2xl px-8">
-                    <h2 class="text-5xl font-bold mb-8 text-blue-400">Co-laboratorios</h2>
-                    <p class="text-2xl leading-relaxed">Red de espacios colaborativos para la transmisión de saberes en educomunicación, enfocados en zonas rurales y poblaciones vulnerables. Incluye un mapa interactivo de talleres y eventos presenciales en diversas regiones del país, con acceso a herramientas y tecnologías de comunicación digital.</p>
-                </div>
-            </div>
-            <div class="w-1/2 h-full relative flex items-center justify-center">
-                <img src="presentacion-assets/bg2.jpg" alt="" class="bg-image">
-                <div class="bg-overlay"></div>
-                <div class="relative z-10 p-8 w-full grid grid-cols-2 gap-4">
-                    <img src="presentacion-assets/colaboratorios.jpeg" alt="Co-laboratorios Principal" class="rounded-lg shadow-xl col-span-2">
-                    <img src="presentacion-assets/colaboratorios-2.jpeg" alt="Co-laboratorios Actividades" class="rounded-lg shadow-xl">
-                    <img src="presentacion-assets/colaboratorios-3.jpeg" alt="Co-laboratorios Proyectos" class="rounded-lg shadow-xl">
-                    <img src="https://i.imgur.com/1tEGOkd.jpeg" alt="Collaboration Meme" class="absolute -bottom-16 right-6 w-[360px] h-[237px] object-contain rounded-lg shadow-xl transform hover:scale-105 transition-transform duration-300" style="z-index: 20;">
-                </div>
-            </div>
-        </section>
-
-        <!-- Mobile App -->
-        <section class="h-screen w-full flex relative">
-            <div class="w-1/2 h-full flex items-center justify-center">
-                <div class="max-w-2xl px-8">
-                    <h2 class="text-5xl font-bold mb-8 text-blue-400">Aplicación Móvil</h2>
-                    <p class="text-2xl leading-relaxed">Acceso móvil al ecosistema Digital-IA, permitiendo a los usuarios mantenerse conectados y acceder a recursos educativos desde cualquier lugar. Incluye notificaciones en tiempo real y contenido offline.</p>
-                </div>
-            </div>
-            <div class="w-1/2 h-full relative flex items-center justify-center">
-                <img src="presentacion-assets/bg3.jpg" alt="" class="bg-image">
-                <div class="bg-overlay"></div>
-                <div class="relative z-10 p-12 w-full flex items-center justify-center">
-                    <img src="presentacion-assets/modulos-digitalia-mobile.jpeg" alt="Aplicación Móvil" class="rounded-lg shadow-xl max-w-md w-full">
-                    <img src="https://i.imgur.com/orL9Oao.jpeg" alt="Mobile App Meme" class="absolute -bottom-2 right-6 w-[360px] h-[229px] object-contain rounded-lg shadow-xl transform hover:scale-105 transition-transform duration-300" style="z-index: 20;">
-                </div>
-            </div>
-        </section>
-
-        <!-- Moodle Platform -->
-        <section class="h-screen w-full flex relative">
-            <div class="w-1/2 h-full flex items-center justify-center">
-                <div class="max-w-2xl px-8">
-                    <h2 class="text-5xl font-bold mb-8 text-blue-400">Plataforma Moodle</h2>
-                    <p class="text-2xl leading-relaxed">Sistema de gestión de aprendizaje personalizado con cursos interactivos, evaluaciones adaptativas y seguimiento del progreso. Integra H5P para contenido interactivo y facilita la colaboración entre estudiantes y educadores.</p>
-                </div>
-            </div>
-            <div class="w-1/2 h-full relative flex items-center justify-center">
-                <img src="presentacion-assets/bg4.jpg" alt="" class="bg-image">
-                <div class="bg-overlay"></div>
-                <div class="relative z-10 p-12 w-full flex items-center justify-center">
-                    <img src="presentacion-assets/moodle.jpeg" alt="Plataforma Moodle" class="rounded-lg shadow-xl max-w-2xl w-full">
-                    <img src="https://i.imgur.com/aWW21dQ.gif" alt="Learning GIF" class="absolute -bottom-16 right-6 w-[300px] h-[224px] object-contain rounded-lg shadow-xl transform hover:scale-105 transition-transform duration-300" style="z-index: 20;">
-                </div>
-            </div>
-        </section>
-
-        <!-- Dolibarr Sistema Integrado -->
-        <section class="h-screen w-full flex relative">
-            <div class="w-1/2 h-full flex items-center justify-center">
-                <div class="max-w-2xl px-8">
-                    <h2 class="text-5xl font-bold mb-8 text-blue-400">Sistema Dolibarr</h2>
-                    <div class="space-y-6">
-                        <div>
-                            <h3 class="text-3xl font-mono text-purple-400 mb-4">ERP</h3>
-                            <p class="text-2xl leading-relaxed mb-4">Administra los recursos del ecosistema Digital-IA, optimizando la gestión de los cinco módulos y sus interacciones con la plataforma educativa.</p>
-                        </div>
-                        <div>
-                            <h3 class="text-3xl font-mono text-purple-400 mb-4">CRM</h3>
-                            <p class="text-2xl leading-relaxed mb-4">Centraliza la gestión de usuarios del ecosistema, facilitando el seguimiento y nuestro contacto de alfabetizadores y ciudadanos en todos los módulos de Digital-IA.</p>
-                        </div>
-                        <div>
-                            <h3 class="text-3xl font-mono text-purple-400 mb-4">Sistema PQRS</h3>
-                            <p class="text-2xl leading-relaxed">Sistema integrado de atención que conecta las peticiones, quejas y sugerencias con el ecosistema Digitalia.</p>
+                <!-- Visión General -->
+                <section class="h-screen w-full flex relative">
+                    <div class="w-1/2 h-full flex items-center justify-center">
+                        <div class="max-w-2xl px-8">
+                            <h2 class="text-5xl font-bold mb-8 text-blue-400">Visión General</h2>
+                            <p class="text-2xl leading-relaxed">Digital-IA es una iniciativa oficial del MinTIC que busca mejorar las competencias comunicacionales TIC de la población colombiana, con especial énfasis en inteligencia artificial y paz. Nuestro objetivo es elevar la alfabetización mediática e informacional, especialmente en poblaciones diferenciadas y organizaciones de la sociedad civil.</p>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="w-1/2 h-full relative flex items-center justify-center">
-                <img src="presentacion-assets/bg5.jpg" alt="" class="bg-image">
-                <div class="bg-overlay"></div>
-                <div class="relative z-10 p-8 w-full grid grid-cols-2 gap-4">
-                    <img src="presentacion-assets/dolibarr-erp.jpeg" alt="Dolibarr ERP" class="rounded-lg shadow-xl col-span-2">
-                    <img src="presentacion-assets/dolibarr-crm.jpeg" alt="Dolibarr CRM" class="rounded-lg shadow-xl">
-                    <img src="presentacion-assets/dolibarr-tickets.jpeg" alt="Sistema de Tickets" class="rounded-lg shadow-xl">
-                    <img src="https://i.imgur.com/lwau4JT.jpeg" alt="Business Management Meme" class="absolute -bottom-16 right-6 w-[234px] h-[300px] object-contain rounded-lg shadow-xl transform hover:scale-105 transition-transform duration-300" style="z-index: 20;">
-                </div>
-            </div>
-        </section>        
-
-        <!-- WhatsApp Bot -->
-        <section class="h-screen w-full flex relative">
-            <div class="w-1/2 h-full flex items-center justify-center">
-                <div class="max-w-2xl px-8">
-                    <h2 class="text-5xl font-bold mb-8 text-blue-400">WhatsApp Bot</h2>
-                    <p class="text-2xl leading-relaxed">Un robusto asistente virtual integrado que proporciona acceso rápido a recursos educativos sobre alfabetización mediática y responde preguntas sobre Digitalia a través de WhatsApp. Disponible 24/7.</p>
-                </div>
-            </div>
-            <div class="w-1/2 h-full relative flex items-center justify-center">
-                <img src="presentacion-assets/bg2.jpg" alt="" class="bg-image">
-                <div class="bg-overlay"></div>
-                <div class="relative z-10 p-12 w-full flex items-center justify-center">
-                    <img src="presentacion-assets/whatsapp-bot.jpeg" alt="WhatsApp Bot" class="rounded-lg shadow-xl max-w-2xl w-full">
-                    <img src="https://i.imgur.com/EgSCT8W.png" alt="WhatsApp Bot Meme" class="absolute -bottom-40 right-6 w-[350px] h-[240px] object-contain rounded-lg shadow-xl transform hover:scale-105 transition-transform duration-300" style="z-index: 20;">
-                </div>
-            </div>
-        </section>
-
-        <!-- Características -->
-        <section class="h-screen w-full flex relative">
-            <div class="w-1/2 h-full flex items-center justify-center">
-                <div class="max-w-2xl px-8">
-                    <h2 class="text-5xl font-bold mb-8 text-blue-400">Características Principales</h2>
-                    <div class="space-y-8">
-                        <div>
-                            <h3 class="text-3xl font-mono text-purple-400 mb-4">Biblioteca Digital</h3>
-                            <ul class="text-2xl space-y-4">
-                                <li>• Repositorio educativo</li>
-                                <li>• Categorización avanzada</li>
-                                <li>• Control de acceso y marcadores</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h3 class="text-3xl font-mono text-purple-400 mb-4">Métricas con Analytics</h3>
-                            <ul class="text-2xl space-y-4">
-                                <li>• Análisis de visitantes</li>
-                                <li>• Seguimiento de conversiones y remarketing</li>
-                                <li>• Análisis de desempeños</li>
-                            </ul>
+                    <div class="w-1/2 h-full relative flex items-center justify-center">
+                        <img src="presentacion-assets/bg1.jpg" alt="" class="bg-image">
+                        <div class="bg-overlay"></div>
+                        <div class="relative z-10 p-12 w-full flex items-center justify-center">
+                            <img src="presentacion-assets/modulos-desktop.jpeg" alt="Vista general del ecosistema" class="rounded-lg shadow-xl max-w-2xl w-full">
+                            <img src="https://media1.tenor.com/m/Oc4nf8N08jIAAAAC/mind-blow-galaxy.gif" alt="Galaxy Brain GIF" class="absolute -bottom-16 right-8 w-[300px] h-[250px] object-cover rounded-lg shadow-xl transform hover:scale-105 transition-transform duration-300" style="z-index: 20;">
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="w-1/2 h-full relative flex items-center justify-center">
-                <img src="presentacion-assets/bg3.jpg" alt="" class="bg-image">
-                <div class="bg-overlay"></div>
-                <div class="relative z-10 p-12 w-full flex flex-col gap-4 items-center justify-center">
-                    <img src="presentacion-assets/biblioteca.jpeg" alt="Biblioteca Digital" class="rounded-lg shadow-xl max-w-xl w-full">
-                    <img src="presentacion-assets/analytics.jpeg" alt="Analytics" class="rounded-lg shadow-xl max-w-xl w-full">
-                    <img src="https://i.imgur.com/LPLuCJP.jpeg" alt="Features Meme" class="absolute -bottom-16 right-6 w-[360px] h-[250px] object-contain rounded-lg shadow-xl transform hover:scale-105 transition-transform duration-300" style="z-index: 20;">
-                </div>
-            </div>
-        </section>
+                </section>
 
-        <!-- Footer -->
-        <section class="h-screen w-full flex items-center justify-center relative">
-            <img src="presentacion-assets/bg-main.jpg" alt="" class="absolute inset-0 w-full h-full object-cover">
-            <div class="bg-overlay"></div>
-            <div class="relative z-10 max-w-5xl mx-auto px-8 text-center">
-                <img src="https://i.imgur.com/dcwfaDa.jpeg" alt="Final Meme" class="mx-auto mb-8 w-[300px] h-[301px] object-contain rounded-lg shadow-xl transform hover:scale-105 transition-transform duration-300">
-                <h2 class="text-7xl font-bold mb-8">www.digitalia.gov.co</h2>
-                <p class="text-3xl text-gray-300 font-mono">Ecosistema de Digital-IA</p>
+                <!-- Arquitectura -->
+                <section class="h-screen w-full flex relative">
+                    <div class="w-1/2 h-full flex items-center justify-center">
+                        <div class="max-w-2xl px-8">
+                            <h2 class="text-5xl font-bold mb-8 text-blue-400">Arquitectura del Sistema</h2>
+                            <div class="space-y-8">
+                                <div>
+                                    <h3 class="text-3xl font-mono text-purple-400 mb-4">Portal Informativo</h3>
+                                    <ul class="text-2xl space-y-4">
+                                        <li>• 45 landings construidos</li>
+                                        <li>• Sistema CRM, PQR y ERP integrados</li>
+                                        <li>• Métricas con Analytics</li>
+                                        <li>• Blogs y Bibliotecas</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h3 class="text-3xl font-mono text-purple-400 mb-4">Plataformas</h3>
+                                    <ul class="text-2xl space-y-4">
+                                        <li>• WordPress</li>
+                                        <li>• Moodle y H5P</li>
+                                        <li>• Dolibarr</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-1/2 h-full relative flex items-center justify-center">
+                        <img src="presentacion-assets/bg2.jpg" alt="" class="bg-image">
+                        <div class="bg-overlay"></div>
+                        <div class="relative z-10 p-12 w-full flex items-center justify-center">
+                            <img src="presentacion-assets/arquitectura.jpeg" alt="Arquitectura del sistema" class="rounded-lg shadow-xl max-w-2xl w-full">
+                            <img src="https://i.imgur.com/yzOp4TV.jpeg" alt="Matrix Morpheus Meme" class="absolute -bottom-16 right-8 w-[300px] h-[250px] object-cover rounded-lg shadow-xl transform hover:scale-105 transition-transform duration-300" style="z-index: 20;">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Academia -->
+                <section class="h-screen w-full flex relative">
+                    <div class="w-1/2 h-full flex items-center justify-center">
+                        <div class="max-w-2xl px-8">
+                            <h2 class="text-5xl font-bold mb-8 text-blue-400">Academia</h2>
+                            <p class="text-2xl leading-relaxed">Ecosistema de autoformación que incluye un portal informativo, plataforma Moodle con 288 contenidos audiovisuales, y sistemas administrativos integrados. Ofrece 30 categorías temáticas enfocadas en alfabetización mediática, IA y paz.</p>
+                        </div>
+                    </div>
+                    <div class="w-1/2 h-full relative flex items-center justify-center">
+                        <img src="presentacion-assets/bg3.jpg" alt="" class="bg-image">
+                        <div class="bg-overlay"></div>
+                        <div class="relative z-10 p-12 w-full flex items-center justify-center">
+                            <img src="presentacion-assets/academia.jpeg" alt="Academia Digital-IA" class="rounded-lg shadow-xl max-w-2xl w-full">
+                            <img src="https://i.imgur.com/OCWzc8F.jpeg" alt="Drake Meme" class="absolute -bottom-32 right-8 w-[300px] h-[302px] object-contain rounded-lg shadow-xl transform hover:scale-105 transition-transform duration-300" style="z-index: 20;">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- En-Línea -->
+                <section class="h-screen w-full flex relative">
+                    <div class="w-1/2 h-full flex items-center justify-center">
+                        <div class="max-w-2xl px-8">
+                            <h2 class="text-5xl font-bold mb-8 text-blue-400">En-Línea</h2>
+                            <p class="text-2xl leading-relaxed">Incluye una serie web de 20 capítulos que, similar a IMDB, cataloga los episodios, personajes, actores e historias.</p>
+                        </div>
+                    </div>
+                    <div class="w-1/2 h-full relative flex items-center justify-center">
+                        <img src="presentacion-assets/bg4.jpg" alt="" class="bg-image">
+                        <div class="bg-overlay"></div>
+                        <div class="relative z-10 p-8 w-full grid grid-cols-2 gap-4">
+                            <img src="presentacion-assets/en-linea.jpeg" alt="En-Línea Principal" class="rounded-lg shadow-xl col-span-2">
+                            <img src="presentacion-assets/en-linea-2.jpeg" alt="En-Línea Episodios" class="rounded-lg shadow-xl">
+                            <img src="presentacion-assets/en-linea-3.jpeg" alt="En-Línea Personajes" class="rounded-lg shadow-xl">
+                            <img src="https://i.imgur.com/ZoQBEOK.jpeg" alt="Leonardo DiCaprio Meme" class="absolute -bottom-16 right-6 w-[384px] h-[192px] object-contain rounded-lg shadow-xl transform hover:scale-105 transition-transform duration-300" style="z-index: 20;">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Total Transmedia -->
+                <section class="h-screen w-full flex relative">
+                    <div class="w-1/2 h-full flex items-center justify-center">
+                        <div class="max-w-2xl px-8">
+                            <h2 class="text-5xl font-bold mb-8 text-blue-400">Total Transmedia</h2>
+                            <p class="text-2xl leading-relaxed">Espacio de convergencia multimedia que integra diferentes formatos y canales para una experiencia inmersiva y completa. Incluye Blogs y Sala de prensa.</p>
+                        </div>
+                    </div>
+                    <div class="w-1/2 h-full relative flex items-center justify-center">
+                        <img src="presentacion-assets/bg5.jpg" alt="" class="bg-image">
+                        <div class="bg-overlay"></div>
+                        <div class="relative z-10 p-12 w-full flex items-center justify-center">
+                            <img src="presentacion-assets/total-transmedia.jpeg" alt="Total Transmedia" class="rounded-lg shadow-xl max-w-2xl w-full">
+                            <img src="https://i.imgur.com/hES5BeO.jpeg" alt="Expanding Brain Meme" class="absolute -bottom-20 right-8 w-[380px] h-[250px] object-contain rounded-lg shadow-xl transform hover:scale-105 transition-transform duration-300" style="z-index: 20;">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Ready -->
+                <section class="h-screen w-full flex relative">
+                    <div class="w-1/2 h-full flex items-center justify-center">
+                        <div class="max-w-2xl px-8">
+                            <h2 class="text-5xl font-bold mb-8 text-blue-400">Ready</h2>
+                            <p class="text-2xl leading-relaxed">Red Nacional de Alfabetizadores Mediáticos e Informacionales que capacita líderes comunitarios y educativos. Ofrece programas de formación, certificación y una biblioteca de guías temáticas, además de organizar encuentros y foros para fortalecer la red nacional.</p>
+                        </div>
+                    </div>
+                    <div class="w-1/2 h-full relative flex items-center justify-center">
+                        <img src="presentacion-assets/bg1.jpg" alt="" class="bg-image">
+                        <div class="bg-overlay"></div>
+                        <div class="relative z-10 p-12 w-full flex items-center justify-center">
+                            <img src="presentacion-assets/ready.jpeg" alt="Ready" class="rounded-lg shadow-xl max-w-2xl w-full">
+                            <img src="https://i.imgur.com/8DkWSpm.jpeg" alt="Avengers Assemble Meme" class="absolute -bottom-20 right-8 w-[300px] h-[265px] object-contain rounded-lg shadow-xl transform hover:scale-105 transition-transform duration-300" style="z-index: 20;">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Co-laboratorios -->
+                <section class="h-screen w-full flex relative">
+                    <div class="w-1/2 h-full flex items-center justify-center">
+                        <div class="max-w-2xl px-8">
+                            <h2 class="text-5xl font-bold mb-8 text-blue-400">Co-laboratorios</h2>
+                            <p class="text-2xl leading-relaxed">Red de espacios colaborativos para la transmisión de saberes en educomunicación, enfocados en zonas rurales y poblaciones vulnerables. Incluye un mapa interactivo de talleres y eventos presenciales en diversas regiones del país, con acceso a herramientas y tecnologías de comunicación digital.</p>
+                        </div>
+                    </div>
+                    <div class="w-1/2 h-full relative flex items-center justify-center">
+                        <img src="presentacion-assets/bg2.jpg" alt="" class="bg-image">
+                        <div class="bg-overlay"></div>
+                        <div class="relative z-10 p-8 w-full grid grid-cols-2 gap-4">
+                            <img src="presentacion-assets/colaboratorios.jpeg" alt="Co-laboratorios Principal" class="rounded-lg shadow-xl col-span-2">
+                            <img src="presentacion-assets/colaboratorios-2.jpeg" alt="Co-laboratorios Actividades" class="rounded-lg shadow-xl">
+                            <img src="presentacion-assets/colaboratorios-3.jpeg" alt="Co-laboratorios Proyectos" class="rounded-lg shadow-xl">
+                            <img src="https://i.imgur.com/1tEGOkd.jpeg" alt="Collaboration Meme" class="absolute -bottom-16 right-6 w-[360px] h-[237px] object-contain rounded-lg shadow-xl transform hover:scale-105 transition-transform duration-300" style="z-index: 20;">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Mobile App -->
+                <section class="h-screen w-full flex relative">
+                    <div class="w-1/2 h-full flex items-center justify-center">
+                        <div class="max-w-2xl px-8">
+                            <h2 class="text-5xl font-bold mb-8 text-blue-400">Aplicación Móvil</h2>
+                            <p class="text-2xl leading-relaxed">Acceso móvil al ecosistema Digital-IA, permitiendo a los usuarios mantenerse conectados y acceder a recursos educativos desde cualquier lugar. Incluye notificaciones en tiempo real y contenido offline.</p>
+                        </div>
+                    </div>
+                    <div class="w-1/2 h-full relative flex items-center justify-center">
+                        <img src="presentacion-assets/bg3.jpg" alt="" class="bg-image">
+                        <div class="bg-overlay"></div>
+                        <div class="relative z-10 p-12 w-full flex items-center justify-center">
+                            <img src="presentacion-assets/modulos-digitalia-mobile.jpeg" alt="Aplicación Móvil" class="rounded-lg shadow-xl max-w-md w-full">
+                            <img src="https://i.imgur.com/orL9Oao.jpeg" alt="Mobile App Meme" class="absolute -bottom-2 right-6 w-[360px] h-[229px] object-contain rounded-lg shadow-xl transform hover:scale-105 transition-transform duration-300" style="z-index: 20;">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Moodle Platform -->
+                <section class="h-screen w-full flex relative">
+                    <div class="w-1/2 h-full flex items-center justify-center">
+                        <div class="max-w-2xl px-8">
+                            <h2 class="text-5xl font-bold mb-8 text-blue-400">Plataforma Moodle</h2>
+                            <p class="text-2xl leading-relaxed">Sistema de gestión de aprendizaje personalizado con cursos interactivos, evaluaciones adaptativas y seguimiento del progreso. Integra H5P para contenido interactivo y facilita la colaboración entre estudiantes y educadores.</p>
+                        </div>
+                    </div>
+                    <div class="w-1/2 h-full relative flex items-center justify-center">
+                        <img src="presentacion-assets/bg4.jpg" alt="" class="bg-image">
+                        <div class="bg-overlay"></div>
+                        <div class="relative z-10 p-12 w-full flex items-center justify-center">
+                            <img src="presentacion-assets/moodle.jpeg" alt="Plataforma Moodle" class="rounded-lg shadow-xl max-w-2xl w-full">
+                            <img src="https://i.imgur.com/aWW21dQ.gif" alt="Learning GIF" class="absolute -bottom-16 right-6 w-[300px] h-[224px] object-contain rounded-lg shadow-xl transform hover:scale-105 transition-transform duration-300" style="z-index: 20;">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Dolibarr Sistema Integrado -->
+                <section class="h-screen w-full flex relative">
+                    <div class="w-1/2 h-full flex items-center justify-center">
+                        <div class="max-w-2xl px-8">
+                            <h2 class="text-5xl font-bold mb-8 text-blue-400">Sistema Dolibarr</h2>
+                            <div class="space-y-6">
+                                <div>
+                                    <h3 class="text-3xl font-mono text-purple-400 mb-4">ERP</h3>
+                                    <p class="text-2xl leading-relaxed mb-4">Administra los recursos del ecosistema Digital-IA, optimizando la gestión de los cinco módulos y sus interacciones con la plataforma educativa.</p>
+                                </div>
+                                <div>
+                                    <h3 class="text-3xl font-mono text-purple-400 mb-4">CRM</h3>
+                                    <p class="text-2xl leading-relaxed mb-4">Centraliza la gestión de usuarios del ecosistema, facilitando el seguimiento y nuestro contacto de alfabetizadores y ciudadanos en todos los módulos de Digital-IA.</p>
+                                </div>
+                                <div>
+                                    <h3 class="text-3xl font-mono text-purple-400 mb-4">Sistema PQRS</h3>
+                                    <p class="text-2xl leading-relaxed">Sistema integrado de atención que conecta las peticiones, quejas y sugerencias con el ecosistema Digitalia.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-1/2 h-full relative flex items-center justify-center">
+                        <img src="presentacion-assets/bg5.jpg" alt="" class="bg-image">
+                        <div class="bg-overlay"></div>
+                        <div class="relative z-10 p-8 w-full grid grid-cols-2 gap-4">
+                            <img src="presentacion-assets/dolibarr-erp.jpeg" alt="Dolibarr ERP" class="rounded-lg shadow-xl col-span-2">
+                            <img src="presentacion-assets/dolibarr-crm.jpeg" alt="Dolibarr CRM" class="rounded-lg shadow-xl">
+                            <img src="presentacion-assets/dolibarr-tickets.jpeg" alt="Sistema de Tickets" class="rounded-lg shadow-xl">
+                            <img src="https://i.imgur.com/lwau4JT.jpeg" alt="Business Management Meme" class="absolute -bottom-16 right-6 w-[234px] h-[300px] object-contain rounded-lg shadow-xl transform hover:scale-105 transition-transform duration-300" style="z-index: 20;">
+                        </div>
+                    </div>
+                </section>        
+
+                <!-- WhatsApp Bot -->
+                <section class="h-screen w-full flex relative">
+                    <div class="w-1/2 h-full flex items-center justify-center">
+                        <div class="max-w-2xl px-8">
+                            <h2 class="text-5xl font-bold mb-8 text-blue-400">WhatsApp Bot</h2>
+                            <p class="text-2xl leading-relaxed">Un robusto asistente virtual integrado que proporciona acceso rápido a recursos educativos sobre alfabetización mediática y responde preguntas sobre Digitalia a través de WhatsApp. Disponible 24/7.</p>
+                        </div>
+                    </div>
+                    <div class="w-1/2 h-full relative flex items-center justify-center">
+                        <img src="presentacion-assets/bg2.jpg" alt="" class="bg-image">
+                        <div class="bg-overlay"></div>
+                        <div class="relative z-10 p-12 w-full flex items-center justify-center">
+                            <img src="presentacion-assets/whatsapp-bot.jpeg" alt="WhatsApp Bot" class="rounded-lg shadow-xl max-w-2xl w-full">
+                            <img src="https://i.imgur.com/EgSCT8W.png" alt="WhatsApp Bot Meme" class="absolute -bottom-40 right-6 w-[350px] h-[240px] object-contain rounded-lg shadow-xl transform hover:scale-105 transition-transform duration-300" style="z-index: 20;">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Características -->
+                <section class="h-screen w-full flex relative">
+                    <div class="w-1/2 h-full flex items-center justify-center">
+                        <div class="max-w-2xl px-8">
+                            <h2 class="text-5xl font-bold mb-8 text-blue-400">Características Principales</h2>
+                            <div class="space-y-8">
+                                <div>
+                                    <h3 class="text-3xl font-mono text-purple-400 mb-4">Biblioteca Digital</h3>
+                                    <ul class="text-2xl space-y-4">
+                                        <li>• Repositorio educativo</li>
+                                        <li>• Categorización avanzada</li>
+                                        <li>• Control de acceso y marcadores</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h3 class="text-3xl font-mono text-purple-400 mb-4">Métricas con Analytics</h3>
+                                    <ul class="text-2xl space-y-4">
+                                        <li>• Análisis de visitantes</li>
+                                        <li>• Seguimiento de conversiones y remarketing</li>
+                                        <li>• Análisis de desempeños</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-1/2 h-full relative flex items-center justify-center">
+                        <img src="presentacion-assets/bg3.jpg" alt="" class="bg-image">
+                        <div class="bg-overlay"></div>
+                        <div class="relative z-10 p-12 w-full flex flex-col gap-4 items-center justify-center">
+                            <img src="presentacion-assets/biblioteca.jpeg" alt="Biblioteca Digital" class="rounded-lg shadow-xl max-w-xl w-full">
+                            <img src="presentacion-assets/analytics.jpeg" alt="Analytics" class="rounded-lg shadow-xl max-w-xl w-full">
+                            <img src="https://i.imgur.com/LPLuCJP.jpeg" alt="Features Meme" class="absolute -bottom-16 right-6 w-[360px] h-[250px] object-contain rounded-lg shadow-xl transform hover:scale-105 transition-transform duration-300" style="z-index: 20;">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Footer -->
+                <section class="h-screen w-full flex items-center justify-center relative">
+                    <img src="presentacion-assets/bg-main.jpg" alt="" class="absolute inset-0 w-full h-full object-cover">
+                    <div class="bg-overlay"></div>
+                    <div class="relative z-10 max-w-5xl mx-auto px-8 text-center">
+                        <img src="https://i.imgur.com/dcwfaDa.jpeg" alt="Final Meme" class="mx-auto mb-8 w-[300px] h-[301px] object-contain rounded-lg shadow-xl transform hover:scale-105 transition-transform duration-300">
+                        <h2 class="text-7xl font-bold mb-8">www.digitalia.gov.co</h2>
+                        <p class="text-3xl text-gray-300 font-mono">Ecosistema de Digital-IA</p>
+                    </div>
+                </section>
             </div>
-        </section>
+        </div>
     </div>
+    <script>
+        function scaleContent() {
+            const wrapper = document.getElementById('presentation-wrapper');
+            const content = document.querySelector('.content-container');
+            
+            const wrapperWidth = wrapper.clientWidth;
+            const wrapperHeight = wrapper.clientHeight;
+            const contentWidth = 1440; // Original width
+            const contentHeight = 900; // Original height
+            
+            const scaleX = wrapperWidth / contentWidth;
+            const scaleY = wrapperHeight / contentHeight;
+            const scale = Math.min(scaleX, scaleY);
+            
+            content.style.transform = `scale(${scale})`;
+        }
+
+        window.addEventListener('load', scaleContent);
+        window.addEventListener('resize', scaleContent);
+    </script>
 </body>
 </html>
