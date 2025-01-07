@@ -9,7 +9,7 @@
 
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '1.5.0' );
+	define( '_S_VERSION', '1.7.0' );
 }
 
 /**
@@ -374,6 +374,48 @@ function digitalia_register_cursos_post_type() {
 }
 add_action( 'init', 'digitalia_register_cursos_post_type' );
 
+// Add ACF fields for Curso post type
+if( function_exists('acf_add_local_field_group') ):
+
+    acf_add_local_field_group(array(
+        'key' => 'group_curso_details',
+        'title' => 'Detalles del Curso',
+        'fields' => array(
+            array(
+                'key' => 'field_duracion',
+                'label' => 'Duración',
+                'name' => 'duracion',
+                'type' => 'text',
+                'instructions' => 'Ingrese la duración del curso (ej: 12 semanas)',
+                'required' => 1,
+                'default_value' => '12 semanas',
+            ),
+            array(
+                'key' => 'field_categoria',
+                'label' => 'Categoría',
+                'name' => 'categoria',
+                'type' => 'text',
+                'instructions' => 'Ingrese la categoría del curso (ej: Tecnología, Legal, Seguridad)',
+                'required' => 1,
+                'default_value' => 'Tecnología',
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'post_type',
+                    'operator' => '==',
+                    'value' => 'curso',
+                ),
+            ),
+        ),
+        'position' => 'normal',
+        'style' => 'default',
+        'label_placement' => 'top',
+    ));
+
+endif;
+
 /**
  * Register Custom Post Type Episodios and its taxonomies
  */
@@ -592,6 +634,129 @@ function digitalia_register_series_post_type() {
 add_action( 'init', 'digitalia_register_series_post_type' );
 
 /**
+ * Register Custom Post Type FAQ
+ */
+function digitalia_register_faq_post_type() {
+    $labels = array(
+        'name'                  => _x( 'Preguntas Frecuentes', 'Post type general name', 'digitalia' ),
+        'singular_name'         => _x( 'Pregunta Frecuente', 'Post type singular name', 'digitalia' ),
+        'menu_name'            => _x( 'Preguntas Frecuentes', 'Admin Menu text', 'digitalia' ),
+        'name_admin_bar'       => _x( 'Pregunta Frecuente', 'Add New on Toolbar', 'digitalia' ),
+        'add_new'              => __( 'Añadir Nueva', 'digitalia' ),
+        'add_new_item'         => __( 'Añadir Nueva Pregunta', 'digitalia' ),
+        'new_item'             => __( 'Nueva Pregunta', 'digitalia' ),
+        'edit_item'            => __( 'Editar Pregunta', 'digitalia' ),
+        'view_item'            => __( 'Ver Pregunta', 'digitalia' ),
+        'all_items'            => __( 'Todas las Preguntas', 'digitalia' ),
+        'search_items'         => __( 'Buscar Preguntas', 'digitalia' ),
+        'not_found'            => __( 'No se encontraron preguntas.', 'digitalia' ),
+        'not_found_in_trash'   => __( 'No se encontraron preguntas en la papelera.', 'digitalia' ),
+    );
+
+    $args = array(
+        'labels'             => $labels,
+        'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'query_var'          => true,
+        'rewrite'            => array( 'slug' => 'preguntas-frecuentes' ),
+        'capability_type'    => 'post',
+        'has_archive'        => true,
+        'hierarchical'       => false,
+        'menu_position'      => null,
+        'supports'           => array( 'title', 'editor', 'thumbnail', 'excerpt' ),
+        'menu_icon'          => 'dashicons-format-chat',
+        'show_in_rest'       => true,
+    );
+
+    register_post_type( 'faq', $args );
+}
+add_action( 'init', 'digitalia_register_faq_post_type' );
+
+/**
+ * Register FAQ Categories Taxonomy
+ */
+function digitalia_register_faq_categories_taxonomy() {
+    $labels = array(
+        'name'              => _x( 'Categorías FAQ', 'taxonomy general name', 'digitalia' ),
+        'singular_name'     => _x( 'Categoría FAQ', 'taxonomy singular name', 'digitalia' ),
+        'search_items'      => __( 'Buscar Categorías', 'digitalia' ),
+        'all_items'         => __( 'Todas las Categorías', 'digitalia' ),
+        'parent_item'       => __( 'Categoría Superior', 'digitalia' ),
+        'parent_item_colon' => __( 'Categoría Superior:', 'digitalia' ),
+        'edit_item'         => __( 'Editar Categoría', 'digitalia' ),
+        'update_item'       => __( 'Actualizar Categoría', 'digitalia' ),
+        'add_new_item'      => __( 'Añadir Nueva Categoría', 'digitalia' ),
+        'new_item_name'     => __( 'Nuevo Nombre de Categoría', 'digitalia' ),
+        'menu_name'         => __( 'Categorías', 'digitalia' ),
+    );
+
+    $args = array(
+        'labels'            => $labels,
+        'hierarchical'      => true,
+        'public'           => true,
+        'show_ui'          => true,
+        'show_admin_column' => true,
+        'show_in_menu'     => true,
+        'show_in_rest'     => true,
+        'query_var'        => true,
+        'rewrite'          => array( 'slug' => 'faq-categories' ),
+    );
+
+    register_taxonomy( 'faq-categories', array( 'faq' ), $args );
+}
+add_action( 'init', 'digitalia_register_faq_categories_taxonomy' );
+
+/**
+ * Register Custom Post Type Descargas
+ */
+function digitalia_register_descargas_post_type() {
+    $labels = array(
+        'name'                  => _x( 'Descargas', 'Post Type General Name', 'digitalia' ),
+        'singular_name'         => _x( 'Descarga', 'Post Type Singular Name', 'digitalia' ),
+        'menu_name'            => __( 'Descargas', 'digitalia' ),
+        'name_admin_bar'       => __( 'Descarga', 'digitalia' ),
+        'archives'             => __( 'Archivo de Descargas', 'digitalia' ),
+        'attributes'           => __( 'Atributos de Descarga', 'digitalia' ),
+        'parent_item_colon'    => __( 'Descarga Superior:', 'digitalia' ),
+        'all_items'            => __( 'Todas las Descargas', 'digitalia' ),
+        'add_new_item'         => __( 'Añadir Nueva Descarga', 'digitalia' ),
+        'add_new'              => __( 'Añadir Nueva', 'digitalia' ),
+        'new_item'             => __( 'Nueva Descarga', 'digitalia' ),
+        'edit_item'            => __( 'Editar Descarga', 'digitalia' ),
+        'update_item'          => __( 'Actualizar Descarga', 'digitalia' ),
+        'view_item'            => __( 'Ver Descarga', 'digitalia' ),
+        'view_items'           => __( 'Ver Descargas', 'digitalia' ),
+        'search_items'         => __( 'Buscar Descarga', 'digitalia' ),
+    );
+    
+    $args = array(
+        'label'                 => __( 'Descarga', 'digitalia' ),
+        'labels'                => $labels,
+        'supports'              => array( 'title', 'editor', 'thumbnail', 'excerpt' ),
+        'taxonomies'            => array( 'category' ), // Using regular post categories
+        'hierarchical'          => false,
+        'public'               => true,
+        'show_ui'              => true,
+        'show_in_menu'         => true,
+        'menu_position'        => 5,
+        'menu_icon'            => 'dashicons-download',
+        'show_in_admin_bar'    => true,
+        'show_in_nav_menus'    => true,
+        'can_export'           => true,
+        'has_archive'          => true,
+        'exclude_from_search'  => false,
+        'publicly_queryable'   => true,
+        'capability_type'      => 'post',
+        'show_in_rest'         => true,
+    );
+    
+    register_post_type( 'descarga', $args );
+}
+add_action( 'init', 'digitalia_register_descargas_post_type' );
+
+/**
  * Register Hero Block
  */
 function digitalia_register_hero_block() {
@@ -701,3 +866,27 @@ function get_reading_time() {
     
     return max(1, $reading_time); // Return at least 1 minute
 }
+
+// Enqueue Vue.js for biblioteca-digital template
+function digitalia_enqueue_vue() {
+    if (is_page_template('page-templates/biblioteca-digital.php')) {
+        wp_enqueue_script('vue', 'https://unpkg.com/vue@3/dist/vue.global.js', array(), '3.0.0', true);
+    }
+}
+add_action('wp_enqueue_scripts', 'digitalia_enqueue_vue');
+
+// Add REST API support for featured images
+add_action('rest_api_init', function () {
+    register_rest_field('post', 'featured_image_url',
+        array(
+            'get_callback' => function($object) {
+                if ($object['featured_media']) {
+                    $img = wp_get_attachment_image_src($object['featured_media'], 'medium');
+                    return $img[0];
+                }
+                return false;
+            },
+            'schema' => null,
+        )
+    );
+});

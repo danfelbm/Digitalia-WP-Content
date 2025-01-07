@@ -21,10 +21,10 @@ get_header();
     <section id="blog" class="flex flex-col gap-16 lg:px-16 pt-16 text-blue-900 bg-blue-200">
         <div class="container mb-14 flex flex-col gap-16 lg:mb-16 lg:px-16">
             <div class="lg:max-w-lg">
-                <h2 class="mb-3 text-xl font-semibold md:mb-4 md:text-4xl lg:mb-6">Entradas del blog</h2>
-                <p class="mb-8 lg:text-lg">Descubre las últimas novedades y reflexiones sobre educomunicación, alfabetización mediática e inteligencia artificial en nuestro blog, con un enfoque especial en la construcción de paz.</p>
-                <a href="#" class="group flex items-center text-xs font-medium md:text-base lg:text-lg">
-                    Conoce más
+                <h2 class="mb-3 text-xl font-semibold md:mb-4 md:text-4xl lg:mb-6"><?php echo esc_html(get_field('tt_blog_title')); ?></h2>
+                <p class="mb-8 lg:text-lg"><?php echo esc_html(get_field('tt_blog_description')); ?></p>
+                <a href="<?php echo esc_url(get_field('tt_blog_cta_url')); ?>" class="group flex items-center text-xs font-medium md:text-base lg:text-lg">
+                    <?php echo esc_html(get_field('tt_blog_cta_text')); ?>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right ml-2 size-4 transition-transform group-hover:translate-x-1">
                         <path d="M5 12h14"></path>
                         <path d="m12 5 7 7-7 7"></path>
