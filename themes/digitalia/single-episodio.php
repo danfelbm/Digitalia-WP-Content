@@ -13,15 +13,20 @@ get_header(); ?>
                 <div class="absolute inset-0 bg-black bg-opacity-50"></div>
             </div>
         <?php endif; ?>
+        <button type="button" onclick="openVideoModal()" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 flex size-16 items-center justify-center rounded-full border-white/30 border bg-black/30 text-white hover:bg-black/50 transition-colors md:size-20">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-play size-6 fill-white">
+                <polygon points="6 3 20 12 6 21 6 3"></polygon>
+            </svg>
+        </button>
         <div class="relative container mx-auto px-6 h-full flex items-end pb-16">
             <div class="text-white">
                 <h1 class="text-4xl md:text-5xl font-bold mb-2"><?php the_title(); ?></h1>
                 <div class="text-xl text-gray-300">
                     <?php 
                     $episodio_numero = get_field('episodio_numero');
-                    $temporada = wp_get_post_terms(get_the_ID(), 'temporadas', array('fields' => 'names'));
+                    $temporada = wp_get_post_terms(get_the_id(), 'temporadas', array('fields' => 'names'));
                     if ($episodio_numero && !empty($temporada)) {
-                        printf('Episodio %d, %s', $episodio_numero, $temporada[0]);
+                        printf('episodio %d, %s', $episodio_numero, $temporada[0]);
                     }
                     ?>
                 </div>
@@ -177,4 +182,62 @@ get_header(); ?>
         </div>
     </div>
 </article>
+
+<!-- Video Modal -->
+<div id="videoModal" class="relative z-[70] hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+    <div class="fixed inset-0 bg-gray-500/75 transition-opacity"></div>
+    <div class="fixed inset-0 z-50 w-screen overflow-y-auto">
+        <div class="flex min-h-full items-center justify-center p-0">
+            <div class="relative w-full transform overflow-hidden bg-white text-left shadow-xl transition-all sm:max-w-[95vw]">
+                <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+                    <div class="sm:flex sm:items-start">
+                        <div class="mt-3 w-full sm:mt-0 sm:text-left">
+                            <div class="aspect-video w-full max-h-[85vh]">
+                                <iframe id="youtubeVideo" class="w-full h-full" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                    <button type="button" onclick="closeVideoModal()" class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">Cerrar ventana</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function openVideoModal() {
+    const modal = document.getElementById('videoModal');
+    const video = document.getElementById('youtubeVideo');
+    const videoUrl = '<?php echo esc_url(get_field('episodio_video')); ?>';
+    
+    // Extract video ID from URL (handle both ?v= and &v= cases)
+    const match = videoUrl.match(/[?&]v=([^&]+)/);
+    if (match && match[1]) {
+        const videoId = match[1];
+        video.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+    } else {
+        console.error('Invalid YouTube URL format');
+    }
+}
+
+function closeVideoModal() {
+    const modal = document.getElementById('videoModal');
+    const video = document.getElementById('youtubeVideo');
+    video.src = '';
+    modal.classList.add('hidden');
+    document.body.style.overflow = 'auto';
+}
+
+// Close modal when clicking outside
+document.getElementById('videoModal').addEventListener('click', function(e) {
+    if (e.target === this) {
+        closeVideoModal();
+    }
+});
+</script>
+
 <?php get_footer(); ?>
