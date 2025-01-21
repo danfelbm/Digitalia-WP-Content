@@ -47,104 +47,286 @@ get_header();
         </div>
     </div>
     <div class="container relative flex flex-col items-center text-center">
-        <h1 class="my-6 text-pretty text-4xl font-bold lg:text-6xl">Red Nacional de Alfabetizadores</h1>
-        <p class="mb-8 max-w-3xl text-muted-foreground lg:text-xl">Formando líderes en alfabetización mediática e informacional para construir una Colombia más informada y en paz.</p>
+        <h1 class="my-6 text-pretty text-4xl font-bold lg:text-6xl"><?php echo get_field('hero')['title']; ?></h1>
+        <p class="mb-8 max-w-3xl text-muted-foreground lg:text-xl"><?php echo get_field('hero')['description']; ?></p>
         <div>
-            <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-purple-700 text-white hover:bg-purple-800 h-10 px-4 py-2">Únete a la Red</button>
+            <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-purple-700 text-white hover:bg-purple-800 h-10 px-4 py-2"><?php echo get_field('hero')['cta']['cta_text']; ?></button>
         </div>
     </div>
 </section>
+
+<!-- Alfabetizadores Table Section -->
+<section class="py-16">
+    <div class="container">
+        <!-- Filters -->
+        <div class="flex flex-col md:flex-row gap-4 mb-6">
+            <div class="flex-1">
+                <label for="search-alfabetizador" class="block text-sm font-medium text-gray-700 mb-1">Buscar por nombre</label>
+                <input type="text" id="search-alfabetizador" class="w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring-purple-500" placeholder="Escriba un nombre...">
+            </div>
+            <div class="w-full md:w-64">
+                <label for="filter-location" class="block text-sm font-medium text-gray-700 mb-1">Ubicación</label>
+                <select id="filter-location" class="w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring-purple-500">
+                    <option value="">Todas las ubicaciones</option>
+                    <?php
+                    $locations = get_terms(array(
+                        'taxonomy' => 'ubicaciones',
+                        'parent' => 0,
+                        'hide_empty' => true
+                    ));
+                    
+                    if (!empty($locations) && !is_wp_error($locations)) {
+                        foreach ($locations as $location) {
+                            echo '<option value="' . esc_attr($location->name) . '">' . esc_html($location->name) . '</option>';
+                        }
+                    }
+                    ?>
+                </select>
+            </div>
+            <div class="w-full md:w-64">
+                <label for="filter-especialidades" class="block text-sm font-medium text-gray-700 mb-1">Especialidades</label>
+                <select id="filter-especialidades" class="w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring-purple-500" multiple>
+                    <?php
+                    $especialidades = get_terms(array(
+                        'taxonomy' => 'alfabetizadores-tags',
+                        'hide_empty' => true
+                    ));
+                    
+                    if (!empty($especialidades) && !is_wp_error($especialidades)) {
+                        foreach ($especialidades as $especialidad) {
+                            echo '<option value="' . esc_attr($especialidad->slug) . '">' . esc_html($especialidad->name) . '</option>';
+                        }
+                    }
+                    ?>
+                </select>
+            </div>
+        </div>
+
+        <!-- Table -->
+        <div id="alfabetizadores-table" class="relative overflow-x-auto rounded-lg border border-gray-200 shadow">
+            <table class="w-full text-left text-sm">
+                <thead class="bg-gray-50 text-xs uppercase text-gray-700">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">Nombre</th>
+                        <th scope="col" class="px-6 py-3">Ubicación</th>
+                        <th scope="col" class="px-6 py-3">Especialidad</th>
+                        <th scope="col" class="px-6 py-3">Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $args = array(
+                        'post_type' => 'alfabetizador',
+                        'posts_per_page' => -1,
+                        'orderby' => 'title',
+                        'order' => 'ASC'
+                    );
+
+                    $alfabetizadores = new WP_Query($args);
+
+                    if ($alfabetizadores->have_posts()) :
+                        while ($alfabetizadores->have_posts()) : $alfabetizadores->the_post();
+                            // Get ubicaciones (location) terms
+                            $ubicaciones = get_the_terms(get_the_ID(), 'ubicaciones');
+                            $locations = array();
+                            $parent_location = ''; // For filtering purposes
+                            
+                            if ($ubicaciones && !is_wp_error($ubicaciones)) {
+                                foreach ($ubicaciones as $ubicacion) {
+                                    $locations[] = $ubicacion->name;
+                                    if ($ubicacion->parent == 0) {
+                                        $parent_location = $ubicacion->name;
+                                    }
+                                }
+                            }
+
+                            // Get estado (status) and set appropriate classes
+                            $estado = get_field('estado');
+                            $estado_class = '';
+                            $estado_text = '';
+                            
+                            switch ($estado) {
+                                case 'activo':
+                                    $estado_class = 'bg-green-100 text-green-800';
+                                    $estado_text = 'Activo';
+                                    break;
+                                case 'inactivo':
+                                    $estado_class = 'bg-red-100 text-red-800';
+                                    $estado_text = 'Inactivo';
+                                    break;
+                                case 'en_formacion':
+                                    $estado_class = 'bg-yellow-100 text-yellow-800';
+                                    $estado_text = 'En formación';
+                                    break;
+                            }
+                    ?>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-6 py-4">
+                                    <a href="<?php the_permalink(); ?>" class="text-purple-600 hover:underline"><?php the_title(); ?></a>
+                                </td>
+                                <td class="px-6 py-4" data-parent-location="<?php echo esc_attr($parent_location); ?>">
+                                    <?php echo esc_html(implode(', ', $locations)); ?>
+                                </td>
+                                <td class="px-6 py-4" data-tags="<?php 
+                                    $tag_slugs = array();
+                                    $tags = get_the_terms(get_the_ID(), 'alfabetizadores-tags');
+                                    if ($tags && !is_wp_error($tags)) {
+                                        foreach ($tags as $tag) {
+                                            $tag_slugs[] = $tag->slug;
+                                        }
+                                    }
+                                    echo esc_attr(implode(',', $tag_slugs));
+                                ?>">
+                                    <?php 
+                                    if ($tags && !is_wp_error($tags)) {
+                                        $tag_names = array();
+                                        foreach ($tags as $tag) {
+                                            $tag_names[] = $tag->name;
+                                        }
+                                        echo esc_html(implode(', ', $tag_names));
+                                    }
+                                    ?>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span class="rounded-full <?php echo esc_attr($estado_class); ?> px-2.5 py-0.5 text-xs font-medium">
+                                        <?php echo esc_html($estado_text); ?>
+                                    </span>
+                                </td>
+                            </tr>
+                    <?php
+                        endwhile;
+                        wp_reset_postdata();
+                    else :
+                    ?>
+                        <tr>
+                            <td colspan="4" class="px-6 py-4 text-center">No se encontraron alfabetizadores.</td>
+                        </tr>
+                    <?php endif; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('search-alfabetizador');
+    const locationSelect = document.getElementById('filter-location');
+    const especialidadesSelect = document.getElementById('filter-especialidades');
+    const table = document.getElementById('alfabetizadores-table');
+    const rows = table.getElementsByTagName('tr');
+
+    // Function to filter table
+    function filterTable() {
+        const searchText = searchInput.value.toLowerCase();
+        const location = locationSelect.value.toLowerCase();
+        const selectedEspecialidades = Array.from(especialidadesSelect.selectedOptions).map(option => option.value);
+
+        Array.from(rows).forEach(row => {
+            if (row.parentElement.tagName === 'THEAD') return;
+
+            const name = row.cells[0].textContent.toLowerCase();
+            const locationCell = row.cells[1];
+            const parentLocation = locationCell.getAttribute('data-parent-location').toLowerCase();
+            const especialidadesCell = row.cells[2];
+            const rowTags = especialidadesCell.getAttribute('data-tags').split(',');
+
+            const matchesSearch = name.includes(searchText);
+            const matchesLocation = !location || parentLocation.includes(location);
+            const matchesEspecialidades = selectedEspecialidades.length === 0 || 
+                                        selectedEspecialidades.every(tag => rowTags.includes(tag));
+
+            row.style.display = matchesSearch && matchesLocation && matchesEspecialidades ? '' : 'none';
+        });
+    }
+
+    // Event listeners
+    searchInput.addEventListener('input', filterTable);
+    locationSelect.addEventListener('change', filterTable);
+    especialidadesSelect.addEventListener('change', filterTable);
+});
+</script>
 
     <section id="acerca" class="bg-purple-800 pb-32 pt-24">
         <div class="container">
             <div class="grid place-content-center gap-10 lg:grid-cols-2">
                 <div class="mx-auto flex max-w-screen-md flex-col items-center justify-center gap-4 lg:items-start">
                     <div class="rounded-full border border-purple-300 text-purple-300 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 text-foreground flex items-center gap-1 px-2.5 py-1.5 text-sm">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-graduation-cap h-auto w-4">
-                            <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
-                            <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-<?php echo esc_attr(get_field('ready2_about')['badge']['icon']); ?> h-auto w-4">
+                            <?php if (get_field('ready2_about')['badge']['icon'] === 'graduation-cap'): ?>
+                                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                            <?php endif; ?>
                         </svg>
-                        Red de Aprendizaje Digital
+                        <?php echo esc_html(get_field('ready2_about')['badge']['text']); ?>
                     </div>
-                    <h2 class="text-center text-3xl font-semibold lg:text-left lg:text-4xl text-purple-100">Alfabetización Mediática para el Futuro</h2>
-                    <p class="text-center text-purple-100 lg:text-left lg:text-lg">REaDy es una red nacional de alfabetización mediática e informacional que prepara a la ciudadanía para los desafíos de las tecnologías emergentes, con énfasis en inteligencia artificial y enfoque de paz.</p>
-                    <a href="/contacto" class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-purple-500 text-white hover:bg-purple-400 h-11 rounded-md px-8">Unirse a la red</a>
+                    <h2 class="text-center text-3xl font-semibold lg:text-left lg:text-4xl text-purple-100"><?php echo esc_html(get_field('ready2_about')['title']); ?></h2>
+                    <p class="text-center text-purple-100 lg:text-left lg:text-lg"><?php echo esc_html(get_field('ready2_about')['description']); ?></p>
+                    <a href="<?php echo esc_url(get_field('ready2_about')['cta']['cta_url']); ?>" class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-purple-500 text-white hover:bg-purple-400 h-11 rounded-md px-8"><?php echo esc_html(get_field('ready2_about')['cta']['cta_text']); ?></a>
                     <div class="mt-9 flex w-full flex-col justify-center gap-6 md:flex-row lg:justify-start">
                         <div class="flex justify-between gap-6">
                             <div class="mx-auto">
-                                <p class="mb-1.5 text-3xl font-bold text-purple-300">+1000</p>
-                                <p class="text-purple-400">Participantes</p>
+                                <p class="mb-1.5 text-3xl font-bold text-purple-300"><?php echo esc_html(get_field('ready2_about')['stats']['stat_1']['number']); ?></p>
+                                <p class="text-purple-400"><?php echo esc_html(get_field('ready2_about')['stats']['stat_1']['label']); ?></p>
                             </div>
                             <div data-orientation="vertical" role="none" class="shrink-0 bg-purple-700 w-[1px] h-auto"></div>
                             <div class="mx-auto">
-                                <p class="mb-1.5 text-3xl font-bold text-purple-300">32</p>
-                                <p class="text-purple-400">Departamentos</p>
+                                <p class="mb-1.5 text-3xl font-bold text-purple-300"><?php echo esc_html(get_field('ready2_about')['stats']['stat_2']['number']); ?></p>
+                                <p class="text-purple-400"><?php echo esc_html(get_field('ready2_about')['stats']['stat_2']['label']); ?></p>
                             </div>
                         </div>
                         <div data-orientation="vertical" role="none" class="shrink-0 bg-purple-700 w-[1px] hidden h-auto md:block"></div>
                         <div data-orientation="horizontal" role="none" class="shrink-0 bg-purple-700 h-[1px] w-full block md:hidden"></div>
                         <div class="flex justify-between gap-6">
                             <div class="mx-auto">
-                                <p class="mb-1.5 text-3xl font-bold text-purple-300">24/7</p>
-                                <p class="text-purple-400">Acceso</p>
+                                <p class="mb-1.5 text-3xl font-bold text-purple-300"><?php echo esc_html(get_field('ready2_about')['stats']['stat_3']['number']); ?></p>
+                                <p class="text-purple-400"><?php echo esc_html(get_field('ready2_about')['stats']['stat_3']['label']); ?></p>
                             </div>
                             <div data-orientation="vertical" role="none" class="shrink-0 bg-purple-700 w-[1px] h-auto"></div>
                             <div class="mx-auto">
-                                <p class="mb-1.5 text-3xl font-bold text-purple-300">100%</p>
-                                <p class="text-purple-400">Gratuito</p>
+                                <p class="mb-1.5 text-3xl font-bold text-purple-300"><?php echo esc_html(get_field('ready2_about')['stats']['stat_4']['number']); ?></p>
+                                <p class="text-purple-400"><?php echo esc_html(get_field('ready2_about')['stats']['stat_4']['label']); ?></p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="mx-auto">
-                    <img src="/wp-content/uploads/2024/12/back1-1.png" alt="REaDy - Red de Aprendizaje Digital" class="ml-auto max-h-[450px] w-full rounded-xl object-cover">
+                    <img src="<?php echo esc_url(get_field('ready2_about')['image']); ?>" alt="REaDy - Red de Aprendizaje Digital" class="ml-auto max-h-[450px] w-full rounded-xl object-cover">
                 </div>
             </div>
             <div class="mt-10 grid gap-6 md:grid-cols-3">
-                <div class="flex flex-col gap-4">
-                    <div class="gap flex flex-col gap-3 rounded-lg border border-purple-700 bg-purple-800/50 p-6">
-                        <div class="flex flex-col items-center gap-2 lg:flex-row">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield-check h-auto w-6 text-purple-300">
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path>
-                                <path d="m9 12 2 2 4-4"></path>
-                            </svg>
-                            <h3 class="text-center text-lg font-medium lg:text-left text-white">Resiliencia Digital</h3>
+                <?php if(have_rows('ready2_about_features')): ?>
+                    <?php while(have_rows('ready2_about_features')): the_row(); ?>
+                        <div class="flex flex-col gap-4">
+                            <div class="gap flex flex-col gap-3 rounded-lg border border-purple-700 bg-purple-800/50 p-6">
+                                <div class="flex flex-col items-center gap-2 lg:flex-row">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-<?php echo esc_attr(get_sub_field('icon')); ?> h-auto w-6 text-purple-300">
+                                        <?php if (get_sub_field('icon') === 'shield-check'): ?>
+                                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path>
+                                            <path d="m9 12 2 2 4-4"></path>
+                                        <?php elseif (get_sub_field('icon') === 'users'): ?>
+                                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                                            <circle cx="9" cy="7" r="4"></circle>
+                                            <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                        <?php elseif (get_sub_field('icon') === 'brain-circuit'): ?>
+                                            <path d="M12 4.5a2.5 2.5 0 0 0-4.96-.46 2.5 2.5 0 0 0-1.98 3 2.5 2.5 0 0 0-1.32 4.24 3 3 0 0 0 .34 5.58 2.5 2.5 0 0 0 2.96 3.08 2.5 2.5 0 0 0 4.91.05L12 20V4.5Z"></path>
+                                            <path d="M16 8V5c0-1.1.9-2 2-2"></path>
+                                            <path d="M12 13h4"></path>
+                                            <path d="M12 18h6a2 2 0 0 1 2 2v1"></path>
+                                            <path d="M12 8h8"></path>
+                                            <path d="M20.5 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z"></path>
+                                            <path d="M16.5 13a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z"></path>
+                                            <path d="M20.5 21a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z"></path>
+                                        <?php endif; ?>
+                                    </svg>
+                                    <h3 class="text-center text-lg font-medium lg:text-left text-white"><?php echo esc_html(get_sub_field('title')); ?></h3>
+                                </div>
+                                <p class="text-center text-sm text-purple-300 md:text-base lg:text-left"><?php echo esc_html(get_sub_field('description')); ?></p>
+                            </div>
                         </div>
-                        <p class="text-center text-sm text-purple-300 md:text-base lg:text-left">Desarrolla habilidades críticas para identificar desinformación y utilizar las tecnologías emergentes de manera ética y responsable.</p>
-                    </div>
-                </div>
-                <div class="flex flex-col gap-4">
-                    <div class="gap flex flex-col gap-3 rounded-lg border border-purple-700 bg-purple-800/50 p-6">
-                        <div class="flex flex-col items-center gap-2 lg:flex-row">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users h-auto w-6 text-purple-300">
-                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-                                <circle cx="9" cy="7" r="4"></circle>
-                                <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
-                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                            </svg>
-                            <h3 class="text-center text-lg font-medium lg:text-left text-white">Red Nacional</h3>
-                        </div>
-                        <p class="text-center text-sm text-purple-300 md:text-base lg:text-left">Forma parte de una comunidad de más de 1000 personas comprometidas con la alfabetización mediática y la construcción de paz en Colombia.</p>
-                    </div>
-                </div>
-                <div class="flex flex-col gap-4">
-                    <div class="gap flex flex-col gap-3 rounded-lg border border-purple-700 bg-purple-800/50 p-6">
-                        <div class="flex flex-col items-center gap-2 lg:flex-row">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-brain-circuit h-auto w-6 text-purple-300">
-                                <path d="M12 4.5a2.5 2.5 0 0 0-4.96-.46 2.5 2.5 0 0 0-1.98 3 2.5 2.5 0 0 0-1.32 4.24 3 3 0 0 0 .34 5.58 2.5 2.5 0 0 0 2.96 3.08 2.5 2.5 0 0 0 4.91.05L12 20V4.5Z"></path>
-                                <path d="M16 8V5c0-1.1.9-2 2-2"></path>
-                                <path d="M12 13h4"></path>
-                                <path d="M12 18h6a2 2 0 0 1 2 2v1"></path>
-                                <path d="M12 8h8"></path>
-                                <path d="M20.5 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z"></path>
-                                <path d="M16.5 13a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z"></path>
-                                <path d="M20.5 21a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z"></path>
-                            </svg>
-                            <h3 class="text-center text-lg font-medium lg:text-left text-white">Inteligencia Artificial</h3>
-                        </div>
-                        <p class="text-center text-sm text-purple-300 md:text-base lg:text-left">Aprende sobre los desafíos y oportunidades de la IA en la comunicación digital, con un enfoque en la ética y la responsabilidad social.</p>
-                    </div>
-                </div>
+                    <?php endwhile; ?>
+                <?php endif; ?>
             </div>
         </div>
     </section>

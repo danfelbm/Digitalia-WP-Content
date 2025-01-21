@@ -49,22 +49,30 @@ if (function_exists('get_field')) {
             }
             
             if ($should_display) {
-                get_template_part('template-parts/cta-modulos', null, array(
+                $template = !empty($cta['template']) ? $cta['template'] : 'cta-modulos';
+                $args = array(
                     'title' => $cta['title'],
                     'description' => $cta['description'],
-                    'cta_primary_text' => $cta['cta_primary_text'],
-                    'cta_primary_url' => $cta['cta_primary_url'],
-                    'cta_secondary_text' => $cta['cta_secondary_text'],
-                    'cta_secondary_url' => $cta['cta_secondary_url'],
-                    'doc_title' => $cta['doc_title'],
-                    'doc_description' => $cta['doc_description'],
-                    'doc_url' => $cta['doc_url'],
-                    'guide_title' => $cta['guide_title'],
-                    'guide_description' => $cta['guide_description'],
-                    'guide_url' => $cta['guide_url'],
                     'background_class' => $cta['background_class']
-                ));
-                break; // Show only the first matching CTA
+                );
+                
+                // Add template-specific arguments
+                if ($template === 'cta-modulos') {
+                    $args = array_merge($args, array(
+                        'cta_primary_text' => $cta['cta_primary_text'],
+                        'cta_primary_url' => $cta['cta_primary_url'],
+                        'cta_secondary_text' => $cta['cta_secondary_text'],
+                        'cta_secondary_url' => $cta['cta_secondary_url'],
+                        'doc_title' => $cta['doc_title'],
+                        'doc_description' => $cta['doc_description'],
+                        'doc_url' => $cta['doc_url'],
+                        'guide_title' => $cta['guide_title'],
+                        'guide_description' => $cta['guide_description'],
+                        'guide_url' => $cta['guide_url']
+                    ));
+                }
+                
+                get_template_part('template-parts/' . $template, null, $args);
             }
         }
     }

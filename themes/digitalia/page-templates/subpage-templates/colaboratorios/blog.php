@@ -20,15 +20,19 @@ if ($blog_query->have_posts()):
     <section id="blog" class="flex flex-col gap-16 lg:px-16 pt-16 text-teal-900 bg-teal-50">
         <div class="container mb-14 flex flex-col gap-16 lg:mb-16 lg:px-16">
             <div class="lg:max-w-lg">
-                <h2 class="mb-3 text-xl font-semibold md:mb-4 md:text-4xl lg:mb-6">Entradas del blog</h2>
-                <p class="mb-8 lg:text-lg text-teal-700">Descubre las últimas novedades y reflexiones sobre educomunicación, alfabetización mediática e inteligencia artificial en nuestro blog, con un enfoque especial en la construcción de paz.</p>
-                <a href="#" class="group flex items-center text-xs font-medium md:text-base lg:text-lg text-teal-600 hover:text-teal-800">
-                    Conoce más
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right ml-2 size-4 transition-transform group-hover:translate-x-1">
-                        <path d="M5 12h14"></path>
-                        <path d="m12 5 7 7-7 7"></path>
-                    </svg>
-                </a>
+                <?php if ($blog = get_field('blog')) : ?>
+                    <h2 class="mb-3 text-xl font-semibold md:mb-4 md:text-4xl lg:mb-6"><?php echo esc_html($blog['title']); ?></h2>
+                    <p class="mb-8 lg:text-lg text-teal-700"><?php echo esc_html($blog['description']); ?></p>
+                    <?php if ($cta = $blog['cta']) : ?>
+                        <a href="<?php echo esc_url($cta['link']); ?>" class="group flex items-center text-xs font-medium md:text-base lg:text-lg text-teal-600 hover:text-teal-800">
+                            <?php echo esc_html($cta['text']); ?>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right ml-2 size-4 transition-transform group-hover:translate-x-1">
+                                <path d="M5 12h14"></path>
+                                <path d="m12 5 7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    <?php endif; ?>
+                <?php endif; ?>
             </div>
         </div>
     </section>

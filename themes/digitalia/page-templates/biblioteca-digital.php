@@ -20,6 +20,12 @@ get_header();
                         <div class="grid lg:grid-cols-5">
                             <!-- Sidebar -->
                             <div class="pb-12 col-span-2 lg:col-span-1">
+                                <!-- Reset Filters Button -->
+                                <div class="px-3 py-2">
+                                    <button @click="resetFilters" class="w-full inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-9 px-4 py-2">
+                                        Restablecer filtros
+                                    </button>
+                                </div>
                                 <!-- Post Types -->
                                 <div class="px-3 py-2">
                                     <h2 class="mb-2 px-4 text-lg font-semibold tracking-tight">Contenidos Digitalia</h2>
@@ -67,21 +73,29 @@ get_header();
                                     </div>
 
                                     <!-- Posts Grid -->
-                                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
-                                        <div v-for="post in posts" :key="post.id" class="space-y-3">
-                                            <a :href="post.link" class="block group cursor-pointer">
-                                                <div class="overflow-hidden rounded-md">
-                                                    <img v-if="post.featured_media_url" 
-                                                         :src="post.featured_media_url" 
-                                                         :alt="post.title.rendered"
-                                                         class="h-auto w-full object-cover transition-all group-hover:scale-105 aspect-square">
+                                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+                                        <a v-for="post in posts" :key="post.id" 
+                                           :href="post.link"
+                                           class="group flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-all duration-200 hover:shadow-md hover:-translate-y-1">
+                                            <div class="aspect-w-16 aspect-h-9 relative overflow-hidden">
+                                                <img v-if="post.featured_media_url" :src="post.featured_media_url" 
+                                                     :alt="post.title.rendered"
+                                                     class="h-full w-full object-cover transition-transform duration-200 group-hover:scale-105">
+                                                <div v-else class="h-full w-full bg-gray-100 flex items-center justify-center">
+                                                    <span class="text-gray-400">No image</span>
                                                 </div>
-                                                <div class="space-y-1 text-sm">
-                                                    <h3 class="font-medium leading-none group-hover:text-primary transition-colors" v-html="post.title.rendered"></h3>
-                                                    <p class="text-xs text-muted-foreground" v-html="post.excerpt.rendered"></p>
+                                            </div>
+                                            <div class="flex flex-col flex-grow p-4">
+                                                <h3 class="text-lg font-semibold text-gray-900 mb-2 group-hover:text-primary-600" v-html="post.title.rendered"></h3>
+                                                <div class="text-sm text-gray-600 mb-4 line-clamp-2" v-html="post.excerpt.rendered"></div>
+                                                <div class="mt-auto inline-flex items-center text-sm font-medium text-primary-600 group-hover:text-primary-700">
+                                                    Leer más
+                                                    <svg class="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                                    </svg>
                                                 </div>
-                                            </a>
-                                        </div>
+                                            </div>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -107,6 +121,16 @@ get_header();
                 const selectedTaxonomy = ref(null);
                 const tagTaxonomy = ref(null);
                 const taxonomyTermsMap = ref({});
+
+                // Reset filters function
+                function resetFilters() {
+                    selectedPostType.value = null;
+                    selectedTerms.value = {};
+                    filteredTaxonomies.value = [];
+                    taxonomyTermsMap.value = {};
+                    tagTaxonomy.value = null;
+                    fetchPosts();
+                }
 
                 // Computed properties
                 const hasPostTags = computed(() => {
@@ -144,7 +168,7 @@ get_header();
                             'descarga': 'Descargas'
                         };
 
-                        postTypes.value = Object.entries(data)
+                        const filteredTypes = Object.entries(data)
                             .filter(([slug]) => slug in allowedTypes)
                             .filter(([, type]) => type.rest_base)
                             .map(([slug, type]) => ({
@@ -152,6 +176,13 @@ get_header();
                                 slug: slug,
                                 rest_base: type.rest_base
                             }));
+                            
+                        postTypes.value = filteredTypes;
+                        
+                        // Auto-select first post type
+                        if (filteredTypes.length > 0) {
+                            selectPostType(filteredTypes[0]);
+                        }
                     } catch (error) {
                         console.error('Error fetching post types:', error);
                         postTypes.value = [];
@@ -294,7 +325,8 @@ get_header();
                     otherTaxonomies,
                     tagTaxonomy,
                     selectPostType,
-                    selectTerm
+                    selectTerm,
+                    resetFilters
                 };
             }
         }).mount('#app');

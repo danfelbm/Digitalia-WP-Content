@@ -108,6 +108,22 @@ if (function_exists('acf_add_local_field_group')):
                             'display' => 'block',
                             'sub_fields' => array(
                                 array(
+                                    'key' => 'field_cta_template',
+                                    'label' => 'Template',
+                                    'name' => 'template',
+                                    'type' => 'select',
+                                    'instructions' => 'Select the CTA template to use',
+                                    'required' => 1,
+                                    'choices' => array(
+                                        'cta-modulos' => 'CTA Módulos',
+                                        'cta-formularios' => 'CTA Formularios'
+                                    ),
+                                    'default_value' => 'cta-modulos',
+                                    'return_format' => 'value',
+                                    'multiple' => 0,
+                                    'allow_null' => 0,
+                                ),
+                                array(
                                     'key' => 'field_title',
                                     'label' => 'Título',
                                     'name' => 'title',
@@ -120,35 +136,81 @@ if (function_exists('acf_add_local_field_group')):
                                     'name' => 'description',
                                     'type' => 'textarea',
                                 ),
+                                // Fields for cta-modulos template
                                 array(
                                     'key' => 'field_cta_primary_text',
                                     'label' => 'Texto CTA Primario',
                                     'name' => 'cta_primary_text',
                                     'type' => 'text',
+                                    'conditional_logic' => array(
+                                        array(
+                                            array(
+                                                'field' => 'field_cta_template',
+                                                'operator' => '==',
+                                                'value' => 'cta-modulos',
+                                            ),
+                                        ),
+                                    ),
                                 ),
                                 array(
                                     'key' => 'field_cta_primary_url',
                                     'label' => 'URL CTA Primario',
                                     'name' => 'cta_primary_url',
                                     'type' => 'url',
+                                    'conditional_logic' => array(
+                                        array(
+                                            array(
+                                                'field' => 'field_cta_template',
+                                                'operator' => '==',
+                                                'value' => 'cta-modulos',
+                                            ),
+                                        ),
+                                    ),
                                 ),
                                 array(
                                     'key' => 'field_cta_secondary_text',
                                     'label' => 'Texto CTA Secundario',
                                     'name' => 'cta_secondary_text',
                                     'type' => 'text',
+                                    'conditional_logic' => array(
+                                        array(
+                                            array(
+                                                'field' => 'field_cta_template',
+                                                'operator' => '==',
+                                                'value' => 'cta-modulos',
+                                            ),
+                                        ),
+                                    ),
                                 ),
                                 array(
                                     'key' => 'field_cta_secondary_url',
                                     'label' => 'URL CTA Secundario',
                                     'name' => 'cta_secondary_url',
                                     'type' => 'url',
+                                    'conditional_logic' => array(
+                                        array(
+                                            array(
+                                                'field' => 'field_cta_template',
+                                                'operator' => '==',
+                                                'value' => 'cta-modulos',
+                                            ),
+                                        ),
+                                    ),
                                 ),
                                 array(
                                     'key' => 'field_doc_title',
                                     'label' => 'Título Documento',
                                     'name' => 'doc_title',
                                     'type' => 'text',
+                                    'conditional_logic' => array(
+                                        array(
+                                            array(
+                                                'field' => 'field_cta_template',
+                                                'operator' => '==',
+                                                'value' => 'cta-modulos',
+                                            ),
+                                        ),
+                                    ),
                                 ),
                                 array(
                                     'key' => 'field_doc_description',

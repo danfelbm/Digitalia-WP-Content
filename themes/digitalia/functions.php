@@ -415,6 +415,34 @@ if( function_exists('acf_add_local_field_group') ):
     ));
 
 endif;
+// Register Ubicaciones Taxonomy
+function digitalia_register_ubicaciones_taxonomy() {
+    $labels = array(
+        'name'              => _x('Ubicaciones', 'taxonomy general name', 'digitalia'),
+        'singular_name'     => _x('Ubicación', 'taxonomy singular name', 'digitalia'),
+        'search_items'      => __('Buscar Ubicaciones', 'digitalia'),
+        'all_items'         => __('Todas las Ubicaciones', 'digitalia'),
+        'parent_item'       => __('Ubicación Padre', 'digitalia'),
+        'parent_item_colon' => __('Ubicación Padre:', 'digitalia'),
+        'edit_item'         => __('Editar Ubicación', 'digitalia'),
+        'update_item'       => __('Actualizar Ubicación', 'digitalia'),
+        'add_new_item'      => __('Añadir Nueva Ubicación', 'digitalia'),
+        'new_item_name'     => __('Nombre de Nueva Ubicación', 'digitalia'),
+        'menu_name'         => __('Ubicaciones', 'digitalia'),
+    );
+
+    $args = array(
+        'hierarchical'      => true,
+        'labels'           => $labels,
+        'show_ui'          => true,
+        'show_admin_column'=> true,
+        'query_var'        => true,
+        'rewrite'          => array('slug' => 'ubicacion'),
+    );
+
+    register_taxonomy('ubicaciones', array('alfabetizador'), $args);
+}
+add_action('init', 'digitalia_register_ubicaciones_taxonomy');
 
 /**
  * Register Custom Post Type Episodios and its taxonomies
@@ -757,6 +785,202 @@ function digitalia_register_descargas_post_type() {
 add_action( 'init', 'digitalia_register_descargas_post_type' );
 
 /**
+ * Register Custom Post Type Espacios and its taxonomies
+ */
+function digitalia_register_espacios_post_type() {
+    // Register Espacios Post Type
+    $labels = array(
+        'name'                  => _x('Espacios', 'Post type general name', 'digitalia'),
+        'singular_name'         => _x('Espacio', 'Post type singular name', 'digitalia'),
+        'menu_name'            => _x('Espacios', 'Admin Menu text', 'digitalia'),
+        'add_new'              => __('Añadir Nuevo', 'digitalia'),
+        'add_new_item'         => __('Añadir Nuevo Espacio', 'digitalia'),
+        'edit_item'            => __('Editar Espacio', 'digitalia'),
+        'new_item'             => __('Nuevo Espacio', 'digitalia'),
+        'view_item'            => __('Ver Espacio', 'digitalia'),
+        'view_items'           => __('Ver Espacios', 'digitalia'),
+        'search_items'         => __('Buscar Espacios', 'digitalia'),
+        'not_found'            => __('No se encontraron espacios', 'digitalia'),
+        'not_found_in_trash'   => __('No se encontraron espacios en la papelera', 'digitalia'),
+        'all_items'            => __('Todos los Espacios', 'digitalia'),
+        'archives'             => __('Archivo de Espacios', 'digitalia'),
+    );
+
+    $args = array(
+        'labels'             => $labels,
+        'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'query_var'          => true,
+        'rewrite'            => array('slug' => 'espacios'),
+        'capability_type'    => 'post',
+        'has_archive'        => true,
+        'hierarchical'       => false,
+        'menu_position'      => 5,
+        'menu_icon'          => 'dashicons-location',
+        'supports'           => array('title', 'editor', 'thumbnail', 'excerpt'),
+        'show_in_rest'       => true,
+        'taxonomies'         => array('category', 'post_tag') // Add support for both categories and tags
+    );
+
+    register_post_type('espacio', $args);
+
+    // Register Categorias de Espacios Taxonomy
+    $taxonomy_labels = array(
+        'name'              => _x('Categorías de Espacios', 'taxonomy general name', 'digitalia'),
+        'singular_name'     => _x('Categoría de Espacio', 'taxonomy singular name', 'digitalia'),
+        'search_items'      => __('Buscar Categorías', 'digitalia'),
+        'all_items'         => __('Todas las Categorías', 'digitalia'),
+        'parent_item'       => __('Categoría Padre', 'digitalia'),
+        'parent_item_colon' => __('Categoría Padre:', 'digitalia'),
+        'edit_item'         => __('Editar Categoría', 'digitalia'),
+        'update_item'       => __('Actualizar Categoría', 'digitalia'),
+        'add_new_item'      => __('Añadir Nueva Categoría', 'digitalia'),
+        'new_item_name'     => __('Nuevo Nombre de Categoría', 'digitalia'),
+        'menu_name'         => __('Categorías', 'digitalia'),
+    );
+
+    $taxonomy_args = array(
+        'hierarchical'      => true,
+        'labels'           => $taxonomy_labels,
+        'show_ui'          => true,
+        'show_admin_column' => true,
+        'query_var'        => true,
+        'rewrite'          => array('slug' => 'categoria-espacios'),
+        'show_in_rest'     => true,
+    );
+
+    register_taxonomy('categoria-espacios', array('espacio'), $taxonomy_args);
+}
+add_action('init', 'digitalia_register_espacios_post_type');
+
+/**
+ * Register Custom Post Type Alfabetizadores and its taxonomies
+ */
+function digitalia_register_alfabetizadores_post_type() {
+    // Register Custom Post Type
+    $labels = array(
+        'name'                  => _x('Alfabetizadores', 'Post Type General Name', 'digitalia'),
+        'singular_name'         => _x('Alfabetizador', 'Post Type Singular Name', 'digitalia'),
+        'menu_name'            => __('Alfabetizadores', 'digitalia'),
+        'name_admin_bar'       => __('Alfabetizador', 'digitalia'),
+        'archives'             => __('Archivo de Alfabetizadores', 'digitalia'),
+        'attributes'           => __('Atributos de Alfabetizador', 'digitalia'),
+        'parent_item_colon'    => __('Alfabetizador Superior:', 'digitalia'),
+        'all_items'            => __('Todos los Alfabetizadores', 'digitalia'),
+        'add_new_item'         => __('Añadir Nuevo Alfabetizador', 'digitalia'),
+        'add_new'              => __('Añadir Nuevo', 'digitalia'),
+        'new_item'             => __('Nuevo Alfabetizador', 'digitalia'),
+        'edit_item'            => __('Editar Alfabetizador', 'digitalia'),
+        'update_item'          => __('Actualizar Alfabetizador', 'digitalia'),
+        'view_item'            => __('Ver Alfabetizador', 'digitalia'),
+        'view_items'           => __('Ver Alfabetizadores', 'digitalia'),
+        'search_items'         => __('Buscar Alfabetizador', 'digitalia'),
+    );
+    
+    $args = array(
+        'label'               => __('Alfabetizador', 'digitalia'),
+        'labels'              => $labels,
+        'supports'            => array('title', 'editor', 'thumbnail', 'excerpt'),
+        'taxonomies'          => array('alfabetizador_category', 'alfabetizador_tag', 'ubicaciones', 'alfabetizadores-tags'),
+        'hierarchical'        => false,
+        'public'              => true,
+        'show_ui'             => true,
+        'show_in_menu'        => true,
+        'menu_position'       => 5,
+        'menu_icon'           => 'dashicons-groups',
+        'show_in_admin_bar'   => true,
+        'show_in_nav_menus'   => true,
+        'can_export'          => true,
+        'has_archive'         => true,
+        'exclude_from_search' => false,
+        'publicly_queryable'  => true,
+        'capability_type'     => 'post',
+        'show_in_rest'        => true,
+        'rest_base'           => 'alfabetizadores',
+    );
+    
+    register_post_type('alfabetizador', $args);
+
+    // Register Category Taxonomy
+    $cat_labels = array(
+        'name'              => _x('Categorías', 'taxonomy general name', 'digitalia'),
+        'singular_name'     => _x('Categoría', 'taxonomy singular name', 'digitalia'),
+        'search_items'      => __('Buscar Categorías', 'digitalia'),
+        'all_items'         => __('Todas las Categorías', 'digitalia'),
+        'parent_item'       => __('Categoría Superior', 'digitalia'),
+        'parent_item_colon' => __('Categoría Superior:', 'digitalia'),
+        'edit_item'         => __('Editar Categoría', 'digitalia'),
+        'update_item'       => __('Actualizar Categoría', 'digitalia'),
+        'add_new_item'      => __('Añadir Nueva Categoría', 'digitalia'),
+        'new_item_name'     => __('Nuevo Nombre de Categoría', 'digitalia'),
+        'menu_name'         => __('Categorías', 'digitalia'),
+    );
+
+    register_taxonomy('alfabetizador_category', array('alfabetizador'), array(
+        'hierarchical'      => true,
+        'labels'           => $cat_labels,
+        'show_ui'          => true,
+        'show_admin_column' => true,
+        'query_var'        => true,
+        'rewrite'          => array('slug' => 'categoria-alfabetizador'),
+        'show_in_rest'     => true,
+    ));
+
+    // Register Tag Taxonomy
+    $tag_labels = array(
+        'name'              => _x('Etiquetas', 'taxonomy general name', 'digitalia'),
+        'singular_name'     => _x('Etiqueta', 'taxonomy singular name', 'digitalia'),
+        'search_items'      => __('Buscar Etiquetas', 'digitalia'),
+        'all_items'         => __('Todas las Etiquetas', 'digitalia'),
+        'edit_item'         => __('Editar Etiqueta', 'digitalia'),
+        'update_item'       => __('Actualizar Etiqueta', 'digitalia'),
+        'add_new_item'      => __('Añadir Nueva Etiqueta', 'digitalia'),
+        'new_item_name'     => __('Nuevo Nombre de Etiqueta', 'digitalia'),
+        'menu_name'         => __('Etiquetas', 'digitalia'),
+    );
+
+    register_taxonomy('alfabetizador_tag', array('alfabetizador'), array(
+        'hierarchical'      => false,
+        'labels'           => $tag_labels,
+        'show_ui'          => true,
+        'show_admin_column' => true,
+        'query_var'        => true,
+        'rewrite'          => array('slug' => 'etiqueta-alfabetizador'),
+        'show_in_rest'     => true,
+    ));
+
+    // Register Alfabetizadores Tags Taxonomy
+    $alfabetizadores_tags_labels = array(
+        'name'              => _x('Alfabetizadores Tags', 'taxonomy general name', 'digitalia'),
+        'singular_name'     => _x('Alfabetizador Tag', 'taxonomy singular name', 'digitalia'),
+        'search_items'      => __('Search Alfabetizador Tags', 'digitalia'),
+        'all_items'         => __('All Alfabetizador Tags', 'digitalia'),
+        'edit_item'         => __('Edit Alfabetizador Tag', 'digitalia'),
+        'update_item'       => __('Update Alfabetizador Tag', 'digitalia'),
+        'add_new_item'      => __('Add New Alfabetizador Tag', 'digitalia'),
+        'new_item_name'     => __('New Alfabetizador Tag Name', 'digitalia'),
+        'menu_name'         => __('Alfabetizador Tags', 'digitalia'),
+    );
+
+    $alfabetizadores_tags_args = array(
+        'labels'            => $alfabetizadores_tags_labels,
+        'hierarchical'      => false,
+        'public'           => true,
+        'show_ui'          => true,
+        'show_admin_column' => true,
+        'show_in_nav_menus' => true,
+        'show_tagcloud'     => true,
+        'has_archive'       => true,
+        'rewrite'           => array('slug' => 'alfabetizadores-tags'),
+    );
+
+    register_taxonomy('alfabetizadores-tags', array('alfabetizador'), $alfabetizadores_tags_args);
+}
+add_action('init', 'digitalia_register_alfabetizadores_post_type');
+
+/**
  * Register Hero Block
  */
 function digitalia_register_hero_block() {
@@ -890,3 +1114,46 @@ add_action('rest_api_init', function () {
         )
     );
 });
+
+// Method 2: Setting.
+function my_acf_init() {
+    acf_update_setting('google_api_key', 'AIzaSyC9abTOQFBcTuPsjc2mQJwBIkZkwp_Cp8A');
+}
+add_action('acf/init', 'my_acf_init');
+
+// Enqueue Google Maps scripts and styles
+function digitalia_enqueue_acf_map_scripts() {
+    wp_enqueue_script('google-maps', 'https://maps.googleapis.com/maps/api/js?key=' . acf_get_setting('google_api_key') . '&libraries=marker&callback=Function.prototype', array(), null, true);
+    wp_enqueue_script('acf-maps', get_template_directory_uri() . '/assets/js/acf-maps.js', array('jquery', 'google-maps'), '1.0', true);
+    
+    // Add inline styles for the map
+    $map_styles = "
+        .map-container {
+            position: relative;
+        }
+        .acf-map {
+            width: 100%;
+            height: 400px;
+            margin: 0;
+            display: block;
+            position: relative !important;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .acf-map > div {
+            height: 100%;
+        }
+        .acf-map img {
+            max-width: inherit !important;
+        }
+        .fallback-image {
+            display: none !important;
+        }
+        /* Only show fallback when map is not properly loaded */
+        .map-container .acf-map:empty ~ .fallback-image {
+            display: block;
+        }
+    ";
+    wp_add_inline_style('digitalia-tailwind', $map_styles);
+}
+add_action('wp_enqueue_scripts', 'digitalia_enqueue_acf_map_scripts', 20);

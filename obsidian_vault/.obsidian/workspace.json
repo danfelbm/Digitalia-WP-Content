@@ -11,17 +11,14 @@
             "id": "2b0bf8f86716cb08",
             "type": "leaf",
             "state": {
-              "type": "canvas",
+              "type": "markdown",
               "state": {
-                "file": "Untitled.canvas",
-                "viewState": {
-                  "x": 286.6086817691249,
-                  "y": 247.0525188430388,
-                  "zoom": -0.7304936936000983
-                }
+                "file": "create a link.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-layout-dashboard",
-              "title": "Untitled"
+              "icon": "lucide-file",
+              "title": "create a link"
             }
           }
         ]
@@ -163,8 +160,8 @@
   },
   "active": "2b0bf8f86716cb08",
   "lastOpenFiles": [
-    "Untitled copy.canvas",
     "Welcome.md",
+    "Untitled copy.canvas",
     "Untitled.canvas",
     "2024-12-12.md",
     "create a link.md"
