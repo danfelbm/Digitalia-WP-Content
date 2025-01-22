@@ -32,14 +32,6 @@ get_header();
     <!-- Biblioteca Digital Section -->
     <section class="py-24 sm:py-32 bg-slate-50">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
-            <div class="mx-auto max-w-2xl text-center">
-                <h2 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-                    <?php echo get_field('biblioteca_section')['title'] ?: 'Biblioteca Digital'; ?>
-                </h2>
-                <p class="mt-2 text-lg leading-8 text-slate-600">
-                    <?php echo get_field('biblioteca_section')['description']; ?>
-                </p>
-            </div>
             <div class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-12 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
                 <?php
                 // Get the "academia" category
@@ -95,102 +87,40 @@ get_header();
     <section class="bg-slate-200 py-24 sm:py-32">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
             <div class="mx-auto max-w-4xl divide-y divide-gray-900/10">
-                <h2 class="text-2xl font-bold leading-10 tracking-tight text-gray-900">Centro de Apoyo</h2>
-                <dl class="mt-10 space-y-6 divide-y divide-gray-900/10">
-                    <!-- FAQ Item 1 -->
-                    <div class="pt-6">
-                        <dt>
-                            <button type="button" class="flex w-full items-start justify-between text-left text-gray-900">
-                                <span class="text-base font-semibold leading-7">¿Cómo accedo a los materiales del curso?</span>
-                                <span class="ml-6 flex h-7 items-center">
-                                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
-                                    </svg>
-                                </span>
-                            </button>
-                        </dt>
-                        <dd class="mt-2 pr-12">
-                            <p class="text-base leading-7 text-gray-600">Los materiales están disponibles en la plataforma una vez que inicies sesión. Navega a la sección "Mis Cursos" y selecciona el curso deseado.</p>
-                        </dd>
-                    </div>
-
-                    <!-- FAQ Item 2 -->
-                    <div class="pt-6">
-                        <dt>
-                            <button type="button" class="flex w-full items-start justify-between text-left text-gray-900">
-                                <span class="text-base font-semibold leading-7">¿Cómo puedo obtener soporte técnico?</span>
-                                <span class="ml-6 flex h-7 items-center">
-                                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
-                                    </svg>
-                                </span>
-                            </button>
-                        </dt>
-                        <dd class="mt-2 pr-12">
-                            <p class="text-base leading-7 text-gray-600">Nuestro equipo de soporte está disponible 24/7. Puedes contactarnos a través del chat en vivo o enviando un correo a soporte@digitalia.edu</p>
-                        </dd>
-                    </div>
-                </dl>
+                <?php 
+                $centro_apoyo = get_field('centro_apoyo_section');
+                if ($centro_apoyo) : ?>
+                    <h2 class="text-2xl font-bold leading-10 tracking-tight text-gray-900"><?php echo esc_html($centro_apoyo['title']); ?></h2>
+                    <?php if (have_rows('centro_apoyo_section')): ?>
+                        <?php while (have_rows('centro_apoyo_section')): the_row(); ?>
+                            <?php if (have_rows('faqs')): ?>
+                                <dl class="mt-10 space-y-6 divide-y divide-gray-900/10">
+                                    <?php while (have_rows('faqs')): the_row(); ?>
+                                        <div class="pt-6">
+                                            <dt>
+                                                <button type="button" class="flex w-full items-start justify-between text-left text-gray-900">
+                                                    <span class="text-base font-semibold leading-7"><?php echo esc_html(get_sub_field('question')); ?></span>
+                                                    <span class="ml-6 flex h-7 items-center">
+                                                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+                                                        </svg>
+                                                    </span>
+                                                </button>
+                                            </dt>
+                                            <dd class="mt-2 pr-12">
+                                                <p class="text-base leading-7 text-gray-600"><?php echo wp_kses_post(get_sub_field('answer')); ?></p>
+                                            </dd>
+                                        </div>
+                                    <?php endwhile; ?>
+                                </dl>
+                            <?php endif; ?>
+                        <?php endwhile; ?>
+                    <?php endif; ?>
+                <?php endif; ?>
             </div>
         </div>
     </section>
 
-    <!-- Herramientas Interactivas Section -->
-    <section class="py-24 sm:py-32">
-        <div class="relative overflow-hidden">
-            <div class="mx-auto max-w-7xl px-6 lg:px-8">
-                <div class="mx-auto max-w-2xl lg:mx-0">
-                    <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Herramientas Interactivas</h2>
-                    <p class="mt-6 text-lg leading-8 text-gray-600">
-                        Explora nuestras herramientas diseñadas para facilitar tu aprendizaje y evaluar tu progreso.
-                    </p>
-                </div>
-                <div class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:mt-10 lg:max-w-none lg:grid-cols-12">
-                    <div class="relative lg:order-last lg:col-span-5">
-                        <figure class="border-l border-blue-600 pl-8">
-                            <blockquote class="text-xl font-semibold leading-8 tracking-tight text-gray-900">
-                                <p>"Las herramientas interactivas han transformado mi forma de aprender. Los simuladores y ejercicios prácticos me ayudaron a comprender mejor los conceptos."</p>
-                            </blockquote>
-                            <figcaption class="mt-8 flex gap-x-4">
-                                <img src="https://placehold.co/96x96" alt="" class="mt-1 h-10 w-10 flex-none rounded-full bg-gray-50">
-                                <div class="text-sm leading-6">
-                                    <div class="font-semibold text-gray-900">María González</div>
-                                    <div class="text-gray-600">Estudiante de Desarrollo Web</div>
-                                </div>
-                            </figcaption>
-                        </figure>
-                    </div>
-                    <div class="max-w-xl text-base leading-7 text-gray-700 lg:col-span-7">
-                        <ul role="list" class="mt-8 max-w-xl space-y-8 text-gray-600">
-                            <li class="flex gap-x-3">
-                                <svg class="mt-1 h-5 w-5 flex-none text-blue-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
-                                </svg>
-                                <span><strong class="font-semibold text-gray-900">Simuladores.</strong> Practica en entornos virtuales seguros que replican situaciones del mundo real.</span>
-                            </li>
-                            <li class="flex gap-x-3">
-                                <svg class="mt-1 h-5 w-5 flex-none text-blue-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
-                                </svg>
-                                <span><strong class="font-semibold text-gray-900">Ejercicios prácticos.</strong> Refuerza tu aprendizaje con ejercicios interactivos y casos de estudio.</span>
-                            </li>
-                            <li class="flex gap-x-3">
-                                <svg class="mt-1 h-5 w-5 flex-none text-blue-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
-                                </svg>
-                                <span><strong class="font-semibold text-gray-900">Evaluaciones diagnósticas.</strong> Identifica tus áreas de mejora con evaluaciones personalizadas.</span>
-                            </li>
-                        </ul>
-                        <div class="mt-8">
-                            <a href="#" class="text-sm font-semibold leading-6 text-blue-600">
-                                Explorar todas las herramientas <span aria-hidden="true">→</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 </main>
 
 <?php get_footer(); ?>

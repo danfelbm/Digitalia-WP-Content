@@ -16,7 +16,7 @@ if (!function_exists('digitalia_register_recursos_acf_fields')) {
                 'key' => 'group_recursos_page',
                 'title' => 'Contenido de Recursos',
                 'fields' => array(
-                    // Hero Section Fields
+                    // Hero Section Fields 
                     array(
                         'key' => 'field_hero_title',
                         'label' => 'Título del Hero',
@@ -50,27 +50,45 @@ if (!function_exists('digitalia_register_recursos_acf_fields')) {
                         'default_value' => '#recursos',
                         'required' => 1,
                     ),
-                    // Biblioteca Digital Section
+                    // Centro de Apoyo Section
                     array(
-                        'key' => 'field_biblioteca_section',
-                        'label' => 'Sección Biblioteca Digital',
-                        'name' => 'biblioteca_section',
+                        'key' => 'field_centro_apoyo_section',
+                        'label' => 'Centro de Apoyo',
+                        'name' => 'centro_apoyo_section',
                         'type' => 'group',
                         'layout' => 'block',
                         'sub_fields' => array(
                             array(
-                                'key' => 'field_biblioteca_title',
+                                'key' => 'field_centro_apoyo_title',
                                 'label' => 'Título de la Sección',
                                 'name' => 'title',
                                 'type' => 'text',
-                                'default_value' => 'Biblioteca Digital',
+                                'default_value' => 'Centro de Apoyo',
                             ),
                             array(
-                                'key' => 'field_biblioteca_description',
-                                'label' => 'Descripción de la Sección',
-                                'name' => 'description',
-                                'type' => 'text',
-                                'default_value' => 'Accede a nuestra colección de recursos educativos diseñados para enriquecer tu aprendizaje.',
+                                'key' => 'field_centro_apoyo_faqs',
+                                'label' => 'Preguntas Frecuentes',
+                                'name' => 'faqs',
+                                'type' => 'repeater',
+                                'layout' => 'block',
+                                'button_label' => 'Agregar Pregunta',
+                                'sub_fields' => array(
+                                    array(
+                                        'key' => 'field_faq_question',
+                                        'label' => 'Pregunta',
+                                        'name' => 'question',
+                                        'type' => 'text',
+                                        'required' => 1,
+                                    ),
+                                    array(
+                                        'key' => 'field_faq_answer',
+                                        'label' => 'Respuesta',
+                                        'name' => 'answer',
+                                        'type' => 'textarea',
+                                        'rows' => 3,
+                                        'required' => 1,
+                                    ),
+                                ),
                             ),
                         ),
                     ),

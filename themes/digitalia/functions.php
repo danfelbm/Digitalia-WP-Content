@@ -1022,6 +1022,52 @@ function digitalia_register_alfabetizadores_post_type() {
 add_action('init', 'digitalia_register_alfabetizadores_post_type');
 
 /**
+ * Register Custom Post Type Productos
+ */
+function digitalia_register_productos_post_type() {
+    $labels = array(
+        'name'                  => _x('Productos', 'Post type general name', 'digitalia'),
+        'singular_name'         => _x('Producto', 'Post type singular name', 'digitalia'),
+        'menu_name'            => _x('Productos', 'Admin Menu text', 'digitalia'),
+        'name_admin_bar'       => _x('Producto', 'Add New on Toolbar', 'digitalia'),
+        'add_new'              => __('Añadir Nuevo', 'digitalia'),
+        'add_new_item'         => __('Añadir Nuevo Producto', 'digitalia'),
+        'new_item'             => __('Nuevo Producto', 'digitalia'),
+        'edit_item'            => __('Editar Producto', 'digitalia'),
+        'view_item'            => __('Ver Producto', 'digitalia'),
+        'all_items'            => __('Todos los Productos', 'digitalia'),
+        'search_items'         => __('Buscar Productos', 'digitalia'),
+        'not_found'            => __('No se encontraron productos.', 'digitalia'),
+        'not_found_in_trash'   => __('No hay productos en la papelera.', 'digitalia'),
+        'featured_image'       => __('Imagen del Producto', 'digitalia'),
+        'set_featured_image'   => __('Establecer imagen del producto', 'digitalia'),
+        'remove_featured_image'=> __('Eliminar imagen del producto', 'digitalia'),
+        'use_featured_image'   => __('Usar como imagen del producto', 'digitalia'),
+    );
+
+    $args = array(
+        'labels'             => $labels,
+        'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'query_var'          => true,
+        'rewrite'            => array('slug' => 'productos'),
+        'capability_type'    => 'post',
+        'has_archive'        => true,
+        'hierarchical'       => false,
+        'menu_position'      => 5,
+        'menu_icon'          => 'dashicons-cart',
+        'supports'           => array('title', 'editor', 'thumbnail', 'excerpt', 'custom-fields'),
+        'show_in_rest'       => true,
+        'taxonomies'         => array('category', 'post_tag'), // Add support for regular WP taxonomies
+    );
+
+    register_post_type('producto', $args);
+}
+add_action('init', 'digitalia_register_productos_post_type');
+
+/**
  * Register Hero Block
  */
 function digitalia_register_hero_block() {
