@@ -40,22 +40,25 @@ get_header();
                     <!-- Video Container -->
                     <div class="w-full max-w-3xl mx-auto mb-8">
                         <div class="relative w-full pt-[56.25%] bg-black rounded-xl overflow-hidden shadow-2xl">
-                            <?php if ($transmision_video) : ?>
+                            <?php if ($transmision_video) : 
+                                // Convert YouTube watch URL to embed URL
+                                $video_id = '';
+                                if (preg_match('/[?&]v=([^&#]+)/', $transmision_video, $match)) {
+                                    $video_id = $match[1];
+                                }
+                                $embed_url = 'https://www.youtube.com/embed/' . $video_id;
+                            ?>
                                 <iframe 
-                                    src="<?php echo esc_url($transmision_video); ?>" 
+                                    src="<?php echo esc_url($embed_url); ?>" 
                                     frameborder="0" 
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                                     allowfullscreen
                                     class="absolute top-0 left-0 w-full h-full">
                                 </iframe>
                             <?php else : ?>
-                                <iframe 
-                                    src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                                    frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen
-                                    class="absolute top-0 left-0 w-full h-full">
-                                </iframe>
+                                <div class="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-gray-100">
+                                    <p class="text-gray-500">Video no disponible</p>
+                                </div>
                             <?php endif; ?>
                         </div>
                     </div>
@@ -98,22 +101,31 @@ get_header();
                 <?php if ($transmision_participantes) : ?>
                 <div class="mb-16">
                     <h2 class="text-2xl font-bold mb-8 text-gray-900">Participantes</h2>
-                    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         <?php foreach ($transmision_participantes as $participante) : ?>
                             <div class="bg-white rounded-xl p-6 shadow-sm">
-                                <?php if (!empty($participante['foto'])) : ?>
-                                    <img src="<?php echo esc_url($participante['foto']); ?>" 
-                                         alt="<?php echo esc_attr($participante['nombre']); ?>"
-                                         class="w-24 h-24 rounded-full mx-auto mb-4 object-cover">
-                                <?php endif; ?>
-                                <h3 class="text-lg font-semibold text-center text-gray-900 mb-2">
-                                    <?php echo esc_html($participante['nombre']); ?>
-                                </h3>
-                                <?php if (!empty($participante['rol'])) : ?>
-                                    <p class="text-sm text-center text-gray-600">
-                                        <?php echo esc_html($participante['rol']); ?>
-                                    </p>
-                                <?php endif; ?>
+                                <div class="flex items-start gap-4">
+                                    <?php if (!empty($participante['foto'])) : ?>
+                                        <img src="<?php echo esc_url($participante['foto']); ?>" 
+                                             alt="<?php echo esc_attr($participante['nombre']); ?>"
+                                             class="w-20 h-20 rounded-full object-cover flex-shrink-0">
+                                    <?php endif; ?>
+                                    <div>
+                                        <h3 class="text-lg font-semibold text-gray-900 mb-1">
+                                            <?php echo esc_html($participante['nombre']); ?>
+                                        </h3>
+                                        <?php if (!empty($participante['rol'])) : ?>
+                                            <p class="text-sm text-gray-600 mb-3">
+                                                <?php echo esc_html($participante['rol']); ?>
+                                            </p>
+                                        <?php endif; ?>
+                                        <?php if (!empty($participante['bio'])) : ?>
+                                            <p class="text-sm text-gray-700 leading-relaxed">
+                                                <?php echo nl2br(esc_html($participante['bio'])); ?>
+                                            </p>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
                             </div>
                         <?php endforeach; ?>
                     </div>
