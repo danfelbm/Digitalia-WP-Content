@@ -24,105 +24,129 @@ function digitalia_admin_styles() {
     }
     ?>
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
     
     <style>
         .welcome-panel {
-            padding: 2rem;
-            margin: 1rem 0;
+            padding: 2.5rem;
+            margin: 1.5rem 0;
             background: #fff;
-            border: 1px solid #e5e5e5;
-            box-shadow: 0 1px 1px rgba(0,0,0,.04);
-            border-radius: 4px;
+            border: none;
+            box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,.075);
+            border-radius: 0.5rem;
         }
         
         .welcome-panel h2 {
-            margin: 0 0 1rem;
-            font-size: 1.8rem;
-            font-weight: 600;
+            margin: 0 0 1.5rem;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2c3e50;
         }
         
         .welcome-panel h3 {
-            margin: 1.33em 0 1rem;
-            font-size: 1.3rem;
+            margin: 1rem 0;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #34495e;
         }
         
         .welcome-panel-content {
-            min-height: 0;
-        }
-        
-        .welcome-panel-column-container {
             display: flex;
-            flex-wrap: wrap;
-            margin: 0 -15px;
+            flex-direction: column;
+            gap: 1.5rem;
         }
         
         .welcome-panel-column {
-            flex: 1;
-            min-width: 200px;
-            padding: 0 15px;
-        }
-        
-        .welcome-panel-column.welcome-panel-last {
-            flex: 2;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 0.5rem;
+            width: 100%;
         }
         
         .welcome-panel-column h3 {
             margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
         
         .welcome-panel-column ul {
-            margin: 0;
+            margin: 1rem 0 0;
             padding: 0;
+            list-style: none;
         }
         
         .welcome-panel-column li {
-            list-style: none;
-            margin-bottom: 10px;
+            margin-bottom: 1rem;
+            transition: transform 0.2s ease;
+        }
+        
+        .welcome-panel-column li:hover {
+            transform: translateX(5px);
         }
         
         .welcome-panel-column a {
             text-decoration: none;
-            color: #2271b1;
+            color: #3498db;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
         }
         
         .welcome-panel-column a:hover {
-            color: #135e96;
+            color: #2980b9;
         }
         
-        .welcome-panel-column .welcome-icon {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            margin-right: 6px;
-            vertical-align: middle;
+        .about-description {
+            font-size: 1.1rem;
+            color: #7f8c8d;
+            margin-bottom: 2rem;
         }
         
-        .mt-4 {
-            margin-top: 2rem !important;
-        }
-        
-        /* Recent activity styles */
+        /* Activity section styles */
         .activity-list {
-            margin: 0;
-            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
         }
         
-        .activity-list li {
-            margin-bottom: 8px;
-            padding-bottom: 8px;
-            border-bottom: 1px solid #f0f0f1;
+        .activity-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
         }
         
-        .activity-list li:last-child {
+        .activity-item:last-child {
             border-bottom: none;
         }
         
-        .activity-list .bi {
-            margin-right: 5px;
-            color: #2271b1;
+        .activity-item i {
+            color: #95a5a6;
+        }
+        
+        /* Custom status badges */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.75rem;
+            border-radius: 2rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        
+        .status-badge.draft {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .status-badge.published {
+            background: #d4edda;
+            color: #155724;
         }
     </style>
     <?php
