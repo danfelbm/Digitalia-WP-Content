@@ -32,8 +32,33 @@ get_header();
                 </a>
 
                 <?php 
+                // Debug: Check if ACF is active
+                if (!function_exists('get_field')) {
+                    echo '<!-- ACF plugin is not active -->';
+                }
+
+                // Debug: Get all fields for this page
+                echo '<!-- All ACF fields for this page: ';
+                var_dump(get_fields());
+                echo ' -->';
+
+                // Debug: Get specific hero field
+                echo '<!-- Hero field structure: ';
+                var_dump(get_field('hero'));
+                echo ' -->';
+
                 $hero_fields = get_field('hero');
-                if ($hero_fields && is_array($hero_fields)) : ?>
+                
+                // Debug: Check hero fields
+                echo '<!-- $hero_fields contents: ';
+                var_dump($hero_fields);
+                echo ' -->';
+                
+                if ($hero_fields && is_array($hero_fields)) : 
+                    // Debug: Check specific fields
+                    echo '<!-- title value: ' . esc_html($hero_fields['title']) . ' -->';
+                    echo '<!-- description value: ' . esc_html($hero_fields['description']) . ' -->';
+                ?>
                 <h1 class="mx-auto my-5 max-w-screen-lg text-balance text-center text-3xl md:text-5xl text-teal-900">
                     <?php echo esc_html($hero_fields['title']); ?>
                 </h1>
@@ -60,8 +85,10 @@ get_header();
                     </a>
                     <?php endif; ?>
                 </div>
-                <?php endif; ?>
-
+                <?php else: 
+                    // Debug: If hero fields not found
+                    echo '<!-- Hero fields not found or not an array. Post ID: ' . get_the_ID() . ' -->';
+                endif; ?>
                 <div class="mt-5 flex justify-center">
                     <a href="<?php echo esc_url(get_field('hero')['additional_link']['url']); ?>" class="flex items-center gap-1 border-b border-dashed text-sm hover:border-solid hover:border-teal-600 text-teal-700">
                         <?php echo esc_html(get_field('hero')['additional_link']['text']); ?>
