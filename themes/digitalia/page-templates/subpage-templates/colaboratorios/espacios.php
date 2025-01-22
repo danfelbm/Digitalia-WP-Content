@@ -18,10 +18,33 @@ get_header();
         <div>
             <?php if ($header = get_field('header')) : ?>
                 <div>
-                    <div class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 text-foreground" style="background-color: <?php echo esc_attr($header['badge_color']); ?>">
-                        <?php echo esc_html($header['badge']); ?>
+                    <div class="flex justify-center">
+                        <div class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 text-foreground" style="background-color: <?php echo esc_attr($header['badge_color']); ?>">
+                            <?php echo esc_html($header['badge']); ?>
+                        </div>
                     </div>
-                    <h1 class="mt-3 text-3xl font-extrabold"><?php echo esc_html($header['title']); ?></h1>
+                    <style>
+                        @keyframes shadowPulse {
+                            0% {
+                                box-shadow: 0 10px 15px -3px rgba(13, 148, 136, 0.3), 0 4px 6px -4px rgba(13, 148, 136, 0.3);
+                            }
+                            50% {
+                                box-shadow: 0 15px 25px -5px rgba(13, 148, 136, 0.5), 0 8px 10px -6px rgba(13, 148, 136, 0.5);
+                            }
+                            100% {
+                                box-shadow: 0 10px 15px -3px rgba(13, 148, 136, 0.3), 0 4px 6px -4px rgba(13, 148, 136, 0.3);
+                            }
+                        }
+                        .shadow-pulse {
+                            animation: shadowPulse 2s infinite;
+                        }
+                    </style>
+                    <div class="text-center">
+                        <h1 class="mt-3 text-3xl font-extrabold"><?php echo esc_html($header['title']); ?></h1>
+                        <div class="my-12">
+                            <a href="<?php echo esc_url(get_post_type_archive_link('espacio')); ?>" class="inline-block px-10 py-5 text-lg font-semibold text-white bg-teal-600 hover:bg-teal-700 rounded-lg transition-all duration-200 transform hover:-translate-y-0.5 shadow-pulse">Ver mapa de Colaboratorios</a>
+                        </div>
+                    </div>
                     <div class="mt-2 text-lg text-muted-foreground space-y-4">
                         <?php if (have_rows('header_description')) : ?>
                             <?php while (have_rows('header_description')) : the_row(); ?>

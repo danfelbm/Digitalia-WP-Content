@@ -14,104 +14,111 @@ get_header();
 
     <div id="app" class="container">
         <section class="overflow-hidden rounded-[0.5rem] border bg-background shadow">
-            <div class="hidden md:block">
-                <div class="border-t">
-                    <div class="bg-background">
-                        <div class="grid lg:grid-cols-5">
-                            <!-- Sidebar -->
-                            <div class="pb-12 col-span-2 lg:col-span-1">
-                                <!-- Reset Filters Button -->
-                                <div class="px-3 py-2">
-                                    <button @click="resetFilters" class="w-full inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-9 px-4 py-2">
-                                        Restablecer filtros
-                                    </button>
-                                </div>
-                                <!-- Post Types -->
-                                <div class="px-3 py-2">
-                                    <h2 class="mb-2 px-4 text-lg font-semibold tracking-tight">Contenidos Digitalia</h2>
-                                    <div class="space-y-1">
-                                        <button v-for="type in postTypes" 
-                                                :key="type.slug"
-                                                @click="selectPostType(type)"
-                                                :class="[
-                                                    'inline-flex items-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 h-9 px-4 py-2 w-full justify-start',
-                                                    (selectedPostType && selectedPostType.slug === type.slug) ? 'bg-secondary text-secondary-foreground shadow-sm' : 'hover:bg-accent hover:text-accent-foreground'
-                                                ]">
-                                            {{ type.name }}
-                                        </button>
-                                    </div>
-                                </div>
-                                <!-- Other Taxonomies -->
-                                <div v-if="selectedPostType && otherTaxonomies.length > 0" class="space-y-4">
-                                    <div v-for="tax in otherTaxonomies" :key="tax.slug" class="rounded-lg border p-4 mx-4">
-                                        <h3 class="text-lg font-semibold mb-2">{{ tax.name }}</h3>
-                                        <div class="space-y-1">
-                                            <button v-for="term in tax.terms"
-                                                    :key="term.id"
-                                                    @click="selectTerm({term: term, taxonomy: tax})"
-                                                    :class="[
-                                                        'inline-flex items-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 h-9 px-4 py-2 w-full justify-start',
-                                                        (selectedTerms[tax.slug]?.some(t => t.id === term.id)) ? 'bg-secondary text-secondary-foreground shadow-sm' : 'hover:bg-accent hover:text-accent-foreground'
-                                                    ]">
-                                                {{ term.name }}
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+            <!-- Mobile Toggle Button -->
+            <button @click="toggleSidebar" class="md:hidden fixed right-4 top-1/2 -translate-y-1/2 z-50 bg-primary text-white rounded-full p-3 shadow-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
 
-                            <!-- Main Content -->
-                            <div class="col-span-3 lg:col-span-4 lg:border-l">
-                                <div class="h-full px-4 py-6 lg:px-8">
-                                    <div v-if="!selectedPostType" class="text-center py-12">
-                                        <p class="text-lg text-gray-600">Selecciona de los filtros los contenidos para empezar a explorar la biblioteca</p>
-                                    </div>
-
-                                    <template v-else>
-                                        <!-- Tags (if available) -->
-                                        <div v-if="hasPostTags" class="mb-6">
-                                            <div class="inline-flex h-9 items-center justify-center rounded-lg bg-muted p-1 text-muted-foreground">
-                                                <button v-for="term in postTags"
-                                                        :key="term.id"
-                                                        @click="selectTerm({term: term, taxonomy: tagTaxonomy})"
-                                                        :class="[
-                                                            'inline-flex items-center justify-center whitespace-nowrap rounded-md px-3 py-1 text-sm font-medium transition-all',
-                                                            (selectedTerms[tagTaxonomy.slug]?.some(t => t.id === term.id)) ? 'bg-background text-foreground shadow' : ''
-                                                        ]">
-                                                    {{ term.name }}
-                                                </button>
-                                            </div>
-                                        </div>
-
-                                        <!-- Posts Grid -->
-                                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
-                                            <a v-for="post in posts" :key="post.id" 
-                                               :href="post.link"
-                                               class="group flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-all duration-200 hover:shadow-md hover:-translate-y-1">
-                                                <div class="aspect-w-16 aspect-h-9 relative overflow-hidden">
-                                                    <img v-if="post.featured_media_url" :src="post.featured_media_url" 
-                                                         :alt="post.title.rendered"
-                                                         class="h-full w-full object-cover transition-transform duration-200 group-hover:scale-105">
-                                                    <div v-else class="h-full w-full bg-gray-100 flex items-center justify-center">
-                                                        <span class="text-gray-400">No image</span>
-                                                    </div>
-                                                </div>
-                                                <div class="flex flex-col flex-grow p-4">
-                                                    <h3 class="text-lg font-semibold text-gray-900 mb-2 group-hover:text-primary-600" v-html="post.title.rendered"></h3>
-                                                    <div class="text-sm text-gray-600 mb-4 line-clamp-2" v-html="post.excerpt.rendered"></div>
-                                                    <div class="mt-auto inline-flex items-center text-sm font-medium text-primary-600 group-hover:text-primary-700">
-                                                        Leer más
-                                                        <svg class="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </template>
-                                </div>
+            <div :class="['bg-background', {'grid lg:grid-cols-5': !isSidebarOpen}]">
+                <!-- Sidebar -->
+                <div :class="['pb-12 col-span-2 lg:col-span-1 transform transition-transform duration-300 ease-in-out md:transform-none', isSidebarOpen ? 'fixed inset-y-0 right-0 z-40 w-80 bg-background shadow-lg mt-[40px] md:mt-0' : 'hidden md:block']">
+                    <!-- Close button for mobile -->
+                    <button v-if="isSidebarOpen" @click="toggleSidebar" class="md:hidden absolute top-4 right-4 p-2 text-gray-500 hover:text-gray-700">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                    <!-- Reset Filters Button -->
+                    <div class="px-3 py-2">
+                        <button @click="resetFilters" class="w-full inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-9 px-4 py-2">
+                            Restablecer filtros
+                        </button>
+                    </div>
+                    <!-- Post Types -->
+                    <div class="px-3 py-2">
+                        <h2 class="mb-2 px-4 text-lg font-semibold tracking-tight">Contenidos Digitalia</h2>
+                        <div class="space-y-1">
+                            <button v-for="type in postTypes" 
+                                    :key="type.slug"
+                                    @click="selectPostType(type)"
+                                    :class="[
+                                        'inline-flex items-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 h-9 px-4 py-2 w-full justify-start',
+                                        (selectedPostType && selectedPostType.slug === type.slug) ? 'bg-secondary text-secondary-foreground shadow-sm' : 'hover:bg-accent hover:text-accent-foreground'
+                                    ]">
+                                {{ type.name }}
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Other Taxonomies -->
+                    <div v-if="selectedPostType && otherTaxonomies.length > 0" class="space-y-4">
+                        <div v-for="tax in otherTaxonomies" :key="tax.slug" class="rounded-lg border p-4 mx-4">
+                            <h3 class="text-lg font-semibold mb-2">{{ tax.name }}</h3>
+                            <div class="space-y-1">
+                                <button v-for="term in tax.terms"
+                                        :key="term.id"
+                                        @click="selectTerm({term: term, taxonomy: tax})"
+                                        :class="[
+                                            'inline-flex items-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 h-9 px-4 py-2 w-full justify-start',
+                                            (selectedTerms[tax.slug]?.some(t => t.id === term.id)) ? 'bg-secondary text-secondary-foreground shadow-sm' : 'hover:bg-accent hover:text-accent-foreground'
+                                        ]">
+                                    {{ term.name }}
+                                </button>
                             </div>
                         </div>
+                    </div>
+                </div>
+
+                <!-- Main Content -->
+                <div class="col-span-3 lg:col-span-4 lg:border-l">
+                    <div class="h-full px-4 py-6 lg:px-8">
+                        <div v-if="!selectedPostType" class="text-center py-12">
+                            <p class="text-lg text-gray-600">Selecciona de los filtros los contenidos para empezar a explorar la biblioteca</p>
+                        </div>
+
+                        <template v-else>
+                            <!-- Tags (if available) -->
+                            <div v-if="hasPostTags" class="mb-6">
+                                <div class="inline-flex h-9 items-center justify-center rounded-lg bg-muted p-1 text-muted-foreground">
+                                    <button v-for="term in postTags"
+                                            :key="term.id"
+                                            @click="selectTerm({term: term, taxonomy: tagTaxonomy})"
+                                            :class="[
+                                                'inline-flex items-center justify-center whitespace-nowrap rounded-md px-3 py-1 text-sm font-medium transition-all',
+                                                (selectedTerms[tagTaxonomy.slug]?.some(t => t.id === term.id)) ? 'bg-background text-foreground shadow' : ''
+                                            ]">
+                                        {{ term.name }}
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Posts Grid -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+                                <a v-for="post in posts" :key="post.id" 
+                                   :href="post.link"
+                                   class="group flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-all duration-200 hover:shadow-md hover:-translate-y-1">
+                                    <div class="aspect-w-16 aspect-h-9 relative overflow-hidden">
+                                        <img v-if="post.featured_media_url" :src="post.featured_media_url" 
+                                             :alt="post.title.rendered"
+                                             class="h-full w-full object-cover transition-transform duration-200 group-hover:scale-105">
+                                        <div v-else class="h-full w-full bg-gray-100 flex items-center justify-center">
+                                            <span class="text-gray-400">No image</span>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col flex-grow p-4">
+                                        <h3 class="text-lg font-semibold text-gray-900 mb-2 group-hover:text-primary-600" v-html="post.title.rendered"></h3>
+                                        <div class="text-sm text-gray-600 mb-4 line-clamp-2" v-html="post.excerpt.rendered"></div>
+                                        <div class="mt-auto inline-flex items-center text-sm font-medium text-primary-600 group-hover:text-primary-700">
+                                            Leer más
+                                            <svg class="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </template>
                     </div>
                 </div>
             </div>
@@ -133,6 +140,12 @@ get_header();
                 const isInitialLoad = ref(true);
                 const tagTaxonomy = ref(null);
                 const taxonomyTermsMap = ref({});
+                const isSidebarOpen = ref(false);
+
+                // Toggle sidebar function for mobile
+                function toggleSidebar() {
+                    isSidebarOpen.value = !isSidebarOpen.value;
+                }
 
                 // Reset filters function
                 function resetFilters() {
@@ -431,7 +444,9 @@ get_header();
                     tagTaxonomy,
                     selectPostType,
                     selectTerm,
-                    resetFilters
+                    resetFilters,
+                    toggleSidebar,
+                    isSidebarOpen
                 };
             }
         });
