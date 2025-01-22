@@ -32,62 +32,35 @@ get_header();
                 </a>
 
                 <?php 
-                // Debug: Check if ACF is active
-                if (!function_exists('get_field')) {
-                    echo '<!-- ACF plugin is not active -->';
-                }
-
-                // Debug: Get all fields for this page
-                echo '<!-- All ACF fields for this page: ';
-                var_dump(get_fields());
-                echo ' -->';
-
-                // Debug: Get specific hero field
-                echo '<!-- Hero field structure: ';
-                var_dump(get_field('hero'));
-                echo ' -->';
-
                 $hero_fields = get_field('hero');
                 
-                // Debug: Check hero fields
-                echo '<!-- $hero_fields contents: ';
-                var_dump($hero_fields);
-                echo ' -->';
-                
-                if ($hero_fields && is_array($hero_fields)) : 
-                    // Debug: Check specific fields
-                    echo '<!-- title value: ' . esc_html($hero_fields['hero_title']) . ' -->';
-                    echo '<!-- description value: ' . esc_html($hero_fields['hero_description']) . ' -->';
-                ?>
-                <?php 
-                $hero_fields = get_field('hero');
                 if ($hero_fields && is_array($hero_fields)) : ?>
-                <h1 class="mx-auto my-5 max-w-screen-lg text-balance text-center text-3xl md:text-5xl text-teal-900">
-                    <?php echo esc_html($hero_fields['hero_title']); ?>
-                </h1>
+                    <h1 class="mx-auto my-5 max-w-screen-lg text-balance text-center text-3xl md:text-5xl text-teal-900">
+                        <?php echo esc_html($hero_fields['hero_title']); ?>
+                    </h1>
 
-                <p class="mx-auto max-w-screen-md text-center text-sm text-teal-700 md:text-base">
-                    <?php echo esc_html($hero_fields['hero_description']); ?>
-                </p>
+                    <p class="mx-auto max-w-screen-md text-center text-sm text-teal-700 md:text-base">
+                        <?php echo esc_html($hero_fields['hero_description']); ?>
+                    </p>
 
-                <div class="mt-8 flex items-center justify-center gap-3">
-                    <?php if (!empty($hero_fields['cta_primary'])) : ?>
-                    <a href="<?php echo esc_url($hero_fields['cta_primary']['link']); ?>" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-600 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-teal-700 text-white hover:bg-teal-600 h-10 px-4 py-2">
-                        <?php echo esc_html($hero_fields['cta_primary']['text']); ?>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right ml-2 size-4">
-                            <path d="m9 18 6-6-6-6"></path>
-                        </svg>
-                    </a>
-                    <?php endif; ?>
-                    <?php if (!empty($hero_fields['cta_secondary'])) : ?>
-                    <a href="<?php echo esc_url($hero_fields['cta_secondary']['link']); ?>" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-600 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-teal-200 bg-white hover:bg-teal-50 hover:text-teal-700 h-10 px-4 py-2 text-teal-900">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-play mr-2 size-4">
-                            <polygon points="6 3 20 12 6 21 6 3"></polygon>
-                        </svg>
-                        <?php echo esc_html($hero_fields['cta_secondary']['text']); ?>
-                    </a>
-                    <?php endif; ?>
-                </div>
+                    <div class="mt-8 flex items-center justify-center gap-3">
+                        <?php if (!empty($hero_fields['cta_primary'])) : ?>
+                        <a href="<?php echo esc_url($hero_fields['cta_primary']['link']); ?>" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-600 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-teal-700 text-white hover:bg-teal-600 h-10 px-4 py-2">
+                            <?php echo esc_html($hero_fields['cta_primary']['text']); ?>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right ml-2 size-4">
+                                <path d="m9 18 6-6-6-6"></path>
+                            </svg>
+                        </a>
+                        <?php endif; ?>
+                        <?php if (!empty($hero_fields['cta_secondary'])) : ?>
+                        <a href="<?php echo esc_url($hero_fields['cta_secondary']['link']); ?>" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-600 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-teal-200 bg-white hover:bg-teal-50 hover:text-teal-700 h-10 px-4 py-2 text-teal-900">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-play mr-2 size-4">
+                                <polygon points="6 3 20 12 6 21 6 3"></polygon>
+                            </svg>
+                            <?php echo esc_html($hero_fields['cta_secondary']['text']); ?>
+                        </a>
+                        <?php endif; ?>
+                    </div>
                 <?php else: 
                     // Debug: If hero fields not found
                     echo '<!-- Hero fields not found or not an array. Post ID: ' . get_the_ID() . ' -->';
