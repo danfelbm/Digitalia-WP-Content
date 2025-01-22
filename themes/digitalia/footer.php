@@ -49,7 +49,8 @@ if (function_exists('get_field')) {
             }
             
             if ($should_display) {
-                $template = !empty($cta['template']) ? $cta['template'] : 'cta-modulos';
+                $layout = $cta['acf_fc_layout']; // Get the layout name
+                $template = str_replace('layout_', '', $layout); // Remove 'layout_' prefix
                 $args = array(
                     'title' => $cta['title'],
                     'description' => $cta['description'],
@@ -57,7 +58,7 @@ if (function_exists('get_field')) {
                 );
                 
                 // Add template-specific arguments
-                if ($template === 'cta-modulos') {
+                if ($template === 'cta_modulos') {
                     $args = array_merge($args, array(
                         'cta_primary_text' => $cta['cta_primary_text'],
                         'cta_primary_url' => $cta['cta_primary_url'],
@@ -72,7 +73,7 @@ if (function_exists('get_field')) {
                     ));
                 }
                 
-                get_template_part('template-parts/' . $template, null, $args);
+                get_template_part('template-parts/' . str_replace('_', '-', $template), null, $args);
             }
         }
     }
