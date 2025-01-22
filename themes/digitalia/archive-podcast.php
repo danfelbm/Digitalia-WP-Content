@@ -278,10 +278,59 @@ document.addEventListener('DOMContentLoaded', function() {
     const activeFiltersList = document.getElementById('active-filters-list');
     const clearFiltersBtn = document.getElementById('clear-filters');
     
-    let activeTerms = {
+    const activeTerms = {
         category: new Set(),
         tag: new Set()
     };
+
+    // Function to update URL with current filters
+    function updateURL() {
+        const params = new URLSearchParams();
+        
+        if (activeTerms.category.size > 0) {
+            params.set('categories', Array.from(activeTerms.category).join(','));
+        }
+        if (activeTerms.tag.size > 0) {
+            params.set('tags', Array.from(activeTerms.tag).join(','));
+        }
+
+        const newURL = `${window.location.pathname}${params.toString() ? '?' + params.toString() : ''}`;
+        history.pushState({ filters: activeTerms }, '', newURL);
+    }
+
+    // Function to parse URL parameters and set filters
+    function parseURLParams() {
+        const params = new URLSearchParams(window.location.search);
+        
+        // Reset current filters
+        activeTerms.category.clear();
+        activeTerms.tag.clear();
+        
+        // Parse categories
+        const categories = params.get('categories');
+        if (categories) {
+            categories.split(',').forEach(id => activeTerms.category.add(id));
+        }
+        
+        // Parse tags
+        const tags = params.get('tags');
+        if (tags) {
+            tags.split(',').forEach(id => activeTerms.tag.add(id));
+        }
+
+        // Update UI to reflect current filters
+        filterButtons.forEach(button => {
+            const type = button.dataset.type;
+            const id = button.dataset.id;
+            if (activeTerms[type].has(id)) {
+                setActiveStyle(button);
+            } else {
+                setInactiveStyle(button);
+            }
+        });
+
+        filterEpisodes();
+    }
 
     // Style functions
     function setActiveStyle(button) {
@@ -389,6 +438,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             filterEpisodes();
+            updateURL();
         });
     });
 
@@ -404,16 +454,31 @@ document.addEventListener('DOMContentLoaded', function() {
             if (filterBtn) setInactiveStyle(filterBtn);
             
             filterEpisodes();
+            updateURL();
         }
     });
 
     // Clear all filters
-    clearFiltersBtn.addEventListener('click', function() {
-        activeTerms.category.clear();
-        activeTerms.tag.clear();
-        filterButtons.forEach(btn => setInactiveStyle(btn));
-        filterEpisodes();
+    if (clearFiltersBtn) {
+        clearFiltersBtn.addEventListener('click', function() {
+            activeTerms.category.clear();
+            activeTerms.tag.clear();
+            filterButtons.forEach(btn => setInactiveStyle(btn));
+            filterEpisodes();
+            updateURL(); // Update URL to remove filter parameters
+        });
+    }
+
+    // Handle browser back/forward buttons
+    window.addEventListener('popstate', function(event) {
+        if (event.state && event.state.filters) {
+            Object.assign(activeTerms, event.state.filters);
+            parseURLParams();
+        }
     });
+
+    // Initialize filters from URL on page load
+    parseURLParams();
 });
 </script>
 

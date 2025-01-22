@@ -202,6 +202,9 @@ $transmision_query = new WP_Query(array(
                 </div>
                 <h2 class="text-xl font-medium text-gray-900 mb-2">No se encontraron transmisiones</h2>
                 <p class="text-gray-600">Intenta ajustar los filtros de búsqueda</p>
+                <button id="clear-filters" class="mt-4 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors">
+                    Limpiar filtros
+                </button>
             </div>
 
         <?php else : ?>
@@ -224,10 +227,59 @@ document.addEventListener('DOMContentLoaded', function() {
     const noResults = document.getElementById('no-results');
     const activeFilters = document.getElementById('active-filters');
     const activeFiltersList = document.getElementById('active-filters-list');
+    const clearFiltersBtn = document.getElementById('clear-filters');
     const activeFilterTypes = {
         category: new Set(),
         tag: new Set()
     };
+
+    // Function to update URL with current filters
+    function updateURL() {
+        const params = new URLSearchParams();
+        
+        if (activeFilterTypes.category.size > 0) {
+            params.set('categories', Array.from(activeFilterTypes.category).join(','));
+        }
+        if (activeFilterTypes.tag.size > 0) {
+            params.set('tags', Array.from(activeFilterTypes.tag).join(','));
+        }
+
+        const newURL = `${window.location.pathname}${params.toString() ? '?' + params.toString() : ''}`;
+        history.pushState({ filters: activeFilterTypes }, '', newURL);
+    }
+
+    // Function to parse URL parameters and set filters
+    function parseURLParams() {
+        const params = new URLSearchParams(window.location.search);
+        
+        // Reset current filters
+        activeFilterTypes.category.clear();
+        activeFilterTypes.tag.clear();
+        
+        // Parse categories
+        const categories = params.get('categories');
+        if (categories) {
+            categories.split(',').forEach(id => activeFilterTypes.category.add(id));
+        }
+        
+        // Parse tags
+        const tags = params.get('tags');
+        if (tags) {
+            tags.split(',').forEach(id => activeFilterTypes.tag.add(id));
+        }
+
+        // Update UI to reflect current filters
+        filterButtons.forEach(button => {
+            const type = button.dataset.type;
+            const id = button.dataset.id;
+            const isActive = activeFilterTypes[type].has(id);
+            button.classList.toggle('bg-purple-100', isActive);
+            button.classList.toggle('text-purple-800', isActive);
+        });
+
+        updateActiveFilters();
+        updateResults();
+    }
 
     function updateActiveFilters() {
         const hasActiveFilters = activeFilterTypes.category.size > 0 || activeFilterTypes.tag.size > 0;
@@ -299,6 +351,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             updateActiveFilters();
             updateResults();
+            updateURL();
         });
     });
 
@@ -316,8 +369,34 @@ document.addEventListener('DOMContentLoaded', function() {
             
             updateActiveFilters();
             updateResults();
+            updateURL();
         }
     });
+
+    // Clear all filters
+    if (clearFiltersBtn) {
+        clearFiltersBtn.addEventListener('click', function() {
+            activeFilterTypes.category.clear();
+            activeFilterTypes.tag.clear();
+            filterButtons.forEach(btn => {
+                btn.classList.remove('bg-purple-100', 'text-purple-800');
+            });
+            updateActiveFilters();
+            updateResults();
+            updateURL(); // Update URL to remove filter parameters
+        });
+    }
+
+    // Handle browser back/forward buttons
+    window.addEventListener('popstate', function(event) {
+        if (event.state && event.state.filters) {
+            Object.assign(activeFilterTypes, event.state.filters);
+            parseURLParams();
+        }
+    });
+
+    // Initialize filters from URL on page load
+    parseURLParams();
 });
 </script>
 
