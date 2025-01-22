@@ -48,11 +48,11 @@ get_header();
     </div>
     <div class="container relative flex flex-col items-center text-center">
         <?php 
-        $hero_fields = get_field('ready_hero');
+        $hero_fields = get_field('hero');
         if ($hero_fields) :
         ?>
-            <h1 class="my-6 text-pretty text-4xl font-bold lg:text-6xl"><?php echo $hero_fields['title']; ?></h1>
-            <p class="mb-8 max-w-3xl text-muted-foreground lg:text-xl"><?php echo $hero_fields['description']; ?></p>
+            <h1 class="my-6 text-pretty text-4xl font-bold lg:text-6xl"><?php echo $hero_fields['hero_title']; ?></h1>
+            <p class="mb-8 max-w-3xl text-muted-foreground lg:text-xl"><?php echo $hero_fields['hero_description']; ?></p>
             <div>
                 <a href="<?php echo $hero_fields['cta']['cta_url']; ?>" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-purple-700 text-white hover:bg-purple-800 h-10 px-4 py-2"><?php echo $hero_fields['cta']['cta_text']; ?></a>
             </div>
