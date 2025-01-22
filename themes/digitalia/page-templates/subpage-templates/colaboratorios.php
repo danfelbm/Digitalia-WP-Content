@@ -56,15 +56,18 @@ get_header();
                 
                 if ($hero_fields && is_array($hero_fields)) : 
                     // Debug: Check specific fields
-                    echo '<!-- title value: ' . esc_html($hero_fields['title']) . ' -->';
-                    echo '<!-- description value: ' . esc_html($hero_fields['description']) . ' -->';
+                    echo '<!-- title value: ' . esc_html($hero_fields['hero_title']) . ' -->';
+                    echo '<!-- description value: ' . esc_html($hero_fields['hero_description']) . ' -->';
                 ?>
+                <?php 
+                $hero_fields = get_field('hero');
+                if ($hero_fields && is_array($hero_fields)) : ?>
                 <h1 class="mx-auto my-5 max-w-screen-lg text-balance text-center text-3xl md:text-5xl text-teal-900">
-                    <?php echo esc_html($hero_fields['title']); ?>
+                    <?php echo esc_html($hero_fields['hero_title']); ?>
                 </h1>
 
                 <p class="mx-auto max-w-screen-md text-center text-sm text-teal-700 md:text-base">
-                    <?php echo esc_html($hero_fields['description']); ?>
+                    <?php echo esc_html($hero_fields['hero_description']); ?>
                 </p>
 
                 <div class="mt-8 flex items-center justify-center gap-3">
