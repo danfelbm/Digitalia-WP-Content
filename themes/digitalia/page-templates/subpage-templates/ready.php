@@ -55,11 +55,11 @@ get_header();
             echo ' -->';
         }
         
-        $hero_fields = get_field('hero');  // Use the field name, not the key
+        $hero_fields = get_field('hero');
         
         if ($hero_fields && is_array($hero_fields)) :
-            $title = isset($hero_fields['title']) ? $hero_fields['title'] : '';
-            $description = isset($hero_fields['description']) ? $hero_fields['description'] : '';
+            $title = isset($hero_fields['hero_title']) ? $hero_fields['hero_title'] : '';
+            $description = isset($hero_fields['hero_description']) ? $hero_fields['hero_description'] : '';
             $cta_text = isset($hero_fields['cta']['cta_text']) ? $hero_fields['cta']['cta_text'] : '';
             $cta_url = isset($hero_fields['cta']['cta_url']) ? $hero_fields['cta']['cta_url'] : '#';
         ?>
@@ -337,7 +337,6 @@ document.addEventListener('DOMContentLoaded', function() {
                                             <path d="M16 8V5c0-1.1.9-2 2-2"></path>
                                             <path d="M12 13h4"></path>
                                             <path d="M12 18h6a2 2 0 0 1 2 2v1"></path>
-                                            <path d="M12 8h8"></path>
                                             <path d="M20.5 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z"></path>
                                             <path d="M16.5 13a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z"></path>
                                             <path d="M20.5 21a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z"></path>
@@ -403,7 +402,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                         <a href="<?php echo get_category_link($category->term_id); ?>" class="flex items-center gap-1.5 rounded-full border border-purple-200 px-3 py-1.5 text-sm font-medium text-purple-700 transition-colors hover:bg-purple-100">
                                             <?php echo $category->name; ?>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right h-4 w-4 text-purple-600">
-                                                <path d="m9 18 6-6-6-6"></path>
+                                                <path d="M9 18l6-6-6-6"></path>
                                             </svg>
                                         </a>
                                     <?php
