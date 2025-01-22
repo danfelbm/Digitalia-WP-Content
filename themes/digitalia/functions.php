@@ -784,6 +784,94 @@ function digitalia_register_descargas_post_type() {
 }
 add_action( 'init', 'digitalia_register_descargas_post_type' );
 
+// Register Custom Post Type Podcasts
+function digitalia_register_podcasts_post_type() {
+    $labels = array(
+        'name'                  => _x( 'Podcasts', 'Post Type General Name', 'digitalia' ),
+        'singular_name'         => _x( 'Podcast', 'Post Type Singular Name', 'digitalia' ),
+        'menu_name'            => __( 'Podcasts', 'digitalia' ),
+        'name_admin_bar'       => __( 'Podcast', 'digitalia' ),
+        'archives'             => __( 'Archivo de Podcasts', 'digitalia' ),
+        'attributes'           => __( 'Atributos de Podcast', 'digitalia' ),
+        'parent_item_colon'    => __( 'Podcast Padre:', 'digitalia' ),
+        'all_items'            => __( 'Todos los Podcasts', 'digitalia' ),
+        'add_new_item'         => __( 'Añadir Nuevo Podcast', 'digitalia' ),
+        'add_new'              => __( 'Añadir Nuevo', 'digitalia' ),
+        'new_item'             => __( 'Nuevo Podcast', 'digitalia' ),
+        'edit_item'            => __( 'Editar Podcast', 'digitalia' ),
+        'update_item'          => __( 'Actualizar Podcast', 'digitalia' ),
+        'view_item'            => __( 'Ver Podcast', 'digitalia' ),
+        'view_items'           => __( 'Ver Podcasts', 'digitalia' ),
+        'search_items'         => __( 'Buscar Podcast', 'digitalia' ),
+    );
+    $args = array(
+        'label'                 => __( 'Podcast', 'digitalia' ),
+        'labels'                => $labels,
+        'supports'              => array( 'title', 'editor', 'thumbnail', 'excerpt', 'custom-fields' ),
+        'taxonomies'            => array( 'category', 'post_tag' ),
+        'hierarchical'          => false,
+        'public'                => true,
+        'show_ui'               => true,
+        'show_in_menu'          => true,
+        'menu_position'         => 5,
+        'menu_icon'             => 'dashicons-microphone',
+        'show_in_admin_bar'     => true,
+        'show_in_nav_menus'     => true,
+        'can_export'            => true,
+        'has_archive'           => true,
+        'exclude_from_search'   => false,
+        'publicly_queryable'    => true,
+        'capability_type'       => 'post',
+        'show_in_rest'          => true,
+    );
+    register_post_type( 'podcast', $args );
+}
+add_action( 'init', 'digitalia_register_podcasts_post_type' );
+
+// Register Custom Post Type Transmisiones
+function digitalia_register_transmisiones_post_type() {
+    $labels = array(
+        'name'                  => _x( 'Transmisiones', 'Post Type General Name', 'digitalia' ),
+        'singular_name'         => _x( 'Transmisión', 'Post Type Singular Name', 'digitalia' ),
+        'menu_name'            => __( 'Transmisiones', 'digitalia' ),
+        'name_admin_bar'       => __( 'Transmisión', 'digitalia' ),
+        'archives'             => __( 'Archivo de Transmisiones', 'digitalia' ),
+        'attributes'           => __( 'Atributos de Transmisión', 'digitalia' ),
+        'parent_item_colon'    => __( 'Transmisión Padre:', 'digitalia' ),
+        'all_items'            => __( 'Todas las Transmisiones', 'digitalia' ),
+        'add_new_item'         => __( 'Añadir Nueva Transmisión', 'digitalia' ),
+        'add_new'              => __( 'Añadir Nueva', 'digitalia' ),
+        'new_item'             => __( 'Nueva Transmisión', 'digitalia' ),
+        'edit_item'            => __( 'Editar Transmisión', 'digitalia' ),
+        'update_item'          => __( 'Actualizar Transmisión', 'digitalia' ),
+        'view_item'            => __( 'Ver Transmisión', 'digitalia' ),
+        'view_items'           => __( 'Ver Transmisiones', 'digitalia' ),
+        'search_items'         => __( 'Buscar Transmisión', 'digitalia' ),
+    );
+    $args = array(
+        'label'                 => __( 'Transmisión', 'digitalia' ),
+        'labels'                => $labels,
+        'supports'              => array( 'title', 'editor', 'thumbnail', 'excerpt', 'custom-fields' ),
+        'taxonomies'            => array( 'category', 'post_tag' ),
+        'hierarchical'          => false,
+        'public'                => true,
+        'show_ui'               => true,
+        'show_in_menu'          => true,
+        'menu_position'         => 5,
+        'menu_icon'             => 'dashicons-video-alt3',
+        'show_in_admin_bar'     => true,
+        'show_in_nav_menus'     => true,
+        'can_export'            => true,
+        'has_archive'           => true,
+        'exclude_from_search'   => false,
+        'publicly_queryable'    => true,
+        'capability_type'       => 'post',
+        'show_in_rest'          => true,
+    );
+    register_post_type( 'transmision', $args );
+}
+add_action( 'init', 'digitalia_register_transmisiones_post_type' );
+
 /**
  * Register Custom Post Type Espacios and its taxonomies
  */
@@ -1157,3 +1245,6 @@ function digitalia_enqueue_acf_map_scripts() {
     wp_add_inline_style('digitalia-tailwind', $map_styles);
 }
 add_action('wp_enqueue_scripts', 'digitalia_enqueue_acf_map_scripts', 20);
+
+// Custom Roles
+require get_template_directory() . '/inc/custom-roles.php';

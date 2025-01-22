@@ -47,11 +47,20 @@ get_header();
         </div>
     </div>
     <div class="container relative flex flex-col items-center text-center">
-        <h1 class="my-6 text-pretty text-4xl font-bold lg:text-6xl"><?php echo get_field('hero')['title']; ?></h1>
-        <p class="mb-8 max-w-3xl text-muted-foreground lg:text-xl"><?php echo get_field('hero')['description']; ?></p>
-        <div>
-            <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-purple-700 text-white hover:bg-purple-800 h-10 px-4 py-2"><?php echo get_field('hero')['cta']['cta_text']; ?></button>
-        </div>
+        <?php 
+        $hero_fields = get_field('hero');
+        if ($hero_fields) :
+        ?>
+            <h1 class="my-6 text-pretty text-4xl font-bold lg:text-6xl"><?php echo $hero_fields['title']; ?></h1>
+            <p class="mb-8 max-w-3xl text-muted-foreground lg:text-xl"><?php echo $hero_fields['description']; ?></p>
+            <div>
+                <a href="<?php echo $hero_fields['cta']['cta_url']; ?>" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-purple-700 text-white hover:bg-purple-800 h-10 px-4 py-2"><?php echo $hero_fields['cta']['cta_text']; ?></a>
+            </div>
+        <?php 
+        else:
+            echo '<!-- ACF Hero fields not found -->'; 
+        endif;
+        ?>
     </div>
 </section>
 
@@ -314,7 +323,6 @@ document.addEventListener('DOMContentLoaded', function() {
                                             <path d="M16 8V5c0-1.1.9-2 2-2"></path>
                                             <path d="M12 13h4"></path>
                                             <path d="M12 18h6a2 2 0 0 1 2 2v1"></path>
-                                            <path d="M12 8h8"></path>
                                             <path d="M20.5 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z"></path>
                                             <path d="M16.5 13a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z"></path>
                                             <path d="M20.5 21a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z"></path>
