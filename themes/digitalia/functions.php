@@ -9,7 +9,7 @@
 
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '1.8.0' );
+	define( '_S_VERSION', '1.8.5' );
 }
 
 /**
@@ -971,7 +971,7 @@ function digitalia_register_alfabetizadores_post_type() {
         'label'               => __('Alfabetizador', 'digitalia'),
         'labels'              => $labels,
         'supports'            => array('title', 'editor', 'thumbnail', 'excerpt'),
-        'taxonomies'          => array('alfabetizador_category', 'alfabetizador_tag', 'ubicaciones', 'alfabetizadores-tags'),
+        'taxonomies'          => array('category', 'post_tag', 'alfabetizadores-tags'),
         'hierarchical'        => false,
         'public'              => true,
         'show_ui'             => true,
@@ -990,54 +990,6 @@ function digitalia_register_alfabetizadores_post_type() {
     );
     
     register_post_type('alfabetizador', $args);
-
-    // Register Category Taxonomy
-    $cat_labels = array(
-        'name'              => _x('Categorías', 'taxonomy general name', 'digitalia'),
-        'singular_name'     => _x('Categoría', 'taxonomy singular name', 'digitalia'),
-        'search_items'      => __('Buscar Categorías', 'digitalia'),
-        'all_items'         => __('Todas las Categorías', 'digitalia'),
-        'parent_item'       => __('Categoría Superior', 'digitalia'),
-        'parent_item_colon' => __('Categoría Superior:', 'digitalia'),
-        'edit_item'         => __('Editar Categoría', 'digitalia'),
-        'update_item'       => __('Actualizar Categoría', 'digitalia'),
-        'add_new_item'      => __('Añadir Nueva Categoría', 'digitalia'),
-        'new_item_name'     => __('Nuevo Nombre de Categoría', 'digitalia'),
-        'menu_name'         => __('Categorías', 'digitalia'),
-    );
-
-    register_taxonomy('alfabetizador_category', array('alfabetizador'), array(
-        'hierarchical'      => true,
-        'labels'           => $cat_labels,
-        'show_ui'          => true,
-        'show_admin_column' => true,
-        'query_var'        => true,
-        'rewrite'          => array('slug' => 'categoria-alfabetizador'),
-        'show_in_rest'     => true,
-    ));
-
-    // Register Tag Taxonomy
-    $tag_labels = array(
-        'name'              => _x('Etiquetas', 'taxonomy general name', 'digitalia'),
-        'singular_name'     => _x('Etiqueta', 'taxonomy singular name', 'digitalia'),
-        'search_items'      => __('Buscar Etiquetas', 'digitalia'),
-        'all_items'         => __('Todas las Etiquetas', 'digitalia'),
-        'edit_item'         => __('Editar Etiqueta', 'digitalia'),
-        'update_item'       => __('Actualizar Etiqueta', 'digitalia'),
-        'add_new_item'      => __('Añadir Nueva Etiqueta', 'digitalia'),
-        'new_item_name'     => __('Nuevo Nombre de Etiqueta', 'digitalia'),
-        'menu_name'         => __('Etiquetas', 'digitalia'),
-    );
-
-    register_taxonomy('alfabetizador_tag', array('alfabetizador'), array(
-        'hierarchical'      => false,
-        'labels'           => $tag_labels,
-        'show_ui'          => true,
-        'show_admin_column' => true,
-        'query_var'        => true,
-        'rewrite'          => array('slug' => 'etiqueta-alfabetizador'),
-        'show_in_rest'     => true,
-    ));
 
     // Register Alfabetizadores Tags Taxonomy
     $alfabetizadores_tags_labels = array(
@@ -1062,6 +1014,7 @@ function digitalia_register_alfabetizadores_post_type() {
         'show_tagcloud'     => true,
         'has_archive'       => true,
         'rewrite'           => array('slug' => 'alfabetizadores-tags'),
+        'show_in_rest'      => true,
     );
 
     register_taxonomy('alfabetizadores-tags', array('alfabetizador'), $alfabetizadores_tags_args);
@@ -1248,3 +1201,6 @@ add_action('wp_enqueue_scripts', 'digitalia_enqueue_acf_map_scripts', 20);
 
 // Custom Roles
 require get_template_directory() . '/inc/custom-roles.php';
+
+// Include custom dashboards
+require_once get_template_directory() . '/inc/admin/custom-dashboards.php';

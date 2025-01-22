@@ -10,10 +10,60 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+// Register custom post types if they don't exist
+function digitalia_register_required_post_types() {
+    if (!post_type_exists('transmision')) {
+        register_post_type('transmision', array(
+            'labels' => array(
+                'name' => 'Transmisiones',
+                'singular_name' => 'Transmisión',
+            ),
+            'public' => true,
+            'show_ui' => true,
+            'show_in_menu' => true,
+            'capability_type' => array('transmision', 'transmisiones'),
+            'map_meta_cap' => true,
+            'hierarchical' => false,
+            'supports' => array('title', 'editor', 'thumbnail'),
+            'menu_icon' => 'dashicons-video-alt3',
+            'has_archive' => true,
+            'rewrite' => array('slug' => 'transmisiones'),
+        ));
+    }
+
+    if (!post_type_exists('espacio')) {
+        register_post_type('espacio', array(
+            'labels' => array(
+                'name' => 'Espacios',
+                'singular_name' => 'Espacio',
+            ),
+            'public' => true,
+            'show_ui' => true,
+            'show_in_menu' => true,
+            'capability_type' => array('espacio', 'espacios'),
+            'map_meta_cap' => true,
+            'hierarchical' => false,
+            'supports' => array('title', 'editor', 'thumbnail'),
+            'menu_icon' => 'dashicons-layout',
+            'has_archive' => true,
+            'rewrite' => array('slug' => 'espacios'),
+        ));
+    }
+}
+add_action('init', 'digitalia_register_required_post_types', 0);
+
 function digitalia_create_custom_roles() {
+    global $wp_roles;
+
+    if (!isset($wp_roles)) {
+        $wp_roles = new WP_Roles();
+    }
+
     // Remove roles if they already exist (to reset capabilities)
     remove_role('en_linea');
     remove_role('total_transmedia');
+    remove_role('ready');
+    remove_role('colaboratorio');
 
     // Create "En Linea" role with basic capabilities
     $en_linea = add_role(
@@ -32,7 +82,7 @@ function digitalia_create_custom_roles() {
         )
     );
 
-    // Create "Total Transmedia" role with basic capabilities
+    // Create "Total Transmedia" role
     $total_transmedia = add_role(
         'total_transmedia',
         'Total Transmedia',
@@ -50,8 +100,52 @@ function digitalia_create_custom_roles() {
         )
     );
 
-    // Add specific capabilities for En Linea role
-    if ($en_linea) {
+    // Create "Ready" role
+    $ready = add_role(
+        'ready',
+        'Ready',
+        array(
+            'read' => true,
+            'level_0' => true,
+            'level_1' => true,
+            'upload_files' => true,
+            'edit_posts' => true,
+            'edit_published_posts' => true,
+            'publish_posts' => true,
+            'delete_posts' => true,
+            'moderate_comments' => true,
+            'edit_comments' => true,
+        )
+    );
+
+    // Create "Colaboratorio" role with basic capabilities
+    $colaboratorio = add_role(
+        'colaboratorio',
+        'Colaboratorio',
+        array(
+            'read' => true,
+            'level_0' => true,
+            'level_1' => true,
+            'upload_files' => true,
+            'edit_files' => true,
+            'manage_categories' => true,
+            
+            // Posts capabilities
+            'edit_posts' => true,
+            'edit_others_posts' => true,
+            'edit_published_posts' => true,
+            'publish_posts' => true,
+            'read_private_posts' => true,
+            'delete_posts' => true,
+            'delete_published_posts' => true,
+            'delete_private_posts' => true,
+            'delete_others_posts' => true,
+            'edit_private_posts' => true
+        )
+    );
+
+    if ($en_linea instanceof WP_Role) {
+        // Add specific capabilities for En Linea role
         $allowed_types = array(
             'personajes' => 'personaje',
             'actores' => 'actor',
@@ -60,7 +154,6 @@ function digitalia_create_custom_roles() {
         );
         
         foreach ($allowed_types as $plural => $singular) {
-            // Add capabilities for both singular and plural forms
             $caps = array(
                 "edit_{$plural}",
                 "edit_others_{$plural}",
@@ -72,7 +165,6 @@ function digitalia_create_custom_roles() {
                 "delete_others_{$plural}",
                 "edit_private_{$plural}",
                 "edit_published_{$plural}",
-                // Singular form capabilities
                 "edit_{$singular}",
                 "read_{$singular}",
                 "delete_{$singular}",
@@ -90,13 +182,12 @@ function digitalia_create_custom_roles() {
             }
         }
 
-        // Add list capabilities
         $en_linea->add_cap('edit_others_posts');
         $en_linea->add_cap('list_users');
     }
 
-    // Add specific capabilities for Total Transmedia role
-    if ($total_transmedia) {
+    if ($total_transmedia instanceof WP_Role) {
+        // Add specific capabilities for Total Transmedia role
         // Media capabilities
         $total_transmedia->add_cap('upload_files');
         $total_transmedia->add_cap('edit_files');
@@ -108,7 +199,7 @@ function digitalia_create_custom_roles() {
         $total_transmedia->add_cap('manage_comments');
         
         // Posts capabilities
-        $caps = array(
+        $post_caps = array(
             'edit_posts',
             'edit_others_posts',
             'edit_private_posts',
@@ -121,7 +212,7 @@ function digitalia_create_custom_roles() {
             'delete_others_posts'
         );
         
-        foreach ($caps as $cap) {
+        foreach ($post_caps as $cap) {
             $total_transmedia->add_cap($cap);
         }
         
@@ -143,10 +234,128 @@ function digitalia_create_custom_roles() {
             $total_transmedia->add_cap($cap);
         }
     }
+
+    if ($ready instanceof WP_Role) {
+        // Add specific capabilities for Ready role
+        // Media capabilities
+        $ready->add_cap('upload_files');
+        $ready->add_cap('edit_files');
+        $ready->add_cap('manage_media_library');
+        
+        // Comments capabilities
+        $ready->add_cap('moderate_comments');
+        $ready->add_cap('edit_comments');
+        $ready->add_cap('manage_comments');
+        
+        // Posts capabilities
+        $post_caps = array(
+            'edit_posts',
+            'edit_others_posts',
+            'edit_private_posts',
+            'edit_published_posts',
+            'publish_posts',
+            'read_private_posts',
+            'delete_posts',
+            'delete_private_posts',
+            'delete_published_posts',
+            'delete_others_posts'
+        );
+        
+        foreach ($post_caps as $cap) {
+            $ready->add_cap($cap);
+        }
+        
+        // Descarga capabilities
+        $descarga_caps = array(
+            'edit_descargas',
+            'edit_others_descargas',
+            'edit_private_descargas',
+            'edit_published_descargas',
+            'publish_descargas',
+            'read_private_descargas',
+            'delete_descargas',
+            'delete_private_descargas',
+            'delete_published_descargas',
+            'delete_others_descargas'
+        );
+        
+        foreach ($descarga_caps as $cap) {
+            $ready->add_cap($cap);
+        }
+    }
+
+    if ($colaboratorio instanceof WP_Role) {
+        // Add transmision capabilities
+        $transmision_caps = array(
+            'edit_transmision',
+            'read_transmision',
+            'delete_transmision',
+            'edit_transmisiones',
+            'edit_others_transmisiones',
+            'publish_transmisiones',
+            'read_private_transmisiones',
+            'delete_transmisiones',
+            'delete_private_transmisiones',
+            'delete_published_transmisiones',
+            'delete_others_transmisiones',
+            'edit_private_transmisiones',
+            'edit_published_transmisiones',
+            'create_transmisiones'
+        );
+        
+        foreach ($transmision_caps as $cap) {
+            $colaboratorio->add_cap($cap);
+        }
+
+        // Add espacio capabilities
+        $espacio_caps = array(
+            'edit_espacio',
+            'read_espacio',
+            'delete_espacio',
+            'edit_espacios',
+            'edit_others_espacios',
+            'publish_espacios',
+            'read_private_espacios',
+            'delete_espacios',
+            'delete_private_espacios',
+            'delete_published_espacios',
+            'delete_others_espacios',
+            'edit_private_espacios',
+            'edit_published_espacios',
+            'create_espacios'
+        );
+        
+        foreach ($espacio_caps as $cap) {
+            $colaboratorio->add_cap($cap);
+        }
+    }
 }
 
 // Hook into WordPress
-add_action('init', 'digitalia_create_custom_roles');
+add_action('init', 'digitalia_create_custom_roles', 10);
+
+// Debug function to check role capabilities
+function digitalia_debug_role_caps() {
+    if (current_user_can('administrator') && isset($_GET['debug_roles'])) {
+        $role = get_role('colaboratorio');
+        echo '<pre>';
+        print_r($role->capabilities);
+        echo '</pre>';
+        
+        $user = wp_get_current_user();
+        echo '<h3>Current User Roles:</h3>';
+        print_r($user->roles);
+        
+        echo '<h3>Registered Post Types:</h3>';
+        $post_types = get_post_types(array(), 'objects');
+        foreach ($post_types as $post_type) {
+            echo $post_type->name . ' - ' . ($post_type->show_ui ? 'Visible' : 'Hidden') . '<br>';
+        }
+        
+        die();
+    }
+}
+add_action('admin_init', 'digitalia_debug_role_caps');
 
 // Remove menu items based on role
 function digitalia_remove_menu_items() {
@@ -154,6 +363,7 @@ function digitalia_remove_menu_items() {
     
     if (in_array('en_linea', (array) $user->roles)) {
         // Remove default menus
+        remove_menu_page('index.php'); // Dashboard/Escritorio
         remove_menu_page('edit.php'); // Posts
         remove_menu_page('upload.php'); // Media
         remove_menu_page('edit.php?post_type=page'); // Pages
@@ -174,23 +384,9 @@ function digitalia_remove_menu_items() {
 
         // Remove parametros page
         remove_menu_page('parametros');
-        
-        // Reorder menu to put Escritorio first
-        global $menu;
-        $dashboard_menu = array();
-        foreach ($menu as $key => $item) {
-            if ($item[2] === 'index.php') {
-                $dashboard_menu = $item;
-                unset($menu[$key]);
-                break;
-            }
-        }
-        if ($dashboard_menu) {
-            $dashboard_menu[0] = 'Escritorio'; // Rename Dashboard to Escritorio
-            array_unshift($menu, $dashboard_menu);
-        }
     } elseif (in_array('total_transmedia', (array) $user->roles)) {
         // Remove unnecessary menus
+        remove_menu_page('index.php'); // Dashboard/Escritorio
         remove_menu_page('edit.php?post_type=page'); // Pages
         remove_menu_page('themes.php'); // Appearance
         remove_menu_page('plugins.php'); // Plugins
@@ -208,13 +404,41 @@ function digitalia_remove_menu_items() {
 
         // Remove parametros page
         remove_menu_page('parametros');
+    } elseif (in_array('ready', (array) $user->roles)) {
+        // Remove unnecessary menus
+        remove_menu_page('index.php'); // Dashboard/Escritorio
+        remove_menu_page('edit.php?post_type=page'); // Pages
+        remove_menu_page('themes.php'); // Appearance
+        remove_menu_page('plugins.php'); // Plugins
+        remove_menu_page('users.php'); // Users
+        remove_menu_page('tools.php'); // Tools
+        remove_menu_page('options-general.php'); // Settings
         
-        // Rename Dashboard to Escritorio
-        global $menu;
-        foreach ($menu as $key => $item) {
-            if ($item[2] === 'index.php') {
-                $menu[$key][0] = 'Escritorio';
-                break;
+        // Remove all custom post types except descargas
+        $post_types = get_post_types(array('_builtin' => false), 'objects');
+        foreach ($post_types as $post_type) {
+            if ($post_type->name !== 'descargas') {
+                remove_menu_page('edit.php?post_type=' . $post_type->name);
+            }
+        }
+
+        // Remove parametros page
+        remove_menu_page('parametros');
+    } elseif (in_array('colaboratorio', (array) $user->roles)) {
+        // Remove unnecessary menus
+        remove_menu_page('index.php'); // Dashboard
+        remove_menu_page('edit.php?post_type=page'); // Pages
+        remove_menu_page('themes.php'); // Appearance
+        remove_menu_page('plugins.php'); // Plugins
+        remove_menu_page('users.php'); // Users
+        remove_menu_page('tools.php'); // Tools
+        remove_menu_page('options-general.php'); // Settings
+        
+        // Only remove post types that are not needed
+        $post_types = get_post_types(array('_builtin' => false), 'objects');
+        foreach ($post_types as $post_type) {
+            if (!in_array($post_type->name, array('transmision', 'espacio'))) {
+                remove_menu_page('edit.php?post_type=' . $post_type->name);
             }
         }
     }
@@ -248,9 +472,16 @@ function digitalia_modify_admin_bar($wp_admin_bar) {
 }
 add_action('admin_bar_menu', 'digitalia_modify_admin_bar', 999);
 
-// Add necessary filters to map meta capabilities
+// Map meta capabilities
 function digitalia_map_meta_cap($caps, $cap, $user_id, $args) {
+    if (!$user_id) {
+        return $caps;
+    }
+
     $user = get_userdata($user_id);
+    if (!$user || !isset($user->roles) || !is_array($user->roles)) {
+        return $caps;
+    }
     
     if (in_array('en_linea', (array) $user->roles)) {
         // Map capabilities for en_linea role
@@ -264,6 +495,26 @@ function digitalia_map_meta_cap($caps, $cap, $user_id, $args) {
         // Map capabilities for total_transmedia role
         if (strpos($cap, 'post') !== false || strpos($cap, 'descarga') !== false) {
             return array('read');
+        }
+    } elseif (in_array('ready', (array) $user->roles)) {
+        // Map capabilities for ready role
+        if (strpos($cap, 'post') !== false || strpos($cap, 'descarga') !== false) {
+            return array('read');
+        }
+    } elseif (in_array('colaboratorio', (array) $user->roles)) {
+        // Allow all post capabilities
+        if (strpos($cap, 'post') !== false) {
+            return array('exist');
+        }
+        
+        // Allow all transmision capabilities
+        if (strpos($cap, 'transmision') !== false) {
+            return array('exist');
+        }
+        
+        // Allow all espacio capabilities
+        if (strpos($cap, 'espacio') !== false) {
+            return array('exist');
         }
     }
     

@@ -8,38 +8,72 @@
 get_header();
 ?>
 
-<main id="primary" class="site-main bg-[#121212] min-h-screen text-white">
-    <?php while (have_posts()) : the_post(); ?>
+<main id="primary" class="site-main bg-gray-50 min-h-screen">
+    <?php while (have_posts()) : the_post(); 
+        // Get ACF fields
+        $episode_excerpt = get_field('episode_excerpt');
+        $episode_duration = get_field('episode_duration');
+        $episode_audio = get_field('episode_audio');
+        $episode_number = get_field('episode_number');
+        $episode_season = get_field('episode_season');
+        $platforms = get_field('podcast_platforms');
+        $transcript = get_field('episode_transcript');
+    ?>
         <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
             <!-- Hero Section -->
             <div class="relative">
-                <!-- Gradient Background -->
-                <div class="absolute inset-0 bg-gradient-to-b from-[#535353] to-[#121212] opacity-90"></div>
+                <!-- Featured Image Background -->
+                <?php if (has_post_thumbnail()) : ?>
+                <div class="absolute inset-0 w-full h-full">
+                    <?php the_post_thumbnail('full', ['class' => 'w-full h-full object-cover']); ?>
+                    <div class="absolute inset-0 bg-gradient-to-b from-black/60 to-black/90"></div>
+                </div>
+                <?php endif; ?>
 
                 <!-- Main Content -->
                 <div class="relative container mx-auto px-8 pt-12 pb-8">
+                    <a href="<?php echo get_post_type_archive_link('podcast'); ?>" class="inline-flex items-center text-white/90 hover:text-white mb-6 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                        </svg>
+                        Volver a Podcast
+                    </a>
                     <div class="flex flex-col lg:flex-row gap-8 items-start">
-                        <!-- Featured Image -->
+                        <!-- Featured Image (Small) -->
                         <?php if (has_post_thumbnail()) : ?>
-                            <div class="w-64 h-64 lg:w-[320px] lg:h-[320px] flex-shrink-0 rounded-md overflow-hidden shadow-2xl">
+                            <div class="w-64 h-64 lg:w-[320px] lg:h-[320px] flex-shrink-0 rounded-xl overflow-hidden shadow-2xl">
                                 <?php the_post_thumbnail('full', ['class' => 'w-full h-full object-cover']); ?>
                             </div>
                         <?php endif; ?>
 
                         <!-- Episode Info -->
                         <div class="flex-1 pt-4">
-                            <div class="text-sm font-medium text-white/60 mb-2">Episodio de Podcast</div>
+                            <div class="text-sm font-medium text-white/80 mb-2">
+                                <?php 
+                                if ($episode_number || $episode_season) {
+                                    if ($episode_season) {
+                                        printf('Temporada %d', $episode_season);
+                                        if ($episode_number) echo ' • ';
+                                    }
+                                    if ($episode_number) {
+                                        printf('Episodio %d', $episode_number);
+                                    }
+                                } else {
+                                    echo 'Episodio de Podcast';
+                                }
+                                ?>
+                            </div>
                             <h1 class="text-5xl font-bold mb-6 text-white">
                                 <?php the_title(); ?>
                             </h1>
 
-                            <?php if (get_field('episode_excerpt') || has_excerpt()) : ?>
-                            <p class="text-lg text-white/80 line-clamp-2 mb-6">
-                                <?php echo get_field('episode_excerpt') ?: get_the_excerpt(); ?>
+                            <?php if ($episode_excerpt || has_excerpt()) : ?>
+                            <p class="text-lg text-white/90 line-clamp-2 mb-6">
+                                <?php echo $episode_excerpt ?: get_the_excerpt(); ?>
                             </p>
                             <?php endif; ?>
 
-                            <div class="flex items-center gap-6 text-white/60 text-sm mb-8">
+                            <div class="flex items-center gap-6 text-white/80 text-sm mb-8">
                                 <div class="flex items-center gap-2">
                                     <img class="w-8 h-8 rounded-full" src="<?php echo get_avatar_url(get_the_author_meta('ID'), ['size' => 96]); ?>" alt="">
                                     <span><?php the_author(); ?></span>
@@ -47,23 +81,28 @@ get_header();
                                 <time datetime="<?php echo get_the_date('c'); ?>">
                                     <?php echo get_the_date(); ?>
                                 </time>
-                                <?php if (get_field('episode_duration')) : ?>
+                                <?php if ($episode_duration) : ?>
                                 <div class="flex items-center gap-1">
                                     <i class="fa-regular fa-clock"></i>
-                                    <span><?php echo get_field('episode_duration'); ?></span>
+                                    <span><?php echo esc_html($episode_duration); ?></span>
                                 </div>
                                 <?php endif; ?>
                             </div>
 
                             <!-- Player Controls -->
+                            <?php if ($episode_audio) : ?>
                             <div class="flex items-center gap-4">
-                                <button class="w-14 h-14 flex items-center justify-center bg-[#1DB954] hover:bg-[#1ed760] rounded-full text-black transition-all">
+                                <button class="w-14 h-14 flex items-center justify-center bg-purple-600 hover:bg-purple-700 rounded-full text-white transition-all" 
+                                        onclick="document.getElementById('podcast-audio').play()"
+                                        aria-label="Reproducir audio">
                                     <i class="fa-solid fa-play text-2xl"></i>
                                 </button>
-                                <audio controls class="flex-1 h-12">
-                                    <source src="<?php echo esc_url(get_field('episode_audio') ?: 'https://ejemplo.com/podcast-demo.mp3'); ?>" type="audio/mpeg">
+                                <audio id="podcast-audio" controls class="flex-1 h-12">
+                                    <source src="<?php echo esc_url($episode_audio); ?>" type="audio/mpeg">
+                                    Tu navegador no soporta el elemento de audio.
                                 </audio>
                             </div>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
@@ -72,112 +111,93 @@ get_header();
             <!-- Content Sections -->
             <div class="container mx-auto px-8 py-12">
                 <!-- Listen on Other Platforms -->
+                <?php if ($platforms) : ?>
                 <div class="mb-16">
-                    <h2 class="text-2xl font-bold mb-8">Escuchar en otras plataformas</h2>
+                    <h2 class="text-2xl font-bold mb-8 text-gray-900">Escuchar en otras plataformas</h2>
                     <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                        <a href="#spotify" class="group bg-[#282828] hover:bg-[#323232] p-4 rounded-lg transition-all">
+                        <?php if (!empty($platforms['spotify_url'])) : ?>
+                        <a href="<?php echo esc_url($platforms['spotify_url']); ?>" target="_blank" rel="noopener noreferrer" class="group bg-white hover:bg-gray-50 p-4 rounded-xl shadow-sm hover:shadow-md transition-all">
                             <div class="flex items-center gap-4">
                                 <i class="fa-brands fa-spotify text-3xl text-[#1DB954]"></i>
-                                <span class="font-medium">Spotify</span>
+                                <span class="font-medium text-gray-900">Spotify</span>
                             </div>
                         </a>
-                        <a href="#apple" class="group bg-[#282828] hover:bg-[#323232] p-4 rounded-lg transition-all">
+                        <?php endif; ?>
+                        
+                        <?php if (!empty($platforms['apple_podcasts_url'])) : ?>
+                        <a href="<?php echo esc_url($platforms['apple_podcasts_url']); ?>" target="_blank" rel="noopener noreferrer" class="group bg-white hover:bg-gray-50 p-4 rounded-xl shadow-sm hover:shadow-md transition-all">
                             <div class="flex items-center gap-4">
-                                <i class="fa-brands fa-apple text-3xl"></i>
-                                <span class="font-medium">Apple</span>
+                                <i class="fa-brands fa-apple text-3xl text-gray-900"></i>
+                                <span class="font-medium text-gray-900">Apple</span>
                             </div>
                         </a>
-                        <a href="#overcast" class="group bg-[#282828] hover:bg-[#323232] p-4 rounded-lg transition-all">
+                        <?php endif; ?>
+                        
+                        <?php if (!empty($platforms['overcast_url'])) : ?>
+                        <a href="<?php echo esc_url($platforms['overcast_url']); ?>" target="_blank" rel="noopener noreferrer" class="group bg-white hover:bg-gray-50 p-4 rounded-xl shadow-sm hover:shadow-md transition-all">
                             <div class="flex items-center gap-4">
                                 <i class="fa-solid fa-broadcast-tower text-3xl text-[#FC7E0F]"></i>
-                                <span class="font-medium">Overcast</span>
+                                <span class="font-medium text-gray-900">Overcast</span>
                             </div>
                         </a>
-                        <a href="#rss" class="group bg-[#282828] hover:bg-[#323232] p-4 rounded-lg transition-all">
+                        <?php endif; ?>
+                        
+                        <?php if (!empty($platforms['rss_url'])) : ?>
+                        <a href="<?php echo esc_url($platforms['rss_url']); ?>" target="_blank" rel="noopener noreferrer" class="group bg-white hover:bg-gray-50 p-4 rounded-xl shadow-sm hover:shadow-md transition-all">
                             <div class="flex items-center gap-4">
                                 <i class="fa-solid fa-rss text-3xl text-[#FFA500]"></i>
-                                <span class="font-medium">RSS</span>
+                                <span class="font-medium text-gray-900">RSS</span>
                             </div>
                         </a>
-                    </div>
-                </div>
-
-                <!-- Episode Description -->
-                <div class="mb-16">
-                    <h2 class="text-2xl font-bold mb-8">Acerca de este episodio</h2>
-                    <div class="bg-[#282828] rounded-lg p-8">
-                        <div class="prose prose-invert max-w-none">
-                            <?php the_content(); ?>
-                            
-                            <?php if (!get_the_content()) : ?>
-                            <p>En este episodio fascinante, exploramos las últimas tendencias en tecnología digital y su impacto en la sociedad moderna. Nuestro invitado especial, Dr. María González, experta en transformación digital, comparte sus perspectivas sobre el futuro del trabajo y la educación en la era post-pandémica.</p>
-                            
-                            <h3 class="text-xl font-semibold mt-8 mb-4">Temas Destacados:</h3>
-                            <ul class="list-disc pl-6 space-y-3 text-white/80">
-                                <li>Transformación digital en América Latina</li>
-                                <li>Nuevas metodologías de trabajo remoto</li>
-                                <li>Herramientas esenciales para la productividad</li>
-                                <li>El futuro de la educación virtual</li>
-                            </ul>
-                            <?php endif; ?>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tags and Categories -->
-                <?php if (get_the_category() || get_the_tags()) : ?>
-                <div class="mb-16">
-                    <h2 class="text-2xl font-bold mb-8">Temas relacionados</h2>
-                    <div class="flex flex-wrap gap-3">
-                        <?php
-                        $categories = get_the_category();
-                        foreach ($categories as $category) : ?>
-                            <a href="<?php echo esc_url(get_category_link($category->term_id)); ?>" 
-                               class="px-4 py-2 rounded-full bg-[#282828] hover:bg-[#323232] text-sm font-medium transition-all">
-                                <?php echo esc_html($category->name); ?>
-                            </a>
-                        <?php endforeach; ?>
-                        
-                        <?php
-                        $tags = get_the_tags();
-                        if ($tags) : foreach ($tags as $tag) : ?>
-                            <a href="<?php echo esc_url(get_tag_link($tag->term_id)); ?>" 
-                               class="px-4 py-2 rounded-full bg-[#282828] hover:bg-[#323232] text-sm font-medium transition-all">
-                                <?php echo esc_html($tag->name); ?>
-                            </a>
-                        <?php endforeach; endif; ?>
+                        <?php endif; ?>
                     </div>
                 </div>
                 <?php endif; ?>
 
-                <!-- Episode Navigation -->
-                <?php
-                $prev_post = get_previous_post();
-                $next_post = get_next_post();
-                if ($prev_post || $next_post) :
-                ?>
-                <div>
-                    <h2 class="text-2xl font-bold mb-8">Más episodios</h2>
-                    <div class="grid sm:grid-cols-2 gap-6">
-                        <?php if ($prev_post) : ?>
-                        <a href="<?php echo esc_url(get_permalink($prev_post)); ?>" 
-                           class="group bg-[#282828] hover:bg-[#323232] p-6 rounded-lg transition-all">
-                            <div class="text-sm text-white/60 mb-2">Episodio anterior</div>
-                            <h3 class="font-bold group-hover:text-[#1DB954] transition-colors">
-                                <?php echo get_the_title($prev_post); ?>
-                            </h3>
-                        </a>
-                        <?php endif; ?>
-                        
-                        <?php if ($next_post) : ?>
-                        <a href="<?php echo esc_url(get_permalink($next_post)); ?>" 
-                           class="group bg-[#282828] hover:bg-[#323232] p-6 rounded-lg transition-all">
-                            <div class="text-sm text-white/60 mb-2">Siguiente episodio</div>
-                            <h3 class="font-bold group-hover:text-[#1DB954] transition-colors">
-                                <?php echo get_the_title($next_post); ?>
-                            </h3>
-                        </a>
-                        <?php endif; ?>
+                <!-- Episode Description -->
+                <div class="mb-16">
+                    <h2 class="text-2xl font-bold mb-8 text-gray-900">Sobre este episodio</h2>
+                    <div class="bg-white rounded-xl shadow-sm p-8">
+                        <div class="prose max-w-none">
+                            <?php the_content(); ?>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Episode Transcript -->
+                <?php if ($transcript) : ?>
+                <div class="mb-16">
+                    <h2 class="text-2xl font-bold mb-8 text-gray-900">Transcripción del episodio</h2>
+                    <div class="bg-white rounded-xl shadow-sm p-8">
+                        <div class="prose max-w-none">
+                            <?php echo wp_kses_post($transcript); ?>
+                        </div>
+                    </div>
+                </div>
+                <?php endif; ?>
+
+                <!-- Tags and Categories -->
+                <?php if (get_the_category() || get_the_tags()) : ?>
+                <div class="mb-16">
+                    <h2 class="text-2xl font-bold mb-8 text-gray-900">Temas relacionados</h2>
+                    <div class="flex flex-wrap gap-3">
+                        <?php
+                        $categories = get_the_category();
+                        foreach ($categories as $category) : ?>
+                            <a href="<?php echo esc_url(get_category_link($category->term_id)); ?>" class="px-3 py-1 bg-purple-50 hover:bg-purple-100 text-purple-700 rounded-full text-sm font-medium transition-colors">
+                                <?php echo esc_html($category->name); ?>
+                            </a>
+                        <?php endforeach; ?>
+
+                        <?php
+                        $tags = get_the_tags();
+                        if ($tags) :
+                            foreach ($tags as $tag) : ?>
+                                <a href="<?php echo esc_url(get_tag_link($tag->term_id)); ?>" class="px-3 py-1 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-full text-sm font-medium transition-colors">
+                                    <?php echo esc_html($tag->name); ?>
+                                </a>
+                            <?php endforeach;
+                        endif; ?>
                     </div>
                 </div>
                 <?php endif; ?>
