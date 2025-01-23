@@ -12,7 +12,7 @@ get_header();
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
-    <div id="app" class="container">
+    <div id="app" class="lg:container">
         <section class="overflow-hidden rounded-[0.5rem] border bg-background shadow">
             <!-- Mobile Toggle Button -->
             <button @click="toggleSidebar" class="md:hidden fixed right-4 top-1/2 -translate-y-1/2 z-50 bg-primary text-white rounded-full p-3 shadow-lg">
@@ -23,9 +23,9 @@ get_header();
 
             <div :class="['bg-background', {'grid lg:grid-cols-5': !isSidebarOpen}]">
                 <!-- Sidebar -->
-                <div :class="['pb-12 col-span-2 lg:col-span-1 transform transition-transform duration-300 ease-in-out md:transform-none', isSidebarOpen ? 'fixed inset-y-0 right-0 z-40 w-80 bg-background shadow-lg mt-[40px] md:mt-0' : 'hidden md:block']">
+                <div :class="['pb-12 col-span-2 lg:col-span-1 transform transition-transform duration-300 ease-in-out md:transform-none overflow-y-auto', isSidebarOpen ? 'fixed inset-y-0 right-0 z-[9999] w-80 bg-background shadow-lg md:mt-0' : 'hidden md:block']">
                     <!-- Close button for mobile -->
-                    <button v-if="isSidebarOpen" @click="toggleSidebar" class="md:hidden absolute top-4 right-4 p-2 text-gray-500 hover:text-gray-700">
+                    <button v-if="isSidebarOpen" @click="toggleSidebar" class="md:hidden fixed right-4 top-1/2 -translate-y-1/2 z-[9999] bg-primary text-white rounded-full p-3 shadow-lg">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                         </svg>
@@ -72,15 +72,15 @@ get_header();
 
                 <!-- Main Content -->
                 <div class="col-span-3 lg:col-span-4 lg:border-l">
-                    <div class="h-full px-4 py-6 lg:px-8">
+                    <div class="h-full px-0 py-6 lg:px-8">
                         <div v-if="!selectedPostType" class="text-center py-12">
                             <p class="text-lg text-gray-600">Selecciona de los filtros los contenidos para empezar a explorar la biblioteca</p>
                         </div>
 
                         <template v-else>
                             <!-- Tags (if available) -->
-                            <div v-if="hasPostTags" class="mb-6">
-                                <div class="inline-flex h-9 items-center justify-center rounded-lg bg-muted p-1 text-muted-foreground">
+                            <div v-if="hasPostTags" class="mb-6 px-4 lg:px-0">
+                                <div class="flex flex-wrap gap-1 rounded-lg bg-muted p-1 text-muted-foreground">
                                     <button v-for="term in postTags"
                                             :key="term.id"
                                             @click="selectTerm({term: term, taxonomy: tagTaxonomy})"
@@ -94,30 +94,50 @@ get_header();
                             </div>
 
                             <!-- Posts Grid -->
-                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
-                                <a v-for="post in posts" :key="post.id" 
-                                   :href="post.link"
-                                   class="group flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-all duration-200 hover:shadow-md hover:-translate-y-1">
-                                    <div class="aspect-w-16 aspect-h-9 relative overflow-hidden">
-                                        <img v-if="post.featured_media_url" :src="post.featured_media_url" 
-                                             :alt="post.title.rendered"
-                                             class="h-full w-full object-cover transition-transform duration-200 group-hover:scale-105">
-                                        <div v-else class="h-full w-full bg-gray-100 flex items-center justify-center">
-                                            <span class="text-gray-400">No image</span>
-                                        </div>
+                            <section class="py-8">
+                                <div class="lg:container">
+                                    <h1 class="mb-10 px-4 text-3xl font-semibold md:mb-8 md:text-4xl" v-if="selectedPostType">
+                                        {{ selectedPostType.name }}
+                                    </h1>
+                                    <div class="flex flex-col">
+                                        <hr class="border-t border-border" />
+                                        <template v-for="post in posts" :key="post.id">
+                                            <a :href="post.link" class="block group hover:bg-accent/5 transition-colors">
+                                                <div class="grid items-center gap-4 px-4 py-5 md:grid-cols-4">
+                                                    <div class="order-2 flex items-center gap-2 md:order-none">
+                                                        <span class="flex h-14 w-16 shrink-0 items-center justify-center rounded-md bg-muted">
+                                                            <img v-if="post.featured_media_url" :src="post.featured_media_url" 
+                                                                 :alt="post.title.rendered"
+                                                                 class="h-full w-full object-cover rounded-md">
+                                                            <svg v-else xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-muted-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                                            </svg>
+                                                        </span>
+                                                        <div class="flex flex-col gap-1">
+                                                            <h3 class="font-semibold">{{ selectedPostType.name }}</h3>
+                                                            <p class="text-sm text-muted-foreground">
+                                                                {{ new Date(post.date).toLocaleDateString() }}
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <p class="order-1 text-2xl font-semibold md:order-none md:col-span-2 group-hover:text-primary transition-colors" v-html="post.title.rendered">
+                                                    </p>
+                                                    <div class="order-3 ml-auto w-fit gap-2 md:order-none">
+                                                        <button @click.prevent 
+                                                                class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2">
+                                                            <span>Ver contenido</span>
+                                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                                            </svg>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <hr class="border-t border-border" />
+                                        </template>
                                     </div>
-                                    <div class="flex flex-col flex-grow p-4">
-                                        <h3 class="text-lg font-semibold text-gray-900 mb-2 group-hover:text-primary-600" v-html="post.title.rendered"></h3>
-                                        <div class="text-sm text-gray-600 mb-4 line-clamp-2" v-html="post.excerpt.rendered"></div>
-                                        <div class="mt-auto inline-flex items-center text-sm font-medium text-primary-600 group-hover:text-primary-700">
-                                            Leer más
-                                            <svg class="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
+                                </div>
+                            </section>
                         </template>
                     </div>
                 </div>
