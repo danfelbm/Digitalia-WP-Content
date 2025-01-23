@@ -763,7 +763,7 @@ function digitalia_register_descargas_post_type() {
         'label'                 => __( 'Descarga', 'digitalia' ),
         'labels'                => $labels,
         'supports'              => array( 'title', 'editor', 'thumbnail', 'excerpt' ),
-        'taxonomies'            => array( 'category' ), // Using regular post categories
+        'taxonomies'            => array( 'category', 'post_tag' ), // Using regular post categories and tags
         'hierarchical'          => false,
         'public'               => true,
         'show_ui'              => true,
