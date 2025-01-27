@@ -2,79 +2,53 @@
 /**
  * The template for displaying archive pages
  *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
  * @package digitalia
  */
 
 get_header();
 
-// Get current taxonomy and term
-$queried_object = get_queried_object();
-
-// Get post type
-$post_type = is_post_type_archive() ? $queried_object->name : 'post';
-
-// Get total number of posts for this archive
-$total_posts = 0;
+// Get current post type
+$current_post_type = get_post_type();
 if (is_post_type_archive()) {
-    $total_posts = wp_count_posts($post_type)->publish;
-} elseif (is_category() || is_tag() || is_tax()) {
-    $total_posts = $queried_object->count;
+    $current_post_type = get_queried_object()->name;
 }
 
-// Handle different archive types
-if (is_category()) {
-    $taxonomy = 'category';
-    $term = single_cat_title('', false);
-    $term_description = category_description();
-    $term_id = get_queried_object_id();
-} elseif (is_tag()) {
-    $taxonomy = 'post_tag';
-    $term = single_tag_title('', false);
-    $term_description = tag_description();
-    $term_id = get_queried_object_id();
-} else {
-    // Check if queried object is a taxonomy term
-    if (is_tax() && $queried_object instanceof WP_Term) {
-        $taxonomy = $queried_object->taxonomy;
-        $term = $queried_object->name;
-        $term_description = term_description();
-        $term_id = $queried_object->term_id;
-    } else {
-        // Default values for other archive types
-        $taxonomy = '';
-        $term = '';
-        $term_description = '';
-        $term_id = 0;
-    }
-}
+// Get total number of posts
+$total_posts = wp_count_posts($current_post_type)->publish;
 
-// Get categories and tags for the current post type
+// Get all categories and tags used in current post type
 $post_categories = get_categories(array(
     'taxonomy' => 'category',
-    'object_type' => array($post_type)
+    'object_type' => array($current_post_type)
 ));
 
 $post_tags = get_tags(array(
-    'object_type' => array($post_type)
+    'object_type' => array($current_post_type)
 ));
 
-// Get archive title
-$archive_title = '';
-if (is_category()) {
-    $archive_title = single_cat_title('', false);
-} elseif (is_tag()) {
-    $archive_title = single_tag_title('', false);
-} elseif (is_author()) {
-    $archive_title = get_the_author();
-} elseif (is_post_type_archive()) {
-    $archive_title = post_type_archive_title('', false);
-} elseif (is_tax()) {
-    $archive_title = single_term_title('', false);
-} else {
-    $archive_title = 'Archives';
-}
+// Get all post IDs for filtering (used by JavaScript)
+$all_posts_query = new WP_Query(array(
+    'post_type' => $current_post_type,
+    'posts_per_page' => -1,
+    'fields' => 'ids'
+));
+$all_post_ids = $all_posts_query->posts;
+wp_reset_postdata();
+
+// Query to get initial posts (20 per page)
+$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+$posts_per_page = 20;
+
+$posts_query = new WP_Query(array(
+    'post_type' => $current_post_type,
+    'posts_per_page' => $posts_per_page,
+    'paged' => $paged,
+    'orderby' => 'date',
+    'order' => 'DESC'
+));
+
+// Calculate total pages
+$total_pages = ceil($total_posts / $posts_per_page);
 ?>
 
 <main id="primary" class="site-main bg-gray-50 min-h-screen py-12">
@@ -86,21 +60,42 @@ if (is_category()) {
                 <div class="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-gray-50 to-transparent"></div>
             </div>
             <div class="max-w-3xl mx-auto pt-8 pb-12">
-                <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-4"><?php echo esc_html($archive_title); ?></h1>
+                <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
+                    <?php 
+                    if ($current_post_type === 'podcast') {
+                        echo 'Nuestro Podcast';
+                    } else {
+                        post_type_archive_title();
+                    }
+                    ?>
+                </h1>
+                <?php if ($current_post_type === 'producto') : ?>
+                    <p class="text-xl text-gray-600 mb-6">Plataforma de lanzamiento de productos realizados en talleres Co-Laboratorios producidos por organizaciones sociales y población diferencial. Estos productos representan el resultado tangible de nuestro compromiso con el empoderamiento digital y la construcción de paz mediática.</p>
+                <?php endif; ?>
                 <?php if ($total_posts > 0) : ?>
                     <p class="text-xl text-gray-600 mb-6">
                         <?php 
-                        $post_type_obj = get_post_type_object($post_type);
-                        $post_type_name = $post_type_obj ? strtolower($post_type_obj->labels->name) : 'entradas';
-                        printf(
-                            _n(
-                                'Mostrando %s ' . $post_type_name,
-                                'Mostrando %s ' . $post_type_name,
-                                $total_posts,
-                                'digitalia'
-                            ),
-                            number_format_i18n($total_posts)
-                        ); 
+                        if ($current_post_type === 'podcast') {
+                            printf(
+                                _n(
+                                    'Descubre nuestra colección de %s episodio',
+                                    'Descubre nuestra colección de %s episodios',
+                                    $total_posts,
+                                    'digitalia'
+                                ),
+                                number_format_i18n($total_posts)
+                            );
+                        } else {
+                            printf(
+                                _n(
+                                    'Descubre nuestra colección de %s entrada',
+                                    'Descubre nuestra colección de %s entradas',
+                                    $total_posts,
+                                    'digitalia'
+                                ),
+                                number_format_i18n($total_posts)
+                            );
+                        }
                         ?>
                     </p>
                 <?php endif; ?>
@@ -114,9 +109,8 @@ if (is_category()) {
             </div>
         </header>
 
-        <?php if (have_posts()) : ?>
+        <?php if ($posts_query->have_posts()) : ?>
             <!-- Filter Navigation -->
-            <?php if ($post_categories || $post_tags) : ?>
             <div class="mb-8">
                 <div class="bg-white rounded-xl shadow-sm p-6">
                     <div class="space-y-6">
@@ -166,13 +160,12 @@ if (is_category()) {
                     </div>
                 </div>
             </div>
-            <?php endif; ?>
 
             <!-- Posts Grid -->
-            <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3" id="posts-grid">
+            <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3" id="episodes-grid" data-total-pages="<?php echo esc_attr($total_pages); ?>" data-current-page="1">
                 <?php
-                while (have_posts()) :
-                    the_post();
+                while ($posts_query->have_posts()) :
+                    $posts_query->the_post();
                     // Get post terms
                     $post_categories = get_the_category();
                     $post_tags = get_the_tags();
@@ -188,16 +181,24 @@ if (is_category()) {
                             $term_ids[] = 'tag-' . $tag->term_id;
                         }
                     }
+                    
+                    // Get ACF fields only for podcast post type
+                    $is_podcast = get_post_type() === 'podcast';
+                    $episode_excerpt = $is_podcast ? get_field('episode_excerpt') : '';
+                    $episode_duration = $is_podcast ? get_field('episode_duration') : '';
+                    $episode_audio = $is_podcast ? get_field('episode_audio') : '';
+                    $episode_number = $is_podcast ? get_field('episode_number') : '';
+                    $episode_season = $is_podcast ? get_field('episode_season') : '';
                 ?>
-                    <article <?php post_class('post-item group bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden flex flex-col'); ?> data-terms="<?php echo esc_attr(implode(' ', $term_ids)); ?>">
-                        <!-- Post Thumbnail -->
+                    <article <?php post_class('podcast-episode group bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden flex flex-col'); ?> data-terms="<?php echo esc_attr(implode(' ', $term_ids)); ?>">
+                        <!-- Thumbnail -->
                         <?php if (has_post_thumbnail()) : ?>
-                            <a href="<?php the_permalink(); ?>" class="block aspect-video overflow-hidden bg-gray-100 relative">
+                            <a href="<?php the_permalink(); ?>" class="block aspect-[16/9] overflow-hidden bg-gray-100 relative">
                                 <?php the_post_thumbnail('medium_large', ['class' => 'w-full h-full object-cover group-hover:scale-105 transition-transform duration-300']); ?>
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                                 <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                     <span class="px-4 py-2 bg-white/90 text-gray-900 rounded-full text-sm font-medium">
-                                        Leer más
+                                        <?php echo $is_podcast ? 'Ver Episodio' : 'Ver Entrada'; ?>
                                     </span>
                                 </div>
                             </a>
@@ -205,8 +206,23 @@ if (is_category()) {
 
                         <!-- Post Info -->
                         <div class="flex-1 p-6">
+                            <!-- Episode Number (only for podcasts) -->
+                            <?php if ($is_podcast && ($episode_number || $episode_season)) : ?>
+                                <div class="text-sm font-medium text-purple-600 mb-2">
+                                    <?php
+                                    if ($episode_season) {
+                                        printf('Temporada %d', $episode_season);
+                                        if ($episode_number) echo ' • ';
+                                    }
+                                    if ($episode_number) {
+                                        printf('Episodio %d', $episode_number);
+                                    }
+                                    ?>
+                                </div>
+                            <?php endif; ?>
+
                             <!-- Title -->
-                            <h2 class="text-xl font-bold text-gray-900 mb-3 line-clamp-2 group-hover:text-purple-700 transition-colors">
+                            <h2 class="text-xl font-bold text-gray-900 mb-2 line-clamp-2 group-hover:text-purple-700 transition-colors">
                                 <a href="<?php the_permalink(); ?>">
                                     <?php the_title(); ?>
                                 </a>
@@ -218,28 +234,71 @@ if (is_category()) {
                                     <i class="fa-regular fa-calendar text-gray-400"></i>
                                     <?php echo get_the_date(); ?>
                                 </time>
-                                <?php if (get_the_author()) : ?>
+                                <?php if ($is_podcast && $episode_duration) : ?>
                                     <div class="flex items-center gap-1.5">
-                                        <i class="fa-regular fa-user text-gray-400"></i>
-                                        <?php the_author(); ?>
+                                        <i class="fa-regular fa-clock text-gray-400"></i>
+                                        <?php echo esc_html($episode_duration); ?>
                                     </div>
                                 <?php endif; ?>
                             </div>
 
-                            <!-- Excerpt -->
-                            <?php if (has_excerpt()) : ?>
-                                <p class="text-gray-600 line-clamp-2 mb-4"><?php echo get_the_excerpt(); ?></p>
-                            <?php endif; ?>
-
                             <!-- Categories -->
-                            <?php if ($post_categories) : ?>
-                                <div class="flex flex-wrap gap-2 mt-auto">
-                                    <?php foreach ($post_categories as $category) : ?>
+                            <?php
+                            $categories = get_the_category();
+                            if ($categories) : ?>
+                                <div class="flex flex-wrap gap-2 mb-2">
+                                    <?php foreach ($categories as $category) : ?>
                                         <a href="<?php echo esc_url(get_category_link($category->term_id)); ?>" 
-                                           class="text-xs font-medium text-purple-600 hover:text-purple-800 transition-colors">
-                                            #<?php echo esc_html($category->name); ?>
+                                           class="px-2 py-1 text-xs font-medium text-purple-700 bg-purple-50 rounded-full hover:bg-purple-100 transition-colors">
+                                            <?php echo esc_html($category->name); ?>
                                         </a>
                                     <?php endforeach; ?>
+                                </div>
+                            <?php endif; ?>
+
+                            <!-- Tags -->
+                            <?php
+                            $tags = get_the_tags();
+                            if ($tags) : ?>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <?php foreach ($tags as $tag) : ?>
+                                        <a href="<?php echo esc_url(get_tag_link($tag->term_id)); ?>" 
+                                           class="px-2 py-1 text-xs font-medium text-gray-600 bg-gray-50 rounded-full hover:bg-gray-100 transition-colors">
+                                            #<?php echo esc_html($tag->name); ?>
+                                        </a>
+                                    <?php endforeach; ?>
+                                </div>
+                            <?php endif; ?>
+
+                            <!-- Excerpt -->
+                            <?php if ($episode_excerpt || has_excerpt()) : ?>
+                                <p class="text-gray-600 mb-6 line-clamp-2">
+                                    <?php echo $episode_excerpt ?: get_the_excerpt(); ?>
+                                </p>
+                            <?php endif; ?>
+
+                            <!-- Audio Player (only for podcasts) -->
+                            <?php if ($is_podcast && $episode_audio) : ?>
+                                <div class="mt-auto pt-4">
+                                    <div class="flex items-center gap-3 bg-gray-50 p-3 rounded-xl">
+                                        <button 
+                                            onclick="togglePlay(this, '<?php echo get_the_ID(); ?>')"
+                                            class="w-10 h-10 flex items-center justify-center bg-purple-600 hover:bg-purple-700 rounded-full text-white transition-all"
+                                            data-playing="false"
+                                            aria-label="Reproducir audio"
+                                        >
+                                            <i class="fa-solid fa-play text-sm"></i>
+                                        </button>
+                                        <audio 
+                                            id="audio-<?php echo get_the_ID(); ?>"
+                                            class="flex-1 h-10 w-full"
+                                            controls
+                                            onplay="updateOtherPlayers(this.id)"
+                                        >
+                                            <source src="<?php echo esc_url($episode_audio); ?>" type="audio/mpeg">
+                                            Tu navegador no soporta el elemento de audio.
+                                        </audio>
+                                    </div>
                                 </div>
                             <?php endif; ?>
                         </div>
@@ -247,32 +306,30 @@ if (is_category()) {
                 <?php endwhile; ?>
             </div>
 
-            <!-- No Results Message (Hidden by default) -->
+            <!-- Loading Indicator -->
+            <div id="loading-indicator" class="hidden text-center py-8">
+                <div class="inline-block animate-spin rounded-full h-8 w-8 border-4 border-gray-200 border-t-purple-600"></div>
+            </div>
+
+            <!-- No Results Message -->
             <div id="no-results" class="hidden text-center py-12">
                 <div class="mb-4">
                     <i class="fa-regular fa-face-frown text-4xl text-gray-400"></i>
                 </div>
-                <h3 class="text-xl font-medium text-gray-900 mb-2">No se encontraron resultados</h3>
+                <h2 class="text-2xl font-bold text-gray-900 mb-2">No se encontraron entradas</h2>
                 <p class="text-gray-600">No hay entradas que coincidan con los filtros seleccionados.</p>
+                <button id="clear-filters" class="mt-4 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors">
+                    Limpiar filtros
+                </button>
             </div>
-
-            <?php
-            // Pagination
-            the_posts_pagination(array(
-                'mid_size' => 2,
-                'prev_text' => __('Anterior', 'digitalia'),
-                'next_text' => __('Siguiente', 'digitalia'),
-                'class' => 'mt-12'
-            ));
-            ?>
 
         <?php else : ?>
             <div class="text-center py-12">
                 <div class="mb-4">
                     <i class="fa-regular fa-face-frown text-4xl text-gray-400"></i>
                 </div>
-                <h3 class="text-xl font-medium text-gray-900 mb-2">No se encontraron entradas</h3>
-                <p class="text-gray-600">No hay contenido disponible en este momento.</p>
+                <h2 class="text-2xl font-bold text-gray-900 mb-2">No se encontraron entradas</h2>
+                <p class="text-gray-600">Parece que aún no hemos publicado ninguna entrada. ¡Vuelve pronto!</p>
             </div>
         <?php endif; ?>
     </div>
@@ -282,137 +339,258 @@ if (is_category()) {
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const filterButtons = document.querySelectorAll('.filter-btn');
-    const posts = document.querySelectorAll('.post-item');
+    const posts = document.querySelectorAll('.podcast-episode');
     const noResults = document.getElementById('no-results');
     const activeFilters = document.getElementById('active-filters');
     const activeFiltersList = document.getElementById('active-filters-list');
-    const postsGrid = document.getElementById('posts-grid');
+    const grid = document.getElementById('episodes-grid');
+    const loadingIndicator = document.getElementById('loading-indicator');
     
-    let activeCategories = new Set();
-    let activeTags = new Set();
+    let isLoading = false;
+    const currentPage = parseInt(grid.dataset.currentPage);
+    const totalPages = parseInt(grid.dataset.totalPages);
+    
+    // Store all post IDs and their terms for filtering
+    const allPostIds = <?php echo json_encode($all_post_ids); ?>;
+    const postTerms = new Map();
+    posts.forEach(post => {
+        postTerms.set(post.dataset.id, post.dataset.terms.split(' '));
+    });
 
-    // Style states for filter buttons
-    const buttonStates = {
-        active: 'bg-purple-100 text-purple-800 hover:bg-purple-200',
-        inactive: 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+    const activeTerms = {
+        category: new Set(),
+        tag: new Set()
     };
 
-    // Initialize button styles
-    filterButtons.forEach(button => {
-        button.classList.add(...buttonStates.inactive.split(' '));
-    });
+    // Lazy Load Function
+    async function loadMorePosts() {
+        if (isLoading || currentPage >= totalPages) return;
+        
+        isLoading = true;
+        loadingIndicator.classList.remove('hidden');
+        
+        const nextPage = currentPage + 1;
+        
+        try {
+            const response = await fetch(`${window.location.pathname}?paged=${nextPage}`, {
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            });
+            
+            if (!response.ok) throw new Error('Network response was not ok');
+            
+            const data = await response.text();
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = data;
+            
+            const newPosts = tempDiv.querySelectorAll('.podcast-episode');
+            newPosts.forEach(post => {
+                if (shouldShowPost(post.dataset.terms.split(' '))) {
+                    grid.appendChild(post);
+                    postTerms.set(post.dataset.id, post.dataset.terms.split(' '));
+                }
+            });
+            
+            grid.dataset.currentPage = nextPage;
+            
+        } catch (error) {
+            console.error('Error loading more posts:', error);
+        } finally {
+            isLoading = false;
+            loadingIndicator.classList.add('hidden');
+        }
+    }
+
+    // Intersection Observer for infinite scroll
+    const observer = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting && !isLoading) {
+            loadMorePosts();
+        }
+    }, { rootMargin: '100px' });
+
+    if (loadingIndicator) {
+        observer.observe(loadingIndicator);
+    }
+
+    function shouldShowPost(terms) {
+        if (!activeTerms.category.size && !activeTerms.tag.size) return true;
+
+        let showPost = true;
+
+        if (activeTerms.category.size > 0) {
+            const hasCategory = terms.some(term => 
+                term.startsWith('category-') && activeTerms.category.has(term.replace('category-', ''))
+            );
+            showPost = showPost && hasCategory;
+        }
+
+        if (activeTerms.tag.size > 0) {
+            const hasTag = terms.some(term => 
+                term.startsWith('tag-') && activeTerms.tag.has(term.replace('tag-', ''))
+            );
+            showPost = showPost && hasTag;
+        }
+
+        return showPost;
+    }
+
+    // Filter function
+    function filterPosts() {
+        let visibleCount = 0;
+        const hasActiveFilters = activeTerms.category.size > 0 || activeTerms.tag.size > 0;
+
+        posts.forEach(post => {
+            const terms = post.dataset.terms.split(' ');
+            const show = !hasActiveFilters || shouldShowPost(terms);
+            post.style.display = show ? '' : 'none';
+            if (show) visibleCount++;
+        });
+
+        // Show/hide no results message
+        noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+        
+        // Reset lazy loading
+        grid.dataset.currentPage = '1';
+        if (visibleCount > 0 && !isLoading) {
+            loadMorePosts();
+        }
+
+        // Update active filters display
+        updateActiveFilters();
+    }
 
     // Update active filters display
     function updateActiveFilters() {
-        const allActiveFilters = new Set([...activeCategories, ...activeTags]);
+        const hasActiveFilters = activeTerms.category.size > 0 || activeTerms.tag.size > 0;
+        activeFilters.classList.toggle('hidden', !hasActiveFilters);
         
-        if (allActiveFilters.size > 0) {
-            activeFilters.classList.remove('hidden');
+        if (hasActiveFilters) {
             activeFiltersList.innerHTML = '';
-            
-            allActiveFilters.forEach(filterId => {
-                const [type, id] = filterId.split('-');
-                const button = document.querySelector(`[data-type="${type}"][data-id="${id}"]`);
-                if (button) {
+            filterButtons.forEach(btn => {
+                if (activeTerms[btn.dataset.type].has(btn.dataset.id)) {
                     const filterTag = document.createElement('span');
-                    filterTag.className = 'inline-flex items-center gap-1 px-3 py-1 rounded-full text-sm font-medium bg-purple-100 text-purple-800';
+                    filterTag.className = 'px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm font-medium flex items-center gap-2';
                     filterTag.innerHTML = `
-                        ${button.textContent}
-                        <button class="remove-filter" data-type="${type}" data-id="${id}">
-                            <i class="fas fa-times"></i>
+                        ${btn.textContent.trim().split('(')[0].trim()}
+                        <button class="remove-filter" data-type="${btn.dataset.type}" data-id="${btn.dataset.id}">
+                            <i class="fa-solid fa-times"></i>
                         </button>
                     `;
                     activeFiltersList.appendChild(filterTag);
                 }
             });
-        } else {
-            activeFilters.classList.add('hidden');
         }
     }
 
-    // Filter posts based on active filters
-    function filterPosts() {
-        let visiblePosts = 0;
-        
-        posts.forEach(post => {
-            const postTerms = post.dataset.terms.split(' ');
-            const hasActiveFilters = activeCategories.size > 0 || activeTags.size > 0;
-            
-            if (!hasActiveFilters) {
-                post.style.display = '';
-                visiblePosts++;
-                return;
-            }
-            
-            const matchesCategories = activeCategories.size === 0 || 
-                [...activeCategories].some(category => postTerms.includes(category));
-            const matchesTags = activeTags.size === 0 || 
-                [...activeTags].some(tag => postTerms.includes(tag));
-            
-            if (matchesCategories && matchesTags) {
-                post.style.display = '';
-                visiblePosts++;
-            } else {
-                post.style.display = 'none';
-            }
-        });
-        
-        // Show/hide no results message
-        if (visiblePosts === 0) {
-            noResults.classList.remove('hidden');
-            postsGrid.classList.add('hidden');
-        } else {
-            noResults.classList.add('hidden');
-            postsGrid.classList.remove('hidden');
-        }
-    }
-
-    // Handle filter button clicks
+    // Click handler for filter buttons
     filterButtons.forEach(button => {
         button.addEventListener('click', function() {
             const type = this.dataset.type;
             const id = this.dataset.id;
-            const filterId = `${type}-${id}`;
-            const filterSet = type === 'category' ? activeCategories : activeTags;
-            
-            if (filterSet.has(filterId)) {
-                filterSet.delete(filterId);
-                this.classList.remove(...buttonStates.active.split(' '));
-                this.classList.add(...buttonStates.inactive.split(' '));
+
+            if (activeTerms[type].has(id)) {
+                activeTerms[type].delete(id);
+                setActiveStyle(this, false);
             } else {
-                filterSet.add(filterId);
-                this.classList.remove(...buttonStates.inactive.split(' '));
-                this.classList.add(...buttonStates.active.split(' '));
+                activeTerms[type].add(id);
+                setActiveStyle(this, true);
             }
-            
-            updateActiveFilters();
+
             filterPosts();
         });
     });
 
-    // Handle removing filters
-    document.addEventListener('click', function(e) {
-        if (e.target.closest('.remove-filter')) {
-            const button = e.target.closest('.remove-filter');
-            const type = button.dataset.type;
-            const id = button.dataset.id;
-            const filterId = `${type}-${id}`;
-            const filterSet = type === 'category' ? activeCategories : activeTags;
+    // Style functions
+    function setActiveStyle(button, active = false) {
+        if (active) {
+            button.classList.remove('bg-gray-100', 'text-gray-700', 'hover:bg-gray-200');
+            button.classList.add('bg-purple-100', 'text-purple-700', 'hover:bg-purple-200');
+        } else {
+            button.classList.remove('bg-purple-100', 'text-purple-700', 'hover:bg-purple-200');
+            button.classList.add('bg-gray-100', 'text-gray-700', 'hover:bg-gray-200');
+        }
+    }
+
+    // Initialize button styles
+    filterButtons.forEach(btn => setActiveStyle(btn, false));
+
+    // Click handler for removing active filters
+    activeFiltersList.addEventListener('click', function(e) {
+        const removeButton = e.target.closest('.remove-filter');
+        if (removeButton) {
+            const type = removeButton.dataset.type;
+            const id = removeButton.dataset.id;
             
-            filterSet.delete(filterId);
+            activeTerms[type].delete(id);
+            const filterBtn = document.querySelector(`.filter-btn[data-type="${type}"][data-id="${id}"]`);
+            if (filterBtn) setActiveStyle(filterBtn, false);
             
-            const filterButton = document.querySelector(`[data-type="${type}"][data-id="${id}"]`);
-            if (filterButton) {
-                filterButton.classList.remove(...buttonStates.active.split(' '));
-                filterButton.classList.add(...buttonStates.inactive.split(' '));
-            }
-            
-            updateActiveFilters();
             filterPosts();
         }
+    });
+
+    // Clear all filters
+    if (document.getElementById('clear-filters')) {
+        document.getElementById('clear-filters').addEventListener('click', function() {
+            activeTerms.category.clear();
+            activeTerms.tag.clear();
+            filterButtons.forEach(btn => setActiveStyle(btn, false));
+            filterPosts();
+        });
+    }
+});
+</script>
+
+<!-- Audio Player Scripts -->
+<script>
+function togglePlay(button, postId) {
+    const audio = document.getElementById(`audio-${postId}`);
+    const icon = button.querySelector('i');
+    
+    if (audio.paused) {
+        audio.play();
+        icon.classList.remove('fa-play');
+        icon.classList.add('fa-pause');
+        button.dataset.playing = 'true';
+        button.setAttribute('aria-label', 'Pausar audio');
+    } else {
+        audio.pause();
+        icon.classList.remove('fa-pause');
+        icon.classList.add('fa-play');
+        button.dataset.playing = 'false';
+        button.setAttribute('aria-label', 'Reproducir audio');
+    }
+}
+
+function updateOtherPlayers(currentId) {
+    // Pause all other audio players
+    document.querySelectorAll('audio').forEach(audio => {
+        if (audio.id !== currentId) {
+            audio.pause();
+            const button = audio.parentElement.querySelector('button');
+            const icon = button.querySelector('i');
+            icon.classList.remove('fa-pause');
+            icon.classList.add('fa-play');
+            button.dataset.playing = 'false';
+            button.setAttribute('aria-label', 'Reproducir audio');
+        }
+    });
+}
+
+// Update play button when audio ends
+document.querySelectorAll('audio').forEach(audio => {
+    audio.addEventListener('ended', () => {
+        const button = audio.parentElement.querySelector('button');
+        const icon = button.querySelector('i');
+        icon.classList.remove('fa-pause');
+        icon.classList.add('fa-play');
+        button.dataset.playing = 'false';
+        button.setAttribute('aria-label', 'Reproducir audio');
     });
 });
 </script>
 
 <?php
+wp_reset_postdata();
 get_footer();
