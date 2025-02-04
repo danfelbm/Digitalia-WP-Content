@@ -9,7 +9,7 @@
 
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '1.9.7' );
+	define( '_S_VERSION', '1.9.9' );
 }
 
 /**
@@ -1250,3 +1250,19 @@ require get_template_directory() . '/inc/custom-roles.php';
 
 // Include custom dashboards
 require_once get_template_directory() . '/inc/admin/custom-dashboards.php';
+
+// Adding Google Analytics snippet
+function add_gtag_script() {
+    ?>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PNW4J4SMCE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      
+      gtag('config', 'G-PNW4J4SMCE');
+    </script>
+    <?php
+}
+add_action('wp_head', 'add_gtag_script');
