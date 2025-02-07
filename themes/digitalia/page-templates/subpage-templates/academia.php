@@ -292,8 +292,12 @@ get_header();
                 if ($query->have_posts()) :
                     while ($query->have_posts()) : $query->the_post();
                         $tags = get_the_tags();
+                        $external_link_toggle = get_field('external_link_toggle');
+                        $external_url = get_field('external_url');
+                        $link_url = $external_link_toggle && $external_url ? $external_url : get_permalink();
+                        $target = $external_link_toggle && $external_url ? ' target="_blank" rel="noopener noreferrer"' : '';
                 ?>
-                    <a href="<?php the_permalink(); ?>" class="flex flex-col text-clip rounded-xl border border-border">
+                    <a href="<?php echo esc_url($link_url); ?>"<?php echo $target; ?> class="flex flex-col text-clip rounded-xl border border-border">
                         <div>
                             <?php if (has_post_thumbnail()) : ?>
                                 <?php the_post_thumbnail('full', array('class' => 'aspect-[16/9] size-full object-cover object-center')); ?>

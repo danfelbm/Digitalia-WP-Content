@@ -1,0 +1,30 @@
+FUNCIONES DEL PROGRAMA DIGITAL-IA
+
+1. PORTAL INFORMATIVO DIGITAL-IA
+El portal principal constituye la columna vertebral del programa, siendo una plataforma web responsiva y moderna que cumple con todos los estándares estatales de usabilidad y accesibilidad. Este sistema integral debe proporcionar una experiencia de usuario fluida y accesible, incorporando un sistema de gestión de contenidos robusto que permita la categorización eficiente de la información. La plataforma integrará tecnologías avanzadas de interacción, incluyendo un chatbot para atención inmediata, y un sistema completo de PQRS para la gestión de peticiones, quejas, reclamos y sugerencias.
+
+Funcionalidades principales:
+- Sistema de gestión de contenidos
+- Chatbot integrado
+- Sistema PQRS
+- Análisis de métricas y ciberseguridad
+- Integración con redes sociales
+
+2. MICROPORTALES TEMÁTICOS
+El ecosistema digital se complementa con cuatro microportales especializados, cada uno dedicado a un módulo específico del programa. Estos microportales funcionan como espacios digitales independientes pero interconectados, ofreciendo contenido especializado y funcionalidades adaptadas a las necesidades específicas de cada módulo: Academia, En-Línea, Total Transmedia, Co-Laboratorios y Ready. Cada microportal debe mantener su identidad visual única mientras conserva la coherencia con la imagen institucional del programa.
+
+Características esenciales:
+- Diseño gráfico personalizado
+- Bibliotecas multimedia
+- Mapas interactivos
+- Sistema de blogs
+- Acceso a microhistorias
+
+3. PLATAFORMA E-LEARNING (ACADEMÍA DIGITAL-IA)
+La plataforma de aprendizaje virtual representa el núcleo educativo del programa, estructurada bajo el modelo MOOC para garantizar accesibilidad y escalabilidad. Este sistema educativo digital está diseñado para albergar 30 categorías temáticas diferentes, facilitando el aprendizaje autodirigido en áreas críticas como alfabetización mediática, uso ético de la inteligencia artificial y competencias digitales avanzadas.
+
+4. SISTEMAS ADMINISTRATIVOS
+La gestión administrativa del programa se sustenta en un conjunto integrado de sistemas digitales que garantizan la eficiencia operativa y la calidad del servicio. Esto incluye la implementación de un sistema ERP para la gestión empresarial, un CRM para el manejo de relaciones con usuarios, y sistemas automatizados de interacción a través de chatbots y redes sociales.
+
+5. INFRAESTRUCTURA EN LA NUBE
+La infraestructura tecnológica del programa requiere un sistema de alojamiento web y almacenamiento en la nube que garantice una disponibilidad 24/7. Este sistema debe proporcionar el rendimiento y la escalabilidad necesarios para soportar todas las funcionalidades del programa, incluyendo la plataforma de autoformación y los microportales temáticos.

@@ -378,6 +378,30 @@ if (!function_exists('digitalia_register_academia_acf_fields')) {
                         'layout' => 'block',
                         'sub_fields' => array(
                             array(
+                                'key' => 'field_curso_external_link_toggle',
+                                'label' => 'Habilitar link externo',
+                                'name' => 'external_link_toggle',
+                                'type' => 'true_false',
+                                'ui' => 1,
+                                'ui_on_text' => 'Sí',
+                                'ui_off_text' => 'No',
+                            ),
+                            array(
+                                'key' => 'field_curso_external_url',
+                                'label' => 'URL Externa',
+                                'name' => 'external_url',
+                                'type' => 'url',
+                                'conditional_logic' => array(
+                                    array(
+                                        array(
+                                            'field' => 'field_curso_external_link_toggle',
+                                            'operator' => '==',
+                                            'value' => 1,
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            array(
                                 'key' => 'field_courses_title',
                                 'label' => 'Título',
                                 'name' => 'title',
