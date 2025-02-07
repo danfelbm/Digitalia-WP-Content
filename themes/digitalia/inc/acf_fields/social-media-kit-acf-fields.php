@@ -132,6 +132,28 @@ if (!function_exists('digitalia_register_social_media_kit_acf_fields')) {
                                         'rows' => 4,
                                         'default_value' => 'Descarga los recursos oficiales de la marca Digitalia, incluyendo logotipos, paleta de colores y guías de estilo para mantener una identidad visual consistente en tus comunicaciones.',
                                     ),
+                                    array(
+                                        'key' => 'field_brand_cta',
+                                        'label' => 'Botón CTA',
+                                        'name' => 'cta',
+                                        'type' => 'group',
+                                        'sub_fields' => array(
+                                            array(
+                                                'key' => 'field_brand_cta_text',
+                                                'label' => 'Texto del botón',
+                                                'name' => 'text',
+                                                'type' => 'text',
+                                                'default_value' => 'Descargar recursos',
+                                            ),
+                                            array(
+                                                'key' => 'field_brand_cta_url',
+                                                'label' => 'URL del botón',
+                                                'name' => 'url',
+                                                'type' => 'url',
+                                                'default_value' => '#',
+                                            ),
+                                        ),
+                                    ),
                                 ),
                             ),
                             // Social Templates Card
@@ -170,6 +192,28 @@ if (!function_exists('digitalia_register_social_media_kit_acf_fields')) {
                                         'type' => 'textarea',
                                         'rows' => 4,
                                         'default_value' => 'Accede a nuestro kit completo de plantillas y recursos para crear contenido atractivo en redes sociales alineado con la misión educomunicativa y de alfabetización mediática de Digitalia.',
+                                    ),
+                                    array(
+                                        'key' => 'field_social_cta',
+                                        'label' => 'Botón CTA',
+                                        'name' => 'cta',
+                                        'type' => 'group',
+                                        'sub_fields' => array(
+                                            array(
+                                                'key' => 'field_social_cta_text',
+                                                'label' => 'Texto del botón',
+                                                'name' => 'text',
+                                                'type' => 'text',
+                                                'default_value' => 'Acceder al kit',
+                                            ),
+                                            array(
+                                                'key' => 'field_social_cta_url',
+                                                'label' => 'URL del botón',
+                                                'name' => 'url',
+                                                'type' => 'url',
+                                                'default_value' => '#',
+                                            ),
+                                        ),
                                     ),
                                 ),
                             ),

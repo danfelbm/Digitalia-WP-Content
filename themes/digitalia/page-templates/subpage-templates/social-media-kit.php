@@ -41,6 +41,17 @@ get_header();
                     </div>
                     <div class="p-4 text-muted-foreground md:p-8">
                         <?php echo isset($brand['description']) ? $brand['description'] : 'Descarga los recursos oficiales de la marca Digitalia, incluyendo logotipos, paleta de colores y guías de estilo para mantener una identidad visual consistente en tus comunicaciones.'; ?>
+                        <?php if (isset($brand['cta'])) : ?>
+                            <div class="mt-6">
+                                <a href="<?php echo esc_url($brand['cta']['url']); ?>" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
+                                    <?php echo esc_html($brand['cta']['text']); ?>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right ml-2 size-4">
+                                        <path d="M5 12h14"></path>
+                                        <path d="m12 5 7 7-7 7"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        <?php endif; ?>
                     </div>
                 </div>
                 <div class="flex flex-col justify-between rounded-lg bg-accent">
@@ -55,6 +66,17 @@ get_header();
                     </div>
                     <div class="p-4 text-muted-foreground md:p-8">
                         <?php echo isset($social['description']) ? $social['description'] : 'Accede a nuestro kit completo de plantillas y recursos para crear contenido atractivo en redes sociales alineado con la misión educomunicativa y de alfabetización mediática de Digitalia.'; ?>
+                        <?php if (isset($social['cta'])) : ?>
+                            <div class="mt-6">
+                                <a href="<?php echo esc_url($social['cta']['url']); ?>" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
+                                    <?php echo esc_html($social['cta']['text']); ?>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right ml-2 size-4">
+                                        <path d="M5 12h14"></path>
+                                        <path d="m12 5 7 7-7 7"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
