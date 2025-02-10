@@ -448,25 +448,42 @@ add_action('admin_menu', 'digitalia_remove_menu_items', 999);
 // Modify admin bar for specific roles
 function digitalia_modify_admin_bar($wp_admin_bar) {
     if (!current_user_can('administrator')) {
+        // Remove unnecessary nodes
         $wp_admin_bar->remove_node('new-content');
         $wp_admin_bar->remove_node('comments');
         $wp_admin_bar->remove_node('customize');
         $wp_admin_bar->remove_node('edit');
         $wp_admin_bar->remove_node('themes');
         $wp_admin_bar->remove_node('view-site');
-        
-        // Keep profile menu but remove other user-related items
-        $wp_admin_bar->remove_node('user-info');
-        $wp_admin_bar->remove_node('user-actions');
         $wp_admin_bar->remove_node('users');
         
-        // Add back just the profile link
-        $user_id = get_current_user_id();
-        $profile_url = get_admin_url(null, 'profile.php');
+        // Get current user info
+        $current_user = wp_get_current_user();
+        $profile_url = get_edit_profile_url($current_user->ID);
+        
+        // Remove default user menu
+        $wp_admin_bar->remove_node('my-account');
+        
+        // Add custom user menu
         $wp_admin_bar->add_node(array(
-            'id' => 'edit-profile',
-            'title' => __('Profile'),
+            'id' => 'my-account',
+            'title' => sprintf('<span class="ab-item">%s</span>', esc_html($current_user->display_name)),
             'href' => $profile_url
+        ));
+        
+        // Add submenu items
+        $wp_admin_bar->add_node(array(
+            'parent' => 'my-account',
+            'id' => 'edit-profile',
+            'title' => __('Edit Profile'),
+            'href' => $profile_url
+        ));
+        
+        $wp_admin_bar->add_node(array(
+            'parent' => 'my-account',
+            'id' => 'logout',
+            'title' => __('Log Out'),
+            'href' => wp_logout_url()
         ));
     }
 }
@@ -521,3 +538,136 @@ function digitalia_map_meta_cap($caps, $cap, $user_id, $args) {
     return $caps;
 }
 add_filter('map_meta_cap', 'digitalia_map_meta_cap', 10, 4);
+
+/**
+ * Get post types that support categories
+ */
+function digitalia_get_category_supported_post_types() {
+    $post_types = get_post_types(['public' => true], 'objects');
+    $supported_types = [];
+
+    foreach ($post_types as $post_type) {
+        if (is_object_in_taxonomy($post_type->name, 'category')) {
+            $supported_types[] = $post_type->name;
+        }
+    }
+
+    return $supported_types;
+}
+
+// Restrict post categories based on user role
+function digitalia_restrict_post_categories($query) {
+    if (!is_admin() || !$query->is_main_query()) {
+        return;
+    }
+
+    $supported_types = digitalia_get_category_supported_post_types();
+    if (!in_array($query->get('post_type'), $supported_types)) {
+        return;
+    }
+
+    $current_user = wp_get_current_user();
+    $role_category_map = array(
+        'ready' => 'ready',
+        'total_transmedia' => 'total-transmedia',
+        'colaboratorio' => 'colaboratorios',
+        'en_linea' => 'en-linea'
+    );
+
+    foreach ($role_category_map as $role => $category_slug) {
+        if (in_array($role, (array) $current_user->roles)) {
+            $category = get_category_by_slug($category_slug);
+            if ($category) {
+                $query->set('cat', $category->term_id);
+            }
+            break;
+        }
+    }
+}
+add_action('pre_get_posts', 'digitalia_restrict_post_categories');
+
+// Restrict category selection in post editor
+function digitalia_restrict_category_selection() {
+    global $post_type;
+    
+    // Check if current post type supports categories
+    if (!is_object_in_taxonomy($post_type, 'category')) {
+        return;
+    }
+
+    $current_user = wp_get_current_user();
+    $role_category_map = array(
+        'ready' => 'ready',
+        'total_transmedia' => 'total-transmedia',
+        'colaboratorio' => 'colaboratorios',
+        'en_linea' => 'en-linea'
+    );
+
+    foreach ($role_category_map as $role => $category_slug) {
+        if (in_array($role, (array) $current_user->roles)) {
+            $category = get_category_by_slug($category_slug);
+            if ($category) {
+                ?>
+                <script type="text/javascript">
+                jQuery(document).ready(function($) {
+                    // Hide the category checklist
+                    $('#categorychecklist').find('input[type=checkbox]').each(function() {
+                        if ($(this).val() != <?php echo $category->term_id; ?>) {
+                            $(this).prop('disabled', true);
+                            $(this).prop('checked', false);
+                            $(this).parent().hide();
+                        } else {
+                            $(this).prop('checked', true);
+                            $(this).prop('disabled', true);
+                        }
+                    });
+                    
+                    // Hide the category tabs and add new category form
+                    $('#category-all, #category-pop, #category-tabs, #category-adder').hide();
+                });
+                </script>
+                <?php
+            }
+            break;
+        }
+    }
+}
+add_action('admin_footer-post.php', 'digitalia_restrict_category_selection');
+add_action('admin_footer-post-new.php', 'digitalia_restrict_category_selection');
+
+// Ensure posts are saved with correct category
+function digitalia_force_post_category($post_id) {
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+        return;
+    }
+
+    if (!current_user_can('edit_post', $post_id)) {
+        return;
+    }
+
+    $post_type = get_post_type($post_id);
+    
+    // Check if this post type supports categories
+    if (!is_object_in_taxonomy($post_type, 'category')) {
+        return;
+    }
+
+    $current_user = wp_get_current_user();
+    $role_category_map = array(
+        'ready' => 'ready',
+        'total_transmedia' => 'total-transmedia',
+        'colaboratorio' => 'colaboratorios',
+        'en_linea' => 'en-linea'
+    );
+
+    foreach ($role_category_map as $role => $category_slug) {
+        if (in_array($role, (array) $current_user->roles)) {
+            $category = get_category_by_slug($category_slug);
+            if ($category) {
+                wp_set_post_categories($post_id, array($category->term_id));
+            }
+            break;
+        }
+    }
+}
+add_action('save_post', 'digitalia_force_post_category');

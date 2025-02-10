@@ -16,19 +16,37 @@ require_once get_template_directory() . '/inc/admin/dashboard-colaboratorio.php'
 /**
  * Add Bootstrap and custom styles to admin head
  */
-function digitalia_admin_styles() {
+function digitalia_admin_styles($hook) {
     // Only add these styles on our custom dashboard pages
-    $screen = get_current_screen();
-    if (strpos($screen->id, 'dashboard') === false) {
+    $custom_dashboards = array(
+        'toplevel_page_en-linea-dashboard',
+        'toplevel_page_total-transmedia-dashboard',
+        'toplevel_page_ready-dashboard',
+        'toplevel_page_colaboratorio-dashboard'
+    );
+    
+    if (!in_array($hook, $custom_dashboards)) {
         return;
     }
-    ?>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
-    
-    <style>
+
+    // Enqueue Bootstrap CSS
+    wp_enqueue_style(
+        'bootstrap-admin',
+        'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css',
+        array(),
+        '5.3.2'
+    );
+
+    // Enqueue Bootstrap Icons
+    wp_enqueue_style(
+        'bootstrap-icons-admin',
+        'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css',
+        array(),
+        '1.11.1'
+    );
+
+    // Add custom inline styles
+    $custom_css = '
         .welcome-panel {
             padding: 2.5rem;
             margin: 1.5rem 0;
@@ -148,10 +166,11 @@ function digitalia_admin_styles() {
             background: #d4edda;
             color: #155724;
         }
-    </style>
-    <?php
+    ';
+    
+    wp_add_inline_style('bootstrap-admin', $custom_css);
 }
-add_action('admin_head', 'digitalia_admin_styles');
+add_action('admin_enqueue_scripts', 'digitalia_admin_styles');
 
 // Register custom dashboard pages
 function digitalia_register_custom_dashboards() {
