@@ -13,12 +13,16 @@ get_header();
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
     <div id="app" class="lg:container">
+        <div v-if="isLoading" class="fixed inset-0 bg-black/50 z-[9999] flex items-center justify-center">
+            <div class="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center justify-center gap-3 w-48">
+                <i class="fas fa-circle-notch text-3xl text-black animate-spin"></i>
+                <span class="text-black text-base font-medium">Cargando...</span>
+            </div>
+        </div>
         <section class="overflow-hidden rounded-[0.5rem] border bg-background shadow">
             <!-- Mobile Toggle Button -->
             <button @click="toggleSidebar" class="md:hidden fixed right-4 top-1/2 -translate-y-1/2 z-50 bg-primary text-white rounded-full p-3 shadow-lg">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-                </svg>
+                <i class="fas fa-bars h-6 w-6"></i>
             </button>
 
             <div :class="['bg-background', {'grid lg:grid-cols-5': !isSidebarOpen}]">
@@ -26,9 +30,7 @@ get_header();
                 <div :class="['pb-12 col-span-2 lg:col-span-1 transform transition-transform duration-300 ease-in-out md:transform-none overflow-y-auto', isSidebarOpen ? 'fixed inset-y-0 right-0 z-[9999] w-80 bg-background shadow-lg md:mt-0' : 'hidden md:block']">
                     <!-- Close button for mobile -->
                     <button v-if="isSidebarOpen" @click="toggleSidebar" class="md:hidden fixed right-4 top-1/2 -translate-y-1/2 z-[9999] bg-primary text-white rounded-full p-3 shadow-lg">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                        </svg>
+                        <i class="fas fa-times h-6 w-6"></i>
                     </button>
                     <!-- Reset Filters Button -->
                     <div class="px-3 py-2">
@@ -109,9 +111,7 @@ get_header();
                                                             <img v-if="post.featured_media_url" :src="post.featured_media_url" 
                                                                  :alt="post.title.rendered"
                                                                  class="h-full w-full object-cover rounded-md">
-                                                            <svg v-else xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-muted-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                                                            </svg>
+                                                            <i v-else class="fas fa-image h-6 w-6 text-muted-foreground"></i>
                                                         </span>
                                                         <div class="flex flex-col gap-1">
                                                             <h3 class="font-semibold">{{ selectedPostType.name }}</h3>
@@ -123,12 +123,10 @@ get_header();
                                                     <p class="order-1 text-2xl font-semibold md:order-none md:col-span-2 group-hover:text-primary transition-colors" v-html="post.title.rendered">
                                                     </p>
                                                     <div class="order-3 ml-auto w-fit gap-2 md:order-none">
-                                                        <button @click.prevent 
+                                                        <button @click="window.location.href = post.link" 
                                                                 class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2">
                                                             <span>Ver contenido</span>
-                                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                                                            </svg>
+                                                            <i class="fas fa-arrow-right ml-2 h-4 w-4"></i>
                                                         </button>
                                                     </div>
                                                 </div>
@@ -152,6 +150,7 @@ get_header();
 
         const app = createApp({
             setup() {
+                const isLoading = ref(false);
                 const postTypes = ref([]);
                 const taxonomies = ref([]);
                 const posts = ref([]);
@@ -399,6 +398,7 @@ get_header();
                 async function fetchPosts() {
                     if (!selectedPostType.value || !selectedPostType.value.rest_base) return;
 
+                    isLoading.value = true;
                     let url = `${wpApiUrl}/${selectedPostType.value.rest_base}?_embed`;
                     
                     // Add all selected terms to the query
@@ -426,6 +426,8 @@ get_header();
                     } catch (error) {
                         console.error('Error fetching posts:', error);
                         posts.value = [];
+                    } finally {
+                        isLoading.value = false;
                     }
                 }
 
@@ -437,6 +439,7 @@ get_header();
                 });
 
                 // Initial data fetch with improved URL parameter handling
+                isLoading.value = true;
                 Promise.all([
                     fetchPostTypes(),
                     fetchTaxonomies()
@@ -451,6 +454,8 @@ get_header();
                 }).catch(error => {
                     console.error('Error during initialization:', error);
                     isInitialLoad.value = false;
+                }).finally(() => {
+                    isLoading.value = false;
                 });
 
                 return {
@@ -466,7 +471,8 @@ get_header();
                     selectTerm,
                     resetFilters,
                     toggleSidebar,
-                    isSidebarOpen
+                    isSidebarOpen,
+                    isLoading
                 };
             }
         });

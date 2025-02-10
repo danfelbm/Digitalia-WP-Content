@@ -1,0 +1,6 @@
+[10-Feb-2025 02:23:45 UTC] PHP Deprecated:  str_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in phar:///usr/local/bin/wp/vendor/wp-cli/php-cli-tools/lib/cli/table/Ascii.php on line 141
+[10-Feb-2025 02:25:13 UTC] PHP Deprecated:  str_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in phar:///usr/local/bin/wp/vendor/wp-cli/php-cli-tools/lib/cli/table/Ascii.php on line 141
+[10-Feb-2025 02:26:00 UTC] PHP Deprecated:  str_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in phar:///usr/local/bin/wp/vendor/wp-cli/php-cli-tools/lib/cli/table/Ascii.php on line 141
+[10-Feb-2025 02:32:46 UTC] PHP Deprecated:  str_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in phar:///usr/local/bin/wp/vendor/wp-cli/php-cli-tools/lib/cli/table/Ascii.php on line 141
+[10-Feb-2025 02:39:14 UTC] PHP Deprecated:  str_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in phar:///usr/local/bin/wp/vendor/wp-cli/php-cli-tools/lib/cli/table/Ascii.php on line 141
+[10-Feb-2025 03:30:01 UTC] PHP Deprecated:  str_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in phar:///usr/local/bin/wp/vendor/wp-cli/php-cli-tools/lib/cli/table/Ascii.php on line 141

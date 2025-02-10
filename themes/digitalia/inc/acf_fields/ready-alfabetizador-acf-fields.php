@@ -240,3 +240,44 @@ if (!function_exists('digitalia_register_alfabetizador_acf_fields')) {
 }
 
 add_action('acf/init', 'digitalia_register_alfabetizador_acf_fields');
+
+// Add location data fields to ubicaciones taxonomy
+if (!function_exists('digitalia_register_ubicaciones_acf_fields')) {
+    function digitalia_register_ubicaciones_acf_fields() {
+        if (function_exists('acf_add_local_field_group')) {
+            acf_add_local_field_group(array(
+                'key' => 'group_ubicaciones_location',
+                'title' => 'Datos de Ubicación',
+                'fields' => array(
+                    array(
+                        'key' => 'field_location_data',
+                        'label' => 'Datos de Ubicación',
+                        'name' => 'location_data',
+                        'type' => 'google_map',
+                        'instructions' => 'Seleccione la ubicación exacta en el mapa',
+                        'required' => 1,
+                        'center_lat' => '4.6097100',  // Bogotá default
+                        'center_lng' => '-74.0817500',
+                        'zoom' => 5,
+                    ),
+                ),
+                'location' => array(
+                    array(
+                        array(
+                            'param' => 'taxonomy',
+                            'operator' => '==',
+                            'value' => 'ubicaciones',
+                        ),
+                    ),
+                ),
+                'position' => 'normal',
+                'style' => 'default',
+                'label_placement' => 'top',
+                'instruction_placement' => 'label',
+                'active' => true,
+            ));
+        }
+    }
+}
+
+add_action('acf/init', 'digitalia_register_ubicaciones_acf_fields');

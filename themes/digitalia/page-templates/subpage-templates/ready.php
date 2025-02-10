@@ -229,6 +229,48 @@ get_header();
             </table>
         </div>
     </div>
+    <!-- add map here -->
+    <div class="container mt-8">
+        <div class="map-container relative">
+            <div class="acf-map rounded-lg border border-teal-100 px-1 pt-1" data-zoom="5">
+                <?php
+                $args = array(
+                    'post_type' => 'alfabetizador',
+                    'posts_per_page' => -1,
+                );
+                $alfabetizadores = new WP_Query($args);
+                
+                if ($alfabetizadores->have_posts()) :
+                    while ($alfabetizadores->have_posts()) : $alfabetizadores->the_post();
+                        $ubicaciones = get_the_terms(get_the_ID(), 'ubicaciones');
+                        if ($ubicaciones && !is_wp_error($ubicaciones)) {
+                            foreach ($ubicaciones as $ubicacion) {
+                                // Get the location data (you'll need to add ACF fields for lat/lng to the ubicaciones taxonomy)
+                                $location_data = get_field('location_data', 'ubicaciones_' . $ubicacion->term_id);
+                                if ($location_data) {
+                                    ?>
+                                    <div class="marker" data-lat="<?php echo esc_attr($location_data['lat']); ?>" data-lng="<?php echo esc_attr($location_data['lng']); ?>">
+                                        <h3 class="font-bold text-lg mb-2"><?php the_title(); ?></h3>
+                                        <p class="mb-2"><?php echo esc_html(get_field('cargo')); ?></p>
+                                        <p class="mb-3"><em><?php echo esc_html($ubicacion->name); ?></em></p>
+                                        <a href="<?php the_permalink(); ?>" class="inline-flex items-center px-4 py-2 bg-teal-500 hover:bg-teal-600 text-white text-sm font-medium rounded-lg transition-colors duration-200">
+                                            Ver perfil
+                                            <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                    <?php
+                                }
+                            }
+                        }
+                    endwhile;
+                    wp_reset_postdata();
+                endif;
+                ?>
+            </div>
+        </div>
+    </div>
 </section>
 
 <script>

@@ -1,0 +1,5345 @@
+[2025-02-08 19:15:15] Digitalia Forms: Rendering shortcode with attributes: Array
+(
+    [id] => 2
+)
+
+[2025-02-08 19:15:15] Digitalia Forms: Found form: stdClass Object
+(
+    [id] => 2
+    [title] => Suscripciones 2
+    [description] => 
+    [status] => published
+    [created_at] => 2025-02-08 12:29:16
+    [updated_at] => 2025-02-08 12:29:16
+)
+
+[2025-02-08 19:15:15] Digitalia Forms - SQL: SELECT * FROM wp_digitalia_forms_fields WHERE form_id = 2 ORDER BY `order` ASC
+[2025-02-08 19:15:15] Digitalia Forms - Fields loaded from database:
+[2025-02-08 19:15:15] Field 5:
+                Label: Nombre2
+                Type: text
+                Required: true
+                Options: []
+[2025-02-08 19:15:15] Digitalia Forms: Found fields: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 5
+            [form_id] => 2
+            [label] => Nombre2
+            [name] => field_0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 12:29:53
+        )
+
+)
+
+[2025-02-08 19:15:15] Digitalia Forms: Generated output length: 874
+[2025-02-08 19:17:48] Digitalia Forms: Rendering shortcode with attributes: Array
+(
+    [id] => 2
+)
+
+[2025-02-08 19:17:48] Digitalia Forms: Found form: stdClass Object
+(
+    [id] => 2
+    [title] => Suscripciones 2
+    [description] => 
+    [status] => published
+    [created_at] => 2025-02-08 12:29:16
+    [updated_at] => 2025-02-08 12:29:16
+)
+
+[2025-02-08 19:17:48] Digitalia Forms - SQL: SELECT * FROM wp_digitalia_forms_fields WHERE form_id = 2 ORDER BY `order` ASC
+[2025-02-08 19:17:48] Digitalia Forms - Fields loaded from database:
+[2025-02-08 19:17:48] Field 5:
+                Label: Nombre2
+                Type: text
+                Required: true
+                Options: []
+[2025-02-08 19:17:48] Digitalia Forms: Found fields: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 5
+            [form_id] => 2
+            [label] => Nombre2
+            [name] => field_0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 12:29:53
+        )
+
+)
+
+[2025-02-08 19:17:48] Digitalia Forms: Generated output length: 874
+[2025-02-08 19:17:50] ==================== FORM SUBMISSION START ====================
+[2025-02-08 19:17:50] Digitalia Forms - Form submission started
+[2025-02-08 19:17:50] POST data: Array
+(
+    [form_id] => 2
+    [fields] => Array
+        (
+            [field_0] => danil2
+        )
+
+    [action] => digitalia_forms_submit
+    [nonce] => 8fae02cf8a
+)
+
+[2025-02-08 19:17:50] Digitalia Forms - Form query: SELECT * FROM wp_digitalia_forms WHERE id = 2
+[2025-02-08 19:17:50] Digitalia Forms - Form data: stdClass Object
+(
+    [id] => 2
+    [title] => Suscripciones 2
+    [description] => 
+    [status] => published
+    [created_at] => 2025-02-08 12:29:16
+    [updated_at] => 2025-02-08 12:29:16
+)
+
+[2025-02-08 19:17:50] Digitalia Forms - Fields query: SELECT * FROM wp_digitalia_forms_fields WHERE form_id = 2 ORDER BY `order` ASC
+[2025-02-08 19:17:50] Digitalia Forms - Fields data: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 5
+            [form_id] => 2
+            [label] => Nombre2
+            [name] => field_0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 12:29:53
+        )
+
+)
+
+[2025-02-08 19:17:50] ==================== VALIDATION START ====================
+[2025-02-08 19:17:50] Digitalia Forms - Raw POST data: Array
+(
+    [form_id] => 2
+    [fields] => Array
+        (
+            [field_0] => danil2
+        )
+
+    [action] => digitalia_forms_submit
+    [nonce] => 8fae02cf8a
+)
+
+[2025-02-08 19:17:50] Digitalia Forms - Fields array: Array
+(
+    [field_0] => danil2
+)
+
+[2025-02-08 19:17:50] Digitalia Forms - DB Fields: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 5
+            [form_id] => 2
+            [label] => Nombre2
+            [name] => field_0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 12:29:53
+        )
+
+)
+
+[2025-02-08 19:17:50] ==================== VALIDATING FIELD 5 ====================
+[2025-02-08 19:17:50] Digitalia Forms - Field validation:
+                ID: 5
+                Name: field_0
+                Label: Nombre2
+                Required: true (raw: '1')
+                Raw Value: "danil2"
+                Is Empty: false
+                POST field exists: true
+                POST field keys: field_0
+[2025-02-08 19:17:50] Digitalia Forms - Field field_0 (Nombre2) validation passed:
+                    Required: true
+                    Empty: false
+                    Value: "danil2"
+[2025-02-08 19:17:50] ==================== VALIDATION END ====================
+[2025-02-08 19:18:51] Digitalia Forms: Rendering shortcode with attributes: Array
+(
+    [id] => 2
+)
+
+[2025-02-08 19:18:51] Digitalia Forms: Found form: stdClass Object
+(
+    [id] => 2
+    [title] => Suscripciones 2
+    [description] => 
+    [status] => published
+    [created_at] => 2025-02-08 12:29:16
+    [updated_at] => 2025-02-08 12:29:16
+)
+
+[2025-02-08 19:18:51] Digitalia Forms - SQL: SELECT * FROM wp_digitalia_forms_fields WHERE form_id = 2 ORDER BY `order` ASC
+[2025-02-08 19:18:51] Digitalia Forms - Fields loaded from database:
+[2025-02-08 19:18:51] Field 5:
+                Label: Nombre2
+                Type: text
+                Required: true
+                Options: []
+[2025-02-08 19:18:51] Digitalia Forms: Found fields: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 5
+            [form_id] => 2
+            [label] => Nombre2
+            [name] => field_0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 12:29:53
+        )
+
+)
+
+[2025-02-08 19:18:51] Digitalia Forms: Generated output length: 874
+[2025-02-08 19:18:54] ==================== FORM SUBMISSION START ====================
+[2025-02-08 19:18:54] Digitalia Forms - Form submission started
+[2025-02-08 19:18:54] POST data: Array
+(
+    [form_id] => 2
+    [fields] => Array
+        (
+            [field_0] => danil2sadasd
+        )
+
+    [action] => digitalia_forms_submit
+    [nonce] => 8fae02cf8a
+)
+
+[2025-02-08 19:18:54] Digitalia Forms - Form query: SELECT * FROM wp_digitalia_forms WHERE id = 2
+[2025-02-08 19:18:54] Digitalia Forms - Form data: stdClass Object
+(
+    [id] => 2
+    [title] => Suscripciones 2
+    [description] => 
+    [status] => published
+    [created_at] => 2025-02-08 12:29:16
+    [updated_at] => 2025-02-08 12:29:16
+)
+
+[2025-02-08 19:18:54] Digitalia Forms - Fields query: SELECT * FROM wp_digitalia_forms_fields WHERE form_id = 2 ORDER BY `order` ASC
+[2025-02-08 19:18:54] Digitalia Forms - Fields data: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 5
+            [form_id] => 2
+            [label] => Nombre2
+            [name] => field_0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 12:29:53
+        )
+
+)
+
+[2025-02-08 19:18:54] ==================== VALIDATION START ====================
+[2025-02-08 19:18:54] Digitalia Forms - Raw POST data: Array
+(
+    [form_id] => 2
+    [fields] => Array
+        (
+            [field_0] => danil2sadasd
+        )
+
+    [action] => digitalia_forms_submit
+    [nonce] => 8fae02cf8a
+)
+
+[2025-02-08 19:18:54] Digitalia Forms - Fields array: Array
+(
+    [field_0] => danil2sadasd
+)
+
+[2025-02-08 19:18:54] Digitalia Forms - DB Fields: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 5
+            [form_id] => 2
+            [label] => Nombre2
+            [name] => field_0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 12:29:53
+        )
+
+)
+
+[2025-02-08 19:18:54] ==================== VALIDATING FIELD 5 ====================
+[2025-02-08 19:18:54] Digitalia Forms - Field validation:
+                ID: 5
+                Name: field_0
+                Label: Nombre2
+                Required: true (raw: '1')
+                Raw Value: "danil2sadasd"
+                Is Empty: false
+                POST field exists: true
+                POST field keys: field_0
+[2025-02-08 19:18:54] Digitalia Forms - Field field_0 (Nombre2) validation passed:
+                    Required: true
+                    Empty: false
+                    Value: "danil2sadasd"
+[2025-02-08 19:18:54] ==================== VALIDATION END ====================
+[2025-02-08 19:29:49] ==================== FORM SUBMISSION START ====================
+[2025-02-08 19:29:49] Digitalia Forms - Form submission started
+[2025-02-08 19:29:49] POST data: Array
+(
+    [form_id] => 2
+    [fields] => Array
+        (
+            [field_0] => xsxs
+        )
+
+    [action] => digitalia_forms_submit
+    [nonce] => 8fae02cf8a
+)
+
+[2025-02-08 19:29:49] Digitalia Forms - Form query: SELECT * FROM wp_digitalia_forms WHERE id = 2
+[2025-02-08 19:29:49] Digitalia Forms - Form data: stdClass Object
+(
+    [id] => 2
+    [title] => Suscripciones 2
+    [description] => 
+    [status] => published
+    [created_at] => 2025-02-08 12:29:16
+    [updated_at] => 2025-02-08 12:29:16
+)
+
+[2025-02-08 19:29:49] Digitalia Forms - Fields query: SELECT * FROM wp_digitalia_forms_fields WHERE form_id = 2 ORDER BY `order` ASC
+[2025-02-08 19:29:49] Digitalia Forms - Fields data: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 5
+            [form_id] => 2
+            [label] => Nombre2
+            [name] => field_0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 12:29:53
+        )
+
+)
+
+[2025-02-08 19:29:49] ==================== VALIDATION START ====================
+[2025-02-08 19:29:49] Digitalia Forms - Raw POST data: Array
+(
+    [form_id] => 2
+    [fields] => Array
+        (
+            [field_0] => xsxs
+        )
+
+    [action] => digitalia_forms_submit
+    [nonce] => 8fae02cf8a
+)
+
+[2025-02-08 19:29:49] Digitalia Forms - Fields array: Array
+(
+    [field_0] => xsxs
+)
+
+[2025-02-08 19:29:49] Digitalia Forms - DB Fields: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 5
+            [form_id] => 2
+            [label] => Nombre2
+            [name] => field_0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 12:29:53
+        )
+
+)
+
+[2025-02-08 19:29:49] ==================== VALIDATING FIELD 5 ====================
+[2025-02-08 19:29:49] Digitalia Forms - Field validation:
+                ID: 5
+                Name: field_0
+                Label: Nombre2
+                Required: true (raw: '1')
+                Raw Value: "xsxs"
+                Is Empty: false
+                POST field exists: true
+                POST field keys: field_0
+[2025-02-08 19:29:49] Digitalia Forms - Field field_0 (Nombre2) validation passed:
+                    Required: true
+                    Empty: false
+                    Value: "xsxs"
+[2025-02-08 19:29:49] ==================== VALIDATION END ====================
+[2025-02-08 19:36:58] Digitalia Forms: Rendering shortcode with attributes: Array
+(
+    [id] => 2
+)
+
+[2025-02-08 19:36:58] Digitalia Forms: Found form: stdClass Object
+(
+    [id] => 2
+    [title] => Suscripciones 2
+    [description] => 
+    [status] => published
+    [created_at] => 2025-02-08 12:29:16
+    [updated_at] => 2025-02-08 12:29:16
+)
+
+[2025-02-08 19:36:58] Digitalia Forms - SQL: SELECT * FROM wp_digitalia_forms_fields WHERE form_id = 2 ORDER BY `order` ASC
+[2025-02-08 19:36:58] Digitalia Forms - Fields loaded from database:
+[2025-02-08 19:36:58] Field 5:
+                Label: Nombre2
+                Type: text
+                Required: true
+                Options: []
+[2025-02-08 19:36:58] Digitalia Forms: Found fields: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 5
+            [form_id] => 2
+            [label] => Nombre2
+            [name] => field_0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 12:29:53
+        )
+
+)
+
+[2025-02-08 19:36:58] Digitalia Forms: Generated output length: 874
+[2025-02-08 19:37:01] ==================== FORM SUBMISSION START ====================
+[2025-02-08 19:37:01] Digitalia Forms - Form submission started
+[2025-02-08 19:37:01] POST data: Array
+(
+    [form_id] => 2
+    [fields] => Array
+        (
+            [field_0] => test2
+        )
+
+    [action] => digitalia_forms_submit
+    [nonce] => 8fae02cf8a
+)
+
+[2025-02-08 19:37:01] Digitalia Forms - Form query: SELECT * FROM wp_digitalia_forms WHERE id = 2
+[2025-02-08 19:37:01] Digitalia Forms - Form data: stdClass Object
+(
+    [id] => 2
+    [title] => Suscripciones 2
+    [description] => 
+    [status] => published
+    [created_at] => 2025-02-08 12:29:16
+    [updated_at] => 2025-02-08 12:29:16
+)
+
+[2025-02-08 19:37:01] Digitalia Forms - Fields query: SELECT * FROM wp_digitalia_forms_fields WHERE form_id = 2 ORDER BY `order` ASC
+[2025-02-08 19:37:01] Digitalia Forms - Fields data: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 5
+            [form_id] => 2
+            [label] => Nombre2
+            [name] => field_0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 12:29:53
+        )
+
+)
+
+[2025-02-08 19:37:01] ==================== VALIDATION START ====================
+[2025-02-08 19:37:01] Digitalia Forms - Raw POST data: Array
+(
+    [form_id] => 2
+    [fields] => Array
+        (
+            [field_0] => test2
+        )
+
+    [action] => digitalia_forms_submit
+    [nonce] => 8fae02cf8a
+)
+
+[2025-02-08 19:37:01] Digitalia Forms - Fields array: Array
+(
+    [field_0] => test2
+)
+
+[2025-02-08 19:37:01] Digitalia Forms - DB Fields: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 5
+            [form_id] => 2
+            [label] => Nombre2
+            [name] => field_0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 12:29:53
+        )
+
+)
+
+[2025-02-08 19:37:01] ==================== VALIDATING FIELD 5 ====================
+[2025-02-08 19:37:01] Digitalia Forms - Field validation:
+                ID: 5
+                Name: field_0
+                Label: Nombre2
+                Required: true (raw: '1')
+                Raw Value: "test2"
+                Is Empty: false
+                POST field exists: true
+                POST field keys: field_0
+[2025-02-08 19:37:01] Digitalia Forms - Field field_0 (Nombre2) validation passed:
+                    Required: true
+                    Empty: false
+                    Value: "test2"
+[2025-02-08 19:37:01] ==================== VALIDATION END ====================
+[2025-02-08 19:37:01] Digitalia Forms - Submitted fields: Array
+(
+    [field_0] => test2
+)
+
+[2025-02-08 19:37:01] Digitalia Forms - Entry data to save: Array
+(
+    [fields] => Array
+        (
+            [field_0] => test2
+        )
+
+    [form_id] => 2
+    [submission_date] => 2025-02-08 19:37:01
+)
+
+[2025-02-08 19:37:36] Digitalia Forms: Rendering shortcode with attributes: Array
+(
+    [id] => 2
+)
+
+[2025-02-08 19:37:36] Digitalia Forms: Found form: stdClass Object
+(
+    [id] => 2
+    [title] => Suscripciones 2
+    [description] => 
+    [status] => published
+    [created_at] => 2025-02-08 12:29:16
+    [updated_at] => 2025-02-08 12:29:16
+)
+
+[2025-02-08 19:37:36] Digitalia Forms - SQL: SELECT * FROM wp_digitalia_forms_fields WHERE form_id = 2 ORDER BY `order` ASC
+[2025-02-08 19:37:36] Digitalia Forms - Fields loaded from database:
+[2025-02-08 19:37:36] Field 5:
+                Label: Nombre2
+                Type: text
+                Required: true
+                Options: []
+[2025-02-08 19:37:36] Digitalia Forms: Found fields: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 5
+            [form_id] => 2
+            [label] => Nombre2
+            [name] => field_0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 12:29:53
+        )
+
+)
+
+[2025-02-08 19:37:36] Digitalia Forms: Generated output length: 874
+[2025-02-08 19:37:45] ==================== FORM SUBMISSION START ====================
+[2025-02-08 19:37:45] Digitalia Forms - Form submission started
+[2025-02-08 19:37:45] POST data: Array
+(
+    [form_id] => 2
+    [fields] => Array
+        (
+            [field_0] => kjnkjn
+        )
+
+    [action] => digitalia_forms_submit
+    [nonce] => 8fae02cf8a
+)
+
+[2025-02-08 19:37:45] Digitalia Forms - Form query: SELECT * FROM wp_digitalia_forms WHERE id = 2
+[2025-02-08 19:37:45] Digitalia Forms - Form data: stdClass Object
+(
+    [id] => 2
+    [title] => Suscripciones 2
+    [description] => 
+    [status] => published
+    [created_at] => 2025-02-08 12:29:16
+    [updated_at] => 2025-02-08 12:29:16
+)
+
+[2025-02-08 19:37:45] Digitalia Forms - Fields query: SELECT * FROM wp_digitalia_forms_fields WHERE form_id = 2 ORDER BY `order` ASC
+[2025-02-08 19:37:45] Digitalia Forms - Fields data: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 5
+            [form_id] => 2
+            [label] => Nombre2
+            [name] => field_0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 12:29:53
+        )
+
+)
+
+[2025-02-08 19:37:45] ==================== VALIDATION START ====================
+[2025-02-08 19:37:45] Digitalia Forms - Raw POST data: Array
+(
+    [form_id] => 2
+    [fields] => Array
+        (
+            [field_0] => kjnkjn
+        )
+
+    [action] => digitalia_forms_submit
+    [nonce] => 8fae02cf8a
+)
+
+[2025-02-08 19:37:45] Digitalia Forms - Fields array: Array
+(
+    [field_0] => kjnkjn
+)
+
+[2025-02-08 19:37:45] Digitalia Forms - DB Fields: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 5
+            [form_id] => 2
+            [label] => Nombre2
+            [name] => field_0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 12:29:53
+        )
+
+)
+
+[2025-02-08 19:37:45] ==================== VALIDATING FIELD 5 ====================
+[2025-02-08 19:37:45] Digitalia Forms - Field validation:
+                ID: 5
+                Name: field_0
+                Label: Nombre2
+                Required: true (raw: '1')
+                Raw Value: "kjnkjn"
+                Is Empty: false
+                POST field exists: true
+                POST field keys: field_0
+[2025-02-08 19:37:45] Digitalia Forms - Field field_0 (Nombre2) validation passed:
+                    Required: true
+                    Empty: false
+                    Value: "kjnkjn"
+[2025-02-08 19:37:45] ==================== VALIDATION END ====================
+[2025-02-08 19:37:45] Digitalia Forms - Submitted fields: Array
+(
+    [field_0] => kjnkjn
+)
+
+[2025-02-08 19:37:45] Digitalia Forms - Entry data to save: Array
+(
+    [fields] => Array
+        (
+            [field_0] => kjnkjn
+        )
+
+    [form_id] => 2
+    [submission_date] => 2025-02-08 19:37:45
+)
+
+[2025-02-08 19:39:42] ==================== FORM SUBMISSION START ====================
+[2025-02-08 19:39:42] Digitalia Forms - Form submission started
+[2025-02-08 19:39:42] POST data: Array
+(
+    [digitalia_forms_nonce] => 8fae02cf8a
+    [_wp_http_referer] => /otro-test/
+    [form_id] => 2
+    [field_5] => daniel 2
+    [action] => digitalia_forms_submit
+    [nonce] => 8fae02cf8a
+)
+
+[2025-02-08 19:39:42] Digitalia Forms - Form query: SELECT * FROM wp_digitalia_forms WHERE id = 2
+[2025-02-08 19:39:42] Digitalia Forms - Form data: stdClass Object
+(
+    [id] => 2
+    [title] => Suscripciones 2
+    [description] => 
+    [status] => published
+    [created_at] => 2025-02-08 12:29:16
+    [updated_at] => 2025-02-08 12:29:16
+)
+
+[2025-02-08 19:39:42] Digitalia Forms - Fields query: SELECT * FROM wp_digitalia_forms_fields WHERE form_id = 2 ORDER BY `order` ASC
+[2025-02-08 19:39:42] Digitalia Forms - Fields data: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 5
+            [form_id] => 2
+            [label] => Nombre2
+            [name] => field_0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 12:29:53
+        )
+
+)
+
+[2025-02-08 19:39:42] ==================== VALIDATION START ====================
+[2025-02-08 19:39:42] Digitalia Forms - Raw POST data: Array
+(
+    [digitalia_forms_nonce] => 8fae02cf8a
+    [_wp_http_referer] => /otro-test/
+    [form_id] => 2
+    [field_5] => daniel 2
+    [action] => digitalia_forms_submit
+    [nonce] => 8fae02cf8a
+)
+
+[2025-02-08 19:39:42] Digitalia Forms - Fields array: Array
+(
+)
+
+[2025-02-08 19:39:42] Digitalia Forms - DB Fields: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 5
+            [form_id] => 2
+            [label] => Nombre2
+            [name] => field_0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 12:29:53
+        )
+
+)
+
+[2025-02-08 19:39:42] ==================== VALIDATING FIELD 5 ====================
+[2025-02-08 19:39:42] Digitalia Forms - Field validation:
+                ID: 5
+                Name: field_0
+                Label: Nombre2
+                Required: true (raw: '1')
+                Raw Value: ""
+                Is Empty: true
+                POST field exists: false
+                POST field keys: 
+[2025-02-08 19:39:42] Digitalia Forms - Field field_0 (Nombre2) failed validation:
+                    Required: true
+                    Empty: true
+                    Value: ""
+[2025-02-08 19:39:42] Digitalia Forms - Validation errors: Array
+(
+    [field_5] => El campo "Nombre2" es requerido.
+)
+
+[2025-02-08 19:40:34] Digitalia Forms: Rendering shortcode with attributes: Array
+(
+    [id] => 2
+)
+
+[2025-02-08 19:40:34] Digitalia Forms: Found form: stdClass Object
+(
+    [id] => 2
+    [title] => Suscripciones 2
+    [description] => 
+    [status] => published
+    [created_at] => 2025-02-08 12:29:16
+    [updated_at] => 2025-02-08 12:29:16
+)
+
+[2025-02-08 19:40:34] Digitalia Forms - SQL: SELECT * FROM wp_digitalia_forms_fields WHERE form_id = 2 ORDER BY `order` ASC
+[2025-02-08 19:40:34] Digitalia Forms - Fields loaded from database:
+[2025-02-08 19:40:34] Field 5:
+                Label: Nombre2
+                Type: text
+                Required: true
+                Options: []
+[2025-02-08 19:40:34] Digitalia Forms: Found fields: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 5
+            [form_id] => 2
+            [label] => Nombre2
+            [name] => field_0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 12:29:53
+        )
+
+)
+
+[2025-02-08 19:40:34] Digitalia Forms: Generated output length: 874
+[2025-02-08 19:40:36] ==================== FORM SUBMISSION START ====================
+[2025-02-08 19:40:36] Digitalia Forms - Form submission started
+[2025-02-08 19:40:36] POST data: Array
+(
+    [form_id] => 2
+    [fields] => Array
+        (
+            [field_0] => daniel2
+        )
+
+    [action] => digitalia_forms_submit
+    [nonce] => 8fae02cf8a
+)
+
+[2025-02-08 19:40:36] Digitalia Forms - Form query: SELECT * FROM wp_digitalia_forms WHERE id = 2
+[2025-02-08 19:40:36] Digitalia Forms - Form data: stdClass Object
+(
+    [id] => 2
+    [title] => Suscripciones 2
+    [description] => 
+    [status] => published
+    [created_at] => 2025-02-08 12:29:16
+    [updated_at] => 2025-02-08 12:29:16
+)
+
+[2025-02-08 19:40:36] Digitalia Forms - Fields query: SELECT * FROM wp_digitalia_forms_fields WHERE form_id = 2 ORDER BY `order` ASC
+[2025-02-08 19:40:36] Digitalia Forms - Fields data: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 5
+            [form_id] => 2
+            [label] => Nombre2
+            [name] => field_0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 12:29:53
+        )
+
+)
+
+[2025-02-08 19:40:36] ==================== VALIDATION START ====================
+[2025-02-08 19:40:36] Digitalia Forms - Raw POST data: Array
+(
+    [form_id] => 2
+    [fields] => Array
+        (
+            [field_0] => daniel2
+        )
+
+    [action] => digitalia_forms_submit
+    [nonce] => 8fae02cf8a
+)
+
+[2025-02-08 19:40:36] Digitalia Forms - Fields array: Array
+(
+    [field_0] => daniel2
+)
+
+[2025-02-08 19:40:36] Digitalia Forms - DB Fields: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 5
+            [form_id] => 2
+            [label] => Nombre2
+            [name] => field_0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 12:29:53
+        )
+
+)
+
+[2025-02-08 19:40:36] ==================== VALIDATING FIELD 5 ====================
+[2025-02-08 19:40:36] Digitalia Forms - Field validation:
+                ID: 5
+                Name: field_0
+                Label: Nombre2
+                Required: true (raw: '1')
+                Raw Value: "daniel2"
+                Is Empty: false
+                POST field exists: true
+                POST field keys: field_0
+[2025-02-08 19:40:36] Digitalia Forms - Field field_0 (Nombre2) validation passed:
+                    Required: true
+                    Empty: false
+                    Value: "daniel2"
+[2025-02-08 19:40:36] ==================== VALIDATION END ====================
+[2025-02-08 19:42:59] Digitalia Forms: Rendering shortcode with attributes: Array
+(
+    [id] => 2
+)
+
+[2025-02-08 19:42:59] Digitalia Forms: Found form: stdClass Object
+(
+    [id] => 2
+    [title] => Suscripciones 2
+    [description] => 
+    [status] => published
+    [created_at] => 2025-02-08 12:29:16
+    [updated_at] => 2025-02-08 12:29:16
+)
+
+[2025-02-08 19:42:59] Digitalia Forms - SQL: SELECT * FROM wp_digitalia_forms_fields WHERE form_id = 2 ORDER BY `order` ASC
+[2025-02-08 19:42:59] Digitalia Forms - Fields loaded from database:
+[2025-02-08 19:42:59] Field 5:
+                Label: Nombre2
+                Type: text
+                Required: true
+                Options: []
+[2025-02-08 19:42:59] Digitalia Forms: Found fields: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 5
+            [form_id] => 2
+            [label] => Nombre2
+            [name] => field_0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 12:29:53
+        )
+
+)
+
+[2025-02-08 19:42:59] Digitalia Forms: Generated output length: 874
+[2025-02-08 19:43:00] ==================== FORM SUBMISSION START ====================
+[2025-02-08 19:43:00] Digitalia Forms - Form submission started
+[2025-02-08 19:43:00] POST data: Array
+(
+    [form_id] => 2
+    [fields] => Array
+        (
+            [field_0] => asd
+        )
+
+    [action] => digitalia_forms_submit
+    [nonce] => 8fae02cf8a
+)
+
+[2025-02-08 19:43:00] Digitalia Forms - Form query: SELECT * FROM wp_digitalia_forms WHERE id = 2
+[2025-02-08 19:43:00] Digitalia Forms - Form data: stdClass Object
+(
+    [id] => 2
+    [title] => Suscripciones 2
+    [description] => 
+    [status] => published
+    [created_at] => 2025-02-08 12:29:16
+    [updated_at] => 2025-02-08 12:29:16
+)
+
+[2025-02-08 19:43:00] Digitalia Forms - Fields query: SELECT * FROM wp_digitalia_forms_fields WHERE form_id = 2 ORDER BY `order` ASC
+[2025-02-08 19:43:00] Digitalia Forms - Fields data: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 5
+            [form_id] => 2
+            [label] => Nombre2
+            [name] => field_0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 12:29:53
+        )
+
+)
+
+[2025-02-08 19:43:00] ==================== VALIDATION START ====================
+[2025-02-08 19:43:00] Digitalia Forms - Raw POST data: Array
+(
+    [form_id] => 2
+    [fields] => Array
+        (
+            [field_0] => asd
+        )
+
+    [action] => digitalia_forms_submit
+    [nonce] => 8fae02cf8a
+)
+
+[2025-02-08 19:43:00] Digitalia Forms - Fields array: Array
+(
+    [field_0] => asd
+)
+
+[2025-02-08 19:43:00] Digitalia Forms - DB Fields: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 5
+            [form_id] => 2
+            [label] => Nombre2
+            [name] => field_0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 12:29:53
+        )
+
+)
+
+[2025-02-08 19:43:00] ==================== VALIDATING FIELD 5 ====================
+[2025-02-08 19:43:00] Digitalia Forms - Field validation:
+                ID: 5
+                Name: field_0
+                Label: Nombre2
+                Required: true (raw: '1')
+                Raw Value: "asd"
+                Is Empty: false
+                POST field exists: true
+                POST field keys: field_0
+[2025-02-08 19:43:00] Digitalia Forms - Field field_0 (Nombre2) validation passed:
+                    Required: true
+                    Empty: false
+                    Value: "asd"
+[2025-02-08 19:43:00] ==================== VALIDATION END ====================
+[2025-02-08 21:21:37] Digitalia Forms: Starting form save
+[2025-02-08 21:21:37] Digitalia Forms: Form data: Array
+(
+    [title] => Suscripciones 2
+    [description] => 
+    [status] => published
+)
+
+[2025-02-08 21:21:37] Digitalia Forms: Update result: success
+[2025-02-08 21:21:37] Digitalia Forms: Starting field save for form 2
+[2025-02-08 21:21:37] Digitalia Forms: Saving field: Array
+(
+    [form_id] => 2
+    [label] => Nombre2
+    [type] => text
+    [name] => apellido
+    [required] => 1
+    [order] => 1
+)
+
+[2025-02-08 21:21:37] Digitalia Forms: Field save result: success
+[2025-02-08 21:21:37] Digitalia Forms: Saving field: Array
+(
+    [form_id] => 2
+    [label] => Apellido
+    [type] => text
+    [name] => field_1
+    [required] => 1
+    [order] => 2
+)
+
+[2025-02-08 21:21:37] Digitalia Forms: Field save result: success
+[2025-02-08 21:21:37] Digitalia Forms: Redirecting to: https://2wpdigitalia.test/wp-admin/admin.php?page=digitalia-forms&message=saved
+[2025-02-08 21:23:15] Digitalia Forms: Rendering shortcode with attributes: Array
+(
+    [id] => 2
+)
+
+[2025-02-08 21:23:15] Digitalia Forms: Found form: stdClass Object
+(
+    [id] => 2
+    [title] => Suscripciones 2
+    [description] => 
+    [status] => published
+    [created_at] => 2025-02-08 12:29:16
+    [updated_at] => 2025-02-08 12:29:16
+)
+
+[2025-02-08 21:23:15] Digitalia Forms - SQL: SELECT * FROM wp_digitalia_forms_fields WHERE form_id = 2 ORDER BY `order` ASC
+[2025-02-08 21:23:15] Digitalia Forms - Fields loaded from database:
+[2025-02-08 21:23:15] Field 6:
+                Label: Nombre2
+                Type: text
+                Required: true
+                Options: []
+[2025-02-08 21:23:15] Field 7:
+                Label: Apellido
+                Type: text
+                Required: true
+                Options: []
+[2025-02-08 21:23:15] Digitalia Forms: Found fields: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 6
+            [form_id] => 2
+            [label] => Nombre2
+            [name] => apellido
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 15:21:37
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 7
+            [form_id] => 2
+            [label] => Apellido
+            [name] => field_1
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 2
+            [created_at] => 2025-02-08 15:21:37
+        )
+
+)
+
+[2025-02-08 21:23:15] Digitalia Forms: Generated output length: 1359
+[2025-02-08 21:23:20] ==================== FORM SUBMISSION START ====================
+[2025-02-08 21:23:20] Digitalia Forms - Form submission started
+[2025-02-08 21:23:20] POST data: Array
+(
+    [form_id] => 2
+    [fields] => Array
+        (
+            [field_6] => asfa
+            [field_7] => gdfgdf
+        )
+
+    [action] => digitalia_forms_submit
+    [nonce] => 8fae02cf8a
+)
+
+[2025-02-08 21:23:20] Digitalia Forms - Form query: SELECT * FROM wp_digitalia_forms WHERE id = 2
+[2025-02-08 21:23:20] Digitalia Forms - Form data: stdClass Object
+(
+    [id] => 2
+    [title] => Suscripciones 2
+    [description] => 
+    [status] => published
+    [created_at] => 2025-02-08 12:29:16
+    [updated_at] => 2025-02-08 12:29:16
+)
+
+[2025-02-08 21:23:20] Digitalia Forms - Fields query: SELECT * FROM wp_digitalia_forms_fields WHERE form_id = 2 ORDER BY `order` ASC
+[2025-02-08 21:23:20] Digitalia Forms - Fields data: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 6
+            [form_id] => 2
+            [label] => Nombre2
+            [name] => apellido
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 15:21:37
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 7
+            [form_id] => 2
+            [label] => Apellido
+            [name] => field_1
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 2
+            [created_at] => 2025-02-08 15:21:37
+        )
+
+)
+
+[2025-02-08 21:23:20] ==================== VALIDATION START ====================
+[2025-02-08 21:23:20] Digitalia Forms - Raw POST data: Array
+(
+    [form_id] => 2
+    [fields] => Array
+        (
+            [field_6] => asfa
+            [field_7] => gdfgdf
+        )
+
+    [action] => digitalia_forms_submit
+    [nonce] => 8fae02cf8a
+)
+
+[2025-02-08 21:23:20] Digitalia Forms - Fields array: Array
+(
+    [field_6] => asfa
+    [field_7] => gdfgdf
+)
+
+[2025-02-08 21:23:20] Digitalia Forms - DB Fields: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 6
+            [form_id] => 2
+            [label] => Nombre2
+            [name] => apellido
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 15:21:37
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 7
+            [form_id] => 2
+            [label] => Apellido
+            [name] => field_1
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 2
+            [created_at] => 2025-02-08 15:21:37
+        )
+
+)
+
+[2025-02-08 21:23:20] ==================== VALIDATING FIELD 6 ====================
+[2025-02-08 21:23:20] Digitalia Forms - Field validation:
+                ID: 6
+                Name: field_6
+                Label: Nombre2
+                Required: true (raw: '1')
+                Raw Value: "asfa"
+                Is Empty: false
+                POST field exists: true
+                POST field keys: field_6, field_7
+[2025-02-08 21:23:20] Digitalia Forms - Field field_6 (Nombre2) validation passed:
+                    Required: true
+                    Empty: false
+                    Value: "asfa"
+[2025-02-08 21:23:20] ==================== VALIDATING FIELD 7 ====================
+[2025-02-08 21:23:20] Digitalia Forms - Field validation:
+                ID: 7
+                Name: field_7
+                Label: Apellido
+                Required: true (raw: '1')
+                Raw Value: "gdfgdf"
+                Is Empty: false
+                POST field exists: true
+                POST field keys: field_6, field_7
+[2025-02-08 21:23:20] Digitalia Forms - Field field_7 (Apellido) validation passed:
+                    Required: true
+                    Empty: false
+                    Value: "gdfgdf"
+[2025-02-08 21:23:20] ==================== VALIDATION END ====================
+[2025-02-08 21:25:53] Digitalia Forms: Starting form save
+[2025-02-08 21:25:53] Digitalia Forms: Form data: Array
+(
+    [title] => Suscripciones 2
+    [description] => 
+    [status] => published
+)
+
+[2025-02-08 21:25:53] Digitalia Forms: Update result: success
+[2025-02-08 21:25:53] Digitalia Forms: Starting field save for form 2
+[2025-02-08 21:25:53] Digitalia Forms: Saving field: Array
+(
+    [form_id] => 2
+    [label] => Nombre2
+    [type] => text
+    [name] => field_0
+    [required] => 1
+    [order] => 1
+)
+
+[2025-02-08 21:25:53] Digitalia Forms: Field save result: success
+[2025-02-08 21:25:53] Digitalia Forms: Redirecting to: https://2wpdigitalia.test/wp-admin/admin.php?page=digitalia-forms&message=saved
+[2025-02-08 21:26:20] Digitalia Forms: Starting form save
+[2025-02-08 21:26:20] Digitalia Forms: Form data: Array
+(
+    [title] => Suscripciones 2
+    [description] => 
+    [status] => published
+)
+
+[2025-02-08 21:26:20] Digitalia Forms: Update result: success
+[2025-02-08 21:26:20] Digitalia Forms: Starting field save for form 2
+[2025-02-08 21:26:20] Digitalia Forms: Saving field: Array
+(
+    [form_id] => 2
+    [label] => Nombre2
+    [type] => text
+    [name] => apellido
+    [required] => 1
+    [order] => 1
+)
+
+[2025-02-08 21:26:20] Digitalia Forms: Field save result: success
+[2025-02-08 21:26:20] Digitalia Forms: Saving field: Array
+(
+    [form_id] => 2
+    [label] => Apellido
+    [type] => text
+    [name] => field_1
+    [required] => 1
+    [order] => 2
+)
+
+[2025-02-08 21:26:20] Digitalia Forms: Field save result: success
+[2025-02-08 21:26:20] Digitalia Forms: Redirecting to: https://2wpdigitalia.test/wp-admin/admin.php?page=digitalia-forms&message=saved
+[2025-02-08 21:35:15] Digitalia Forms: Rendering shortcode with attributes: Array
+(
+    [id] => 2
+)
+
+[2025-02-08 21:35:15] Digitalia Forms: Found form: stdClass Object
+(
+    [id] => 2
+    [title] => Suscripciones 2
+    [description] => 
+    [status] => published
+    [created_at] => 2025-02-08 12:29:16
+    [updated_at] => 2025-02-08 12:29:16
+)
+
+[2025-02-08 21:35:15] Digitalia Forms - SQL: SELECT * FROM wp_digitalia_forms_fields WHERE form_id = 2 ORDER BY `order` ASC
+[2025-02-08 21:35:15] Digitalia Forms - Fields loaded from database:
+[2025-02-08 21:35:15] Field 9:
+                Label: Nombre2
+                Type: text
+                Required: true
+                Options: []
+[2025-02-08 21:35:15] Field 10:
+                Label: Apellido
+                Type: text
+                Required: true
+                Options: []
+[2025-02-08 21:35:15] Digitalia Forms: Found fields: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 9
+            [form_id] => 2
+            [label] => Nombre2
+            [name] => apellido
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 15:26:20
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 10
+            [form_id] => 2
+            [label] => Apellido
+            [name] => field_1
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 2
+            [created_at] => 2025-02-08 15:26:20
+        )
+
+)
+
+[2025-02-08 21:35:15] Digitalia Forms: Generated output length: 1362
+[2025-02-08 21:35:18] ==================== FORM SUBMISSION START ====================
+[2025-02-08 21:35:18] Digitalia Forms - Form submission started
+[2025-02-08 21:35:18] POST data: Array
+(
+    [form_id] => 2
+    [fields] => Array
+        (
+            [field_9] => jhbhb
+            [field_10] => jhbjhb
+        )
+
+    [action] => digitalia_forms_submit
+    [nonce] => 8fae02cf8a
+)
+
+[2025-02-08 21:35:18] Digitalia Forms - Form query: SELECT * FROM wp_digitalia_forms WHERE id = 2
+[2025-02-08 21:35:18] Digitalia Forms - Form data: stdClass Object
+(
+    [id] => 2
+    [title] => Suscripciones 2
+    [description] => 
+    [status] => published
+    [created_at] => 2025-02-08 12:29:16
+    [updated_at] => 2025-02-08 12:29:16
+)
+
+[2025-02-08 21:35:18] Digitalia Forms - Fields query: SELECT * FROM wp_digitalia_forms_fields WHERE form_id = 2 ORDER BY `order` ASC
+[2025-02-08 21:35:18] Digitalia Forms - Fields data: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 9
+            [form_id] => 2
+            [label] => Nombre2
+            [name] => apellido
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 15:26:20
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 10
+            [form_id] => 2
+            [label] => Apellido
+            [name] => field_1
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 2
+            [created_at] => 2025-02-08 15:26:20
+        )
+
+)
+
+[2025-02-08 21:35:18] ==================== VALIDATION START ====================
+[2025-02-08 21:35:18] Digitalia Forms - Raw POST data: Array
+(
+    [form_id] => 2
+    [fields] => Array
+        (
+            [field_9] => jhbhb
+            [field_10] => jhbjhb
+        )
+
+    [action] => digitalia_forms_submit
+    [nonce] => 8fae02cf8a
+)
+
+[2025-02-08 21:35:18] Digitalia Forms - Fields array: Array
+(
+    [field_9] => jhbhb
+    [field_10] => jhbjhb
+)
+
+[2025-02-08 21:35:18] Digitalia Forms - DB Fields: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 9
+            [form_id] => 2
+            [label] => Nombre2
+            [name] => apellido
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 15:26:20
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 10
+            [form_id] => 2
+            [label] => Apellido
+            [name] => field_1
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 2
+            [created_at] => 2025-02-08 15:26:20
+        )
+
+)
+
+[2025-02-08 21:35:18] ==================== VALIDATING FIELD 9 ====================
+[2025-02-08 21:35:18] Digitalia Forms - Field validation:
+                ID: 9
+                Name: field_9
+                Label: Nombre2
+                Required: true (raw: '1')
+                Raw Value: "jhbhb"
+                Is Empty: false
+                POST field exists: true
+                POST field keys: field_9, field_10
+[2025-02-08 21:35:18] Digitalia Forms - Field field_9 (Nombre2) validation passed:
+                    Required: true
+                    Empty: false
+                    Value: "jhbhb"
+[2025-02-08 21:35:18] ==================== VALIDATING FIELD 10 ====================
+[2025-02-08 21:35:18] Digitalia Forms - Field validation:
+                ID: 10
+                Name: field_10
+                Label: Apellido
+                Required: true (raw: '1')
+                Raw Value: "jhbjhb"
+                Is Empty: false
+                POST field exists: true
+                POST field keys: field_9, field_10
+[2025-02-08 21:35:18] Digitalia Forms - Field field_10 (Apellido) validation passed:
+                    Required: true
+                    Empty: false
+                    Value: "jhbjhb"
+[2025-02-08 21:35:18] ==================== VALIDATION END ====================
+[2025-02-08 21:35:29] Digitalia Forms: Starting form save
+[2025-02-08 21:35:29] Digitalia Forms: Form data: Array
+(
+    [title] => Suscripciones 2
+    [description] => 
+    [status] => published
+)
+
+[2025-02-08 21:35:29] Digitalia Forms: Update result: success
+[2025-02-08 21:35:29] Digitalia Forms: Starting field save for form 2
+[2025-02-08 21:35:29] Digitalia Forms: Saving field: Array
+(
+    [form_id] => 2
+    [label] => Nombre2
+    [type] => text
+    [name] => field_0
+    [required] => 1
+    [order] => 1
+)
+
+[2025-02-08 21:35:29] Digitalia Forms: Field save result: success
+[2025-02-08 21:35:29] Digitalia Forms: Saving field: Array
+(
+    [form_id] => 2
+    [label] => Apellido
+    [type] => text
+    [name] => field_1
+    [required] => 0
+    [order] => 2
+)
+
+[2025-02-08 21:35:29] Digitalia Forms: Field save result: success
+[2025-02-08 21:35:29] Digitalia Forms: Redirecting to: https://2wpdigitalia.test/wp-admin/admin.php?page=digitalia-forms&message=saved
+[2025-02-08 21:35:55] Digitalia Forms: Starting form save
+[2025-02-08 21:35:55] Digitalia Forms: Form data: Array
+(
+    [title] => Suscripciones 2
+    [description] => 
+    [status] => published
+)
+
+[2025-02-08 21:35:55] Digitalia Forms: Update result: success
+[2025-02-08 21:35:55] Digitalia Forms: Starting field save for form 2
+[2025-02-08 21:35:55] Digitalia Forms: Saving field: Array
+(
+    [form_id] => 2
+    [label] => Nombre2
+    [type] => text
+    [name] => field_0
+    [required] => 1
+    [order] => 1
+)
+
+[2025-02-08 21:35:55] Digitalia Forms: Field save result: success
+[2025-02-08 21:35:55] Digitalia Forms: Saving field: Array
+(
+    [form_id] => 2
+    [label] => Apellido
+    [type] => text
+    [name] => field_1
+    [required] => 1
+    [order] => 2
+)
+
+[2025-02-08 21:35:55] Digitalia Forms: Field save result: success
+[2025-02-08 21:35:55] Digitalia Forms: Redirecting to: https://2wpdigitalia.test/wp-admin/admin.php?page=digitalia-forms&message=saved
+[2025-02-09 21:34:11] Digitalia Forms: Rendering shortcode with attributes: Array
+(
+    [id] => 2
+)
+
+[2025-02-09 21:34:11] Digitalia Forms: Found form: stdClass Object
+(
+    [id] => 2
+    [title] => Suscripciones 2
+    [description] => 
+    [status] => published
+    [created_at] => 2025-02-08 12:29:16
+    [updated_at] => 2025-02-08 12:29:16
+)
+
+[2025-02-09 21:34:11] Digitalia Forms - SQL: SELECT * FROM wp_digitalia_forms_fields WHERE form_id = 2 ORDER BY `order` ASC
+[2025-02-09 21:34:11] Digitalia Forms - Fields loaded from database:
+[2025-02-09 21:34:11] Field 13:
+                Label: Nombre2
+                Type: text
+                Required: true
+                Options: []
+[2025-02-09 21:34:11] Field 14:
+                Label: Apellido
+                Type: text
+                Required: true
+                Options: []
+[2025-02-09 21:34:11] Digitalia Forms: Found fields: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 13
+            [form_id] => 2
+            [label] => Nombre2
+            [name] => field_0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 14
+            [form_id] => 2
+            [label] => Apellido
+            [name] => field_1
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 2
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+)
+
+[2025-02-09 21:34:11] Digitalia Forms: Generated output length: 1365
+[2025-02-09 21:34:16] ==================== FORM SUBMISSION START ====================
+[2025-02-09 21:34:16] Digitalia Forms - Form submission started
+[2025-02-09 21:34:16] POST data: Array
+(
+    [form_id] => 2
+    [fields] => Array
+        (
+            [field_13] => daniel1
+            [field_14] => becerra1
+        )
+
+    [action] => digitalia_forms_submit
+    [nonce] => 4ea8f9853a
+)
+
+[2025-02-09 21:34:16] Digitalia Forms - Form query: SELECT * FROM wp_digitalia_forms WHERE id = 2
+[2025-02-09 21:34:16] Digitalia Forms - Form data: stdClass Object
+(
+    [id] => 2
+    [title] => Suscripciones 2
+    [description] => 
+    [status] => published
+    [created_at] => 2025-02-08 12:29:16
+    [updated_at] => 2025-02-08 12:29:16
+)
+
+[2025-02-09 21:34:16] Digitalia Forms - Fields query: SELECT * FROM wp_digitalia_forms_fields WHERE form_id = 2 ORDER BY `order` ASC
+[2025-02-09 21:34:16] Digitalia Forms - Fields data: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 13
+            [form_id] => 2
+            [label] => Nombre2
+            [name] => field_0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 14
+            [form_id] => 2
+            [label] => Apellido
+            [name] => field_1
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 2
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+)
+
+[2025-02-09 21:34:16] ==================== FORM SUBMISSION START ====================
+[2025-02-09 21:34:16] Raw POST data: Array
+(
+    [form_id] => 2
+    [fields] => Array
+        (
+            [field_13] => daniel1
+            [field_14] => becerra1
+        )
+
+    [action] => digitalia_forms_submit
+    [nonce] => 4ea8f9853a
+)
+
+[2025-02-09 21:34:16] Fields array: Array
+(
+    [field_13] => daniel1
+    [field_14] => becerra1
+)
+
+[2025-02-09 21:34:16] DB Fields: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 13
+            [form_id] => 2
+            [label] => Nombre2
+            [name] => field_0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 14
+            [form_id] => 2
+            [label] => Apellido
+            [name] => field_1
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 2
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+)
+
+[2025-02-09 21:34:16] ==================== VALIDATING FIELD 13 ====================
+[2025-02-09 21:34:16] Field validation:
+                ID: 13
+                Name: field_13
+                Label: Nombre2
+                Required: true
+                Raw Value: "daniel1"
+                Is Empty: false
+                POST field exists: true
+                POST field keys: field_13, field_14
+[2025-02-09 21:34:16] Added field value - ID: 13, Value: daniel1
+[2025-02-09 21:34:16] ==================== VALIDATING FIELD 14 ====================
+[2025-02-09 21:34:16] Field validation:
+                ID: 14
+                Name: field_14
+                Label: Apellido
+                Required: true
+                Raw Value: "becerra1"
+                Is Empty: false
+                POST field exists: true
+                POST field keys: field_13, field_14
+[2025-02-09 21:34:16] Added field value - ID: 14, Value: becerra1
+[2025-02-09 21:34:16] Field values to save: Array
+(
+    [13] => daniel1
+    [14] => becerra1
+)
+
+[2025-02-09 21:34:16] Created entry with ID: 9
+[2025-02-09 21:34:16] Saving field - ID: 13, Value: daniel1
+[2025-02-09 21:34:16] Field saved successfully
+[2025-02-09 21:34:16] Saving field - ID: 14, Value: becerra1
+[2025-02-09 21:34:16] Field saved successfully
+[2025-02-09 21:34:29] Digitalia Forms: Starting form save
+[2025-02-09 21:34:29] Digitalia Forms: Form data: Array
+(
+    [title] => Suscripciones 2
+    [description] => 
+    [status] => published
+)
+
+[2025-02-09 21:34:29] Digitalia Forms: Update result: success
+[2025-02-09 21:34:29] Digitalia Forms: Starting field save for form 2
+[2025-02-09 21:34:29] Existing fields: Array
+(
+    [13] => stdClass Object
+        (
+            [id] => 13
+            [name] => field_0
+        )
+
+    [14] => stdClass Object
+        (
+            [id] => 14
+            [name] => field_1
+        )
+
+)
+
+[2025-02-09 21:34:29] Digitalia Forms: Saving field: Array
+(
+    [form_id] => 2
+    [label] => Nombre3
+    [type] => text
+    [required] => 1
+    [order] => 1
+    [name] => field_0
+)
+
+[2025-02-09 21:34:29] Updated field 13: success
+[2025-02-09 21:34:29] Digitalia Forms: Saving field: Array
+(
+    [form_id] => 2
+    [label] => Apellido4
+    [type] => text
+    [required] => 1
+    [order] => 2
+    [name] => field_1
+)
+
+[2025-02-09 21:34:29] Updated field 14: success
+[2025-02-09 21:34:29] Digitalia Forms: Redirecting to: https://2wpdigitalia.test/wp-admin/admin.php?page=digitalia-forms&message=saved
+[2025-02-09 21:34:49] Digitalia Forms: Starting form save
+[2025-02-09 21:34:49] Digitalia Forms: Form data: Array
+(
+    [title] => Suscripciones 2
+    [description] => 
+    [status] => published
+)
+
+[2025-02-09 21:34:49] Digitalia Forms: Update result: success
+[2025-02-09 21:34:49] Digitalia Forms: Starting field save for form 2
+[2025-02-09 21:34:49] Existing fields: Array
+(
+    [13] => stdClass Object
+        (
+            [id] => 13
+            [name] => 0
+        )
+
+    [14] => stdClass Object
+        (
+            [id] => 14
+            [name] => 0
+        )
+
+)
+
+[2025-02-09 21:34:49] Digitalia Forms: Saving field: Array
+(
+    [form_id] => 2
+    [label] => Nombre3
+    [type] => text
+    [required] => 1
+    [order] => 1
+    [name] => 0
+)
+
+[2025-02-09 21:34:49] Updated field 13: success
+[2025-02-09 21:34:49] Digitalia Forms: Saving field: Array
+(
+    [form_id] => 2
+    [label] => Apellido4
+    [type] => text
+    [required] => 0
+    [order] => 2
+    [name] => 0
+)
+
+[2025-02-09 21:34:49] Updated field 14: success
+[2025-02-09 21:34:49] Digitalia Forms: Redirecting to: https://2wpdigitalia.test/wp-admin/admin.php?page=digitalia-forms&message=saved
+[2025-02-09 21:34:53] Digitalia Forms: Rendering shortcode with attributes: Array
+(
+    [id] => 2
+)
+
+[2025-02-09 21:34:53] Digitalia Forms: Found form: stdClass Object
+(
+    [id] => 2
+    [title] => Suscripciones 2
+    [description] => 
+    [status] => published
+    [created_at] => 2025-02-08 12:29:16
+    [updated_at] => 2025-02-08 12:29:16
+)
+
+[2025-02-09 21:34:53] Digitalia Forms - SQL: SELECT * FROM wp_digitalia_forms_fields WHERE form_id = 2 ORDER BY `order` ASC
+[2025-02-09 21:34:53] Digitalia Forms - Fields loaded from database:
+[2025-02-09 21:34:53] Field 13:
+                Label: Nombre3
+                Type: text
+                Required: true
+                Options: []
+[2025-02-09 21:34:53] Field 14:
+                Label: Apellido4
+                Type: text
+                Required: false
+                Options: []
+[2025-02-09 21:34:53] Digitalia Forms: Found fields: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 13
+            [form_id] => 2
+            [label] => Nombre3
+            [name] => 0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 14
+            [form_id] => 2
+            [label] => Apellido4
+            [name] => 0
+            [type] => text
+            [required] => 0
+            [options] => []
+            [order] => 2
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+)
+
+[2025-02-09 21:34:53] Digitalia Forms: Generated output length: 1282
+[2025-02-09 21:34:58] ==================== FORM SUBMISSION START ====================
+[2025-02-09 21:34:58] Digitalia Forms - Form submission started
+[2025-02-09 21:34:58] POST data: Array
+(
+    [form_id] => 2
+    [fields] => Array
+        (
+            [field_13] => new1
+            [field_14] => becras
+        )
+
+    [action] => digitalia_forms_submit
+    [nonce] => 4ea8f9853a
+)
+
+[2025-02-09 21:34:58] Digitalia Forms - Form query: SELECT * FROM wp_digitalia_forms WHERE id = 2
+[2025-02-09 21:34:58] Digitalia Forms - Form data: stdClass Object
+(
+    [id] => 2
+    [title] => Suscripciones 2
+    [description] => 
+    [status] => published
+    [created_at] => 2025-02-08 12:29:16
+    [updated_at] => 2025-02-08 12:29:16
+)
+
+[2025-02-09 21:34:58] Digitalia Forms - Fields query: SELECT * FROM wp_digitalia_forms_fields WHERE form_id = 2 ORDER BY `order` ASC
+[2025-02-09 21:34:58] Digitalia Forms - Fields data: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 13
+            [form_id] => 2
+            [label] => Nombre3
+            [name] => 0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 14
+            [form_id] => 2
+            [label] => Apellido4
+            [name] => 0
+            [type] => text
+            [required] => 0
+            [options] => []
+            [order] => 2
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+)
+
+[2025-02-09 21:34:58] ==================== FORM SUBMISSION START ====================
+[2025-02-09 21:34:58] Raw POST data: Array
+(
+    [form_id] => 2
+    [fields] => Array
+        (
+            [field_13] => new1
+            [field_14] => becras
+        )
+
+    [action] => digitalia_forms_submit
+    [nonce] => 4ea8f9853a
+)
+
+[2025-02-09 21:34:58] Fields array: Array
+(
+    [field_13] => new1
+    [field_14] => becras
+)
+
+[2025-02-09 21:34:58] DB Fields: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 13
+            [form_id] => 2
+            [label] => Nombre3
+            [name] => 0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 14
+            [form_id] => 2
+            [label] => Apellido4
+            [name] => 0
+            [type] => text
+            [required] => 0
+            [options] => []
+            [order] => 2
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+)
+
+[2025-02-09 21:34:58] ==================== VALIDATING FIELD 13 ====================
+[2025-02-09 21:34:58] Field validation:
+                ID: 13
+                Name: field_13
+                Label: Nombre3
+                Required: true
+                Raw Value: "new1"
+                Is Empty: false
+                POST field exists: true
+                POST field keys: field_13, field_14
+[2025-02-09 21:34:58] Added field value - ID: 13, Value: new1
+[2025-02-09 21:34:58] ==================== VALIDATING FIELD 14 ====================
+[2025-02-09 21:34:58] Field validation:
+                ID: 14
+                Name: field_14
+                Label: Apellido4
+                Required: false
+                Raw Value: "becras"
+                Is Empty: false
+                POST field exists: true
+                POST field keys: field_13, field_14
+[2025-02-09 21:34:58] Added field value - ID: 14, Value: becras
+[2025-02-09 21:34:58] Field values to save: Array
+(
+    [13] => new1
+    [14] => becras
+)
+
+[2025-02-09 21:34:58] Created entry with ID: 10
+[2025-02-09 21:34:58] Saving field - ID: 13, Value: new1
+[2025-02-09 21:34:58] Field saved successfully
+[2025-02-09 21:34:58] Saving field - ID: 14, Value: becras
+[2025-02-09 21:34:58] Field saved successfully
+[2025-02-09 21:35:00] ==================== FORM SUBMISSION START ====================
+[2025-02-09 21:35:00] Digitalia Forms - Form submission started
+[2025-02-09 21:35:00] POST data: Array
+(
+    [form_id] => 2
+    [fields] => Array
+        (
+            [field_13] => sdsxx
+            [field_14] => 
+        )
+
+    [action] => digitalia_forms_submit
+    [nonce] => 4ea8f9853a
+)
+
+[2025-02-09 21:35:00] Digitalia Forms - Form query: SELECT * FROM wp_digitalia_forms WHERE id = 2
+[2025-02-09 21:35:00] Digitalia Forms - Form data: stdClass Object
+(
+    [id] => 2
+    [title] => Suscripciones 2
+    [description] => 
+    [status] => published
+    [created_at] => 2025-02-08 12:29:16
+    [updated_at] => 2025-02-08 12:29:16
+)
+
+[2025-02-09 21:35:00] Digitalia Forms - Fields query: SELECT * FROM wp_digitalia_forms_fields WHERE form_id = 2 ORDER BY `order` ASC
+[2025-02-09 21:35:00] Digitalia Forms - Fields data: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 13
+            [form_id] => 2
+            [label] => Nombre3
+            [name] => 0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 14
+            [form_id] => 2
+            [label] => Apellido4
+            [name] => 0
+            [type] => text
+            [required] => 0
+            [options] => []
+            [order] => 2
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+)
+
+[2025-02-09 21:35:00] ==================== FORM SUBMISSION START ====================
+[2025-02-09 21:35:00] Raw POST data: Array
+(
+    [form_id] => 2
+    [fields] => Array
+        (
+            [field_13] => sdsxx
+            [field_14] => 
+        )
+
+    [action] => digitalia_forms_submit
+    [nonce] => 4ea8f9853a
+)
+
+[2025-02-09 21:35:00] Fields array: Array
+(
+    [field_13] => sdsxx
+    [field_14] => 
+)
+
+[2025-02-09 21:35:00] DB Fields: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 13
+            [form_id] => 2
+            [label] => Nombre3
+            [name] => 0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 14
+            [form_id] => 2
+            [label] => Apellido4
+            [name] => 0
+            [type] => text
+            [required] => 0
+            [options] => []
+            [order] => 2
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+)
+
+[2025-02-09 21:35:00] ==================== VALIDATING FIELD 13 ====================
+[2025-02-09 21:35:00] Field validation:
+                ID: 13
+                Name: field_13
+                Label: Nombre3
+                Required: true
+                Raw Value: "sdsxx"
+                Is Empty: false
+                POST field exists: true
+                POST field keys: field_13, field_14
+[2025-02-09 21:35:00] Added field value - ID: 13, Value: sdsxx
+[2025-02-09 21:35:00] ==================== VALIDATING FIELD 14 ====================
+[2025-02-09 21:35:00] Field validation:
+                ID: 14
+                Name: field_14
+                Label: Apellido4
+                Required: false
+                Raw Value: ""
+                Is Empty: true
+                POST field exists: true
+                POST field keys: field_13, field_14
+[2025-02-09 21:35:00] Field values to save: Array
+(
+    [13] => sdsxx
+)
+
+[2025-02-09 21:35:00] Created entry with ID: 11
+[2025-02-09 21:35:00] Saving field - ID: 13, Value: sdsxx
+[2025-02-09 21:35:00] Field saved successfully
+[2025-02-09 21:43:45] Digitalia Forms: Rendering shortcode with attributes: Array
+(
+    [id] => 2
+)
+
+[2025-02-09 21:43:45] Digitalia Forms: Found form: stdClass Object
+(
+    [id] => 2
+    [title] => Suscripciones 2
+    [description] => 
+    [status] => published
+    [created_at] => 2025-02-08 12:29:16
+    [updated_at] => 2025-02-08 12:29:16
+)
+
+[2025-02-09 21:43:45] Digitalia Forms - SQL: SELECT * FROM wp_digitalia_forms_fields WHERE form_id = 2 ORDER BY `order` ASC
+[2025-02-09 21:43:45] Digitalia Forms - Fields loaded from database:
+[2025-02-09 21:43:45] Field 13:
+                Label: Nombre3
+                Type: text
+                Required: true
+                Options: []
+[2025-02-09 21:43:45] Field 14:
+                Label: Apellido4
+                Type: text
+                Required: false
+                Options: []
+[2025-02-09 21:43:45] Digitalia Forms: Found fields: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 13
+            [form_id] => 2
+            [label] => Nombre3
+            [name] => 0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 14
+            [form_id] => 2
+            [label] => Apellido4
+            [name] => 0
+            [type] => text
+            [required] => 0
+            [options] => []
+            [order] => 2
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+)
+
+[2025-02-09 21:43:45] Digitalia Forms: Generated output length: 1282
+[2025-02-09 21:43:47] ==================== FORM SUBMISSION START ====================
+[2025-02-09 21:43:47] Digitalia Forms - Form submission started
+[2025-02-09 21:43:47] POST data: Array
+(
+    [form_id] => 2
+    [fields] => Array
+        (
+            [field_13] => asdas
+            [field_14] => sxx
+        )
+
+    [action] => digitalia_forms_submit
+    [nonce] => 4ea8f9853a
+)
+
+[2025-02-09 21:43:47] Digitalia Forms - Form query: SELECT * FROM wp_digitalia_forms WHERE id = 2
+[2025-02-09 21:43:47] Digitalia Forms - Form data: stdClass Object
+(
+    [id] => 2
+    [title] => Suscripciones 2
+    [description] => 
+    [status] => published
+    [created_at] => 2025-02-08 12:29:16
+    [updated_at] => 2025-02-08 12:29:16
+)
+
+[2025-02-09 21:43:47] Digitalia Forms - Fields query: SELECT * FROM wp_digitalia_forms_fields WHERE form_id = 2 ORDER BY `order` ASC
+[2025-02-09 21:43:47] Digitalia Forms - Fields data: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 13
+            [form_id] => 2
+            [label] => Nombre3
+            [name] => 0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 14
+            [form_id] => 2
+            [label] => Apellido4
+            [name] => 0
+            [type] => text
+            [required] => 0
+            [options] => []
+            [order] => 2
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+)
+
+[2025-02-09 21:43:47] ==================== FORM SUBMISSION START ====================
+[2025-02-09 21:43:47] Raw POST data: Array
+(
+    [form_id] => 2
+    [fields] => Array
+        (
+            [field_13] => asdas
+            [field_14] => sxx
+        )
+
+    [action] => digitalia_forms_submit
+    [nonce] => 4ea8f9853a
+)
+
+[2025-02-09 21:43:47] Fields array: Array
+(
+    [field_13] => asdas
+    [field_14] => sxx
+)
+
+[2025-02-09 21:43:47] DB Fields: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 13
+            [form_id] => 2
+            [label] => Nombre3
+            [name] => 0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 14
+            [form_id] => 2
+            [label] => Apellido4
+            [name] => 0
+            [type] => text
+            [required] => 0
+            [options] => []
+            [order] => 2
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+)
+
+[2025-02-09 21:43:47] ==================== VALIDATING FIELD 13 ====================
+[2025-02-09 21:43:47] Field validation:
+                ID: 13
+                Name: field_13
+                Label: Nombre3
+                Required: true
+                Raw Value: "asdas"
+                Is Empty: false
+                POST field exists: true
+                POST field keys: field_13, field_14
+[2025-02-09 21:43:47] Added field value - ID: 13, Value: asdas
+[2025-02-09 21:43:47] ==================== VALIDATING FIELD 14 ====================
+[2025-02-09 21:43:47] Field validation:
+                ID: 14
+                Name: field_14
+                Label: Apellido4
+                Required: false
+                Raw Value: "sxx"
+                Is Empty: false
+                POST field exists: true
+                POST field keys: field_13, field_14
+[2025-02-09 21:43:47] Added field value - ID: 14, Value: sxx
+[2025-02-09 21:43:47] Field values to save: Array
+(
+    [13] => asdas
+    [14] => sxx
+)
+
+[2025-02-09 21:43:48] Created entry with ID: 12
+[2025-02-09 21:43:48] Saving field - ID: 13, Value: asdas
+[2025-02-09 21:43:48] Field saved successfully
+[2025-02-09 21:43:48] Saving field - ID: 14, Value: sxx
+[2025-02-09 21:43:48] Field saved successfully
+[2025-02-09 21:46:31] ==================== FORM SUBMISSION START ====================
+[2025-02-09 21:46:31] Digitalia Forms - Form submission started
+[2025-02-09 21:46:31] POST data: Array
+(
+    [form_id] => 2
+    [fields] => Array
+        (
+            [field_13] => Daniel
+            [field_14] => Becerra
+        )
+
+    [action] => digitalia_forms_submit
+    [nonce] => 4ea8f9853a
+)
+
+[2025-02-09 21:46:31] Digitalia Forms - Form query: SELECT * FROM wp_digitalia_forms WHERE id = 2
+[2025-02-09 21:46:31] Digitalia Forms - Form data: stdClass Object
+(
+    [id] => 2
+    [title] => Suscripciones 2
+    [description] => 
+    [status] => published
+    [created_at] => 2025-02-08 12:29:16
+    [updated_at] => 2025-02-08 12:29:16
+)
+
+[2025-02-09 21:46:31] Digitalia Forms - Fields query: SELECT * FROM wp_digitalia_forms_fields WHERE form_id = 2 ORDER BY `order` ASC
+[2025-02-09 21:46:31] Digitalia Forms - Fields data: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 13
+            [form_id] => 2
+            [label] => Nombre3
+            [name] => 0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 14
+            [form_id] => 2
+            [label] => Apellido4
+            [name] => 0
+            [type] => text
+            [required] => 0
+            [options] => []
+            [order] => 2
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+)
+
+[2025-02-09 21:46:31] ==================== FORM SUBMISSION START ====================
+[2025-02-09 21:46:31] Raw POST data: Array
+(
+    [form_id] => 2
+    [fields] => Array
+        (
+            [field_13] => Daniel
+            [field_14] => Becerra
+        )
+
+    [action] => digitalia_forms_submit
+    [nonce] => 4ea8f9853a
+)
+
+[2025-02-09 21:46:31] Fields array: Array
+(
+    [field_13] => Daniel
+    [field_14] => Becerra
+)
+
+[2025-02-09 21:46:31] DB Fields: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 13
+            [form_id] => 2
+            [label] => Nombre3
+            [name] => 0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 14
+            [form_id] => 2
+            [label] => Apellido4
+            [name] => 0
+            [type] => text
+            [required] => 0
+            [options] => []
+            [order] => 2
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+)
+
+[2025-02-09 21:46:31] ==================== VALIDATING FIELD 13 ====================
+[2025-02-09 21:46:31] Field validation:
+                ID: 13
+                Name: field_13
+                Label: Nombre3
+                Required: true
+                Raw Value: "Daniel"
+                Is Empty: false
+                POST field exists: true
+                POST field keys: field_13, field_14
+[2025-02-09 21:46:31] Added field value - ID: 13, Value: Daniel
+[2025-02-09 21:46:31] ==================== VALIDATING FIELD 14 ====================
+[2025-02-09 21:46:31] Field validation:
+                ID: 14
+                Name: field_14
+                Label: Apellido4
+                Required: false
+                Raw Value: "Becerra"
+                Is Empty: false
+                POST field exists: true
+                POST field keys: field_13, field_14
+[2025-02-09 21:46:31] Added field value - ID: 14, Value: Becerra
+[2025-02-09 21:46:31] Field values to save: Array
+(
+    [13] => Daniel
+    [14] => Becerra
+)
+
+[2025-02-09 21:46:31] Created entry with ID: 13
+[2025-02-09 21:46:31] Saving field - ID: 13, Value: Daniel
+[2025-02-09 21:46:31] Field saved successfully
+[2025-02-09 21:46:31] Saving field - ID: 14, Value: Becerra
+[2025-02-09 21:46:31] Field saved successfully
+[2025-02-09 21:47:53] ==================== FORM SUBMISSION START ====================
+[2025-02-09 21:47:53] Digitalia Forms - Form submission started
+[2025-02-09 21:47:53] POST data: Array
+(
+    [form_id] => 2
+    [fields] => Array
+        (
+            [field_13] => Becerra
+            [field_14] => Daniel
+        )
+
+    [action] => digitalia_forms_submit
+    [nonce] => 4ea8f9853a
+)
+
+[2025-02-09 21:47:53] Digitalia Forms - Form query: SELECT * FROM wp_digitalia_forms WHERE id = 2
+[2025-02-09 21:47:53] Digitalia Forms - Form data: stdClass Object
+(
+    [id] => 2
+    [title] => Suscripciones 2
+    [description] => 
+    [status] => published
+    [created_at] => 2025-02-08 12:29:16
+    [updated_at] => 2025-02-08 12:29:16
+)
+
+[2025-02-09 21:47:53] Digitalia Forms - Fields query: SELECT * FROM wp_digitalia_forms_fields WHERE form_id = 2 ORDER BY `order` ASC
+[2025-02-09 21:47:53] Digitalia Forms - Fields data: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 13
+            [form_id] => 2
+            [label] => Nombre3
+            [name] => 0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 14
+            [form_id] => 2
+            [label] => Apellido4
+            [name] => 0
+            [type] => text
+            [required] => 0
+            [options] => []
+            [order] => 2
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+)
+
+[2025-02-09 21:47:53] ==================== FORM SUBMISSION START ====================
+[2025-02-09 21:47:53] Raw POST data: Array
+(
+    [form_id] => 2
+    [fields] => Array
+        (
+            [field_13] => Becerra
+            [field_14] => Daniel
+        )
+
+    [action] => digitalia_forms_submit
+    [nonce] => 4ea8f9853a
+)
+
+[2025-02-09 21:47:53] Fields array: Array
+(
+    [field_13] => Becerra
+    [field_14] => Daniel
+)
+
+[2025-02-09 21:47:53] DB Fields: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 13
+            [form_id] => 2
+            [label] => Nombre3
+            [name] => 0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 14
+            [form_id] => 2
+            [label] => Apellido4
+            [name] => 0
+            [type] => text
+            [required] => 0
+            [options] => []
+            [order] => 2
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+)
+
+[2025-02-09 21:47:53] ==================== VALIDATING FIELD 13 ====================
+[2025-02-09 21:47:53] Field validation:
+                ID: 13
+                Name: field_13
+                Label: Nombre3
+                Required: true
+                Raw Value: "Becerra"
+                Is Empty: false
+                POST field exists: true
+                POST field keys: field_13, field_14
+[2025-02-09 21:47:53] Added field value - ID: 13, Value: Becerra
+[2025-02-09 21:47:53] ==================== VALIDATING FIELD 14 ====================
+[2025-02-09 21:47:53] Field validation:
+                ID: 14
+                Name: field_14
+                Label: Apellido4
+                Required: false
+                Raw Value: "Daniel"
+                Is Empty: false
+                POST field exists: true
+                POST field keys: field_13, field_14
+[2025-02-09 21:47:53] Added field value - ID: 14, Value: Daniel
+[2025-02-09 21:47:53] Field values to save: Array
+(
+    [13] => Becerra
+    [14] => Daniel
+)
+
+[2025-02-09 21:47:53] Created entry with ID: 14
+[2025-02-09 21:47:53] Saving field - ID: 13, Value: Becerra
+[2025-02-09 21:47:53] Field saved successfully
+[2025-02-09 21:47:53] Saving field - ID: 14, Value: Daniel
+[2025-02-09 21:47:53] Field saved successfully
+[2025-02-09 21:49:11] ==================== FORM SUBMISSION START ====================
+[2025-02-09 21:49:11] Digitalia Forms - Form submission started
+[2025-02-09 21:49:11] POST data: Array
+(
+    [form_id] => 2
+    [fields] => Array
+        (
+            [field_13] => Ads
+            [field_14] => ssx
+        )
+
+    [action] => digitalia_forms_submit
+    [nonce] => 4ea8f9853a
+)
+
+[2025-02-09 21:49:11] Digitalia Forms - Form query: SELECT * FROM wp_digitalia_forms WHERE id = 2
+[2025-02-09 21:49:11] Digitalia Forms - Form data: stdClass Object
+(
+    [id] => 2
+    [title] => Suscripciones 2
+    [description] => 
+    [status] => published
+    [created_at] => 2025-02-08 12:29:16
+    [updated_at] => 2025-02-08 12:29:16
+)
+
+[2025-02-09 21:49:11] Digitalia Forms - Fields query: SELECT * FROM wp_digitalia_forms_fields WHERE form_id = 2 ORDER BY `order` ASC
+[2025-02-09 21:49:11] Digitalia Forms - Fields data: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 13
+            [form_id] => 2
+            [label] => Nombre3
+            [name] => 0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 14
+            [form_id] => 2
+            [label] => Apellido4
+            [name] => 0
+            [type] => text
+            [required] => 0
+            [options] => []
+            [order] => 2
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+)
+
+[2025-02-09 21:49:11] ==================== FORM SUBMISSION START ====================
+[2025-02-09 21:49:11] Raw POST data: Array
+(
+    [form_id] => 2
+    [fields] => Array
+        (
+            [field_13] => Ads
+            [field_14] => ssx
+        )
+
+    [action] => digitalia_forms_submit
+    [nonce] => 4ea8f9853a
+)
+
+[2025-02-09 21:49:11] Fields array: Array
+(
+    [field_13] => Ads
+    [field_14] => ssx
+)
+
+[2025-02-09 21:49:11] DB Fields: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 13
+            [form_id] => 2
+            [label] => Nombre3
+            [name] => 0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 14
+            [form_id] => 2
+            [label] => Apellido4
+            [name] => 0
+            [type] => text
+            [required] => 0
+            [options] => []
+            [order] => 2
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+)
+
+[2025-02-09 21:49:11] ==================== VALIDATING FIELD 13 ====================
+[2025-02-09 21:49:11] Field validation:
+                ID: 13
+                Name: field_13
+                Label: Nombre3
+                Required: true
+                Raw Value: "Ads"
+                Is Empty: false
+                POST field exists: true
+                POST field keys: field_13, field_14
+[2025-02-09 21:49:11] Added field value - ID: 13, Value: Ads
+[2025-02-09 21:49:11] ==================== VALIDATING FIELD 14 ====================
+[2025-02-09 21:49:11] Field validation:
+                ID: 14
+                Name: field_14
+                Label: Apellido4
+                Required: false
+                Raw Value: "ssx"
+                Is Empty: false
+                POST field exists: true
+                POST field keys: field_13, field_14
+[2025-02-09 21:49:11] Added field value - ID: 14, Value: ssx
+[2025-02-09 21:49:11] Field values to save: Array
+(
+    [13] => Ads
+    [14] => ssx
+)
+
+[2025-02-09 21:49:11] Created entry with ID: 15
+[2025-02-09 21:49:11] Saving field - ID: 13, Value: Ads
+[2025-02-09 21:49:11] Field saved successfully
+[2025-02-09 21:49:11] Saving field - ID: 14, Value: ssx
+[2025-02-09 21:49:11] Field saved successfully
+[2025-02-09 21:49:20] ==================== FORM SUBMISSION START ====================
+[2025-02-09 21:49:20] Digitalia Forms - Form submission started
+[2025-02-09 21:49:20] POST data: Array
+(
+    [form_id] => 2
+    [fields] => Array
+        (
+            [field_13] => asdas
+            [field_14] => asdasd
+        )
+
+    [action] => digitalia_forms_submit
+    [nonce] => 4ea8f9853a
+)
+
+[2025-02-09 21:49:20] Digitalia Forms - Form query: SELECT * FROM wp_digitalia_forms WHERE id = 2
+[2025-02-09 21:49:20] Digitalia Forms - Form data: stdClass Object
+(
+    [id] => 2
+    [title] => Suscripciones 2
+    [description] => 
+    [status] => published
+    [created_at] => 2025-02-08 12:29:16
+    [updated_at] => 2025-02-08 12:29:16
+)
+
+[2025-02-09 21:49:20] Digitalia Forms - Fields query: SELECT * FROM wp_digitalia_forms_fields WHERE form_id = 2 ORDER BY `order` ASC
+[2025-02-09 21:49:20] Digitalia Forms - Fields data: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 13
+            [form_id] => 2
+            [label] => Nombre3
+            [name] => 0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 14
+            [form_id] => 2
+            [label] => Apellido4
+            [name] => 0
+            [type] => text
+            [required] => 0
+            [options] => []
+            [order] => 2
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+)
+
+[2025-02-09 21:49:20] ==================== FORM SUBMISSION START ====================
+[2025-02-09 21:49:20] Raw POST data: Array
+(
+    [form_id] => 2
+    [fields] => Array
+        (
+            [field_13] => asdas
+            [field_14] => asdasd
+        )
+
+    [action] => digitalia_forms_submit
+    [nonce] => 4ea8f9853a
+)
+
+[2025-02-09 21:49:20] Fields array: Array
+(
+    [field_13] => asdas
+    [field_14] => asdasd
+)
+
+[2025-02-09 21:49:20] DB Fields: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 13
+            [form_id] => 2
+            [label] => Nombre3
+            [name] => 0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 14
+            [form_id] => 2
+            [label] => Apellido4
+            [name] => 0
+            [type] => text
+            [required] => 0
+            [options] => []
+            [order] => 2
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+)
+
+[2025-02-09 21:49:20] ==================== VALIDATING FIELD 13 ====================
+[2025-02-09 21:49:20] Field validation:
+                ID: 13
+                Name: field_13
+                Label: Nombre3
+                Required: true
+                Raw Value: "asdas"
+                Is Empty: false
+                POST field exists: true
+                POST field keys: field_13, field_14
+[2025-02-09 21:49:20] Added field value - ID: 13, Value: asdas
+[2025-02-09 21:49:20] ==================== VALIDATING FIELD 14 ====================
+[2025-02-09 21:49:20] Field validation:
+                ID: 14
+                Name: field_14
+                Label: Apellido4
+                Required: false
+                Raw Value: "asdasd"
+                Is Empty: false
+                POST field exists: true
+                POST field keys: field_13, field_14
+[2025-02-09 21:49:20] Added field value - ID: 14, Value: asdasd
+[2025-02-09 21:49:20] Field values to save: Array
+(
+    [13] => asdas
+    [14] => asdasd
+)
+
+[2025-02-09 21:49:20] Created entry with ID: 16
+[2025-02-09 21:49:20] Saving field - ID: 13, Value: asdas
+[2025-02-09 21:49:20] Field saved successfully
+[2025-02-09 21:49:20] Saving field - ID: 14, Value: asdasd
+[2025-02-09 21:49:20] Field saved successfully
+[2025-02-09 21:49:52] ==================== FORM SUBMISSION START ====================
+[2025-02-09 21:49:52] Digitalia Forms - Form submission started
+[2025-02-09 21:49:52] POST data: Array
+(
+    [form_id] => 2
+    [fields] => Array
+        (
+            [field_13] => fssd
+            [field_14] => s
+        )
+
+    [action] => digitalia_forms_submit
+    [nonce] => 4ea8f9853a
+)
+
+[2025-02-09 21:49:52] Digitalia Forms - Form query: SELECT * FROM wp_digitalia_forms WHERE id = 2
+[2025-02-09 21:49:52] Digitalia Forms - Form data: stdClass Object
+(
+    [id] => 2
+    [title] => Suscripciones 2
+    [description] => 
+    [status] => published
+    [created_at] => 2025-02-08 12:29:16
+    [updated_at] => 2025-02-08 12:29:16
+)
+
+[2025-02-09 21:49:52] Digitalia Forms - Fields query: SELECT * FROM wp_digitalia_forms_fields WHERE form_id = 2 ORDER BY `order` ASC
+[2025-02-09 21:49:52] Digitalia Forms - Fields data: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 13
+            [form_id] => 2
+            [label] => Nombre3
+            [name] => 0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 14
+            [form_id] => 2
+            [label] => Apellido4
+            [name] => 0
+            [type] => text
+            [required] => 0
+            [options] => []
+            [order] => 2
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+)
+
+[2025-02-09 21:49:52] ==================== FORM SUBMISSION START ====================
+[2025-02-09 21:49:52] Raw POST data: Array
+(
+    [form_id] => 2
+    [fields] => Array
+        (
+            [field_13] => fssd
+            [field_14] => s
+        )
+
+    [action] => digitalia_forms_submit
+    [nonce] => 4ea8f9853a
+)
+
+[2025-02-09 21:49:52] Fields array: Array
+(
+    [field_13] => fssd
+    [field_14] => s
+)
+
+[2025-02-09 21:49:52] DB Fields: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 13
+            [form_id] => 2
+            [label] => Nombre3
+            [name] => 0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 14
+            [form_id] => 2
+            [label] => Apellido4
+            [name] => 0
+            [type] => text
+            [required] => 0
+            [options] => []
+            [order] => 2
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+)
+
+[2025-02-09 21:49:52] ==================== VALIDATING FIELD 13 ====================
+[2025-02-09 21:49:52] Field validation:
+                ID: 13
+                Name: field_13
+                Label: Nombre3
+                Required: true
+                Raw Value: "fssd"
+                Is Empty: false
+                POST field exists: true
+                POST field keys: field_13, field_14
+[2025-02-09 21:49:52] Added field value - ID: 13, Value: fssd
+[2025-02-09 21:49:52] ==================== VALIDATING FIELD 14 ====================
+[2025-02-09 21:49:52] Field validation:
+                ID: 14
+                Name: field_14
+                Label: Apellido4
+                Required: false
+                Raw Value: "s"
+                Is Empty: false
+                POST field exists: true
+                POST field keys: field_13, field_14
+[2025-02-09 21:49:52] Added field value - ID: 14, Value: s
+[2025-02-09 21:49:52] Field values to save: Array
+(
+    [13] => fssd
+    [14] => s
+)
+
+[2025-02-09 21:49:52] Created entry with ID: 17
+[2025-02-09 21:49:52] Saving field - ID: 13, Value: fssd
+[2025-02-09 21:49:52] Field saved successfully
+[2025-02-09 21:49:52] Saving field - ID: 14, Value: s
+[2025-02-09 21:49:52] Field saved successfully
+[2025-02-09 21:50:45] ==================== FORM SUBMISSION START ====================
+[2025-02-09 21:50:45] Digitalia Forms - Form submission started
+[2025-02-09 21:50:45] POST data: Array
+(
+    [form_id] => 2
+    [fields] => Array
+        (
+            [field_13] => sdasd
+            [field_14] => asdasd
+        )
+
+    [action] => digitalia_forms_submit
+    [nonce] => 4ea8f9853a
+)
+
+[2025-02-09 21:50:45] Digitalia Forms - Form query: SELECT * FROM wp_digitalia_forms WHERE id = 2
+[2025-02-09 21:50:45] Digitalia Forms - Form data: stdClass Object
+(
+    [id] => 2
+    [title] => Suscripciones 2
+    [description] => 
+    [status] => published
+    [created_at] => 2025-02-08 12:29:16
+    [updated_at] => 2025-02-08 12:29:16
+)
+
+[2025-02-09 21:50:45] Digitalia Forms - Fields query: SELECT * FROM wp_digitalia_forms_fields WHERE form_id = 2 ORDER BY `order` ASC
+[2025-02-09 21:50:45] Digitalia Forms - Fields data: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 13
+            [form_id] => 2
+            [label] => Nombre3
+            [name] => 0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 14
+            [form_id] => 2
+            [label] => Apellido4
+            [name] => 0
+            [type] => text
+            [required] => 0
+            [options] => []
+            [order] => 2
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+)
+
+[2025-02-09 21:50:45] ==================== FORM SUBMISSION START ====================
+[2025-02-09 21:50:45] Raw POST data: Array
+(
+    [form_id] => 2
+    [fields] => Array
+        (
+            [field_13] => sdasd
+            [field_14] => asdasd
+        )
+
+    [action] => digitalia_forms_submit
+    [nonce] => 4ea8f9853a
+)
+
+[2025-02-09 21:50:45] Fields array: Array
+(
+    [field_13] => sdasd
+    [field_14] => asdasd
+)
+
+[2025-02-09 21:50:45] DB Fields: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 13
+            [form_id] => 2
+            [label] => Nombre3
+            [name] => 0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 14
+            [form_id] => 2
+            [label] => Apellido4
+            [name] => 0
+            [type] => text
+            [required] => 0
+            [options] => []
+            [order] => 2
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+)
+
+[2025-02-09 21:50:45] ==================== VALIDATING FIELD 13 ====================
+[2025-02-09 21:50:45] Field validation:
+                ID: 13
+                Name: field_13
+                Label: Nombre3
+                Required: true
+                Raw Value: "sdasd"
+                Is Empty: false
+                POST field exists: true
+                POST field keys: field_13, field_14
+[2025-02-09 21:50:45] Added field value - ID: 13, Value: sdasd
+[2025-02-09 21:50:45] ==================== VALIDATING FIELD 14 ====================
+[2025-02-09 21:50:45] Field validation:
+                ID: 14
+                Name: field_14
+                Label: Apellido4
+                Required: false
+                Raw Value: "asdasd"
+                Is Empty: false
+                POST field exists: true
+                POST field keys: field_13, field_14
+[2025-02-09 21:50:45] Added field value - ID: 14, Value: asdasd
+[2025-02-09 21:50:45] Field values to save: Array
+(
+    [13] => sdasd
+    [14] => asdasd
+)
+
+[2025-02-09 21:50:45] Created entry with ID: 18
+[2025-02-09 21:50:45] Saving field - ID: 13, Value: sdasd
+[2025-02-09 21:50:45] Field saved successfully
+[2025-02-09 21:50:45] Saving field - ID: 14, Value: asdasd
+[2025-02-09 21:50:45] Field saved successfully
+[2025-02-09 21:50:48] ==================== FORM SUBMISSION START ====================
+[2025-02-09 21:50:48] Digitalia Forms - Form submission started
+[2025-02-09 21:50:48] POST data: Array
+(
+    [form_id] => 2
+    [fields] => Array
+        (
+            [field_13] => jskndaasd
+            [field_14] => fasd
+        )
+
+    [action] => digitalia_forms_submit
+    [nonce] => 4ea8f9853a
+)
+
+[2025-02-09 21:50:48] Digitalia Forms - Form query: SELECT * FROM wp_digitalia_forms WHERE id = 2
+[2025-02-09 21:50:48] Digitalia Forms - Form data: stdClass Object
+(
+    [id] => 2
+    [title] => Suscripciones 2
+    [description] => 
+    [status] => published
+    [created_at] => 2025-02-08 12:29:16
+    [updated_at] => 2025-02-08 12:29:16
+)
+
+[2025-02-09 21:50:48] Digitalia Forms - Fields query: SELECT * FROM wp_digitalia_forms_fields WHERE form_id = 2 ORDER BY `order` ASC
+[2025-02-09 21:50:48] Digitalia Forms - Fields data: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 13
+            [form_id] => 2
+            [label] => Nombre3
+            [name] => 0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 14
+            [form_id] => 2
+            [label] => Apellido4
+            [name] => 0
+            [type] => text
+            [required] => 0
+            [options] => []
+            [order] => 2
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+)
+
+[2025-02-09 21:50:48] ==================== FORM SUBMISSION START ====================
+[2025-02-09 21:50:48] Raw POST data: Array
+(
+    [form_id] => 2
+    [fields] => Array
+        (
+            [field_13] => jskndaasd
+            [field_14] => fasd
+        )
+
+    [action] => digitalia_forms_submit
+    [nonce] => 4ea8f9853a
+)
+
+[2025-02-09 21:50:48] Fields array: Array
+(
+    [field_13] => jskndaasd
+    [field_14] => fasd
+)
+
+[2025-02-09 21:50:48] DB Fields: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 13
+            [form_id] => 2
+            [label] => Nombre3
+            [name] => 0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 14
+            [form_id] => 2
+            [label] => Apellido4
+            [name] => 0
+            [type] => text
+            [required] => 0
+            [options] => []
+            [order] => 2
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+)
+
+[2025-02-09 21:50:48] ==================== VALIDATING FIELD 13 ====================
+[2025-02-09 21:50:48] Field validation:
+                ID: 13
+                Name: field_13
+                Label: Nombre3
+                Required: true
+                Raw Value: "jskndaasd"
+                Is Empty: false
+                POST field exists: true
+                POST field keys: field_13, field_14
+[2025-02-09 21:50:48] Added field value - ID: 13, Value: jskndaasd
+[2025-02-09 21:50:48] ==================== VALIDATING FIELD 14 ====================
+[2025-02-09 21:50:48] Field validation:
+                ID: 14
+                Name: field_14
+                Label: Apellido4
+                Required: false
+                Raw Value: "fasd"
+                Is Empty: false
+                POST field exists: true
+                POST field keys: field_13, field_14
+[2025-02-09 21:50:48] Added field value - ID: 14, Value: fasd
+[2025-02-09 21:50:48] Field values to save: Array
+(
+    [13] => jskndaasd
+    [14] => fasd
+)
+
+[2025-02-09 21:50:48] Created entry with ID: 19
+[2025-02-09 21:50:48] Saving field - ID: 13, Value: jskndaasd
+[2025-02-09 21:50:48] Field saved successfully
+[2025-02-09 21:50:48] Saving field - ID: 14, Value: fasd
+[2025-02-09 21:50:48] Field saved successfully
+[2025-02-09 21:50:52] ==================== FORM SUBMISSION START ====================
+[2025-02-09 21:50:52] Digitalia Forms - Form submission started
+[2025-02-09 21:50:52] POST data: Array
+(
+    [form_id] => 2
+    [fields] => Array
+        (
+            [field_13] => kjnasfasd
+            [field_14] => asdasd
+        )
+
+    [action] => digitalia_forms_submit
+    [nonce] => 4ea8f9853a
+)
+
+[2025-02-09 21:50:52] Digitalia Forms - Form query: SELECT * FROM wp_digitalia_forms WHERE id = 2
+[2025-02-09 21:50:52] Digitalia Forms - Form data: stdClass Object
+(
+    [id] => 2
+    [title] => Suscripciones 2
+    [description] => 
+    [status] => published
+    [created_at] => 2025-02-08 12:29:16
+    [updated_at] => 2025-02-08 12:29:16
+)
+
+[2025-02-09 21:50:52] Digitalia Forms - Fields query: SELECT * FROM wp_digitalia_forms_fields WHERE form_id = 2 ORDER BY `order` ASC
+[2025-02-09 21:50:52] Digitalia Forms - Fields data: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 13
+            [form_id] => 2
+            [label] => Nombre3
+            [name] => 0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 14
+            [form_id] => 2
+            [label] => Apellido4
+            [name] => 0
+            [type] => text
+            [required] => 0
+            [options] => []
+            [order] => 2
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+)
+
+[2025-02-09 21:50:52] ==================== FORM SUBMISSION START ====================
+[2025-02-09 21:50:52] Raw POST data: Array
+(
+    [form_id] => 2
+    [fields] => Array
+        (
+            [field_13] => kjnasfasd
+            [field_14] => asdasd
+        )
+
+    [action] => digitalia_forms_submit
+    [nonce] => 4ea8f9853a
+)
+
+[2025-02-09 21:50:52] Fields array: Array
+(
+    [field_13] => kjnasfasd
+    [field_14] => asdasd
+)
+
+[2025-02-09 21:50:52] DB Fields: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 13
+            [form_id] => 2
+            [label] => Nombre3
+            [name] => 0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 14
+            [form_id] => 2
+            [label] => Apellido4
+            [name] => 0
+            [type] => text
+            [required] => 0
+            [options] => []
+            [order] => 2
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+)
+
+[2025-02-09 21:50:52] ==================== VALIDATING FIELD 13 ====================
+[2025-02-09 21:50:52] Field validation:
+                ID: 13
+                Name: field_13
+                Label: Nombre3
+                Required: true
+                Raw Value: "kjnasfasd"
+                Is Empty: false
+                POST field exists: true
+                POST field keys: field_13, field_14
+[2025-02-09 21:50:52] Added field value - ID: 13, Value: kjnasfasd
+[2025-02-09 21:50:52] ==================== VALIDATING FIELD 14 ====================
+[2025-02-09 21:50:52] Field validation:
+                ID: 14
+                Name: field_14
+                Label: Apellido4
+                Required: false
+                Raw Value: "asdasd"
+                Is Empty: false
+                POST field exists: true
+                POST field keys: field_13, field_14
+[2025-02-09 21:50:52] Added field value - ID: 14, Value: asdasd
+[2025-02-09 21:50:52] Field values to save: Array
+(
+    [13] => kjnasfasd
+    [14] => asdasd
+)
+
+[2025-02-09 21:50:52] Created entry with ID: 20
+[2025-02-09 21:50:52] Saving field - ID: 13, Value: kjnasfasd
+[2025-02-09 21:50:52] Field saved successfully
+[2025-02-09 21:50:52] Saving field - ID: 14, Value: asdasd
+[2025-02-09 21:50:52] Field saved successfully
+[2025-02-09 21:53:23] ==================== FORM SUBMISSION START ====================
+[2025-02-09 21:53:23] Digitalia Forms - Form submission started
+[2025-02-09 21:53:23] POST data: Array
+(
+    [form_id] => 2
+    [fields] => Array
+        (
+            [field_13] => lkasfas
+            [field_14] => asdas
+        )
+
+    [action] => digitalia_forms_submit
+    [nonce] => 4ea8f9853a
+)
+
+[2025-02-09 21:53:23] Digitalia Forms - Form query: SELECT * FROM wp_digitalia_forms WHERE id = 2
+[2025-02-09 21:53:23] Digitalia Forms - Form data: stdClass Object
+(
+    [id] => 2
+    [title] => Suscripciones 2
+    [description] => 
+    [status] => published
+    [created_at] => 2025-02-08 12:29:16
+    [updated_at] => 2025-02-08 12:29:16
+)
+
+[2025-02-09 21:53:23] Digitalia Forms - Fields query: SELECT * FROM wp_digitalia_forms_fields WHERE form_id = 2 ORDER BY `order` ASC
+[2025-02-09 21:53:23] Digitalia Forms - Fields data: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 13
+            [form_id] => 2
+            [label] => Nombre3
+            [name] => 0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 14
+            [form_id] => 2
+            [label] => Apellido4
+            [name] => 0
+            [type] => text
+            [required] => 0
+            [options] => []
+            [order] => 2
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+)
+
+[2025-02-09 21:53:23] ==================== FORM SUBMISSION START ====================
+[2025-02-09 21:53:23] Raw POST data: Array
+(
+    [form_id] => 2
+    [fields] => Array
+        (
+            [field_13] => lkasfas
+            [field_14] => asdas
+        )
+
+    [action] => digitalia_forms_submit
+    [nonce] => 4ea8f9853a
+)
+
+[2025-02-09 21:53:23] Fields array: Array
+(
+    [field_13] => lkasfas
+    [field_14] => asdas
+)
+
+[2025-02-09 21:53:23] DB Fields: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 13
+            [form_id] => 2
+            [label] => Nombre3
+            [name] => 0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 14
+            [form_id] => 2
+            [label] => Apellido4
+            [name] => 0
+            [type] => text
+            [required] => 0
+            [options] => []
+            [order] => 2
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+)
+
+[2025-02-09 21:53:23] ==================== VALIDATING FIELD 13 ====================
+[2025-02-09 21:53:23] Field validation:
+                ID: 13
+                Name: field_13
+                Label: Nombre3
+                Required: true
+                Raw Value: "lkasfas"
+                Is Empty: false
+                POST field exists: true
+                POST field keys: field_13, field_14
+[2025-02-09 21:53:23] Added field value - ID: 13, Value: lkasfas
+[2025-02-09 21:53:23] ==================== VALIDATING FIELD 14 ====================
+[2025-02-09 21:53:23] Field validation:
+                ID: 14
+                Name: field_14
+                Label: Apellido4
+                Required: false
+                Raw Value: "asdas"
+                Is Empty: false
+                POST field exists: true
+                POST field keys: field_13, field_14
+[2025-02-09 21:53:23] Added field value - ID: 14, Value: asdas
+[2025-02-09 21:53:23] Field values to save: Array
+(
+    [13] => lkasfas
+    [14] => asdas
+)
+
+[2025-02-09 21:53:23] Created entry with ID: 21
+[2025-02-09 21:53:23] Saving field - ID: 13, Value: lkasfas
+[2025-02-09 21:53:23] Field saved successfully
+[2025-02-09 21:53:23] Saving field - ID: 14, Value: asdas
+[2025-02-09 21:53:23] Field saved successfully
+[2025-02-09 21:53:25] ==================== FORM SUBMISSION START ====================
+[2025-02-09 21:53:25] Digitalia Forms - Form submission started
+[2025-02-09 21:53:25] POST data: Array
+(
+    [form_id] => 2
+    [fields] => Array
+        (
+            [field_13] => fasdasd
+            [field_14] => fasd
+        )
+
+    [action] => digitalia_forms_submit
+    [nonce] => 4ea8f9853a
+)
+
+[2025-02-09 21:53:25] Digitalia Forms - Form query: SELECT * FROM wp_digitalia_forms WHERE id = 2
+[2025-02-09 21:53:25] Digitalia Forms - Form data: stdClass Object
+(
+    [id] => 2
+    [title] => Suscripciones 2
+    [description] => 
+    [status] => published
+    [created_at] => 2025-02-08 12:29:16
+    [updated_at] => 2025-02-08 12:29:16
+)
+
+[2025-02-09 21:53:25] Digitalia Forms - Fields query: SELECT * FROM wp_digitalia_forms_fields WHERE form_id = 2 ORDER BY `order` ASC
+[2025-02-09 21:53:25] Digitalia Forms - Fields data: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 13
+            [form_id] => 2
+            [label] => Nombre3
+            [name] => 0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 14
+            [form_id] => 2
+            [label] => Apellido4
+            [name] => 0
+            [type] => text
+            [required] => 0
+            [options] => []
+            [order] => 2
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+)
+
+[2025-02-09 21:53:25] ==================== FORM SUBMISSION START ====================
+[2025-02-09 21:53:25] Raw POST data: Array
+(
+    [form_id] => 2
+    [fields] => Array
+        (
+            [field_13] => fasdasd
+            [field_14] => fasd
+        )
+
+    [action] => digitalia_forms_submit
+    [nonce] => 4ea8f9853a
+)
+
+[2025-02-09 21:53:25] Fields array: Array
+(
+    [field_13] => fasdasd
+    [field_14] => fasd
+)
+
+[2025-02-09 21:53:25] DB Fields: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 13
+            [form_id] => 2
+            [label] => Nombre3
+            [name] => 0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 14
+            [form_id] => 2
+            [label] => Apellido4
+            [name] => 0
+            [type] => text
+            [required] => 0
+            [options] => []
+            [order] => 2
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+)
+
+[2025-02-09 21:53:25] ==================== VALIDATING FIELD 13 ====================
+[2025-02-09 21:53:25] Field validation:
+                ID: 13
+                Name: field_13
+                Label: Nombre3
+                Required: true
+                Raw Value: "fasdasd"
+                Is Empty: false
+                POST field exists: true
+                POST field keys: field_13, field_14
+[2025-02-09 21:53:25] Added field value - ID: 13, Value: fasdasd
+[2025-02-09 21:53:25] ==================== VALIDATING FIELD 14 ====================
+[2025-02-09 21:53:25] Field validation:
+                ID: 14
+                Name: field_14
+                Label: Apellido4
+                Required: false
+                Raw Value: "fasd"
+                Is Empty: false
+                POST field exists: true
+                POST field keys: field_13, field_14
+[2025-02-09 21:53:25] Added field value - ID: 14, Value: fasd
+[2025-02-09 21:53:25] Field values to save: Array
+(
+    [13] => fasdasd
+    [14] => fasd
+)
+
+[2025-02-09 21:53:25] Created entry with ID: 22
+[2025-02-09 21:53:25] Saving field - ID: 13, Value: fasdasd
+[2025-02-09 21:53:25] Field saved successfully
+[2025-02-09 21:53:25] Saving field - ID: 14, Value: fasd
+[2025-02-09 21:53:25] Field saved successfully
+[2025-02-09 21:53:27] ==================== FORM SUBMISSION START ====================
+[2025-02-09 21:53:27] Digitalia Forms - Form submission started
+[2025-02-09 21:53:27] POST data: Array
+(
+    [form_id] => 2
+    [fields] => Array
+        (
+            [field_13] => fasdasd
+            [field_14] => fsdsd
+        )
+
+    [action] => digitalia_forms_submit
+    [nonce] => 4ea8f9853a
+)
+
+[2025-02-09 21:53:27] Digitalia Forms - Form query: SELECT * FROM wp_digitalia_forms WHERE id = 2
+[2025-02-09 21:53:27] Digitalia Forms - Form data: stdClass Object
+(
+    [id] => 2
+    [title] => Suscripciones 2
+    [description] => 
+    [status] => published
+    [created_at] => 2025-02-08 12:29:16
+    [updated_at] => 2025-02-08 12:29:16
+)
+
+[2025-02-09 21:53:27] Digitalia Forms - Fields query: SELECT * FROM wp_digitalia_forms_fields WHERE form_id = 2 ORDER BY `order` ASC
+[2025-02-09 21:53:27] Digitalia Forms - Fields data: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 13
+            [form_id] => 2
+            [label] => Nombre3
+            [name] => 0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 14
+            [form_id] => 2
+            [label] => Apellido4
+            [name] => 0
+            [type] => text
+            [required] => 0
+            [options] => []
+            [order] => 2
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+)
+
+[2025-02-09 21:53:27] ==================== FORM SUBMISSION START ====================
+[2025-02-09 21:53:27] Raw POST data: Array
+(
+    [form_id] => 2
+    [fields] => Array
+        (
+            [field_13] => fasdasd
+            [field_14] => fsdsd
+        )
+
+    [action] => digitalia_forms_submit
+    [nonce] => 4ea8f9853a
+)
+
+[2025-02-09 21:53:27] Fields array: Array
+(
+    [field_13] => fasdasd
+    [field_14] => fsdsd
+)
+
+[2025-02-09 21:53:27] DB Fields: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 13
+            [form_id] => 2
+            [label] => Nombre3
+            [name] => 0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 14
+            [form_id] => 2
+            [label] => Apellido4
+            [name] => 0
+            [type] => text
+            [required] => 0
+            [options] => []
+            [order] => 2
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+)
+
+[2025-02-09 21:53:27] ==================== VALIDATING FIELD 13 ====================
+[2025-02-09 21:53:27] Field validation:
+                ID: 13
+                Name: field_13
+                Label: Nombre3
+                Required: true
+                Raw Value: "fasdasd"
+                Is Empty: false
+                POST field exists: true
+                POST field keys: field_13, field_14
+[2025-02-09 21:53:27] Added field value - ID: 13, Value: fasdasd
+[2025-02-09 21:53:27] ==================== VALIDATING FIELD 14 ====================
+[2025-02-09 21:53:27] Field validation:
+                ID: 14
+                Name: field_14
+                Label: Apellido4
+                Required: false
+                Raw Value: "fsdsd"
+                Is Empty: false
+                POST field exists: true
+                POST field keys: field_13, field_14
+[2025-02-09 21:53:27] Added field value - ID: 14, Value: fsdsd
+[2025-02-09 21:53:27] Field values to save: Array
+(
+    [13] => fasdasd
+    [14] => fsdsd
+)
+
+[2025-02-09 21:53:27] Created entry with ID: 23
+[2025-02-09 21:53:27] Saving field - ID: 13, Value: fasdasd
+[2025-02-09 21:53:27] Field saved successfully
+[2025-02-09 21:53:27] Saving field - ID: 14, Value: fsdsd
+[2025-02-09 21:53:27] Field saved successfully
+[2025-02-09 21:53:29] ==================== FORM SUBMISSION START ====================
+[2025-02-09 21:53:29] Digitalia Forms - Form submission started
+[2025-02-09 21:53:29] POST data: Array
+(
+    [form_id] => 2
+    [fields] => Array
+        (
+            [field_13] => fasdsD
+            [field_14] => FASDAS
+        )
+
+    [action] => digitalia_forms_submit
+    [nonce] => 4ea8f9853a
+)
+
+[2025-02-09 21:53:29] Digitalia Forms - Form query: SELECT * FROM wp_digitalia_forms WHERE id = 2
+[2025-02-09 21:53:29] Digitalia Forms - Form data: stdClass Object
+(
+    [id] => 2
+    [title] => Suscripciones 2
+    [description] => 
+    [status] => published
+    [created_at] => 2025-02-08 12:29:16
+    [updated_at] => 2025-02-08 12:29:16
+)
+
+[2025-02-09 21:53:29] Digitalia Forms - Fields query: SELECT * FROM wp_digitalia_forms_fields WHERE form_id = 2 ORDER BY `order` ASC
+[2025-02-09 21:53:29] Digitalia Forms - Fields data: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 13
+            [form_id] => 2
+            [label] => Nombre3
+            [name] => 0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 14
+            [form_id] => 2
+            [label] => Apellido4
+            [name] => 0
+            [type] => text
+            [required] => 0
+            [options] => []
+            [order] => 2
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+)
+
+[2025-02-09 21:53:29] ==================== FORM SUBMISSION START ====================
+[2025-02-09 21:53:29] Raw POST data: Array
+(
+    [form_id] => 2
+    [fields] => Array
+        (
+            [field_13] => fasdsD
+            [field_14] => FASDAS
+        )
+
+    [action] => digitalia_forms_submit
+    [nonce] => 4ea8f9853a
+)
+
+[2025-02-09 21:53:29] Fields array: Array
+(
+    [field_13] => fasdsD
+    [field_14] => FASDAS
+)
+
+[2025-02-09 21:53:29] DB Fields: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 13
+            [form_id] => 2
+            [label] => Nombre3
+            [name] => 0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 14
+            [form_id] => 2
+            [label] => Apellido4
+            [name] => 0
+            [type] => text
+            [required] => 0
+            [options] => []
+            [order] => 2
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+)
+
+[2025-02-09 21:53:29] ==================== VALIDATING FIELD 13 ====================
+[2025-02-09 21:53:29] Field validation:
+                ID: 13
+                Name: field_13
+                Label: Nombre3
+                Required: true
+                Raw Value: "fasdsD"
+                Is Empty: false
+                POST field exists: true
+                POST field keys: field_13, field_14
+[2025-02-09 21:53:29] Added field value - ID: 13, Value: fasdsD
+[2025-02-09 21:53:29] ==================== VALIDATING FIELD 14 ====================
+[2025-02-09 21:53:29] Field validation:
+                ID: 14
+                Name: field_14
+                Label: Apellido4
+                Required: false
+                Raw Value: "FASDAS"
+                Is Empty: false
+                POST field exists: true
+                POST field keys: field_13, field_14
+[2025-02-09 21:53:29] Added field value - ID: 14, Value: FASDAS
+[2025-02-09 21:53:29] Field values to save: Array
+(
+    [13] => fasdsD
+    [14] => FASDAS
+)
+
+[2025-02-09 21:53:29] Created entry with ID: 24
+[2025-02-09 21:53:29] Saving field - ID: 13, Value: fasdsD
+[2025-02-09 21:53:29] Field saved successfully
+[2025-02-09 21:53:29] Saving field - ID: 14, Value: FASDAS
+[2025-02-09 21:53:29] Field saved successfully
+[2025-02-09 21:53:32] ==================== FORM SUBMISSION START ====================
+[2025-02-09 21:53:32] Digitalia Forms - Form submission started
+[2025-02-09 21:53:32] POST data: Array
+(
+    [form_id] => 2
+    [fields] => Array
+        (
+            [field_13] => SDASD
+            [field_14] => asfsd
+        )
+
+    [action] => digitalia_forms_submit
+    [nonce] => 4ea8f9853a
+)
+
+[2025-02-09 21:53:32] Digitalia Forms - Form query: SELECT * FROM wp_digitalia_forms WHERE id = 2
+[2025-02-09 21:53:32] Digitalia Forms - Form data: stdClass Object
+(
+    [id] => 2
+    [title] => Suscripciones 2
+    [description] => 
+    [status] => published
+    [created_at] => 2025-02-08 12:29:16
+    [updated_at] => 2025-02-08 12:29:16
+)
+
+[2025-02-09 21:53:32] Digitalia Forms - Fields query: SELECT * FROM wp_digitalia_forms_fields WHERE form_id = 2 ORDER BY `order` ASC
+[2025-02-09 21:53:32] Digitalia Forms - Fields data: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 13
+            [form_id] => 2
+            [label] => Nombre3
+            [name] => 0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 14
+            [form_id] => 2
+            [label] => Apellido4
+            [name] => 0
+            [type] => text
+            [required] => 0
+            [options] => []
+            [order] => 2
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+)
+
+[2025-02-09 21:53:32] ==================== FORM SUBMISSION START ====================
+[2025-02-09 21:53:32] Raw POST data: Array
+(
+    [form_id] => 2
+    [fields] => Array
+        (
+            [field_13] => SDASD
+            [field_14] => asfsd
+        )
+
+    [action] => digitalia_forms_submit
+    [nonce] => 4ea8f9853a
+)
+
+[2025-02-09 21:53:32] Fields array: Array
+(
+    [field_13] => SDASD
+    [field_14] => asfsd
+)
+
+[2025-02-09 21:53:32] DB Fields: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 13
+            [form_id] => 2
+            [label] => Nombre3
+            [name] => 0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 14
+            [form_id] => 2
+            [label] => Apellido4
+            [name] => 0
+            [type] => text
+            [required] => 0
+            [options] => []
+            [order] => 2
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+)
+
+[2025-02-09 21:53:32] ==================== VALIDATING FIELD 13 ====================
+[2025-02-09 21:53:32] Field validation:
+                ID: 13
+                Name: field_13
+                Label: Nombre3
+                Required: true
+                Raw Value: "SDASD"
+                Is Empty: false
+                POST field exists: true
+                POST field keys: field_13, field_14
+[2025-02-09 21:53:32] Added field value - ID: 13, Value: SDASD
+[2025-02-09 21:53:32] ==================== VALIDATING FIELD 14 ====================
+[2025-02-09 21:53:32] Field validation:
+                ID: 14
+                Name: field_14
+                Label: Apellido4
+                Required: false
+                Raw Value: "asfsd"
+                Is Empty: false
+                POST field exists: true
+                POST field keys: field_13, field_14
+[2025-02-09 21:53:32] Added field value - ID: 14, Value: asfsd
+[2025-02-09 21:53:32] Field values to save: Array
+(
+    [13] => SDASD
+    [14] => asfsd
+)
+
+[2025-02-09 21:53:32] Created entry with ID: 25
+[2025-02-09 21:53:32] Saving field - ID: 13, Value: SDASD
+[2025-02-09 21:53:32] Field saved successfully
+[2025-02-09 21:53:32] Saving field - ID: 14, Value: asfsd
+[2025-02-09 21:53:32] Field saved successfully
+[2025-02-09 21:57:17] ==================== FORM SUBMISSION START ====================
+[2025-02-09 21:57:17] Digitalia Forms - Form submission started
+[2025-02-09 21:57:17] POST data: Array
+(
+    [form_id] => 2
+    [fields] => Array
+        (
+            [field_13] => fasdas
+            [field_14] => fasdasd
+        )
+
+    [action] => digitalia_forms_submit
+    [nonce] => 4ea8f9853a
+)
+
+[2025-02-09 21:57:17] Digitalia Forms - Form query: SELECT * FROM wp_digitalia_forms WHERE id = 2
+[2025-02-09 21:57:17] Digitalia Forms - Form data: stdClass Object
+(
+    [id] => 2
+    [title] => Suscripciones 2
+    [description] => 
+    [status] => published
+    [created_at] => 2025-02-08 12:29:16
+    [updated_at] => 2025-02-08 12:29:16
+)
+
+[2025-02-09 21:57:17] Digitalia Forms - Fields query: SELECT * FROM wp_digitalia_forms_fields WHERE form_id = 2 ORDER BY `order` ASC
+[2025-02-09 21:57:17] Digitalia Forms - Fields data: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 13
+            [form_id] => 2
+            [label] => Nombre3
+            [name] => 0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 14
+            [form_id] => 2
+            [label] => Apellido4
+            [name] => 0
+            [type] => text
+            [required] => 0
+            [options] => []
+            [order] => 2
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+)
+
+[2025-02-09 21:57:17] ==================== FORM SUBMISSION START ====================
+[2025-02-09 21:57:17] Raw POST data: Array
+(
+    [form_id] => 2
+    [fields] => Array
+        (
+            [field_13] => fasdas
+            [field_14] => fasdasd
+        )
+
+    [action] => digitalia_forms_submit
+    [nonce] => 4ea8f9853a
+)
+
+[2025-02-09 21:57:17] Fields array: Array
+(
+    [field_13] => fasdas
+    [field_14] => fasdasd
+)
+
+[2025-02-09 21:57:17] DB Fields: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 13
+            [form_id] => 2
+            [label] => Nombre3
+            [name] => 0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 14
+            [form_id] => 2
+            [label] => Apellido4
+            [name] => 0
+            [type] => text
+            [required] => 0
+            [options] => []
+            [order] => 2
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+)
+
+[2025-02-09 21:57:17] ==================== VALIDATING FIELD 13 ====================
+[2025-02-09 21:57:17] Field validation:
+                ID: 13
+                Name: field_13
+                Label: Nombre3
+                Required: true
+                Raw Value: "fasdas"
+                Is Empty: false
+                POST field exists: true
+                POST field keys: field_13, field_14
+[2025-02-09 21:57:17] Added field value - ID: 13, Value: fasdas
+[2025-02-09 21:57:17] ==================== VALIDATING FIELD 14 ====================
+[2025-02-09 21:57:17] Field validation:
+                ID: 14
+                Name: field_14
+                Label: Apellido4
+                Required: false
+                Raw Value: "fasdasd"
+                Is Empty: false
+                POST field exists: true
+                POST field keys: field_13, field_14
+[2025-02-09 21:57:17] Added field value - ID: 14, Value: fasdasd
+[2025-02-09 21:57:17] Field values to save: Array
+(
+    [13] => fasdas
+    [14] => fasdasd
+)
+
+[2025-02-09 21:57:17] Created entry with ID: 26
+[2025-02-09 21:57:17] Saving field - ID: 13, Value: fasdas
+[2025-02-09 21:57:17] Field saved successfully
+[2025-02-09 21:57:17] Saving field - ID: 14, Value: fasdasd
+[2025-02-09 21:57:17] Field saved successfully
+[2025-02-09 21:57:18] ==================== FORM SUBMISSION START ====================
+[2025-02-09 21:57:18] Digitalia Forms - Form submission started
+[2025-02-09 21:57:18] POST data: Array
+(
+    [form_id] => 2
+    [fields] => Array
+        (
+            [field_13] => fsaasd
+            [field_14] => fasdas
+        )
+
+    [action] => digitalia_forms_submit
+    [nonce] => 4ea8f9853a
+)
+
+[2025-02-09 21:57:18] Digitalia Forms - Form query: SELECT * FROM wp_digitalia_forms WHERE id = 2
+[2025-02-09 21:57:18] Digitalia Forms - Form data: stdClass Object
+(
+    [id] => 2
+    [title] => Suscripciones 2
+    [description] => 
+    [status] => published
+    [created_at] => 2025-02-08 12:29:16
+    [updated_at] => 2025-02-08 12:29:16
+)
+
+[2025-02-09 21:57:18] Digitalia Forms - Fields query: SELECT * FROM wp_digitalia_forms_fields WHERE form_id = 2 ORDER BY `order` ASC
+[2025-02-09 21:57:18] Digitalia Forms - Fields data: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 13
+            [form_id] => 2
+            [label] => Nombre3
+            [name] => 0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 14
+            [form_id] => 2
+            [label] => Apellido4
+            [name] => 0
+            [type] => text
+            [required] => 0
+            [options] => []
+            [order] => 2
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+)
+
+[2025-02-09 21:57:18] ==================== FORM SUBMISSION START ====================
+[2025-02-09 21:57:18] Raw POST data: Array
+(
+    [form_id] => 2
+    [fields] => Array
+        (
+            [field_13] => fsaasd
+            [field_14] => fasdas
+        )
+
+    [action] => digitalia_forms_submit
+    [nonce] => 4ea8f9853a
+)
+
+[2025-02-09 21:57:18] Fields array: Array
+(
+    [field_13] => fsaasd
+    [field_14] => fasdas
+)
+
+[2025-02-09 21:57:18] DB Fields: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 13
+            [form_id] => 2
+            [label] => Nombre3
+            [name] => 0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 14
+            [form_id] => 2
+            [label] => Apellido4
+            [name] => 0
+            [type] => text
+            [required] => 0
+            [options] => []
+            [order] => 2
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+)
+
+[2025-02-09 21:57:18] ==================== VALIDATING FIELD 13 ====================
+[2025-02-09 21:57:18] Field validation:
+                ID: 13
+                Name: field_13
+                Label: Nombre3
+                Required: true
+                Raw Value: "fsaasd"
+                Is Empty: false
+                POST field exists: true
+                POST field keys: field_13, field_14
+[2025-02-09 21:57:18] Added field value - ID: 13, Value: fsaasd
+[2025-02-09 21:57:18] ==================== VALIDATING FIELD 14 ====================
+[2025-02-09 21:57:18] Field validation:
+                ID: 14
+                Name: field_14
+                Label: Apellido4
+                Required: false
+                Raw Value: "fasdas"
+                Is Empty: false
+                POST field exists: true
+                POST field keys: field_13, field_14
+[2025-02-09 21:57:18] Added field value - ID: 14, Value: fasdas
+[2025-02-09 21:57:18] Field values to save: Array
+(
+    [13] => fsaasd
+    [14] => fasdas
+)
+
+[2025-02-09 21:57:18] Created entry with ID: 27
+[2025-02-09 21:57:18] Saving field - ID: 13, Value: fsaasd
+[2025-02-09 21:57:18] Field saved successfully
+[2025-02-09 21:57:18] Saving field - ID: 14, Value: fasdas
+[2025-02-09 21:57:18] Field saved successfully
+[2025-02-09 21:57:20] ==================== FORM SUBMISSION START ====================
+[2025-02-09 21:57:20] Digitalia Forms - Form submission started
+[2025-02-09 21:57:20] POST data: Array
+(
+    [form_id] => 2
+    [fields] => Array
+        (
+            [field_13] => fasdasd
+            [field_14] => fasdasd
+        )
+
+    [action] => digitalia_forms_submit
+    [nonce] => 4ea8f9853a
+)
+
+[2025-02-09 21:57:20] Digitalia Forms - Form query: SELECT * FROM wp_digitalia_forms WHERE id = 2
+[2025-02-09 21:57:20] Digitalia Forms - Form data: stdClass Object
+(
+    [id] => 2
+    [title] => Suscripciones 2
+    [description] => 
+    [status] => published
+    [created_at] => 2025-02-08 12:29:16
+    [updated_at] => 2025-02-08 12:29:16
+)
+
+[2025-02-09 21:57:20] Digitalia Forms - Fields query: SELECT * FROM wp_digitalia_forms_fields WHERE form_id = 2 ORDER BY `order` ASC
+[2025-02-09 21:57:20] Digitalia Forms - Fields data: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 13
+            [form_id] => 2
+            [label] => Nombre3
+            [name] => 0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 14
+            [form_id] => 2
+            [label] => Apellido4
+            [name] => 0
+            [type] => text
+            [required] => 0
+            [options] => []
+            [order] => 2
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+)
+
+[2025-02-09 21:57:20] ==================== FORM SUBMISSION START ====================
+[2025-02-09 21:57:20] Raw POST data: Array
+(
+    [form_id] => 2
+    [fields] => Array
+        (
+            [field_13] => fasdasd
+            [field_14] => fasdasd
+        )
+
+    [action] => digitalia_forms_submit
+    [nonce] => 4ea8f9853a
+)
+
+[2025-02-09 21:57:20] Fields array: Array
+(
+    [field_13] => fasdasd
+    [field_14] => fasdasd
+)
+
+[2025-02-09 21:57:20] DB Fields: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 13
+            [form_id] => 2
+            [label] => Nombre3
+            [name] => 0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 14
+            [form_id] => 2
+            [label] => Apellido4
+            [name] => 0
+            [type] => text
+            [required] => 0
+            [options] => []
+            [order] => 2
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+)
+
+[2025-02-09 21:57:20] ==================== VALIDATING FIELD 13 ====================
+[2025-02-09 21:57:20] Field validation:
+                ID: 13
+                Name: field_13
+                Label: Nombre3
+                Required: true
+                Raw Value: "fasdasd"
+                Is Empty: false
+                POST field exists: true
+                POST field keys: field_13, field_14
+[2025-02-09 21:57:20] Added field value - ID: 13, Value: fasdasd
+[2025-02-09 21:57:20] ==================== VALIDATING FIELD 14 ====================
+[2025-02-09 21:57:20] Field validation:
+                ID: 14
+                Name: field_14
+                Label: Apellido4
+                Required: false
+                Raw Value: "fasdasd"
+                Is Empty: false
+                POST field exists: true
+                POST field keys: field_13, field_14
+[2025-02-09 21:57:20] Added field value - ID: 14, Value: fasdasd
+[2025-02-09 21:57:20] Field values to save: Array
+(
+    [13] => fasdasd
+    [14] => fasdasd
+)
+
+[2025-02-09 21:57:20] Created entry with ID: 28
+[2025-02-09 21:57:20] Saving field - ID: 13, Value: fasdasd
+[2025-02-09 21:57:20] Field saved successfully
+[2025-02-09 21:57:20] Saving field - ID: 14, Value: fasdasd
+[2025-02-09 21:57:20] Field saved successfully
+[2025-02-09 21:57:22] ==================== FORM SUBMISSION START ====================
+[2025-02-09 21:57:22] Digitalia Forms - Form submission started
+[2025-02-09 21:57:22] POST data: Array
+(
+    [form_id] => 2
+    [fields] => Array
+        (
+            [field_13] => fasfasd
+            [field_14] => fasdasd
+        )
+
+    [action] => digitalia_forms_submit
+    [nonce] => 4ea8f9853a
+)
+
+[2025-02-09 21:57:22] Digitalia Forms - Form query: SELECT * FROM wp_digitalia_forms WHERE id = 2
+[2025-02-09 21:57:22] Digitalia Forms - Form data: stdClass Object
+(
+    [id] => 2
+    [title] => Suscripciones 2
+    [description] => 
+    [status] => published
+    [created_at] => 2025-02-08 12:29:16
+    [updated_at] => 2025-02-08 12:29:16
+)
+
+[2025-02-09 21:57:22] Digitalia Forms - Fields query: SELECT * FROM wp_digitalia_forms_fields WHERE form_id = 2 ORDER BY `order` ASC
+[2025-02-09 21:57:22] Digitalia Forms - Fields data: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 13
+            [form_id] => 2
+            [label] => Nombre3
+            [name] => 0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 14
+            [form_id] => 2
+            [label] => Apellido4
+            [name] => 0
+            [type] => text
+            [required] => 0
+            [options] => []
+            [order] => 2
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+)
+
+[2025-02-09 21:57:22] ==================== FORM SUBMISSION START ====================
+[2025-02-09 21:57:22] Raw POST data: Array
+(
+    [form_id] => 2
+    [fields] => Array
+        (
+            [field_13] => fasfasd
+            [field_14] => fasdasd
+        )
+
+    [action] => digitalia_forms_submit
+    [nonce] => 4ea8f9853a
+)
+
+[2025-02-09 21:57:22] Fields array: Array
+(
+    [field_13] => fasfasd
+    [field_14] => fasdasd
+)
+
+[2025-02-09 21:57:22] DB Fields: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 13
+            [form_id] => 2
+            [label] => Nombre3
+            [name] => 0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 14
+            [form_id] => 2
+            [label] => Apellido4
+            [name] => 0
+            [type] => text
+            [required] => 0
+            [options] => []
+            [order] => 2
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+)
+
+[2025-02-09 21:57:22] ==================== VALIDATING FIELD 13 ====================
+[2025-02-09 21:57:22] Field validation:
+                ID: 13
+                Name: field_13
+                Label: Nombre3
+                Required: true
+                Raw Value: "fasfasd"
+                Is Empty: false
+                POST field exists: true
+                POST field keys: field_13, field_14
+[2025-02-09 21:57:22] Added field value - ID: 13, Value: fasfasd
+[2025-02-09 21:57:22] ==================== VALIDATING FIELD 14 ====================
+[2025-02-09 21:57:22] Field validation:
+                ID: 14
+                Name: field_14
+                Label: Apellido4
+                Required: false
+                Raw Value: "fasdasd"
+                Is Empty: false
+                POST field exists: true
+                POST field keys: field_13, field_14
+[2025-02-09 21:57:22] Added field value - ID: 14, Value: fasdasd
+[2025-02-09 21:57:22] Field values to save: Array
+(
+    [13] => fasfasd
+    [14] => fasdasd
+)
+
+[2025-02-09 21:57:22] Created entry with ID: 29
+[2025-02-09 21:57:22] Saving field - ID: 13, Value: fasfasd
+[2025-02-09 21:57:22] Field saved successfully
+[2025-02-09 21:57:22] Saving field - ID: 14, Value: fasdasd
+[2025-02-09 21:57:22] Field saved successfully
+[2025-02-09 21:57:25] ==================== FORM SUBMISSION START ====================
+[2025-02-09 21:57:25] Digitalia Forms - Form submission started
+[2025-02-09 21:57:25] POST data: Array
+(
+    [form_id] => 2
+    [fields] => Array
+        (
+            [field_13] => fasd
+            [field_14] => fasdasd
+        )
+
+    [action] => digitalia_forms_submit
+    [nonce] => 4ea8f9853a
+)
+
+[2025-02-09 21:57:25] Digitalia Forms - Form query: SELECT * FROM wp_digitalia_forms WHERE id = 2
+[2025-02-09 21:57:25] Digitalia Forms - Form data: stdClass Object
+(
+    [id] => 2
+    [title] => Suscripciones 2
+    [description] => 
+    [status] => published
+    [created_at] => 2025-02-08 12:29:16
+    [updated_at] => 2025-02-08 12:29:16
+)
+
+[2025-02-09 21:57:25] Digitalia Forms - Fields query: SELECT * FROM wp_digitalia_forms_fields WHERE form_id = 2 ORDER BY `order` ASC
+[2025-02-09 21:57:25] Digitalia Forms - Fields data: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 13
+            [form_id] => 2
+            [label] => Nombre3
+            [name] => 0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 14
+            [form_id] => 2
+            [label] => Apellido4
+            [name] => 0
+            [type] => text
+            [required] => 0
+            [options] => []
+            [order] => 2
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+)
+
+[2025-02-09 21:57:25] ==================== FORM SUBMISSION START ====================
+[2025-02-09 21:57:25] Raw POST data: Array
+(
+    [form_id] => 2
+    [fields] => Array
+        (
+            [field_13] => fasd
+            [field_14] => fasdasd
+        )
+
+    [action] => digitalia_forms_submit
+    [nonce] => 4ea8f9853a
+)
+
+[2025-02-09 21:57:25] Fields array: Array
+(
+    [field_13] => fasd
+    [field_14] => fasdasd
+)
+
+[2025-02-09 21:57:25] DB Fields: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 13
+            [form_id] => 2
+            [label] => Nombre3
+            [name] => 0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 14
+            [form_id] => 2
+            [label] => Apellido4
+            [name] => 0
+            [type] => text
+            [required] => 0
+            [options] => []
+            [order] => 2
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+)
+
+[2025-02-09 21:57:25] ==================== VALIDATING FIELD 13 ====================
+[2025-02-09 21:57:25] Field validation:
+                ID: 13
+                Name: field_13
+                Label: Nombre3
+                Required: true
+                Raw Value: "fasd"
+                Is Empty: false
+                POST field exists: true
+                POST field keys: field_13, field_14
+[2025-02-09 21:57:25] Added field value - ID: 13, Value: fasd
+[2025-02-09 21:57:25] ==================== VALIDATING FIELD 14 ====================
+[2025-02-09 21:57:25] Field validation:
+                ID: 14
+                Name: field_14
+                Label: Apellido4
+                Required: false
+                Raw Value: "fasdasd"
+                Is Empty: false
+                POST field exists: true
+                POST field keys: field_13, field_14
+[2025-02-09 21:57:25] Added field value - ID: 14, Value: fasdasd
+[2025-02-09 21:57:25] Field values to save: Array
+(
+    [13] => fasd
+    [14] => fasdasd
+)
+
+[2025-02-09 21:57:25] Created entry with ID: 30
+[2025-02-09 21:57:25] Saving field - ID: 13, Value: fasd
+[2025-02-09 21:57:25] Field saved successfully
+[2025-02-09 21:57:25] Saving field - ID: 14, Value: fasdasd
+[2025-02-09 21:57:25] Field saved successfully
+[2025-02-09 21:57:33] Digitalia Forms: Rendering shortcode with attributes: Array
+(
+    [id] => 2
+)
+
+[2025-02-09 21:57:33] Digitalia Forms: Found form: stdClass Object
+(
+    [id] => 2
+    [title] => Suscripciones 2
+    [description] => 
+    [status] => published
+    [created_at] => 2025-02-08 12:29:16
+    [updated_at] => 2025-02-08 12:29:16
+)
+
+[2025-02-09 21:57:33] Digitalia Forms - SQL: SELECT * FROM wp_digitalia_forms_fields WHERE form_id = 2 ORDER BY `order` ASC
+[2025-02-09 21:57:33] Digitalia Forms - Fields loaded from database:
+[2025-02-09 21:57:33] Field 13:
+                Label: Nombre3
+                Type: text
+                Required: true
+                Options: []
+[2025-02-09 21:57:33] Field 14:
+                Label: Apellido4
+                Type: text
+                Required: false
+                Options: []
+[2025-02-09 21:57:33] Digitalia Forms: Found fields: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 13
+            [form_id] => 2
+            [label] => Nombre3
+            [name] => 0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 14
+            [form_id] => 2
+            [label] => Apellido4
+            [name] => 0
+            [type] => text
+            [required] => 0
+            [options] => []
+            [order] => 2
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+)
+
+[2025-02-09 21:57:33] Digitalia Forms: Generated output length: 1282
+[2025-02-09 22:32:15] Digitalia Forms: Rendering shortcode with attributes: Array
+(
+    [id] => 2
+)
+
+[2025-02-09 22:32:15] Digitalia Forms: Found form: stdClass Object
+(
+    [id] => 2
+    [title] => Suscripciones 2
+    [description] => 
+    [status] => published
+    [created_at] => 2025-02-08 12:29:16
+    [updated_at] => 2025-02-08 12:29:16
+)
+
+[2025-02-09 22:32:15] Digitalia Forms - SQL: SELECT * FROM wp_digitalia_forms_fields WHERE form_id = 2 ORDER BY `order` ASC
+[2025-02-09 22:32:15] Digitalia Forms - Fields loaded from database:
+[2025-02-09 22:32:15] Field 13:
+                Label: Nombre3
+                Type: text
+                Required: true
+                Options: []
+[2025-02-09 22:32:15] Field 14:
+                Label: Apellido4
+                Type: text
+                Required: false
+                Options: []
+[2025-02-09 22:32:15] Digitalia Forms: Found fields: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 13
+            [form_id] => 2
+            [label] => Nombre3
+            [name] => 0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 14
+            [form_id] => 2
+            [label] => Apellido4
+            [name] => 0
+            [type] => text
+            [required] => 0
+            [options] => []
+            [order] => 2
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+)
+
+[2025-02-09 22:32:15] Digitalia Forms: Generated output length: 1282
+[2025-02-09 22:32:18] ==================== FORM SUBMISSION START ====================
+[2025-02-09 22:32:18] Digitalia Forms - Form submission started
+[2025-02-09 22:32:18] POST data: Array
+(
+    [form_id] => 2
+    [fields] => Array
+        (
+            [field_13] => daniel
+            [field_14] => becerra
+        )
+
+    [action] => digitalia_forms_submit
+    [nonce] => 4ea8f9853a
+)
+
+[2025-02-09 22:32:18] Digitalia Forms - Form query: SELECT * FROM wp_digitalia_forms WHERE id = 2
+[2025-02-09 22:32:18] Digitalia Forms - Form data: stdClass Object
+(
+    [id] => 2
+    [title] => Suscripciones 2
+    [description] => 
+    [status] => published
+    [created_at] => 2025-02-08 12:29:16
+    [updated_at] => 2025-02-08 12:29:16
+)
+
+[2025-02-09 22:32:18] Digitalia Forms - Fields query: SELECT * FROM wp_digitalia_forms_fields WHERE form_id = 2 ORDER BY `order` ASC
+[2025-02-09 22:32:18] Digitalia Forms - Fields data: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 13
+            [form_id] => 2
+            [label] => Nombre3
+            [name] => 0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 14
+            [form_id] => 2
+            [label] => Apellido4
+            [name] => 0
+            [type] => text
+            [required] => 0
+            [options] => []
+            [order] => 2
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+)
+
+[2025-02-09 22:32:18] ==================== FORM SUBMISSION START ====================
+[2025-02-09 22:32:18] Raw POST data: Array
+(
+    [form_id] => 2
+    [fields] => Array
+        (
+            [field_13] => daniel
+            [field_14] => becerra
+        )
+
+    [action] => digitalia_forms_submit
+    [nonce] => 4ea8f9853a
+)
+
+[2025-02-09 22:32:18] Fields array: Array
+(
+    [field_13] => daniel
+    [field_14] => becerra
+)
+
+[2025-02-09 22:32:18] DB Fields: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 13
+            [form_id] => 2
+            [label] => Nombre3
+            [name] => 0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 14
+            [form_id] => 2
+            [label] => Apellido4
+            [name] => 0
+            [type] => text
+            [required] => 0
+            [options] => []
+            [order] => 2
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+)
+
+[2025-02-09 22:32:18] ==================== VALIDATING FIELD 13 ====================
+[2025-02-09 22:32:18] Field validation:
+                ID: 13
+                Name: field_13
+                Label: Nombre3
+                Required: true
+                Raw Value: "daniel"
+                Is Empty: false
+                POST field exists: true
+                POST field keys: field_13, field_14
+[2025-02-09 22:32:18] Added field value - ID: 13, Value: daniel
+[2025-02-09 22:32:18] ==================== VALIDATING FIELD 14 ====================
+[2025-02-09 22:32:18] Field validation:
+                ID: 14
+                Name: field_14
+                Label: Apellido4
+                Required: false
+                Raw Value: "becerra"
+                Is Empty: false
+                POST field exists: true
+                POST field keys: field_13, field_14
+[2025-02-09 22:32:18] Added field value - ID: 14, Value: becerra
+[2025-02-09 22:32:18] Field values to save: Array
+(
+    [13] => daniel
+    [14] => becerra
+)
+
+[2025-02-09 22:38:52] Digitalia Forms: Rendering shortcode with attributes: Array
+(
+    [id] => 2
+)
+
+[2025-02-09 22:38:52] Digitalia Forms: Found form: stdClass Object
+(
+    [id] => 2
+    [title] => Suscripciones 2
+    [description] => 
+    [status] => published
+    [created_at] => 2025-02-08 12:29:16
+    [updated_at] => 2025-02-08 12:29:16
+)
+
+[2025-02-09 22:38:52] Digitalia Forms - SQL: SELECT * FROM wp_digitalia_forms_fields WHERE form_id = 2 ORDER BY `order` ASC
+[2025-02-09 22:38:52] Digitalia Forms - Fields loaded from database:
+[2025-02-09 22:38:52] Field 13:
+                Label: Nombre3
+                Type: text
+                Required: true
+                Options: []
+[2025-02-09 22:38:52] Field 14:
+                Label: Apellido4
+                Type: text
+                Required: false
+                Options: []
+[2025-02-09 22:38:52] Digitalia Forms: Found fields: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 13
+            [form_id] => 2
+            [label] => Nombre3
+            [name] => 0
+            [type] => text
+            [required] => 1
+            [options] => []
+            [order] => 1
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 14
+            [form_id] => 2
+            [label] => Apellido4
+            [name] => 0
+            [type] => text
+            [required] => 0
+            [options] => []
+            [order] => 2
+            [created_at] => 2025-02-08 15:35:55
+        )
+
+)
+
+[2025-02-09 22:38:52] Digitalia Forms: Generated output length: 1282
+[2025-02-09 22:38:56] Digitalia Forms: Rendering shortcode with attributes: Array
+(
+    [id] => 4
+)
+
+[2025-02-09 22:38:56] Digitalia Forms: Form not found or not published: 4
+[2025-02-09 22:55:29] Digitalia Forms: Rendering shortcode with attributes: Array
+(
+    [id] => 936
+)
+
+[2025-02-09 22:57:01] Digitalia Forms: Rendering shortcode with attributes: Array
+(
+    [id] => 936
+)
+
+[2025-02-09 22:57:08] Digitalia Forms: Rendering shortcode with attributes: Array
+(
+    [id] => 4
+)
+
+[2025-02-09 22:57:09] Digitalia Forms: Rendering shortcode with attributes: Array
+(
+    [id] => 936
+)
+
+[2025-02-09 22:57:39] Digitalia Forms: Rendering shortcode with attributes: Array
+(
+    [id] => 936
+)
+
+[2025-02-09 22:57:48] Digitalia Forms: Rendering shortcode with attributes: Array
+(
+    [id] => 936
+)
+
+[2025-02-09 23:00:07] Digitalia Forms: Rendering shortcode with attributes: Array
+(
+    [id] => 941
+)
+
+[2025-02-09 23:00:31] Digitalia Forms: Rendering shortcode with attributes: Array
+(
+    [id] => 941
+)
+
+[2025-02-09 23:01:52] Digitalia Forms: Rendering shortcode with attributes: Array
+(
+    [id] => 941
+)
+
+[2025-02-09 23:02:11] Digitalia Forms: Rendering shortcode with attributes: Array
+(
+    [id] => 941
+)
+
+[2025-02-09 23:02:22] Digitalia Forms: Rendering shortcode with attributes: Array
+(
+    [id] => 941
+)
+
+[2025-02-09 23:02:31] Digitalia Forms: Rendering shortcode with attributes: Array
+(
+    [id] => 941
+)
+
+[2025-02-09 23:02:48] Digitalia Forms: Rendering shortcode with attributes: Array
+(
+    [id] => 941
+)
+
+[2025-02-09 23:04:36] Digitalia Forms: Rendering shortcode with attributes: Array
+(
+    [id] => 941
+)
+
+[2025-02-09 23:07:43] Digitalia Forms: Rendering shortcode with attributes: Array
+(
+    [id] => 941
+)
+
+[2025-02-09 23:08:26] Digitalia Forms: Rendering shortcode with attributes: Array
+(
+    [id] => 952
+)
+
+[2025-02-09 23:10:02] Digitalia Forms: Rendering shortcode with attributes: Array
+(
+    [id] => 952
+)
+

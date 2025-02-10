@@ -1,0 +1,150 @@
+/* Contenedor del formulario */
+.digitalia-forms-container {
+    max-width: 800px;
+    margin: 2em auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Descripción del formulario */
+.digitalia-forms-description {
+    margin-bottom: 20px;
+    color: #666;
+}
+
+/* Campos */
+.digitalia-forms-field {
+    margin-bottom: 20px;
+}
+
+.digitalia-forms-field label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #333;
+}
+
+.digitalia-forms-field .required {
+    color: #dc3232;
+    margin-left: 3px;
+}
+
+/* Inputs */
+.digitalia-forms-input,
+.digitalia-forms-textarea,
+.digitalia-forms-select {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: #fff;
+    color: #333;
+    font-size: 16px;
+    line-height: 1.4;
+    transition: border-color 0.3s ease;
+}
+
+.digitalia-forms-input:focus,
+.digitalia-forms-textarea:focus,
+.digitalia-forms-select:focus {
+    border-color: #2271b1;
+    outline: none;
+    box-shadow: 0 0 0 1px #2271b1;
+}
+
+/* Radio y Checkbox */
+.digitalia-forms-radio-group,
+.digitalia-forms-checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.digitalia-forms-radio,
+.digitalia-forms-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.digitalia-forms-radio input,
+.digitalia-forms-checkbox input {
+    margin: 0;
+}
+
+/* Archivos */
+.digitalia-forms-file {
+    width: 100%;
+    padding: 8px 0;
+}
+
+.digitalia-forms-file-info {
+    display: block;
+    margin-top: 5px;
+    color: #666;
+    font-size: 0.9em;
+}
+
+/* Botón de envío */
+.digitalia-forms-button {
+    background: #2271b1;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.digitalia-forms-button:hover {
+    background: #135e96;
+}
+
+.digitalia-forms-button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+/* Mensajes */
+.digitalia-forms-message {
+    margin-top: 20px;
+    padding: 10px 15px;
+    border-radius: 4px;
+    display: none;
+}
+
+.digitalia-forms-message.success {
+    display: block;
+    background: #ecf8e6;
+    color: #1a472a;
+    border: 1px solid #2fb344;
+}
+
+.digitalia-forms-message.error {
+    display: block;
+    background: #fbeaea;
+    color: #8a1f11;
+    border: 1px solid #dc3232;
+}
+
+.digitalia-forms-error-message {
+    color: #dc3232;
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+/* Responsivo */
+@media screen and (max-width: 600px) {
+    .digitalia-forms-container {
+        padding: 15px;
+        margin: 1em auto;
+    }
+
+    .digitalia-forms-button {
+        width: 100%;
+    }
+}

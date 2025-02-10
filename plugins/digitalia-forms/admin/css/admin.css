@@ -1,0 +1,215 @@
+/* Estilos generales */
+.digitalia-forms-wrap {
+    margin: 20px;
+}
+
+.digitalia-forms-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.digitalia-forms-title {
+    font-size: 23px;
+    font-weight: 400;
+    margin: 0;
+    padding: 9px 0 4px;
+    line-height: 1.3;
+    margin-bottom: 10px;
+}
+
+/* Tabla de formularios */
+.digitalia-forms-table {
+    background: #fff;
+    border: 1px solid #ccd0d4;
+    box-shadow: 0 1px 1px rgba(0,0,0,.04);
+    border-spacing: 0;
+    width: 100%;
+    clear: both;
+    margin: 0;
+}
+
+.digitalia-forms-table th {
+    line-height: 1.4em;
+    padding: 8px 10px;
+}
+
+.digitalia-forms-table td {
+    padding: 8px 10px;
+    line-height: 1.4em;
+    vertical-align: middle;
+}
+
+.digitalia-forms-table tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+/* Formulario de edición */
+.digitalia-forms-edit {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.digitalia-forms-edit-header {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.digitalia-forms-edit-header p {
+    margin: 0 0 15px 0;
+}
+
+.digitalia-forms-edit-header p:last-child {
+    margin-bottom: 0;
+}
+
+/* Campos */
+.digitalia-forms-fields,
+.digitalia-forms-actions {
+    margin-bottom: 30px;
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.digitalia-forms-fields h2,
+.digitalia-forms-actions h2 {
+    margin-top: 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.digitalia-forms-fields-list,
+.digitalia-forms-actions-list {
+    margin-bottom: 20px;
+}
+
+.digitalia-forms-field,
+.digitalia-forms-action {
+    background: #f9f9f9;
+    border: 1px solid #e5e5e5;
+    margin-bottom: 10px;
+    border-radius: 3px;
+}
+
+.digitalia-forms-field-header,
+.digitalia-forms-action-header {
+    padding: 10px;
+    background: #f1f1f1;
+    border-bottom: 1px solid #e5e5e5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: move;
+}
+
+.digitalia-forms-field-content,
+.digitalia-forms-action-content {
+    padding: 15px;
+}
+
+.digitalia-forms-field-content p,
+.digitalia-forms-action-content p {
+    margin: 0 0 15px 0;
+}
+
+.digitalia-forms-field-content label,
+.digitalia-forms-action-content label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.digitalia-forms-field-content input[type="checkbox"] + label,
+.digitalia-forms-action-content input[type="checkbox"] + label {
+    display: inline;
+    font-weight: normal;
+}
+
+.digitalia-forms-field-actions,
+.digitalia-forms-action-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.move-field,
+.move-action {
+    cursor: move;
+    color: #666;
+}
+
+.delete-field,
+.delete-action {
+    color: #dc3232;
+}
+
+.delete-field:hover,
+.delete-action:hover {
+    color: #dc3232;
+}
+
+.field-options,
+.action-options {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.field-option,
+.action-option {
+    margin-bottom: 15px;
+}
+
+.field-option:last-child,
+.action-option:last-child {
+    margin-bottom: 0;
+}
+
+/* Botones */
+.digitalia-forms-add-field,
+.digitalia-forms-add-action {
+    margin-bottom: 20px;
+}
+
+/* Errores */
+.error {
+    border-color: #dc3232 !important;
+}
+
+/* Checkbox column */
+.wp-list-table .check-column {
+    width: 2.2em;
+    padding: 8px 10px;
+    vertical-align: top;
+}
+
+.wp-list-table .check-column input[type="checkbox"] {
+    margin: 0;
+    vertical-align: middle;
+}
+
+/* Fix checkbox alignment in header and footer */
+.wp-list-table thead .check-column input[type="checkbox"],
+.wp-list-table tfoot .check-column input[type="checkbox"] {
+    margin-left: 8px;
+}
+
+/* Responsive */
+@media screen and (max-width: 782px) {
+    .digitalia-forms-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .digitalia-forms-field-header,
+    .digitalia-forms-action-header {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
