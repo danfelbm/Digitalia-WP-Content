@@ -3,12 +3,19 @@ document.addEventListener('DOMContentLoaded', function() {
     
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();
-            
             const targetId = this.getAttribute('href');
+            
+            // Skip empty href or href="#"
+            if (!targetId || targetId === '#') {
+                e.preventDefault();
+                return;
+            }
+            
             const targetSection = document.querySelector(targetId);
             
             if (targetSection) {
+                e.preventDefault();
+                
                 // Smooth scroll with offset for sticky header
                 const offset = 100; // Adjust this value based on your sticky header height
                 const elementPosition = targetSection.getBoundingClientRect().top + window.pageYOffset;
