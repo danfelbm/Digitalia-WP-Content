@@ -53,7 +53,7 @@ get_header();
 			</a>
 			</div>
 			<?php if ($featured['media_type'] === 'video' && $featured['video']) : ?>
-			<video src="<?php echo esc_url($featured['video']); ?>" autoplay muted loop playsinline class="aspect-square h-full w-full rounded-lg object-cover md:aspect-[3]"></video>
+			<video src="<?php echo esc_url($featured['video']); ?>" controls loop playsinline class="aspect-square h-full w-full rounded-lg object-cover md:aspect-[3] js-scroll-video" data-video-autoplay="false"></video>
 			<?php elseif ($featured['media_type'] === 'image' && $featured['image']) : ?>
 			<img src="<?php echo esc_url($featured['image']); ?>" alt="Digital·IA" class="aspect-square h-full w-full rounded-lg object-cover md:aspect-[3]">
 			<?php endif; ?>
