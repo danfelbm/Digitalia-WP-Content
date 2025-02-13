@@ -11,33 +11,72 @@ get_header();
 <main id="primary" class="site-main">
 
     <section class="overflow-hidden py-32 bg-red-50/80">
-    <div class="container">
-        <div class="flex flex-col gap-5">
-        <div class="relative flex flex-col gap-5">
-            <div style="transform:translate(-50%, -50%)" class="absolute left-1/2 top-1/2 -z-10 mx-auto size-[800px] rounded-full border-red-300/60 border-2 p-16 [mask-image:linear-gradient(to_top,transparent,transparent,rgba(255,255,255,0.9),white,rgba(255,255,255,0.9),transparent,transparent)] md:size-[1300px] md:p-32">
-            <div class="size-full rounded-full border-red-400/70 border-2 p-16 md:p-32">
-                <div class="size-full rounded-full border-red-500/80 border-2"></div>
-            </div>
-            </div>
-            <?php if (get_field('enlinea_header')['video_button']): ?>
-            <button type="button" onclick="openVideoModal()" class="mx-auto flex size-16 items-center justify-center rounded-full border-red-300 border bg-red-50 text-red-600 hover:bg-red-100 transition-colors md:size-20">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-play size-6 fill-red-600">
-                <polygon points="6 3 20 12 6 21 6 3"></polygon>
-            </svg>
-            </button>
-            <?php endif; ?>
-            <h1 class="mx-auto max-w-screen-lg text-balance text-center text-3xl font-medium text-red-950 md:text-6xl"><?php echo esc_html(get_field('enlinea_header')['title']); ?></h1>
-            <p class="mx-auto max-w-screen-md text-center text-red-700 md:text-lg"><?php echo esc_html(get_field('enlinea_header')['description']); ?></p>
-            <div class="flex flex-col items-center justify-center gap-3 pb-12 pt-3">
-            <a href="<?php echo esc_url(get_field('enlinea_header')['cta']['url']); ?>" class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-400 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-red-600 text-white hover:bg-red-700 h-11 rounded-md px-8 shadow-sm"><?php echo esc_html(get_field('enlinea_header')['cta']['text']); ?> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap ml-2 size-4">
-                <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86.46l1.92-6.02A1 1 0 0 0 11 14z"></path>
-                </svg>
-            </a>
-            <div class="text-xs text-red-500"><?php echo esc_html(get_field('enlinea_header')['support_text']); ?></div>
+        <div class="container">
+            <div class="grid items-center gap-8 lg:grid-cols-2">
+                <div class="flex flex-col items-center text-center lg:items-start lg:text-left">
+                    <div style="transform:translate(-50%, -50%)" class="absolute left-1/2 top-1/2 -z-10 mx-auto size-[800px] rounded-full border-red-300/60 border-2 p-16 [mask-image:linear-gradient(to_top,transparent,transparent,rgba(255,255,255,0.9),white,rgba(255,255,255,0.9),transparent,transparent)] md:size-[1300px] md:p-32">
+                        <div class="size-full rounded-full border-red-400/70 border-2 p-16 md:p-32">
+                            <div class="size-full rounded-full border-red-500/80 border-2"></div>
+                        </div>
+                    </div>
+                    <?php if (get_field('enlinea_header')['video_button']): ?>
+                    <!--<button type="button" onclick="openVideoModal()" class="inline-flex items-center rounded-full border border-red-300 bg-red-50 px-4 py-1.5 text-sm text-red-600 transition-colors hover:bg-red-100">
+                        Play Video
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right ml-2 size-4">
+                            <path d="M7 17 17 7"/>
+                            <path d="M7 7h10v10"/>
+                        </svg>
+                    </button>-->
+                    <?php endif; ?>
+                    <h1 class="my-6 text-pretty text-4xl font-bold text-red-950 lg:text-6xl">
+                        <?php echo esc_html(get_field('enlinea_header')['title']); ?>
+                    </h1>
+                    <p class="mb-8 max-w-xl text-red-700 lg:text-xl">
+                        <?php echo esc_html(get_field('enlinea_header')['description']); ?>
+                    </p>
+                    <div class="flex w-full flex-col justify-center gap-2 sm:flex-row lg:justify-start">
+                        <a href="<?php echo esc_url(get_field('enlinea_header')['cta']['url']); ?>" 
+                           class="inline-flex h-11 items-center justify-center rounded-md bg-red-600 px-8 text-sm font-medium text-white shadow-sm transition-colors hover:bg-red-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-400 focus-visible:ring-offset-2">
+                            <?php echo esc_html(get_field('enlinea_header')['cta']['text']); ?>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap ml-2 size-4">
+                                <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86.46l1.92-6.02A1 1 0 0 0 11 14z"></path>
+                            </svg>
+                        </a>
+                        <div class="text-xs text-red-500 text-center sm:text-left">
+                            <?php echo esc_html(get_field('enlinea_header')['support_text']); ?>
+                        </div>
+                    </div>
+                </div>
+                <?php 
+                $hero_video = get_field('enlinea_header')['hero_video'];
+                $hero_image = get_field('enlinea_header')['hero_image'];
+                ?>
+                <div class="relative max-h-96 w-full rounded-md overflow-hidden">
+                    <?php if ($hero_video): ?>
+                        <video 
+                            class="w-full h-full object-cover"
+                            controls                            
+                            playsinline
+                        >
+                            <source src="<?php echo esc_url($hero_video['url']); ?>" type="video/mp4">
+                            <?php if ($hero_image): ?>
+                                <img src="<?php echo esc_url($hero_image['url']); ?>" 
+                                     alt="<?php echo esc_attr($hero_image['alt']); ?>" 
+                                     class="w-full h-full object-cover">
+                            <?php endif; ?>
+                        </video>
+                    <?php elseif ($hero_image): ?>
+                        <img src="<?php echo esc_url($hero_image['url']); ?>" 
+                             alt="<?php echo esc_attr($hero_image['alt']); ?>" 
+                             class="w-full h-full object-cover">
+                    <?php else: ?>
+                        <img src="https://placehold.co/800x600/red/white" 
+                             alt="Placeholder" 
+                             class="w-full h-full object-cover">
+                    <?php endif; ?>
+                </div>
             </div>
         </div>
-        </div>
-    </div>
     </section>
 
     <style>

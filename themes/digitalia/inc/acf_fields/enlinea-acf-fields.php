@@ -80,6 +80,22 @@ if (!function_exists('digitalia_register_enlinea_acf_fields')) {
                                 'type' => 'text',
                                 'default_value' => 'Con el apoyo de Canal 13',
                             ),
+                            array(
+                                'key' => 'field_enlinea_hero_image',
+                                'label' => 'Hero Image',
+                                'name' => 'hero_image',
+                                'type' => 'image',
+                                'return_format' => 'array',
+                            ),
+                            array(
+                                'key' => 'field_enlinea_hero_video',
+                                'label' => 'Hero Video',
+                                'name' => 'hero_video',
+                                'type' => 'file',
+                                'return_format' => 'array',
+                                'mime_types' => 'mp4',
+                                'instructions' => 'Upload an MP4 video file for the hero section background.',
+                            ),
                         ),
                     ),
 
