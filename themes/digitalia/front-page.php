@@ -52,8 +52,10 @@ get_header();
 				<?php echo esc_html($featured['button_text']); ?>
 			</a>
 			</div>
-			<?php if ($featured['image']) : ?>
-			<img src="<?php echo esc_url($featured['image']); ?>" alt="Digital·IA" class=" aspect-square h-full w-full rounded-lg object-cover md:aspect-[3]">
+			<?php if ($featured['media_type'] === 'video' && $featured['video']) : ?>
+			<video src="<?php echo esc_url($featured['video']); ?>" autoplay muted loop playsinline class="aspect-square h-full w-full rounded-lg object-cover md:aspect-[3]"></video>
+			<?php elseif ($featured['media_type'] === 'image' && $featured['image']) : ?>
+			<img src="<?php echo esc_url($featured['image']); ?>" alt="Digital·IA" class="aspect-square h-full w-full rounded-lg object-cover md:aspect-[3]">
 			<?php endif; ?>
 		</div>
 		<?php endif; ?>
