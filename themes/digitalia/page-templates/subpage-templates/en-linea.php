@@ -10,7 +10,7 @@ get_header();
 
 <main id="primary" class="site-main">
 
-    <section class="overflow-hidden py-32 bg-red-50/80">
+    <section class="overflow-hidden py-32 bg-red-50/80 relative">
         <div class="container">
             <div class="grid items-center gap-8 lg:grid-cols-2">
                 <div class="flex flex-col items-center text-center lg:items-start lg:text-left">
