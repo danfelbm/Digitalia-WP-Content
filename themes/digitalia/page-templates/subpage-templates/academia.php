@@ -163,8 +163,13 @@ get_header();
                     </div>
                 </div>
                 <div class="mx-auto">
-                    <?php if (!empty($formacion['image'])): ?>
+                    <?php if ($formacion['media_type'] === 'image' && !empty($formacion['image'])): ?>
                         <img src="<?php echo esc_url($formacion['image']); ?>" alt="Academia Digital-IA" class="ml-auto max-h-[450px] w-full rounded-xl object-cover">
+                    <?php elseif ($formacion['media_type'] === 'video' && !empty($formacion['video'])): ?>
+                        <video class="ml-auto max-h-[450px] w-full rounded-xl object-cover" controls>
+                            <source src="<?php echo esc_url($formacion['video']); ?>" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
                     <?php endif; ?>
                 </div>
             </div>

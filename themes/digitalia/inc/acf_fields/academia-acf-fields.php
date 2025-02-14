@@ -243,12 +243,49 @@ if (!function_exists('digitalia_register_academia_acf_fields')) {
                                 ),
                             ),
                             array(
+                                'key' => 'field_media_type',
+                                'label' => 'Tipo de Media',
+                                'name' => 'media_type',
+                                'type' => 'select',
+                                'choices' => array(
+                                    'image' => 'Imagen',
+                                    'video' => 'Video',
+                                ),
+                                'default_value' => 'image',
+                                'required' => 1,
+                            ),
+                            array(
                                 'key' => 'field_formacion_image',
                                 'label' => 'Imagen',
                                 'name' => 'image',
                                 'type' => 'image',
                                 'return_format' => 'url',
-                                'preview_size' => 'medium',
+                                'conditional_logic' => array(
+                                    array(
+                                        array(
+                                            'field' => 'field_media_type',
+                                            'operator' => '==',
+                                            'value' => 'image',
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            array(
+                                'key' => 'field_formacion_video',
+                                'label' => 'Video MP4',
+                                'name' => 'video',
+                                'type' => 'file',
+                                'return_format' => 'url',
+                                'mime_types' => 'mp4',
+                                'conditional_logic' => array(
+                                    array(
+                                        array(
+                                            'field' => 'field_media_type',
+                                            'operator' => '==',
+                                            'value' => 'video',
+                                        ),
+                                    ),
+                                ),
                             ),
                         ),
                     ),
