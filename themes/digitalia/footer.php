@@ -161,7 +161,6 @@ if (function_exists('get_field')) {
 
 <?php get_template_part('template-parts/mobile-footer-nav'); ?>
 
-<?php wp_footer(); ?>
 <!-- Widget Configuration -->
 <script>
     window.ChatWidgetConfig = {
@@ -184,7 +183,8 @@ if (function_exists('get_field')) {
         }
     };
 </script>
-<script src="js/chat.js"></script>
 <!-- Widget Script -->
+ 
+<?php wp_footer(); ?>
 </body>
 </html>

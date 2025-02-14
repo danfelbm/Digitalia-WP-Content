@@ -9,7 +9,7 @@
 
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '2.2.0' );
+	define( '_S_VERSION', '2.2.1' );
 }
 
 /**
@@ -163,6 +163,9 @@ function digitalia_scripts() {
 
 	// Enqueue carousel script
 	wp_enqueue_script('digitalia-carousel', get_template_directory_uri() . '/js/carousel.js', array(), _S_VERSION, true);
+
+	// Enqueue chat.js in the footer
+	wp_enqueue_script( 'digitalia-chat', get_template_directory_uri() . '/js/chat.js', array('jquery'), _S_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
