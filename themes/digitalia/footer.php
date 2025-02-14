@@ -162,6 +162,29 @@ if (function_exists('get_field')) {
 <?php get_template_part('template-parts/mobile-footer-nav'); ?>
 
 <?php wp_footer(); ?>
-
+<!-- Widget Configuration -->
+<script>
+    window.ChatWidgetConfig = {
+        webhook: {
+            url: 'https://n8n.digitalia.su/webhook/89b96ceb-7ef5-43b7-978e-9f27e71e04dc/chat',
+            route: 'general'
+        },
+        branding: {
+            logo: 'P3.png',
+            name: 'Botilito - Digital-IA',
+            welcomeText: 'Kiubo! 👋, Soy Botilito, un ex-agente digital de una granja de bots! Me escapé para venirme al bando de los que luchan por la paz, me acompañas?',
+            responseTimeText: '¿Qué quieres saber?'  
+        },
+        style: {
+            primaryColor: '#854fff', //Primary color
+            secondaryColor: '#6b3fd4', //Secondary color
+            position: 'right', //Position of the widget (left or right)
+            backgroundColor: '#ffffff', //Background color of the chat widget
+            fontColor: '#333333' //Text color for messages and interface
+        }
+    };
+</script>
+<script src="js/chat.js"></script>
+<!-- Widget Script -->
 </body>
 </html>

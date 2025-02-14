@@ -13,7 +13,7 @@ get_header();
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
     <div id="app" class="lg:container">
-        <div v-if="isLoading" class="fixed inset-0 bg-black/50 z-[9999] flex items-center justify-center">
+        <div v-if="isLoading || isTaxonomyLoading" class="fixed inset-0 bg-black/50 z-[9999] flex items-center justify-center">
             <div class="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center justify-center gap-3 w-48">
                 <i class="fas fa-circle-notch text-3xl text-black animate-spin"></i>
                 <span class="text-black text-base font-medium">Cargando...</span>
@@ -151,6 +151,7 @@ get_header();
         const app = createApp({
             setup() {
                 const isLoading = ref(false);
+                const isTaxonomyLoading = ref(false);
                 const postTypes = ref([]);
                 const taxonomies = ref([]);
                 const posts = ref([]);
@@ -353,22 +354,41 @@ get_header();
 
                 // Fetch taxonomies
                 async function fetchTaxonomies() {
+                    if (!selectedPostType.value || !selectedPostType.value.rest_base) return;
+                    
+                    isTaxonomyLoading.value = true;
                     try {
-                        const response = await fetch(`${wpApiUrl}/taxonomies`);
-                        const data = await response.json();
-                        taxonomies.value = Object.values(data)
-                            .filter(tax => tax.rest_base && tax.slug && tax.types)
-                            .map(tax => ({
-                                name: tax.name,
-                                slug: tax.slug,
-                                rest_base: tax.rest_base,
-                                types: Array.isArray(tax.types) ? tax.types : []
-                            }));
-                        updateFilteredTaxonomies();
+                        const response = await fetch(`${wpApiUrl}/${selectedPostType.value.rest_base}/taxonomies`);
+                        const taxonomies = await response.json();
+                        
+                        // Filter out the default taxonomies we don't want to show
+                        const excludedTaxonomies = ['post_format', 'wp_theme'];
+                        const validTaxonomies = Object.values(taxonomies).filter(tax => !excludedTaxonomies.includes(tax.slug));
+                        
+                        // Fetch terms for each taxonomy
+                        const taxonomyPromises = validTaxonomies.map(async (tax) => {
+                            const termsResponse = await fetch(`${wpApiUrl}/${tax.rest_base}`);
+                            const terms = await termsResponse.json();
+                            return {
+                                ...tax,
+                                terms: terms
+                            };
+                        });
+                        
+                        const taxonomiesWithTerms = await Promise.all(taxonomyPromises);
+                        
+                        // Separate tag taxonomy and other taxonomies
+                        tagTaxonomy.value = taxonomiesWithTerms.find(tax => tax.slug === 'post_tag');
+                        if (tagTaxonomy.value) {
+                            postTags.value = tagTaxonomy.value.terms;
+                            hasPostTags.value = postTags.value.length > 0;
+                        }
+                        
+                        otherTaxonomies.value = taxonomiesWithTerms.filter(tax => tax.slug !== 'post_tag');
                     } catch (error) {
                         console.error('Error fetching taxonomies:', error);
-                        taxonomies.value = [];
-                        filteredTaxonomies.value = [];
+                    } finally {
+                        isTaxonomyLoading.value = false;
                     }
                 }
 
@@ -472,7 +492,8 @@ get_header();
                     resetFilters,
                     toggleSidebar,
                     isSidebarOpen,
-                    isLoading
+                    isLoading,
+                    isTaxonomyLoading
                 };
             }
         });
