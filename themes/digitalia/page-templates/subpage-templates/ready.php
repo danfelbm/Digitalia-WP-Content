@@ -356,7 +356,20 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                 </div>
                 <div class="mx-auto">
-                    <img src="<?php echo esc_url(get_field('ready2_about')['image']); ?>" alt="REaDy - Red de Aprendizaje Digital" class="ml-auto max-h-[450px] w-full rounded-xl object-cover">
+                    <?php 
+                    $media = get_field('ready2_about')['media'];
+                    if ($media) {
+                        $mime_type = $media['mime_type'];
+                        if (strpos($mime_type, 'video') !== false) {
+                            echo '<video class="ml-auto max-h-[450px] w-full rounded-xl object-cover" controls autoplay muted loop>';
+                            echo '<source src="' . esc_url($media['url']) . '" type="' . esc_attr($mime_type) . '">';
+                            echo 'Your browser does not support the video tag.';
+                            echo '</video>';
+                        } else {
+                            echo '<img src="' . esc_url($media['url']) . '" alt="REaDy - Red de Aprendizaje Digital" class="ml-auto max-h-[450px] w-full rounded-xl object-cover">';
+                        }
+                    }
+                    ?>
                 </div>
             </div>
             <div class="mt-10 grid gap-6 md:grid-cols-3">

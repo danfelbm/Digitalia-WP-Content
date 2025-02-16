@@ -230,14 +230,16 @@ if (!function_exists('digitalia_register_ready_acf_fields')) {
                                     ),
                                 ),
                             ),
-                            // Image
+                            // Media
                             array(
-                                'key' => 'field_ready2_image',
-                                'label' => 'Imagen',
-                                'name' => 'image',
-                                'type' => 'image',
-                                'return_format' => 'url',
-                                'preview_size' => 'medium',
+                                'key' => 'field_ready2_media',
+                                'label' => 'Imagen o Video',
+                                'name' => 'media',
+                                'type' => 'file',
+                                'return_format' => 'array',
+                                'library' => 'all',
+                                'mime_types' => 'jpg,jpeg,png,gif,mp4,webm',
+                                'instructions' => 'Seleccione una imagen o video MP4. Para videos, se recomienda MP4.',
                             ),
                             // Feature Boxes
                             array(

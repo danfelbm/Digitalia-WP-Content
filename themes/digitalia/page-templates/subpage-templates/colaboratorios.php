@@ -166,11 +166,21 @@ get_header();
                 </div>
                 <div class="mx-auto">
                     <?php 
-                    $about_image = get_field('about')['image'];
-                    $image_url = $about_image ? $about_image['url'] : '/wp-content/uploads/2024/12/placeholder-dark-1.svg';
-                    $image_alt = $about_image ? $about_image['alt'] : 'CoLaboratorios - Espacios de Innovación Digital';
+                    $media = get_field('about')['media'];
+                    if ($media) {
+                        $mime_type = $media['mime_type'];
+                        if (strpos($mime_type, 'video') !== false) {
+                            echo '<video class="ml-auto max-h-[450px] w-full rounded-xl object-cover" controls autoplay muted loop>';
+                            echo '<source src="' . esc_url($media['url']) . '" type="' . esc_attr($mime_type) . '">';
+                            echo 'Your browser does not support the video tag.';
+                            echo '</video>';
+                        } else {
+                            echo '<img src="' . esc_url($media['url']) . '" alt="' . esc_attr($media['alt'] ?? 'CoLaboratorios - Espacios de Innovación Digital') . '" class="ml-auto max-h-[450px] w-full rounded-xl object-cover">';
+                        }
+                    } else {
+                        echo '<img src="/wp-content/uploads/2024/12/placeholder-dark-1.svg" alt="CoLaboratorios - Espacios de Innovación Digital" class="ml-auto max-h-[450px] w-full rounded-xl object-cover">';
+                    }
                     ?>
-                    <img src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr($image_alt); ?>" class="ml-auto max-h-[450px] w-full rounded-xl object-cover">
                 </div>
             </div>
             <div class="mt-10 grid gap-6 md:grid-cols-3">
