@@ -8,85 +8,86 @@
 get_header();
 ?>
 
-<section class="py-32">
-    <div class="container grid gap-12 md:grid-cols-12 md:gap-8">
-        <div class="order-last md:order-none md:col-span-4 lg:col-span-3">
-            <aside class="top-32 md:sticky">
-                <div class="space-y-5 border-b border-border py-5 md:space-y-6 md:py-6">
-                    <span class="text-xs font-medium uppercase tracking-wider text-muted-foreground">Categories & Tags</span>
-                    <div class="grid gap-y-2 md:gap-y-3">
+<main class="pt-8 pb-16 lg:pt-16 lg:pb-24 bg-white dark:bg-gray-900 antialiased">
+    <div class="flex justify-between px-4 mx-auto max-w-screen-xl">
+        <article class="mx-auto w-full max-w-2xl format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
+            <header class="mb-4 lg:mb-6 not-format">
+                <?php while (have_posts()) : the_post(); ?>
+                <h1 class="mb-4 text-3xl font-extrabold leading-tight text-gray-900 lg:mb-6 lg:text-4xl dark:text-white">
+                    <?php the_title(); ?>
+                </h1>
+
+                <?php if (has_post_thumbnail()) : ?>
+                    <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'full'); ?>" 
+                         alt="<?php echo get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true); ?>" 
+                         class="mb-8 mt-0 aspect-video w-full rounded-lg object-cover">
+                <?php endif; ?>
+
+                <address class="flex items-center mb-6 not-italic">
+                    <div class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white">
                         <?php
-                        // Get all taxonomies for the current post
-                        $taxonomies = get_object_taxonomies(get_post_type(), 'objects');
-                        foreach ($taxonomies as $taxonomy) {
-                            $terms = get_the_terms(get_the_ID(), $taxonomy->name);
-                            if ($terms && !is_wp_error($terms)) {
-                                foreach ($terms as $term) {
-                                    ?>
-                                    <a href="<?php echo esc_url(get_term_link($term)); ?>" 
-                                       class="inline-flex items-center rounded-full bg-secondary px-3 py-1 text-sm font-medium text-secondary-foreground hover:bg-secondary/80 mr-2 mb-2">
-                                        <?php echo esc_html($term->name); ?>
-                                    </a>
-                                    <?php
-                                }
+                        $author_id = get_the_author_meta('ID');
+                        $author_avatar = get_avatar_url($author_id, ['size' => 64]);
+                        ?>
+                        <img class="mr-4 w-16 h-16 rounded-full" src="<?php echo esc_url($author_avatar); ?>" alt="<?php echo esc_attr(get_the_author()); ?>">
+                        <div>
+                            <a href="<?php echo esc_url(get_author_posts_url($author_id)); ?>" rel="author" class="text-xl font-bold text-gray-900 dark:text-white"><?php echo get_the_author(); ?></a>
+                            <p class="text-base text-gray-500 dark:text-gray-400"><?php echo get_the_author_meta('description'); ?></p>
+                            <p class="text-base text-gray-500 dark:text-gray-400">
+                                <time datetime="<?php echo get_the_date('c'); ?>" title="<?php echo get_the_date(); ?>">
+                                    <?php echo get_the_date(); ?>
+                                </time>
+                            </p>
+                        </div>
+                    </div>
+                </address>
+
+                <!-- Social Share -->
+                <div class="flex items-center space-x-4 mb-4">
+                    <a href="https://www.instagram.com/share?url=<?php echo urlencode(get_permalink()); ?>" target="_blank" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        <img src="https://www.shadcnblocks.com/images/block/logos/instagram-icon.svg" alt="Instagram" class="size-5">
+                    </a>
+                    <a href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo urlencode(get_permalink()); ?>" target="_blank" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        <img src="https://www.shadcnblocks.com/images/block/logos/linkedin-icon.svg" alt="LinkedIn" class="size-5">
+                    </a>
+                    <a href="https://twitter.com/intent/tweet?url=<?php echo urlencode(get_permalink()); ?>" target="_blank" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                        <img src="https://www.shadcnblocks.com/images/block/logos/twitter-icon.svg" alt="Twitter" class="size-5">
+                    </a>
+                </div>
+
+                <!-- Categories & Tags -->
+                <div class="flex flex-wrap gap-2 mb-6">
+                    <?php
+                    $taxonomies = get_object_taxonomies(get_post_type(), 'objects');
+                    foreach ($taxonomies as $taxonomy) {
+                        $terms = get_the_terms(get_the_ID(), $taxonomy->name);
+                        if ($terms && !is_wp_error($terms)) {
+                            foreach ($terms as $term) {
+                                ?>
+                                <a href="<?php echo esc_url(get_term_link($term)); ?>" 
+                                   class="inline-flex items-center rounded-full bg-secondary px-3 py-1 text-sm font-medium text-secondary-foreground hover:bg-secondary/80">
+                                    <?php echo esc_html($term->name); ?>
+                                </a>
+                                <?php
                             }
                         }
-                        ?>
-                    </div>
-                </div>
-
-                <div class="space-y-5 border-b border-border py-5 md:space-y-6 md:py-6">
-                    <span class="text-xs font-medium uppercase tracking-wider text-muted-foreground">Share this guide</span>
-                    <ul class="flex max-w-44 items-center justify-between space-x-1">
-                        <li>
-                            <a href="https://www.instagram.com/share?url=<?php echo urlencode(get_permalink()); ?>" target="_blank" class="flex aspect-square items-center justify-center">
-                                <img src="https://www.shadcnblocks.com/images/block/logos/instagram-icon.svg" alt="Instagram" class="size-5">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo urlencode(get_permalink()); ?>" target="_blank" class="flex aspect-square items-center justify-center">
-                                <img src="https://www.shadcnblocks.com/images/block/logos/linkedin-icon.svg" alt="LinkedIn" class="size-5">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://twitter.com/intent/tweet?url=<?php echo urlencode(get_permalink()); ?>" target="_blank" class="flex aspect-square items-center justify-center">
-                                <img src="https://www.shadcnblocks.com/images/block/logos/twitter-icon.svg" alt="Twitter" class="size-5">
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <?php if (function_exists('generate_pdf_button')) : ?>
-                <div class="space-y-5 py-5 md:space-y-6 md:py-6">
-                    <span class="text-xs font-medium uppercase tracking-wider text-muted-foreground">Enjoy reading this?</span>
-                    <div>
-                        <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
-                            Download PDF
-                        </button>
-                    </div>
-                </div>
-                <?php endif; ?>
-            </aside>
-        </div>
-
-        <div class="md:col-span-7 md:col-start-5 lg:col-start-6">
-            <article class="prose prose-sm pt-8">
-                <?php
-                while (have_posts()) :
-                    the_post();
+                    }
                     ?>
-                    <?php if (has_post_thumbnail()) : ?>
-                        <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'full'); ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true); ?>" class="mb-8 mt-0 aspect-video w-full rounded-lg object-cover">
-                    <?php endif; ?>
-                    <h1><?php the_title(); ?></h1>
-                    <?php the_content(); ?>
-                    <?php
-                endwhile;
-                ?>
-            </article>
-        </div>
-    </div>
-</section>
+                </div>
+            </header>
 
-<?php
-get_footer();
+            <div class="prose prose-sm dark:prose-invert [&>p]:mb-6 [&>p:last-child]:mb-0 [&>h2]:mt-8 [&>h3]:mt-6">
+                <?php the_content(); ?>
+            </div>
+            <?php endwhile; ?>
+
+            <?php if (comments_open() || get_comments_number()) : ?>
+            <section class="not-format">
+                <?php comments_template(); ?>
+            </section>
+            <?php endif; ?>
+        </article>
+    </div>
+</main>
+
+<?php get_footer(); ?>
