@@ -361,7 +361,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     if ($media) {
                         $mime_type = $media['mime_type'];
                         if (strpos($mime_type, 'video') !== false) {
-                            echo '<video class="ml-auto max-h-[450px] w-full rounded-xl object-cover" controls autoplay muted loop>';
+                            echo '<video class="ml-auto max-h-[450px] w-full rounded-xl object-cover" controls loop>';
                             echo '<source src="' . esc_url($media['url']) . '" type="' . esc_attr($mime_type) . '">';
                             echo 'Your browser does not support the video tag.';
                             echo '</video>';
