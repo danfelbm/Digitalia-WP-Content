@@ -1288,3 +1288,12 @@ function add_hotjar_script() {
     <?php
 }
 add_action('wp_head', 'add_hotjar_script');
+
+// Adding UST heatmap tracking code
+function add_ust_heatmap_script() {
+    ?>
+    <script>UST_CT = [];UST = { s: Date.now(), addTag: function(tag) { UST_CT.push(tag) } };UST.addEvent = UST.addTag;</script>
+    <script src="https://digitalia.gov.co/heatmap/server/ust.min.js?v=7.3.0" async></script>
+    <?php
+}
+add_action('wp_head', 'add_ust_heatmap_script');
