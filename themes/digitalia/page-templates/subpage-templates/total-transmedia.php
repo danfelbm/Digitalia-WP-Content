@@ -165,12 +165,20 @@ get_header();
           <?php endif; ?>
         </div>
 
-        <?php if ($strategy['image']): ?>
-          <img 
-            src="<?php echo esc_url($strategy['image']['url']); ?>" 
-            alt="<?php echo esc_attr($strategy['image']['alt']); ?>" 
-            class="ml-auto max-h-[450px] w-full rounded-xl object-cover"
-          >
+        <?php if ($strategy['media']): 
+          $mime_type = $strategy['media']['mime_type'];
+          if (strpos($mime_type, 'video') !== false): ?>
+            <video class="ml-auto max-h-[450px] w-full rounded-xl object-cover" controls autoplay muted loop>
+              <source src="<?php echo esc_url($strategy['media']['url']); ?>" type="<?php echo esc_attr($mime_type); ?>">
+              Your browser does not support the video tag.
+            </video>
+          <?php else: ?>
+            <img 
+              src="<?php echo esc_url($strategy['media']['url']); ?>" 
+              alt="<?php echo esc_attr($strategy['media']['alt']); ?>" 
+              class="ml-auto max-h-[450px] w-full rounded-xl object-cover"
+            >
+          <?php endif; ?>
         <?php endif; ?>
       </div>
 
@@ -614,40 +622,49 @@ get_header();
           </div>
           <?php if (!empty($participation['gallery'])): ?>
             <div class="flex flex-col items-center justify-center p-8">
-              <div class="relative aspect-[7/8] h-full w-full">
-                <?php if (!empty($participation['gallery']['image_1'])): ?>
-                  <div class="absolute right-[50%] top-[12%] flex aspect-square w-[24%] justify-center rounded-lg border border-blue-200 bg-blue-100 shadow-sm overflow-hidden">
-                    <img src="<?php echo esc_url($participation['gallery']['image_1']['url']); ?>" 
-                         alt="<?php echo esc_attr($participation['gallery']['image_1']['alt']); ?>" 
-                         class="object-cover w-full h-full"
-                         onerror="this.src='https://placehold.co/400x400/1f3a8a/bfdbfe?text=Participación+1'">
-                  </div>
-                <?php endif; ?>
-                <?php if (!empty($participation['gallery']['image_2'])): ?>
-                  <div class="absolute right-[50%] top-[36%] flex aspect-[5/6] w-[40%] justify-center rounded-lg border border-blue-200 bg-blue-100 shadow-sm overflow-hidden">
-                    <img src="<?php echo esc_url($participation['gallery']['image_2']['url']); ?>" 
-                         alt="<?php echo esc_attr($participation['gallery']['image_2']['alt']); ?>" 
-                         class="object-cover w-full h-full"
-                         onerror="this.src='https://placehold.co/400x480/1f3a8a/bfdbfe?text=Participación+2'">
-                  </div>
-                <?php endif; ?>
-                <?php if (!empty($participation['gallery']['image_3'])): ?>
-                  <div class="absolute bottom-[36%] left-[54%] flex aspect-[5/6] w-[40%] justify-center rounded-lg border border-blue-200 bg-blue-100 shadow-sm overflow-hidden">
-                    <img src="<?php echo esc_url($participation['gallery']['image_3']['url']); ?>" 
-                         alt="<?php echo esc_attr($participation['gallery']['image_3']['alt']); ?>" 
-                         class="object-cover w-full h-full"
-                         onerror="this.src='https://placehold.co/400x480/1f3a8a/bfdbfe?text=Participación+3'">
-                  </div>
-                <?php endif; ?>
-                <?php if (!empty($participation['gallery']['image_4'])): ?>
-                  <div class="absolute bottom-[12%] left-[54%] flex aspect-square w-[24%] justify-center rounded-lg border border-blue-200 bg-blue-100 shadow-sm overflow-hidden">
-                    <img src="<?php echo esc_url($participation['gallery']['image_4']['url']); ?>" 
-                         alt="<?php echo esc_attr($participation['gallery']['image_4']['alt']); ?>" 
-                         class="object-cover w-full h-full"
-                         onerror="this.src='https://placehold.co/400x400/1f3a8a/bfdbfe?text=Participación+4'">
-                  </div>
-                <?php endif; ?>
-              </div>
+              <?php if ($participation['gallery']['display_type'] === 'video' && !empty($participation['gallery']['video'])): ?>
+                <div class="relative w-full max-w-3xl aspect-video">
+                  <video class="w-full h-full rounded-lg shadow-sm" controls autoplay muted loop>
+                    <source src="<?php echo esc_url($participation['gallery']['video']['url']); ?>" type="<?php echo esc_attr($participation['gallery']['video']['mime_type']); ?>">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+              <?php else: ?>
+                <div class="relative aspect-[7/8] h-full w-full">
+                  <?php if (!empty($participation['gallery']['image_1'])): ?>
+                    <div class="absolute right-[50%] top-[12%] flex aspect-square w-[24%] justify-center rounded-lg border border-blue-200 bg-blue-100 shadow-sm overflow-hidden">
+                      <img src="<?php echo esc_url($participation['gallery']['image_1']['url']); ?>" 
+                           alt="<?php echo esc_attr($participation['gallery']['image_1']['alt']); ?>" 
+                           class="object-cover w-full h-full"
+                           onerror="this.src='https://placehold.co/400x400/1f3a8a/bfdbfe?text=Participación+1'">
+                    </div>
+                  <?php endif; ?>
+                  <?php if (!empty($participation['gallery']['image_2'])): ?>
+                    <div class="absolute right-[50%] top-[36%] flex aspect-[5/6] w-[40%] justify-center rounded-lg border border-blue-200 bg-blue-100 shadow-sm overflow-hidden">
+                      <img src="<?php echo esc_url($participation['gallery']['image_2']['url']); ?>" 
+                           alt="<?php echo esc_attr($participation['gallery']['image_2']['alt']); ?>" 
+                           class="object-cover w-full h-full"
+                           onerror="this.src='https://placehold.co/400x480/1f3a8a/bfdbfe?text=Participación+2'">
+                    </div>
+                  <?php endif; ?>
+                  <?php if (!empty($participation['gallery']['image_3'])): ?>
+                    <div class="absolute bottom-[36%] left-[54%] flex aspect-[5/6] w-[40%] justify-center rounded-lg border border-blue-200 bg-blue-100 shadow-sm overflow-hidden">
+                      <img src="<?php echo esc_url($participation['gallery']['image_3']['url']); ?>" 
+                           alt="<?php echo esc_attr($participation['gallery']['image_3']['alt']); ?>" 
+                           class="object-cover w-full h-full"
+                           onerror="this.src='https://placehold.co/400x480/1f3a8a/bfdbfe?text=Participación+3'">
+                    </div>
+                  <?php endif; ?>
+                  <?php if (!empty($participation['gallery']['image_4'])): ?>
+                    <div class="absolute bottom-[12%] left-[54%] flex aspect-square w-[24%] justify-center rounded-lg border border-blue-200 bg-blue-100 shadow-sm overflow-hidden">
+                      <img src="<?php echo esc_url($participation['gallery']['image_4']['url']); ?>" 
+                           alt="<?php echo esc_attr($participation['gallery']['image_4']['alt']); ?>" 
+                           class="object-cover w-full h-full"
+                           onerror="this.src='https://placehold.co/400x400/1f3a8a/bfdbfe?text=Participación+4'">
+                    </div>
+                  <?php endif; ?>
+                </div>
+              <?php endif; ?>
             </div>
           <?php endif; ?>
         </div>

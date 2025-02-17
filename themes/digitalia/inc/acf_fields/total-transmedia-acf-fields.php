@@ -206,6 +206,16 @@ if (!function_exists('digitalia_register_total_transmedia_acf_fields')) {
                                 'default_value' => 'Desarrollamos un universo comunicacional inmersivo que consolida audiencias y experiencias, creando contenidos de impacto y gestionando estrategias de difusión para el programa Digital-IA a nivel local, regional y nacional.',
                             ),
                             array(
+                                'key' => 'field_strategy_media',
+                                'label' => 'Imagen o Video',
+                                'name' => 'media',
+                                'type' => 'file',
+                                'return_format' => 'array',
+                                'library' => 'all',
+                                'mime_types' => 'jpg,jpeg,png,gif,mp4,webm',
+                                'instructions' => 'Seleccione una imagen o video MP4. Para videos, se recomienda MP4.',
+                            ),
+                            array(
                                 'key' => 'strategy_cta',
                                 'label' => 'Texto del Botón',
                                 'name' => 'cta_text',
@@ -254,16 +264,6 @@ if (!function_exists('digitalia_register_total_transmedia_acf_fields')) {
                                         'default_value' => '3',
                                     ),
                                 ),
-                            ),
-                            array(
-                                'key' => 'strategy_image',
-                                'label' => 'Imagen',
-                                'name' => 'image',
-                                'type' => 'image',
-                                'return_format' => 'array',
-                                'preview_size' => 'medium',
-                                'library' => 'all',
-                                'instructions' => 'Imagen para la sección de estrategia. Dimensiones recomendadas: 800x450px',
                             ),
                             array(
                                 'key' => 'strategy_cards',
@@ -903,6 +903,37 @@ if (!function_exists('digitalia_register_total_transmedia_acf_fields')) {
                                 'type' => 'group',
                                 'sub_fields' => array(
                                     array(
+                                        'key' => 'field_display_type',
+                                        'label' => 'Tipo de Visualización',
+                                        'name' => 'display_type',
+                                        'type' => 'select',
+                                        'choices' => array(
+                                            'gallery' => 'Galería de Imágenes',
+                                            'video' => 'Video'
+                                        ),
+                                        'default_value' => 'gallery',
+                                        'return_format' => 'value',
+                                    ),
+                                    array(
+                                        'key' => 'field_gallery_video',
+                                        'label' => 'Video',
+                                        'name' => 'video',
+                                        'type' => 'file',
+                                        'return_format' => 'array',
+                                        'library' => 'all',
+                                        'mime_types' => 'mp4,webm',
+                                        'instructions' => 'Seleccione un video MP4 o WebM.',
+                                        'conditional_logic' => array(
+                                            array(
+                                                array(
+                                                    'field' => 'field_display_type',
+                                                    'operator' => '==',
+                                                    'value' => 'video',
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                    array(
                                         'key' => 'gallery_image_1',
                                         'label' => 'Imagen 1',
                                         'name' => 'image_1',
@@ -910,6 +941,15 @@ if (!function_exists('digitalia_register_total_transmedia_acf_fields')) {
                                         'return_format' => 'array',
                                         'preview_size' => 'medium',
                                         'instructions' => 'Dimensiones recomendadas: 400x400px',
+                                        'conditional_logic' => array(
+                                            array(
+                                                array(
+                                                    'field' => 'field_display_type',
+                                                    'operator' => '==',
+                                                    'value' => 'gallery',
+                                                ),
+                                            ),
+                                        ),
                                     ),
                                     array(
                                         'key' => 'gallery_image_2',
@@ -919,6 +959,15 @@ if (!function_exists('digitalia_register_total_transmedia_acf_fields')) {
                                         'return_format' => 'array',
                                         'preview_size' => 'medium',
                                         'instructions' => 'Dimensiones recomendadas: 400x480px',
+                                        'conditional_logic' => array(
+                                            array(
+                                                array(
+                                                    'field' => 'field_display_type',
+                                                    'operator' => '==',
+                                                    'value' => 'gallery',
+                                                ),
+                                            ),
+                                        ),
                                     ),
                                     array(
                                         'key' => 'gallery_image_3',
@@ -928,6 +977,15 @@ if (!function_exists('digitalia_register_total_transmedia_acf_fields')) {
                                         'return_format' => 'array',
                                         'preview_size' => 'medium',
                                         'instructions' => 'Dimensiones recomendadas: 400x480px',
+                                        'conditional_logic' => array(
+                                            array(
+                                                array(
+                                                    'field' => 'field_display_type',
+                                                    'operator' => '==',
+                                                    'value' => 'gallery',
+                                                ),
+                                            ),
+                                        ),
                                     ),
                                     array(
                                         'key' => 'gallery_image_4',
@@ -937,6 +995,15 @@ if (!function_exists('digitalia_register_total_transmedia_acf_fields')) {
                                         'return_format' => 'array',
                                         'preview_size' => 'medium',
                                         'instructions' => 'Dimensiones recomendadas: 400x400px',
+                                        'conditional_logic' => array(
+                                            array(
+                                                array(
+                                                    'field' => 'field_display_type',
+                                                    'operator' => '==',
+                                                    'value' => 'gallery',
+                                                ),
+                                            ),
+                                        ),
                                     ),
                                 ),
                             ),
