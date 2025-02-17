@@ -1296,3 +1296,9 @@ function add_ust_heatmap_script() {
     <?php
 }
 add_action('wp_head', 'add_ust_heatmap_script');
+
+// Adding UserWay accessibility widget script
+function add_userway_script() {
+    echo '<script src="https://cdn.userway.org/widget.js" data-account="s13jewtECK"></script>';
+}
+add_action('wp_head', 'add_userway_script', 1);
