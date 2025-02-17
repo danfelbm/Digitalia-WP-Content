@@ -624,7 +624,7 @@ get_header();
             <div class="flex flex-col items-center justify-center p-8">
               <?php if ($participation['gallery']['display_type'] === 'video' && !empty($participation['gallery']['video'])): ?>
                 <div class="relative w-full max-w-3xl aspect-video">
-                  <video class="w-full h-full rounded-lg shadow-sm" controls autoplay muted loop>
+                  <video class="w-full h-full rounded-lg shadow-sm" controls loop>
                     <source src="<?php echo esc_url($participation['gallery']['video']['url']); ?>" type="<?php echo esc_attr($participation['gallery']['video']['mime_type']); ?>">
                     Your browser does not support the video tag.
                   </video>
