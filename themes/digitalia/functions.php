@@ -9,7 +9,7 @@
 
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '2.3.3' );
+	define( '_S_VERSION', '2.3.4' );
 }
 
 /**
@@ -154,8 +154,8 @@ function digitalia_scripts() {
     
 	wp_enqueue_script( 'digitalia-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'digitalia-menu', get_template_directory_uri() . '/js/menu.js', array(), _S_VERSION, true );
-	wp_enqueue_script( 'digitalia-smooth-scroll', get_template_directory_uri() . '/assets/js/smooth-scroll.js', array(), _S_VERSION, true );
-	wp_enqueue_script( 'digitalia-video-scroll', get_template_directory_uri() . '/assets/js/video-scroll.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'digitalia-smooth-scroll', get_template_directory_uri() . '/js/smooth-scroll.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'digitalia-video-scroll', get_template_directory_uri() . '/js/video-scroll.js', array(), _S_VERSION, true );
 
 	wp_enqueue_script('alpine-js', 'https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js', array(), null, true);
 	wp_script_add_data('alpine-js', 'defer', true);
@@ -1214,7 +1214,7 @@ add_action('acf/init', 'my_acf_init');
 // Enqueue Google Maps scripts and styles
 function digitalia_enqueue_acf_map_scripts() {
     wp_enqueue_script('google-maps', 'https://maps.googleapis.com/maps/api/js?key=' . acf_get_setting('google_api_key') . '&libraries=marker&callback=Function.prototype', array(), null, true);
-    wp_enqueue_script('acf-maps', get_template_directory_uri() . '/assets/js/acf-maps.js', array('jquery', 'google-maps'), '1.0', true);
+    wp_enqueue_script('acf-maps', get_template_directory_uri() . '/js/acf-maps.js', array('jquery', 'google-maps'), '1.0', true);
     
     // Add inline styles for the map
     $map_styles = "

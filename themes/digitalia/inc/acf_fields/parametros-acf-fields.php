@@ -91,9 +91,20 @@ if (function_exists('acf_add_local_field_group')):
         error_log('Registering ACF fields for post types: ' . print_r(array_keys($post_types), true));
 
         acf_add_local_field_group(array(
-            'key' => 'group_parametros',
-            'title' => 'Parámetros',
+            'key' => 'group_parametros_general',
+            'title' => 'Configuración General',
             'fields' => array(
+                array(
+                    'key' => 'field_front_page_select',
+                    'label' => 'Página de Inicio',
+                    'name' => 'front_page_select',
+                    'type' => 'post_object',
+                    'instructions' => 'Selecciona la página que se usará como página de inicio',
+                    'required' => 1,
+                    'post_type' => array('page'),
+                    'return_format' => 'id',
+                    'ui' => 1,
+                ),
                 array(
                     'key' => 'field_ctas',
                     'label' => 'CTAs',

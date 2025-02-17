@@ -130,9 +130,9 @@ if (!function_exists('digitalia_register_acf_fields')) {
                 'location' => array(
                     array(
                         array(
-                            'param' => 'page_template',
+                            'param' => 'post',
                             'operator' => '==',
-                            'value' => 'default',
+                            'value' => get_field('front_page_select', 'option'),
                         ),
                     ),
                 ),
@@ -274,9 +274,9 @@ if (!function_exists('digitalia_register_acf_fields')) {
                 'location' => array(
                     array(
                         array(
-                            'param' => 'page_template',
+                            'param' => 'post',
                             'operator' => '==',
-                            'value' => 'default',
+                            'value' => get_field('front_page_select', 'option'),
                         ),
                     ),
                 ),
@@ -390,9 +390,9 @@ if (!function_exists('digitalia_register_acf_fields')) {
                 'location' => array(
                     array(
                         array(
-                            'param' => 'page_template',
+                            'param' => 'post',
                             'operator' => '==',
-                            'value' => 'default',
+                            'value' => get_field('front_page_select', 'option'),
                         ),
                     ),
                 ),
@@ -517,9 +517,9 @@ if (!function_exists('digitalia_register_acf_fields')) {
                 'location' => array(
                     array(
                         array(
-                            'param' => 'page_template',
+                            'param' => 'post',
                             'operator' => '==',
-                            'value' => 'default',
+                            'value' => get_field('front_page_select', 'option'),
                         ),
                     ),
                 ),
@@ -603,9 +603,9 @@ if (!function_exists('digitalia_register_acf_fields')) {
                 'location' => array(
                     array(
                         array(
-                            'param' => 'page_type',
+                            'param' => 'post',
                             'operator' => '==',
-                            'value' => 'front_page',
+                            'value' => get_field('front_page_select', 'option'),
                         ),
                     ),
                 ),
