@@ -4,7 +4,7 @@ Theme URI: https://danielbecerra.org
 Author: Daniel Becerra
 Author URI: https://danielbecerra.org
 Description: Tema para Digitalia
-Version: 2.3.4
+Version: 2.3.5
 Requires at least: 5.0
 Tested up to: 6.4
 Requires PHP: 7.4
@@ -274,4 +274,10 @@ h3, h4 { font-family: 'JetBrains Mono', monospace; font-weight: 500; }
 
 .page-template-ready #main-navigation > div .nav-submenu a:hover {
     @apply bg-purple-200;
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
 }
