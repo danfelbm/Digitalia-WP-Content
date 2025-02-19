@@ -15,8 +15,8 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
-
+	<main id="primary" class="site-main w-full">
+		<div class="container mx-auto px-4 sm:px-6 lg:px-8">
 		<?php
 		while ( have_posts() ) :
 			the_post();
@@ -30,7 +30,7 @@ get_header();
 
 		endwhile; // End of the loop.
 		?>
-
+		</div>
 	</main><!-- #main -->
 
 <?php

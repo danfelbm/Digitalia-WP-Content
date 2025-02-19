@@ -11,9 +11,29 @@ get_header(); ?>
             <!-- Main Content Column -->
             <div class="lg:w-2/3">
                 <?php while (have_posts()) : the_post(); 
-                    $file = get_field('archivo');
-                    $file_size = $file ? size_format(filesize(get_attached_file($file['ID']))) : '0 KB';
-                    $file_type = $file ? wp_check_filetype($file['url'])['ext'] : 'N/A';
+                    $file_type = get_field('tipo_archivo');
+                    $file_info = array(
+                        'size' => '0 KB',
+                        'ext' => 'N/A',
+                        'url' => ''
+                    );
+
+                    if ($file_type === 'internal') {
+                        $file = get_field('archivo');
+                        if ($file) {
+                            $file_info['size'] = size_format(filesize(get_attached_file($file['ID'])));
+                            $file_info['ext'] = wp_check_filetype($file['url'])['ext'];
+                            $file_info['url'] = $file['url'];
+                        }
+                    } else {
+                        $external_url = get_field('url_externa');
+                        if ($external_url) {
+                            $file_info['url'] = $external_url;
+                            $file_info['ext'] = pathinfo(parse_url($external_url, PHP_URL_PATH), PATHINFO_EXTENSION);
+                            // No file size available for external URLs
+                            $file_info['size'] = 'N/A (URL Externa)';
+                        }
+                    }
                 ?>
                     <!-- Breadcrumb -->
                     <nav class="text-sm mb-6">
@@ -50,12 +70,12 @@ get_header(); ?>
                             <span>Fecha de publicación: <?php echo get_the_date('d/m/Y'); ?></span>
                         </div>
                         <div class="flex items-center">
-                            <i class="far fa-file-<?php echo $file_type; ?> mr-2"></i>
-                            <span>Formato: <?php echo strtoupper($file_type); ?></span>
+                            <i class="far fa-file-<?php echo $file_info['ext']; ?> mr-2"></i>
+                            <span>Formato: <?php echo strtoupper($file_info['ext']); ?></span>
                         </div>
                         <div class="flex items-center">
                             <i class="fas fa-database mr-2"></i>
-                            <span>Tamaño: <?php echo $file_size; ?></span>
+                            <span>Tamaño: <?php echo $file_info['size']; ?></span>
                         </div>
                     </div>
 
@@ -140,13 +160,19 @@ get_header(); ?>
 
                     <!-- Botón de descarga -->
                     <div class="text-center bg-white p-6 rounded-lg shadow-sm">
-                        <?php if ($file) : ?>
-                            <a href="<?php echo esc_url($file['url']); ?>" 
+                        <?php if ($file_info['url']) : ?>
+                            <a href="<?php echo esc_url($file_info['url']); ?>" 
                                class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-                               download>
-                                <i class="fas fa-download mr-2"></i>
-                                Descargar Archivo
+                               <?php echo ($file_type === 'internal' ? 'download' : 'target="_blank" rel="noopener noreferrer"'); ?>>
+                                <i class="fas fa-<?php echo ($file_type === 'internal' ? 'download' : 'external-link-alt'); ?> mr-2"></i>
+                                <?php echo ($file_type === 'internal' ? 'Descargar Archivo' : 'Abrir Enlace Externo'); ?>
                             </a>
+                            <?php if ($file_type === 'external') : ?>
+                                <p class="text-sm text-gray-500 mt-2">
+                                    <i class="fas fa-info-circle mr-1"></i>
+                                    Este recurso se encuentra alojado en un sitio externo
+                                </p>
+                            <?php endif; ?>
                         <?php else : ?>
                             <p class="text-red-600">Archivo no disponible</p>
                         <?php endif; ?>

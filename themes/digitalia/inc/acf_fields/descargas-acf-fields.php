@@ -10,6 +10,18 @@ function digitalia_register_descargas_acf_fields() {
             'title' => 'Información del Archivo',
             'fields' => array(
                 array(
+                    'key' => 'field_descarga_file_type',
+                    'label' => 'Tipo de Archivo',
+                    'name' => 'tipo_archivo',
+                    'type' => 'radio',
+                    'required' => 1,
+                    'choices' => array(
+                        'internal' => 'Archivo Interno',
+                        'external' => 'URL Externa',
+                    ),
+                    'default_value' => 'internal',
+                ),
+                array(
                     'key' => 'field_descarga_file',
                     'label' => 'Archivo',
                     'name' => 'archivo',
@@ -18,6 +30,31 @@ function digitalia_register_descargas_acf_fields() {
                     'return_format' => 'array',
                     'library' => 'all',
                     'mime_types' => 'pdf,doc,docx,xls,xlsx,ppt,pptx,zip,rar',
+                    'conditional_logic' => array(
+                        array(
+                            array(
+                                'field' => 'field_descarga_file_type',
+                                'operator' => '==',
+                                'value' => 'internal',
+                            ),
+                        ),
+                    ),
+                ),
+                array(
+                    'key' => 'field_descarga_url',
+                    'label' => 'URL Externa',
+                    'name' => 'url_externa',
+                    'type' => 'url',
+                    'required' => 1,
+                    'conditional_logic' => array(
+                        array(
+                            array(
+                                'field' => 'field_descarga_file_type',
+                                'operator' => '==',
+                                'value' => 'external',
+                            ),
+                        ),
+                    ),
                 ),
                 array(
                     'key' => 'field_descarga_version',

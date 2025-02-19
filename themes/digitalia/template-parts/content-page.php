@@ -9,8 +9,8 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<div class="entry-content">
+<article id="post-<?php the_ID(); ?>" <?php post_class('w-full'); ?>>
+	<div class="entry-content max-w-none prose prose-lg mx-auto">
 		<?php
 		the_content();
 
