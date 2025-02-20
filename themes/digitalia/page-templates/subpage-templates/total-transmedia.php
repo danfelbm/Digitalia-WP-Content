@@ -42,14 +42,11 @@ get_header();
     <div class="container relative mx-auto px-4">
       <div class="grid items-center gap-8 lg:grid-cols-2">
         <div class="flex flex-col items-center text-center lg:items-start lg:text-left">
-          <p class="text-blue-600 font-semibold"><?php echo esc_html(get_field('hero')['badge']); ?></p>
           <h1 class="my-6 text-pretty text-4xl font-bold text-blue-900 lg:text-6xl"><?php echo esc_html(get_field('hero')['title']); ?></h1>
           <p class="mb-8 max-w-xl text-blue-800 lg:text-xl"><?php echo esc_html(get_field('hero')['description']); ?></p>
           <div class="flex w-full flex-col justify-center gap-2 sm:flex-row lg:justify-start">
             <a href="<?php echo esc_url(get_field('hero')['primary_cta']['url']); ?>" class="inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
-              <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 0118 0 9 9 0 0118 0z"></path>
-              </svg> <?php echo esc_html(get_field('hero')['primary_cta']['text']); ?> </a>
+              <i class="fa-solid fa-map-location-dot w-5 h-5 mr-2"></i> <?php echo esc_html(get_field('hero')['primary_cta']['text']); ?> </a>
             <a href="<?php echo esc_url(get_field('hero')['secondary_cta']['url']); ?>" class="inline-flex items-center justify-center px-6 py-3 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors"> <?php echo esc_html(get_field('hero')['secondary_cta']['text']); ?> </a>
           </div>
         </div>
@@ -86,7 +83,7 @@ get_header();
             <img 
               src="<?php echo esc_url($hero_image['url']); ?>" 
               alt="<?php echo esc_attr($hero_image['alt']); ?>" 
-              class="relative flex aspect-[3/6] w-[240px] object-cover rounded-lg border border-border sm:w-[300px]"
+              class="relative flex aspect-[3/6] w-[240px] object-contain justify-center items-start rounded-lg border border-border sm:w-[300px]"
             >
           <?php else: ?>
             <div class="relative flex aspect-[3/6] w-[240px] justify-center rounded-lg border border-border bg-background sm:w-[300px]"></div>
