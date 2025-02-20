@@ -327,6 +327,11 @@ get_header();
                                 </span>
                             </p>
                             <p class="w-full py-2 text-sm text-muted-foreground"><?php echo esc_html($persona['role']); ?></p>
+                            <?php if (strtolower($persona['name']) === 'botiliti0') : ?>
+                                <button onclick="document.querySelector('.chat-toggle').click()" class="px-4 py-2 text-sm bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors">
+                                    Chatear conmigo
+                                </button>
+                            <?php endif; ?>
                         </div>
                     </div>
                 <?php 
