@@ -93,6 +93,50 @@ get_header();
         </div>
     </section>
 
+    <?php
+    // Function to parse personas directory and create JSON data
+    function get_personas_data() {
+        $personas_dir = get_template_directory() . '/assets/personas';
+        $personas = [];
+        
+        if ($handle = opendir($personas_dir)) {
+            while (false !== ($entry = readdir($handle))) {
+                if ($entry != "." && $entry != ".." && !pathinfo($entry, PATHINFO_EXTENSION)) {
+                    $parts = explode('_-_', $entry);
+                    if (count($parts) === 3) {
+                        $name = str_replace('_', ' ', $parts[0]);
+                        $team = str_replace('_', ' ', $parts[1]);
+                        $role = str_replace('_', ' ', pathinfo($parts[2], PATHINFO_FILENAME));
+                        
+                        // Get first image from person's directory
+                        $person_dir = $personas_dir . '/' . $entry;
+                        $image = '';
+                        if ($img_handle = opendir($person_dir)) {
+                            while (false !== ($img = readdir($img_handle))) {
+                                if (in_array(strtolower(pathinfo($img, PATHINFO_EXTENSION)), ['jpg', 'jpeg', 'png'])) {
+                                    $image = 'assets/personas/' . $entry . '/' . $img;
+                                    break;
+                                }
+                            }
+                            closedir($img_handle);
+                        }
+                        
+                        $personas[] = [
+                            'name' => ucwords($name),
+                            'team' => ucwords($team),
+                            'role' => ucwords($role),
+                            'image' => $image
+                        ];
+                    }
+                }
+            }
+            closedir($handle);
+        }
+        
+        return $personas;
+    }
+    ?>
+
     <section class="py-32">
         <div class="container flex flex-col items-start text-left">
             <p class="semibold"><?php echo get_field('qd_team')['label']; ?></p>
@@ -101,78 +145,114 @@ get_header();
         </div>
         <div class="container mt-16 grid gap-x-12 gap-y-8 lg:grid-cols-2">
             <?php
-            $users = get_users();
-            foreach ($users as $user) :
-                $equipo = get_field('equipo', 'user_' . $user->ID);
-                if ($equipo) :
-                    // Get module color based on equipo value
-                    $colors = digitalia_get_color_schemes('pill');
-                    $pill_color = isset($colors[$equipo]) ? $colors[$equipo] : 'bg-gray-300/30';
-            ?>
-                <div class="flex flex-col sm:flex-row">
-                    <div class="mb-4 aspect-square w-full shrink-0 text-clip bg-accent sm:mb-0 sm:mr-5 sm:size-48">
-                        <?php echo get_avatar($user->ID, 192); ?>
-                    </div>
-                    <div class="flex flex-1 flex-col items-start">
-                        <p class="w-full text-left font-medium">
-                            <a href="<?php echo esc_url(get_author_posts_url($user->ID)); ?>" class="hover:text-accent-foreground transition-colors">
-                                <?php echo esc_html($user->display_name); ?>
-                            </a>
-                        </p>
-                        <p class="w-full text-left">
-                            <span class="inline-flex items-center rounded-full px-2 py-1 text-xs <?php echo $pill_color; ?>">
-                                <?php echo esc_html($equipo); ?>
-                            </span>
-                        </p>
-                        <p class="w-full py-2 text-sm text-muted-foreground"><?php echo esc_html($user->description); ?></p>
-                        
-                        <?php if (have_rows('red_social', 'user_' . $user->ID)) : ?>
-                            <div class="my-2 flex items-start gap-4">
-                                <?php while (have_rows('red_social', 'user_' . $user->ID)) : the_row(); 
-                                    $social_type = get_sub_field('red_social_item');
-                                    $profile_link = get_sub_field('link_al_perfil');
-                                    if ($profile_link) :
-                                        switch ($social_type) {
-                                            case 'facebook': ?>
-                                                <a href="<?php echo esc_url($profile_link); ?>">
-                                                    <i class="fa-brands fa-facebook size-4 text-muted-foreground"></i>
-                                                </a>
-                                            <?php break;
-                                            case 'twitter': ?>
-                                                <a href="<?php echo esc_url($profile_link); ?>">
-                                                    <i class="fa-brands fa-twitter size-4 text-muted-foreground"></i>
-                                                </a>
-                                            <?php break;
-                                            case 'instagram': ?>
-                                                <a href="<?php echo esc_url($profile_link); ?>">
-                                                    <i class="fa-brands fa-instagram size-4 text-muted-foreground"></i>
-                                                </a>
-                                            <?php break;
-                                            case 'tiktok': ?>
-                                                <a href="<?php echo esc_url($profile_link); ?>">
-                                                    <i class="fa-brands fa-tiktok size-4 text-muted-foreground"></i>
-                                                </a>
-                                            <?php break;
-                                            case 'linkedin': ?>
-                                                <a href="<?php echo esc_url($profile_link); ?>">
-                                                    <i class="fa-brands fa-linkedin size-4 text-muted-foreground"></i>
-                                                </a>
-                                            <?php break;
-                                            case 'youtube': ?>
-                                                <a href="<?php echo esc_url($profile_link); ?>">
-                                                    <i class="fa-brands fa-youtube size-4 text-muted-foreground"></i>
-                                                </a>
-                                            <?php break;
-                                        }
-                                    endif;
-                                endwhile; ?>
+            // Toggle between WordPress users and JSON data
+            $use_wp_users = false; // Set to true to use WordPress users, false to use JSON data
+
+            if ($use_wp_users) {
+                // Original WordPress users code
+                $users = get_users();
+                foreach ($users as $user) :
+                    $equipo = get_field('equipo', 'user_' . $user->ID);
+                    if ($equipo) :
+                        $colors = digitalia_get_color_schemes('pill');
+                        $pill_color = isset($colors[$equipo]) ? $colors[$equipo] : 'bg-gray-300/30';
+                        ?>
+                        <div class="flex flex-col sm:flex-row">
+                            <div class="mb-4 aspect-square w-full shrink-0 text-clip bg-accent sm:mb-0 sm:mr-5 sm:size-48">
+                                <?php echo get_avatar($user->ID, 192); ?>
                             </div>
-                        <?php endif; ?>
+                            <div class="flex flex-1 flex-col items-start">
+                                <p class="w-full text-left font-medium">
+                                    <a href="<?php echo esc_url(get_author_posts_url($user->ID)); ?>" class="hover:text-accent-foreground transition-colors">
+                                        <?php echo esc_html($user->display_name); ?>
+                                    </a>
+                                </p>
+                                <p class="w-full text-left">
+                                    <span class="inline-flex items-center rounded-full px-2 py-1 text-xs <?php echo $pill_color; ?>">
+                                        <?php echo esc_html($equipo); ?>
+                                    </span>
+                                </p>
+                                <p class="w-full py-2 text-sm text-muted-foreground"><?php echo esc_html($user->description); ?></p>
+                                
+                                <?php if (have_rows('red_social', 'user_' . $user->ID)) : ?>
+                                    <div class="my-2 flex items-start gap-4">
+                                        <?php while (have_rows('red_social', 'user_' . $user->ID)) : the_row(); 
+                                            $social_type = get_sub_field('red_social_item');
+                                            $profile_link = get_sub_field('link_al_perfil');
+                                            if ($profile_link) :
+                                                switch ($social_type) {
+                                                    case 'facebook': ?>
+                                                        <a href="<?php echo esc_url($profile_link); ?>">
+                                                            <i class="fa-brands fa-facebook size-4 text-muted-foreground"></i>
+                                                        </a>
+                                                    <?php break;
+                                                    case 'twitter': ?>
+                                                        <a href="<?php echo esc_url($profile_link); ?>">
+                                                            <i class="fa-brands fa-twitter size-4 text-muted-foreground"></i>
+                                                        </a>
+                                                    <?php break;
+                                                    case 'instagram': ?>
+                                                        <a href="<?php echo esc_url($profile_link); ?>">
+                                                            <i class="fa-brands fa-instagram size-4 text-muted-foreground"></i>
+                                                        </a>
+                                                    <?php break;
+                                                    case 'tiktok': ?>
+                                                        <a href="<?php echo esc_url($profile_link); ?>">
+                                                            <i class="fa-brands fa-tiktok size-4 text-muted-foreground"></i>
+                                                        </a>
+                                                    <?php break;
+                                                    case 'linkedin': ?>
+                                                        <a href="<?php echo esc_url($profile_link); ?>">
+                                                            <i class="fa-brands fa-linkedin size-4 text-muted-foreground"></i>
+                                                        </a>
+                                                    <?php break;
+                                                    case 'youtube': ?>
+                                                        <a href="<?php echo esc_url($profile_link); ?>">
+                                                            <i class="fa-brands fa-youtube size-4 text-muted-foreground"></i>
+                                                        </a>
+                                                    <?php break;
+                                                }
+                                            endif;
+                                        endwhile; ?>
+                                    </div>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                    <?php 
+                    endif;
+                endforeach;
+            } else {
+                // Get and display personas data
+                $personas = get_personas_data();
+                foreach ($personas as $persona) :
+                    $colors = digitalia_get_color_schemes('pill');
+                    $pill_color = isset($colors[$persona['team']]) ? $colors[$persona['team']] : 'bg-gray-300/30';
+                    ?>
+                    <div class="flex flex-col sm:flex-row">
+                        <div class="mb-4 aspect-square w-full shrink-0 text-clip bg-accent sm:mb-0 sm:mr-5 sm:size-48">
+                            <?php if ($persona['image']) : ?>
+                                <img src="<?php echo esc_url(get_template_directory_uri() . '/' . $persona['image']); ?>" 
+                                     alt="<?php echo esc_attr($persona['name']); ?>" 
+                                     class="size-full object-cover">
+                            <?php endif; ?>
+                        </div>
+                        <div class="flex flex-1 flex-col items-start">
+                            <p class="w-full text-left font-medium">
+                                <span class="hover:text-accent-foreground transition-colors">
+                                    <?php echo esc_html($persona['name']); ?>
+                                </span>
+                            </p>
+                            <p class="w-full text-left">
+                                <span class="inline-flex items-center rounded-full px-2 py-1 text-xs <?php echo $pill_color; ?>">
+                                    <?php echo esc_html($persona['team']); ?>
+                                </span>
+                            </p>
+                            <p class="w-full py-2 text-sm text-muted-foreground"><?php echo esc_html($persona['role']); ?></p>
+                        </div>
                     </div>
-                </div>
-            <?php 
-                endif;
-            endforeach; 
+                <?php 
+                endforeach;
+            }
             ?>
         </div>
     </section>
