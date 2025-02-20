@@ -49,7 +49,7 @@ get_header();
                         <?php foreach ($red_section['mentors'] as $mentor): ?>
                             <li>
                                 <?php if (!empty($mentor['image'])): ?>
-                                    <img class="aspect-[3/2] w-full rounded-2xl object-cover" 
+                                    <img class="aspect-[3/2] w-full rounded-2xl object-cover object-top" 
                                          src="<?php echo esc_url($mentor['image']['url']); ?>" 
                                          alt="<?php echo esc_attr($mentor['name']); ?>">
                                 <?php endif; ?>
@@ -84,6 +84,14 @@ get_header();
                             </li>
                         <?php endforeach; ?>
                     </ul>
+                <?php endif; ?>
+                <?php if (!empty($red_section['cta_text']) && !empty($red_section['cta_url'])): ?>
+                    <div class="mt-16 flex justify-center">
+                        <a href="<?php echo esc_url($red_section['cta_url']); ?>" 
+                           class="rounded-md bg-blue-600 px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600">
+                            <?php echo esc_html($red_section['cta_text']); ?>
+                        </a>
+                    </div>
                 <?php endif; ?>
             <?php endif; ?>
         </div>

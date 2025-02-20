@@ -4,14 +4,11 @@
 
 1. [Introducción](#introducción)
 2. [Funcionalidades Principales](#funcionalidades-principales)
-   - [Grabación de Sesiones](#grabación-de-sesiones)
    - [Mapas de Calor](#mapas-de-calor)
    - [Lista de Visitantes](#lista-de-visitantes)
    - [Estadísticas y Gráficos](#estadísticas-y-gráficos)
    - [Segmentos de Usuarios](#segmentos-de-usuarios)
-   - [Sistema de Eventos](#sistema-de-eventos)
    - [Asistente AI](#asistente-ai)
-   - [Objetivos y Conversiones](#objetivos-y-conversiones)
 
 ## Introducción
 
@@ -34,18 +31,6 @@ UXWizz ofrece dos sistemas distintos de grabación de sesiones:
    - Grabación detallada
    - Reproduce exactamente las acciones del usuario
    - Mayor uso de recursos
-
-#### Configuración de Grabaciones
-1. Ve a "Configuración" > "Grabación"
-2. Selecciona el sistema de grabación:
-   - Ligero
-   - Preciso
-3. Ajusta los parámetros:
-   - Duración máxima
-   - Elementos a ignorar
-   - Datos sensibles a ocultar
-
-![Configuración de grabaciones](uxwizz_assets/2.jpg)
 
 ### Mapas de Calor
 
@@ -123,23 +108,6 @@ Crea y analiza grupos específicos de usuarios:
 
 ![Segmentos de usuarios](uxwizz_assets/6.jpg)
 
-### Sistema de Eventos
-
-Seguimiento personalizado de acciones de usuarios:
-
-1. Configurar Eventos:
-   - Define eventos personalizados
-   - Establece propiedades a trackear
-   - Configura disparadores
-
-2. Tipos de Eventos:
-   - Compras
-   - Formularios
-   - Clics específicos
-   - Datos personalizados (JSON)
-
-![Sistema de eventos](uxwizz_assets/7.jpg)
-
 ### Asistente AI
 
 Utiliza la integración con ChatGPT para analizar datos:
@@ -155,22 +123,6 @@ Utiliza la integración con ChatGPT para analizar datos:
    - Personalización de consultas
 
 ![Asistente AI](uxwizz_assets/8.jpg)
-
-### Objetivos y Conversiones
-
-Configura y monitorea objetivos de conversión:
-
-1. Crear Objetivo:
-   - Define acciones objetivo
-   - Establece valor de conversión
-   - Configura embudos de conversión
-
-2. Análisis de Conversiones:
-   - Tasa de conversión por segmento
-   - Comparativa A/B testing
-   - Reportes de rendimiento
-
-![Objetivos y conversiones](uxwizz_assets/9.jpg)
 
 ## Consejos de Optimización
 

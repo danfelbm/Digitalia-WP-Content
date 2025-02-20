@@ -118,6 +118,20 @@ if (!function_exists('digitalia_register_comunidad_acf_fields')) {
                                     ),
                                 ),
                             ),
+                            array(
+                                'key' => 'field_red_cta_text',
+                                'label' => 'Texto del botón CTA',
+                                'name' => 'cta_text',
+                                'type' => 'text',
+                                'default_value' => 'Ir al Campus Digital',
+                            ),
+                            array(
+                                'key' => 'field_red_cta_url',
+                                'label' => 'URL del botón CTA',
+                                'name' => 'cta_url',
+                                'type' => 'url',
+                                'default_value' => 'https://digitalia.gov.co/campus',
+                            ),
                         ),
                     ),
                     // Eventos y Actividades Section
