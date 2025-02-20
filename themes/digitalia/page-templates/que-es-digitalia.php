@@ -94,6 +94,22 @@ get_header();
     </section>
 
     <?php
+    // Function to get team color classes
+    function get_team_color_classes($team) {
+        $team = strtolower(trim($team));
+        $colors = [
+            'direccion transversal' => 'bg-slate-500 text-white',
+            'total transmedia' => 'bg-blue-500 text-white',
+            'en linea' => 'bg-red-500 text-white',
+            'academia' => 'bg-amber-500 text-white',
+            'ready' => 'bg-purple-500 text-white',
+            'colaboratorio' => 'bg-teal-500 text-white',
+            'sin equipo' => 'bg-gray-500 text-white'
+        ];
+        
+        return isset($colors[$team]) ? $colors[$team] : 'bg-gray-500 text-white';
+    }
+
     // Function to parse personas directory and create JSON data
     function get_personas_data() {
         $personas_dir = get_template_directory() . '/assets/personas';
@@ -102,11 +118,30 @@ get_header();
         if ($handle = opendir($personas_dir)) {
             while (false !== ($entry = readdir($handle))) {
                 if ($entry != "." && $entry != ".." && !pathinfo($entry, PATHINFO_EXTENSION)) {
+                    // Try first with _-_ separator
                     $parts = explode('_-_', $entry);
-                    if (count($parts) === 3) {
-                        $name = str_replace('_', ' ', $parts[0]);
-                        $team = str_replace('_', ' ', $parts[1]);
-                        $role = str_replace('_', ' ', pathinfo($parts[2], PATHINFO_FILENAME));
+                    
+                    // If we don't get 3 parts, try with just - separator
+                    if (count($parts) !== 3) {
+                        $parts = explode('-', $entry);
+                    }
+                    
+                    // Clean up parts by removing extra underscores and trimming
+                    if (count($parts) >= 2) { 
+                        $name_part = array_shift($parts); // Get the first part (name)
+                        
+                        // Handle cases with and without team
+                        if (count($parts) >= 2) {
+                            $team_part = array_shift($parts); // Get the second part (team)
+                            $role_part = implode('-', $parts); // Join the rest for role
+                        } else {
+                            $team_part = "Sin Equipo"; // Default team
+                            $role_part = implode('-', $parts); // The remaining part is the role
+                        }
+                        
+                        $name = str_replace('_', ' ', $name_part);
+                        $team = str_replace('_', ' ', $team_part);
+                        $role = str_replace('_', ' ', pathinfo($role_part, PATHINFO_FILENAME));
                         
                         // Get first image from person's directory
                         $person_dir = $personas_dir . '/' . $entry;
@@ -121,17 +156,41 @@ get_header();
                             closedir($img_handle);
                         }
                         
+                        // Debug information
+                        error_log("Processing persona: " . $name);
+                        error_log("Team: " . $team);
+                        error_log("Role: " . $role);
+                        error_log("Image: " . $image);
+                        error_log("Original entry: " . $entry);
+                        error_log("Parts count: " . count($parts));
+                        
                         $personas[] = [
                             'name' => ucwords($name),
-                            'team' => ucwords($team),
+                            'team' => ucwords(trim($team)),
                             'role' => ucwords($role),
-                            'image' => $image
+                            'image' => $image,
+                            'priority' => (stripos($name, 'Lucy') !== false || stripos($name, 'Farith') !== false) ? 1 : 2
                         ];
                     }
                 }
             }
             closedir($handle);
         }
+        
+        // Sort the array by priority first, then by team, then by name
+        usort($personas, function($a, $b) {
+            // First compare priority
+            if ($a['priority'] !== $b['priority']) {
+                return $a['priority'] - $b['priority'];
+            }
+            // Then compare team
+            $teamCompare = strcmp($a['team'], $b['team']);
+            if ($teamCompare !== 0) {
+                return $teamCompare;
+            }
+            // Finally compare name
+            return strcmp($a['name'], $b['name']);
+        });
         
         return $personas;
     }
@@ -141,7 +200,7 @@ get_header();
         <div class="container flex flex-col items-start text-left">
             <p class="semibold"><?php echo get_field('qd_team')['label']; ?></p>
             <h2 class="my-6 text-pretty text-2xl font-bold lg:text-4xl"><?php echo get_field('qd_team')['title']; ?></h2>
-            <p class="mb-8 max-w-3xl text-muted-foreground lg:text-xl"><?php echo get_field('qd_team')['description']; ?></p>
+            <p class="mb-8 text-muted-foreground md:text-base lg:max-w-3xl lg:text-lg"><?php echo get_field('qd_team')['description']; ?></p>
         </div>
         <div class="container mt-16 grid gap-x-12 gap-y-8 lg:grid-cols-2">
             <?php
@@ -154,8 +213,7 @@ get_header();
                 foreach ($users as $user) :
                     $equipo = get_field('equipo', 'user_' . $user->ID);
                     if ($equipo) :
-                        $colors = digitalia_get_color_schemes('pill');
-                        $pill_color = isset($colors[$equipo]) ? $colors[$equipo] : 'bg-gray-300/30';
+                        $pill_color = get_team_color_classes($equipo);
                         ?>
                         <div class="flex flex-col sm:flex-row">
                             <div class="mb-4 aspect-square w-full shrink-0 text-clip bg-accent sm:mb-0 sm:mr-5 sm:size-48">
@@ -224,16 +282,26 @@ get_header();
             } else {
                 // Get and display personas data
                 $personas = get_personas_data();
+                $current_team = '';
+                
                 foreach ($personas as $persona) :
-                    $colors = digitalia_get_color_schemes('pill');
-                    $pill_color = isset($colors[$persona['team']]) ? $colors[$persona['team']] : 'bg-gray-300/30';
+                    // Add team header if team changes
+                    if ($current_team !== $persona['team']) :
+                        $current_team = $persona['team'];
+                        ?>
+                        <div class="col-span-2 mt-8 first:mt-0">
+                            <h3 class="text-xl font-semibold"><?php echo esc_html($persona['team']); ?></h3>
+                        </div>
+                    <?php endif;
+                    
+                    $pill_color = get_team_color_classes($persona['team']);
                     ?>
                     <div class="flex flex-col sm:flex-row">
-                        <div class="mb-4 aspect-square w-full shrink-0 text-clip bg-accent sm:mb-0 sm:mr-5 sm:size-48">
+                        <div class="mb-4 aspect-square w-full shrink-0 text-clip bg-accent sm:mb-0 sm:mr-5 sm:size-48 overflow-hidden">
                             <?php if ($persona['image']) : ?>
                                 <img src="<?php echo esc_url(get_template_directory_uri() . '/' . $persona['image']); ?>" 
                                      alt="<?php echo esc_attr($persona['name']); ?>" 
-                                     class="size-full object-cover">
+                                     class="size-full object-cover object-top">
                             <?php endif; ?>
                         </div>
                         <div class="flex flex-1 flex-col items-start">
