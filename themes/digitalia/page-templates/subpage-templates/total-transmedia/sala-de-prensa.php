@@ -17,7 +17,7 @@ get_header();
             <?php
             $args = array(
                 'category_name' => 'sala-de-prensa',
-                'post_type' => array('post', 'descarga'),
+                'post_type' => array('post'),
                 'posts_per_page' => -1,
                 'orderby' => 'date',
                 'order' => 'DESC'

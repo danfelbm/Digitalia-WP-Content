@@ -880,12 +880,12 @@ get_header();
                   <?php if (!empty($current_partner['image'])): ?>
                     <img src="<?php echo esc_url($current_partner['image']['url']); ?>" 
                          alt="<?php echo esc_attr($current_partner['name']); ?>" 
-                         class="size-12 object-cover object-center sm:size-16 lg:size-24"
+                         class="size-12 object-contain object-center sm:size-16 lg:size-24"
                          onerror="this.src='https://placehold.co/800x600/1f3a8a/bfdbfe?text=<?php echo esc_attr($current_partner['name']); ?>'">
                   <?php else: ?>
                     <img src="https://placehold.co/800x600/1f3a8a/bfdbfe?text=<?php echo esc_attr($current_partner['name']); ?>" 
                          alt="<?php echo esc_attr($current_partner['name']); ?>" 
-                         class="size-12 object-cover object-center sm:size-16 lg:size-24">
+                         class="size-12 object-contain object-center sm:size-16 lg:size-24">
                   <?php endif; ?>
                 </div>
               <?php 
