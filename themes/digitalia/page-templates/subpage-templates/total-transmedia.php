@@ -86,7 +86,7 @@ get_header();
               class="relative flex aspect-[3/6] w-[240px] object-contain justify-center items-start rounded-lg border border-border sm:w-[300px]"
             >
           <?php else: ?>
-            <div class="relative flex aspect-[3/6] w-[240px] justify-center rounded-lg border border-border bg-background sm:w-[300px]"></div>
+            <div class="relative flex aspect-[3/6] w-[240px] object-contain justify-center rounded-lg border border-border bg-background sm:w-[300px]"></div>
           <?php endif; ?>
         </div>
       </div>
