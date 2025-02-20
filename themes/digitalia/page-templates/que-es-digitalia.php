@@ -46,29 +46,40 @@ get_header();
                     <p class="text-lg font-medium"><?php echo get_field('qd_hero')['mission_text']; ?></p>
                 </div>
             </div>
-            <div class="flex flex-col gap-6 md:gap-20">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
                 <div class="max-w-xl">
                     <h2 class="mb-2.5 text-3xl font-semibold md:text-5xl"><?php echo get_field('qd_transformation')['title']; ?></h2>
                     <p class="text-muted-foreground"><?php echo get_field('qd_transformation')['subtitle']; ?></p>
                 </div>
-                <div class="grid gap-10 md:grid-cols-3">
-                    <?php 
-                    $modules = array(
-                        'module1' => get_field('qd_modules')['module1'],
-                        'module2' => get_field('qd_modules')['module2'],
-                        'module3' => get_field('qd_modules')['module3']
-                    );
-                    
-                    foreach ($modules as $module): ?>
-                        <div class="flex flex-col">
-                            <div class="mb-5 flex size-12 items-center justify-center rounded-2xl bg-accent">
-                                <i class="fa <?php echo esc_attr($module['icon']); ?>"></i>
-                            </div>
-                            <h3 class="mb-3 mt-2 text-lg font-semibold"><?php echo $module['title']; ?></h3>
-                            <p class="text-muted-foreground"><?php echo $module['description']; ?></p>
-                        </div>
-                    <?php endforeach; ?>
+                <div class="w-full">
+                    <div style="padding:56.25% 0 0 0;position:relative;">
+                        <iframe src="https://player.vimeo.com/video/1058629239?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+                            frameborder="0" 
+                            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
+                            style="position:absolute;top:0;left:0;width:100%;height:100%;" 
+                            title="Especiales Canal 13 — Digitalia Primera Parte">
+                        </iframe>
+                    </div>
+                    <script src="https://player.vimeo.com/api/player.js"></script>
                 </div>
+            </div>
+            <div class="grid gap-10 md:grid-cols-3">
+                <?php 
+                $modules = array(
+                    'module1' => get_field('qd_modules')['module1'],
+                    'module2' => get_field('qd_modules')['module2'],
+                    'module3' => get_field('qd_modules')['module3']
+                );
+                
+                foreach ($modules as $module): ?>
+                    <div class="flex flex-col">
+                        <div class="mb-5 flex size-12 items-center justify-center rounded-2xl bg-accent">
+                            <i class="fa <?php echo esc_attr($module['icon']); ?>"></i>
+                        </div>
+                        <h3 class="mb-3 mt-2 text-lg font-semibold"><?php echo $module['title']; ?></h3>
+                        <p class="text-muted-foreground"><?php echo $module['description']; ?></p>
+                    </div>
+                <?php endforeach; ?>
             </div>
             <div class="grid gap-10 md:grid-cols-2">
                 <div>
