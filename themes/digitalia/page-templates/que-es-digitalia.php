@@ -318,7 +318,13 @@ get_header();
                         <div class="flex flex-1 flex-col items-start">
                             <p class="w-full text-left font-medium">
                                 <span class="hover:text-accent-foreground transition-colors">
-                                    <?php echo esc_html($persona['name']); ?>
+                                    <?php 
+                                    if (strtolower($persona['name']) === 'botiliti0') {
+                                        echo 'BotLiti0 (Botilito)';
+                                    } else {
+                                        echo esc_html($persona['name']); 
+                                    }
+                                    ?>
                                 </span>
                             </p>
                             <p class="w-full text-left">

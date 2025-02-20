@@ -1,35 +1,31 @@
-# Manual de Usuario - Panel de Administración WordPress Digital-IA
+# Manual de Administrador - Panel de Administración WordPress Digital-IA
+
+## Tabla de Contenidos
+
+1. [Introducción](#introducción)
+2. [Tipos de Contenido](#tipos-de-contenido)
+   - [Episodios](#1-episodios)
+   - [Actores y Personajes](#2-actores-y-personajes)
+   - [Series](#3-series)
+   - [Preguntas Frecuentes (FAQ)](#4-preguntas-frecuentes-faq)
+   - [Descargas](#5-descargas)
+   - [Podcasts y Transmisiones](#6-podcasts-y-transmisiones)
+   - [Espacios](#7-espacios)
+   - [Alfabetizadores](#8-alfabetizadores)
+3. [Gestión General de WordPress](#gestión-general-de-wordpress)
+   - [Gestión de Usuarios](#gestión-de-usuarios)
+   - [Seguridad con Wordfence](#seguridad-con-wordfence)
+   - [Optimización de Caché con LiteSpeed](#optimización-de-caché-con-litespeed)
 
 ## Introducción
 
 Este manual te guiará a través del panel de administración de WordPress para el proyecto Digital-IA. Aquí podrás gestionar todos los tipos de contenido disponibles en la plataforma.
 
+![Creación de nuevo episodio](wordpress_assets/1.jpg)
+
 ## Tipos de Contenido
 
-### 1. Cursos
-Los cursos son el núcleo educativo de la plataforma AcadeMÍA Digital-IA. A través de ellos, ofrecemos formación especializada en alfabetización mediática, tecnologías emergentes y construcción de paz. Cada curso está diseñado para proporcionar una experiencia de aprendizaje interactiva y accesible las 24 horas del día.
-
-#### Cómo crear un nuevo curso:
-1. En el menú lateral, haz clic en "Cursos" > "Añadir nuevo"
-2. Completa los siguientes campos:
-   - Título del curso
-   - Descripción
-   - Imagen destacada
-   - Ubicación (taxonomía)
-   - Campos adicionales de Academia:
-     - Texto del Badge (ej: "Curso en línea")
-     - Título personalizado
-     - Descripción corta
-     - Botón CTA:
-       - Texto del botón
-       - URL del botón
-     - Características:
-       - Acceso (ej: 24/7)
-       - Modalidad (ej: 100% Online)
-
-![Creación de nuevo curso](wordpress_assets/1.jpg)
-
-### 2. Episodios
+### 1. Episodios
 Los episodios son el componente principal de la serie web "En Línea con Digital-IA", una producción audiovisual que explora las intersecciones entre tecnología, sociedad y paz mediática. Cada episodio está cuidadosamente producido para ofrecer contenido educativo y entretenido que aborda los desafíos contemporáneos de la comunicación digital.
 
 #### Cómo crear un nuevo episodio:
@@ -65,7 +61,7 @@ Los episodios son el componente principal de la serie web "En Línea con Digital
 
 ![Creación de nuevo episodio](wordpress_assets/2.jpg)
 
-### 3. Actores y Personajes
+### 2. Actores y Personajes
 La gestión de actores y personajes es fundamental para mantener un registro organizado de los participantes en nuestras producciones audiovisuales. Este módulo permite documentar las biografías, roles y contribuciones de cada persona que da vida a nuestras historias y contenidos educativos.
 
 #### Gestión de actores:
@@ -78,7 +74,7 @@ La gestión de actores y personajes es fundamental para mantener un registro org
 
 ![Gestión de actores](wordpress_assets/3.jpg)
 
-### 4. Series
+### 3. Series
 Las series son colecciones temáticas de contenido audiovisual que abordan diferentes aspectos de la alfabetización mediática y la educomunicación. Cada serie está diseñada para ofrecer una narrativa coherente y progresiva que facilita el aprendizaje y la comprensión de temas complejos.
 
 #### Crear una nueva serie:
@@ -91,7 +87,7 @@ Las series son colecciones temáticas de contenido audiovisual que abordan difer
 
 ![Creación de nueva serie](wordpress_assets/4.jpg)
 
-### 5. Preguntas Frecuentes (FAQ)
+### 4. Preguntas Frecuentes (FAQ)
 La sección de Preguntas Frecuentes es una herramienta esencial para brindar soporte a nuestra comunidad. Aquí se centraliza la información más solicitada, facilitando el acceso rápido a respuestas sobre el uso de la plataforma, metodologías de aprendizaje y aspectos técnicos del programa.
 
 #### Configuración de la página FAQ:
@@ -119,7 +115,7 @@ La sección de Preguntas Frecuentes es una herramienta esencial para brindar sop
 
 ![Añadir nueva FAQ](wordpress_assets/5.jpg)
 
-### 6. Descargas
+### 5. Descargas
 El sistema de descargas permite compartir recursos educativos, guías metodológicas y materiales complementarios con nuestra comunidad. Esta sección está diseñada para gestionar una biblioteca digital de recursos, garantizando un acceso organizado y controlado a documentos importantes.
 
 #### Subir nuevo recurso:
@@ -152,7 +148,7 @@ El sistema de descargas permite compartir recursos educativos, guías metodológ
 
 ![Subir nuevo recurso](wordpress_assets/6.jpg)
 
-### 7. Podcasts y Transmisiones
+### 6. Podcasts y Transmisiones
 La sección de podcasts y transmisiones amplía nuestro alcance a través del contenido en audio y transmisiones en vivo. Este formato permite llegar a diferentes audiencias y estilos de aprendizaje, ofreciendo contenido educativo en un formato accesible y portable.
 
 #### Crear nuevo podcast:
@@ -177,7 +173,7 @@ La sección de podcasts y transmisiones amplía nuestro alcance a través del co
 
 ![Crear nuevo podcast](wordpress_assets/7.jpg)
 
-### 8. Espacios
+### 7. Espacios
 Los espacios representan los puntos de encuentro físicos y virtuales donde nuestra comunidad se reúne, aprende y colabora. Esta sección permite gestionar la información sobre las ubicaciones donde se desarrollan actividades presenciales y los entornos virtuales de aprendizaje.
 
 #### Crear nuevo espacio:
@@ -218,7 +214,7 @@ Los espacios representan los puntos de encuentro físicos y virtuales donde nues
 
 ![Crear nuevo espacio](wordpress_assets/8.jpg)
 
-### 9. Alfabetizadores
+### 8. Alfabetizadores
 Los alfabetizadores son los agentes de cambio que lideran nuestros procesos educativos en el territorio. Este módulo permite gestionar los perfiles de estos educadores especializados, quienes son fundamentales para llevar la alfabetización mediática y digital a diferentes comunidades en Colombia.
 
 #### Añadir nuevo alfabetizador:
@@ -246,7 +242,7 @@ Los alfabetizadores son los agentes de cambio que lideran nuestros procesos educ
 
 ![Añadir nuevo alfabetizador](wordpress_assets/9.jpg)
 
-### 10. Productos
+### 9. Productos
 La sección de productos educativos abarca todos los recursos y materiales desarrollados por Digital-IA. Aquí se gestionan tanto los productos gratuitos como los de valor comercial, incluyendo cursos especializados, materiales didácticos y recursos pedagógicos.
 
 #### Crear nuevo producto:
@@ -258,6 +254,96 @@ La sección de productos educativos abarca todos los recursos y materiales desar
    - Categoría
 
 ![Crear nuevo producto](wordpress_assets/10.jpg)
+
+## Gestión General de WordPress
+
+### Gestión de Usuarios
+
+La gestión de usuarios en WordPress es fundamental para mantener un control adecuado sobre quién tiene acceso al panel de administración y qué pueden hacer.
+
+#### Añadir Nuevos Usuarios
+1. Ve a "Usuarios" > "Añadir nuevo"
+2. Completa la información requerida:
+   - Nombre de usuario
+   - Correo electrónico
+   - Contraseña (o dejar que WordPress genere una segura)
+   - Rol del usuario:
+     - Administrador: acceso completo
+     - Editor: gestión de contenido
+     - Autor: publicación de contenido propio
+     - Colaborador: crear contenido sin publicar
+     - Suscriptor: solo lectura
+
+![Añadir nuevo usuario](wordpress_assets/11.jpg)
+
+#### Modificar Usuarios Existentes
+1. Ve a "Usuarios" > "Todos los usuarios"
+2. Haz clic en el usuario que deseas modificar
+3. Puedes actualizar:
+   - Información personal
+   - Contraseña
+   - Rol
+   - Estado de la cuenta (activar/desactivar)
+
+![Modificar usuarios existentes](wordpress_assets/12.jpg)
+
+### Seguridad con Wordfence
+
+Wordfence es nuestro plugin de seguridad principal. Aquí están las tareas principales de monitoreo:
+
+#### Panel de Control de Wordfence
+1. Accede a "Wordfence" en el menú lateral
+2. Revisa el dashboard para:
+   - Intentos de inicio de sesión fallidos
+   - Bloqueos de IP
+   - Amenazas detectadas
+   - Estado del firewall
+
+![Panel de control Wordfence](wordpress_assets/13.jpg)
+
+#### Análisis de Seguridad
+1. Ve a "Wordfence" > "Analizar"
+2. Ejecuta un escaneo completo:
+   - Malware
+   - Vulnerabilidades
+   - Archivos modificados
+   - Plugins desactualizados
+
+![Análisis de seguridad Wordfence](wordpress_assets/14.jpg)
+
+#### Configuración de Firewall
+1. Navega a "Wordfence" > "Firewall"
+2. Revisa y ajusta:
+   - Reglas de bloqueo
+   - Lista negra de IPs
+   - Protección de inicio de sesión
+   - Bloqueo de países (si es necesario)
+
+![Configuración de firewall Wordfence](wordpress_assets/15.jpg)
+
+### Optimización de Caché con LiteSpeed
+
+LiteSpeed Cache es esencial para mantener el sitio rápido y eficiente.
+
+#### Purgar Caché
+1. Ve a "LiteSpeed Cache" > "Herramientas"
+2. Opciones de purga:
+   - "Purgar Todo": limpia toda la caché
+   - "Purgar por URLs": para páginas específicas
+   - "Purgar por Posts": para entradas específicas
+
+![Purgar caché LiteSpeed](wordpress_assets/16.jpg)
+
+#### Configuración de Caché
+1. Accede a "LiteSpeed Cache" > "Settings"
+2. Secciones principales:
+   - Cache: activar/desactivar caché general
+   - TTL (Time To Live): duración de la caché
+   - Exclusiones: URLs o tipos de contenido a excluir
+   - Browser Cache: caché del navegador
+   - Minificación: optimización de CSS/JS
+
+![Configuración de caché LiteSpeed](wordpress_assets/17.jpg)
 
 ## Consejos Generales
 

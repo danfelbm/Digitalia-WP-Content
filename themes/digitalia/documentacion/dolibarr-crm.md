@@ -52,7 +52,7 @@ Los contactos son las personas específicas dentro de las organizaciones o terce
 Seguimiento de oportunidades de colaboración y proyectos potenciales.
 
 #### Crear nueva oportunidad:
-1. Ve a "Comercial" > "Nueva oportunidad"
+1. Ve a "Proyectos" > "Nueva oportunidad"
 2. Define:
    - Tercero relacionado
    - Importe estimado
@@ -71,7 +71,7 @@ Seguimiento de oportunidades de colaboración y proyectos potenciales.
 Gestión de actividades y seguimiento de interacciones.
 
 #### Registrar nueva actividad:
-1. Accede a "Agenda" > "Nueva acción"
+1. Accede a "Agenda" > "Nuevo evento"
 2. Especifica:
    - Tipo de evento:
      - Reunión
@@ -89,7 +89,7 @@ Gestión de actividades y seguimiento de interacciones.
 Gestión de campañas de comunicación y difusión.
 
 #### Crear nueva campaña:
-1. Ve a "Marketing" > "Nueva campaña"
+1. Ve a "Utilidades" > "Nueva campaña"
 2. Define:
    - Nombre de la campaña
    - Público objetivo
@@ -102,25 +102,6 @@ Gestión de campañas de comunicación y difusión.
    - Métricas de seguimiento
 
 ![Creación de nueva campaña](dolibarr_crm_assets/5.jpg)
-
-### 6. Informes y Análisis
-Seguimiento y análisis de las actividades del CRM.
-
-#### Tipos de informes disponibles:
-1. Actividad comercial:
-   - Pipeline de oportunidades
-   - Conversión de prospectos
-   - Efectividad de campañas
-2. Análisis de terceros:
-   - Distribución geográfica
-   - Categorización
-   - Estado de relaciones
-3. Rendimiento de actividades:
-   - Seguimiento de tareas
-   - Eficiencia en comunicaciones
-   - Resultados de campañas
-
-![Panel de informes](dolibarr_crm_assets/6.jpg)
 
 ## Consejos y Mejores Prácticas
 
