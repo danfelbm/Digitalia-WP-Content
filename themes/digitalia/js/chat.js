@@ -220,7 +220,7 @@
 
         .n8n-chat-widget .chat-toggle {
             position: fixed;
-            bottom: 70px;
+            bottom: 120px;
             right: 20px;
             width: 60px;
             height: 60px;
