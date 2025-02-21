@@ -165,7 +165,7 @@ get_header(); ?>
                                class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                                <?php echo ($file_type === 'internal' ? 'download' : 'target="_blank" rel="noopener noreferrer"'); ?>>
                                 <i class="fas fa-<?php echo ($file_type === 'internal' ? 'download' : 'external-link-alt'); ?> mr-2"></i>
-                                <?php echo ($file_type === 'internal' ? 'Descargar Archivo' : 'Abrir Enlace Externo'); ?>
+                                <?php echo ($file_type === 'internal' ? 'Descargar Archivo' : 'Abrir Enlace'); ?>
                             </a>
                             <?php if ($file_type === 'external') : ?>
                                 <p class="text-sm text-gray-500 mt-2">
