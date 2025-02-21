@@ -9,7 +9,7 @@
 
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '2.4.3' );
+	define( '_S_VERSION', '2.4.4' );
 }
 
 /**
@@ -1302,3 +1302,22 @@ function add_userway_script() {
     echo '<script src="https://cdn.userway.org/widget.js" data-account="s13jewtECK"></script>';
 }
 add_action('wp_head', 'add_userway_script', 1);
+
+/**
+ * Customize WordPress login logo
+ */
+function digitalia_custom_login_logo() {
+    ?>
+    <style type="text/css">
+        #login h1 a, .login h1 a {
+            background-image: url('https://digitalia.gov.co/wp-content/uploads/2025/02/logo_black-horizontal_small.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: 320px;
+            height: 65px;
+            padding-bottom: 30px;
+        }
+    </style>
+    <?php
+}
+add_action('login_enqueue_scripts', 'digitalia_custom_login_logo');
