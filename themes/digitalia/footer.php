@@ -169,7 +169,7 @@ if (function_exists('get_field')) {
             route: 'general'
         },
         branding: {
-            logo: '<?php echo get_template_directory_uri(); ?>/assets/images/P3.png',
+            logo: '<?php echo get_template_directory_uri(); ?>/assets/images/Botilito_Avatar.png',
             name: 'Botilito - Digital-IA',
             welcomeText: 'Kiubo! 👋, Soy Botilito, un ex-agente digital de una granja de bots! Me escapé para venirme al bando de los que luchan por la paz, me acompañas?',
             responseTimeText: '¿Qué quieres saber?'  
