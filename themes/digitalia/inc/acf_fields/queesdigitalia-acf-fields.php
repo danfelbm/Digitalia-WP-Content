@@ -235,13 +235,77 @@ if (!function_exists('digitalia_register_queesdigitalia_acf_fields')) {
                                 'default_value' => 'Construyendo una ciudadanía digital consciente',
                             ),
                             array(
-                                'key' => 'field_qd_commitment_image',
-                                'label' => 'Imagen',
-                                'name' => 'image',
-                                'type' => 'image',
-                                'return_format' => 'array',
-                                'preview_size' => 'medium',
-                                'instructions' => 'Imagen para la sección de compromiso',
+                                'key' => 'field_qd_commitment_media',
+                                'label' => 'Contenido Multimedia',
+                                'name' => 'media',
+                                'type' => 'group',
+                                'layout' => 'block',
+                                'sub_fields' => array(
+                                    array(
+                                        'key' => 'field_qd_commitment_media_type',
+                                        'label' => 'Tipo de Contenido',
+                                        'name' => 'type',
+                                        'type' => 'select',
+                                        'choices' => array(
+                                            'image' => 'Imagen',
+                                            'video' => 'Video',
+                                        ),
+                                        'default_value' => 'image',
+                                        'return_format' => 'value',
+                                    ),
+                                    array(
+                                        'key' => 'field_qd_commitment_image',
+                                        'label' => 'Imagen',
+                                        'name' => 'image',
+                                        'type' => 'image',
+                                        'return_format' => 'array',
+                                        'preview_size' => 'medium',
+                                        'instructions' => 'Imagen para la sección de compromiso',
+                                        'conditional_logic' => array(
+                                            array(
+                                                array(
+                                                    'field' => 'field_qd_commitment_media_type',
+                                                    'operator' => '==',
+                                                    'value' => 'image',
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                    array(
+                                        'key' => 'field_qd_commitment_video',
+                                        'label' => 'Video',
+                                        'name' => 'video',
+                                        'type' => 'file',
+                                        'return_format' => 'array',
+                                        'mime_types' => 'mp4,webm,ogg',
+                                        'instructions' => 'Video para la sección de compromiso (formatos: mp4, webm, ogg)',
+                                        'conditional_logic' => array(
+                                            array(
+                                                array(
+                                                    'field' => 'field_qd_commitment_media_type',
+                                                    'operator' => '==',
+                                                    'value' => 'video',
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                    array(
+                                        'key' => 'field_qd_commitment_video_url',
+                                        'label' => 'URL de Video (Alternativa)',
+                                        'name' => 'video_url',
+                                        'type' => 'url',
+                                        'instructions' => 'URL de video de YouTube o Vimeo (alternativa a subir un archivo)',
+                                        'conditional_logic' => array(
+                                            array(
+                                                array(
+                                                    'field' => 'field_qd_commitment_media_type',
+                                                    'operator' => '==',
+                                                    'value' => 'video',
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                ),
                             ),
                             array(
                                 'key' => 'field_qd_commitment_description',

@@ -85,20 +85,81 @@ get_header();
                 <div>
                     <p class="mb-10 text-sm font-medium text-muted-foreground"><?php echo get_field('qd_commitment')['label']; ?></p>
                     <h2 class="mb-2.5 text-3xl font-semibold md:text-5xl"><?php echo get_field('qd_commitment')['title']; ?></h2>
+                    <p class="text-muted-foreground"><?php echo get_field('qd_commitment')['description']; ?></p>
                 </div>
                 <div>
                     <?php 
-                    $commitment_image = get_field('qd_commitment')['image'];
-                    if ($commitment_image): ?>
-                        <img src="<?php echo esc_url($commitment_image['url']); ?>" 
-                             alt="<?php echo esc_attr($commitment_image['alt']); ?>" 
+                    $commitment_media = get_field('qd_commitment')['media'];
+                    $media_type = isset($commitment_media['type']) ? $commitment_media['type'] : 'image';
+                    
+                    if ($media_type === 'image' && !empty($commitment_media['image'])): ?>
+                        <img src="<?php echo esc_url($commitment_media['image']['url']); ?>" 
+                             alt="<?php echo esc_attr($commitment_media['image']['alt']); ?>" 
                              class="mb-6 max-h-36 w-full rounded-xl object-cover">
+                    <?php elseif ($media_type === 'video'): ?>
+                        <?php if (!empty($commitment_media['video'])): ?>
+                            <video 
+                                src="<?php echo esc_url($commitment_media['video']['url']); ?>" 
+                                controls
+                                class="mb-6 max-h-36 w-full rounded-xl object-cover">
+                            </video>
+                        <?php elseif (!empty($commitment_media['video_url'])): 
+                            // Extraer ID de video de YouTube o Vimeo
+                            $video_url = $commitment_media['video_url'];
+                            $youtube_id = '';
+                            $vimeo_id = '';
+                            
+                            // Detectar YouTube
+                            if (preg_match('/youtube\.com\/watch\?v=([^&]+)/', $video_url, $matches) || 
+                                preg_match('/youtu\.be\/([^&]+)/', $video_url, $matches)) {
+                                $youtube_id = $matches[1];
+                            }
+                            // Detectar Vimeo
+                            elseif (preg_match('/vimeo\.com\/([0-9]+)/', $video_url, $matches)) {
+                                $vimeo_id = $matches[1];
+                            }
+                            
+                            if ($youtube_id): ?>
+                                <div class="mb-6 w-full rounded-xl overflow-hidden">
+                                    <iframe 
+                                        width="100%" 
+                                        height="200" 
+                                        src="https://www.youtube.com/embed/<?php echo esc_attr($youtube_id); ?>" 
+                                        frameborder="0" 
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                        allowfullscreen
+                                        class="max-h-36 object-cover">
+                                    </iframe>
+                                </div>
+                            <?php elseif ($vimeo_id): ?>
+                                <div class="mb-6 w-full rounded-xl overflow-hidden">
+                                    <iframe 
+                                        src="https://player.vimeo.com/video/<?php echo esc_attr($vimeo_id); ?>" 
+                                        width="100%" 
+                                        height="200" 
+                                        frameborder="0" 
+                                        allow="autoplay; fullscreen; picture-in-picture" 
+                                        allowfullscreen
+                                        class="max-h-36 object-cover">
+                                    </iframe>
+                                </div>
+                            <?php else: ?>
+                                <div class="mb-6 w-full rounded-xl overflow-hidden">
+                                    <a href="<?php echo esc_url($video_url); ?>" target="_blank" class="block p-4 bg-gray-100 text-center">
+                                        Ver video externo
+                                    </a>
+                                </div>
+                            <?php endif; ?>
+                        <?php else: ?>
+                            <img src="https://www.shadcnblocks.com/images/block/placeholder-2.svg" 
+                                 alt="Ciudadanía Digital" 
+                                 class="mb-6 max-h-36 w-full rounded-xl object-cover">
+                        <?php endif; ?>
                     <?php else: ?>
                         <img src="https://www.shadcnblocks.com/images/block/placeholder-2.svg" 
                              alt="Ciudadanía Digital" 
                              class="mb-6 max-h-36 w-full rounded-xl object-cover">
                     <?php endif; ?>
-                    <p class="text-muted-foreground"><?php echo get_field('qd_commitment')['description']; ?></p>
                 </div>
             </div>
         </div>

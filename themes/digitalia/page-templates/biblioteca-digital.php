@@ -47,7 +47,7 @@ get_header();
                                     @click="selectPostType(type)"
                                     :class="[
                                         'inline-flex items-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 h-9 px-4 py-2 w-full justify-start',
-                                        (selectedPostType && selectedPostType.slug === type.slug) ? 'bg-secondary text-secondary-foreground shadow-sm' : 'hover:bg-accent hover:text-accent-foreground'
+                                        (selectedPostType && selectedPostType.slug === type.slug) ? 'bg-teal-300 text-secondary-foreground shadow-sm' : 'hover:bg-teal-100 hover:text-accent-foreground'
                                     ]">
                                 {{ type.name }}
                             </button>
@@ -70,6 +70,23 @@ get_header();
                             </div>
                         </div>
                     </div>
+                    <!-- Tags (if available) -->
+                    <div v-if="hasPostTags" class="py-2 mb-6 mx-4 px-4 lg:px-0">
+                        <div class="rounded-lg px-4 mt-2">
+                            <h4 class="text-lg font-semibold mb-2">Etiquetas</h4>
+                        </div>
+                        <div class="flex flex-wrap gap-1 rounded-lg bg-muted p-1 text-muted-foreground">
+                            <button v-for="term in postTags"
+                                    :key="term.id"
+                                    @click="selectTerm({term: term, taxonomy: tagTaxonomy})"
+                                    :class="[
+                                        'inline-flex items-center justify-center whitespace-nowrap rounded-md px-3 py-1 text-sm font-medium transition-all',
+                                        (selectedTerms[tagTaxonomy.slug]?.some(t => t.id === term.id)) ? 'bg-background text-foreground shadow' : ''
+                                    ]">
+                                {{ term.name }}
+                            </button>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Main Content -->
@@ -80,21 +97,6 @@ get_header();
                         </div>
 
                         <template v-else>
-                            <!-- Tags (if available) -->
-                            <div v-if="hasPostTags" class="mb-6 px-4 lg:px-0">
-                                <div class="flex flex-wrap gap-1 rounded-lg bg-muted p-1 text-muted-foreground">
-                                    <button v-for="term in postTags"
-                                            :key="term.id"
-                                            @click="selectTerm({term: term, taxonomy: tagTaxonomy})"
-                                            :class="[
-                                                'inline-flex items-center justify-center whitespace-nowrap rounded-md px-3 py-1 text-sm font-medium transition-all',
-                                                (selectedTerms[tagTaxonomy.slug]?.some(t => t.id === term.id)) ? 'bg-background text-foreground shadow' : ''
-                                            ]">
-                                        {{ term.name }}
-                                    </button>
-                                </div>
-                            </div>
-
                             <!-- Posts Grid -->
                             <section class="py-8">
                                 <div class="lg:container">
