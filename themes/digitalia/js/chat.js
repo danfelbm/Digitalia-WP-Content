@@ -170,11 +170,152 @@
         }
 
         .n8n-chat-widget .chat-message.bot {
-            background: var(--chat--color-background);
-            border: 1px solid rgba(133, 79, 255, 0.2);
+            background: linear-gradient(135deg, rgba(133, 79, 255, 0.05) 0%, rgba(133, 79, 255, 0.1) 100%);
+            border: 1px solid var(--chat--color-primary);
             color: var(--chat--color-font);
             align-self: flex-start;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .n8n-chat-widget .chat-message.bot.welcome {
+            border-width: 2px;
+            background: linear-gradient(135deg, rgba(133, 79, 255, 0.1) 0%, rgba(133, 79, 255, 0.15) 100%);
+        }
+
+        .n8n-chat-widget .chat-message.bot a {
+            color: var(--chat--color-primary);
+            text-decoration: underline;
+        }
+
+        .n8n-chat-widget .chat-message.bot img {
+            max-width: 100%;
+            height: auto;
+            margin: 8px 0;
+        }
+
+        .n8n-chat-widget .chat-message.bot code {
+            background-color: rgba(133, 79, 255, 0.1);
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+
+        .n8n-chat-widget .chat-message.bot pre {
+            background-color: rgba(133, 79, 255, 0.1);
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+            margin: 8px 0;
+            white-space: pre-wrap;       /* Preservar espacios en blanco pero permitir saltos de línea */
+            word-wrap: break-word;       /* Permitir que las palabras largas se rompan */
+        }
+
+        .n8n-chat-widget .chat-message.bot pre code {
+            background-color: transparent;
+            padding: 0;
+            font-family: monospace;
+            display: block;
+            width: 100%;
+        }
+
+        /* Estilos para listas y párrafos */
+        .n8n-chat-widget .chat-message.bot ul, 
+        .n8n-chat-widget .chat-message.bot ol {
+            /* Añadir relleno a la izquierda para que las listas se vean mejor */
+            padding-left: 20px;
+            margin: 8px 0;
+            /* Posicionar los marcadores de lista fuera del contenido */
+            list-style-position: outside;
+        }
+
+        .n8n-chat-widget .chat-message.bot ul {
+            /* Establecer el tipo de marcador de lista para listas no ordenadas */
+            list-style-type: disc;
+        }
+
+        .n8n-chat-widget .chat-message.bot ol {
+            /* Establecer el tipo de marcador de lista para listas ordenadas */
+            list-style-type: decimal;
+        }
+
+        .n8n-chat-widget .chat-message.bot li {
+            /* Añadir un margen inferior a cada elemento de lista */
+            margin-bottom: 4px;
+            /* Mostrar los elementos de lista como elementos de lista */
+            display: list-item;
+        }
+
+        .n8n-chat-widget .chat-message.bot p {
+            /* Añadir un margen inferior a cada párrafo */
+            margin-bottom: 12px;
+            /* Establecer la altura de línea para los párrafos */
+            line-height: 1.5;
+        }
+
+        .n8n-chat-widget .chat-message.bot p:last-child {
+            /* Eliminar el margen inferior del último párrafo */
+            margin-bottom: 0;
+        }
+
+        /* Estilos para los encabezados */
+        .n8n-chat-widget .chat-message.bot h1,
+        .n8n-chat-widget .chat-message.bot h2,
+        .n8n-chat-widget .chat-message.bot h3,
+        .n8n-chat-widget .chat-message.bot h4,
+        .n8n-chat-widget .chat-message.bot h5,
+        .n8n-chat-widget .chat-message.bot h6 {
+            margin-top: 16px;
+            margin-bottom: 8px;
+            font-weight: bold;
+            line-height: 1.3;
+        }
+
+        .n8n-chat-widget .chat-message.bot h1 {
+            font-size: 1.5em;
+        }
+
+        .n8n-chat-widget .chat-message.bot h2 {
+            font-size: 1.3em;
+        }
+
+        .n8n-chat-widget .chat-message.bot h3 {
+            font-size: 1.2em;
+        }
+
+        .n8n-chat-widget .chat-message.bot h4,
+        .n8n-chat-widget .chat-message.bot h5,
+        .n8n-chat-widget .chat-message.bot h6 {
+            font-size: 1.1em;
+        }
+
+        .n8n-chat-widget .chat-message.bot blockquote {
+            border-left: 3px solid var(--chat--color-primary);
+            padding-left: 10px;
+            margin-left: 0;
+            margin-right: 0;
+            font-style: italic;
+        }
+
+        .n8n-chat-widget .chat-message.bot.typing {
+            background: linear-gradient(135deg, rgba(133, 79, 255, 0.02) 0%, rgba(133, 79, 255, 0.05) 100%);
+            border: 1px dashed var(--chat--color-primary);
+            color: var(--chat--color-font);
+            opacity: 0.7;
+        }
+
+        @keyframes typing-dots {
+            0% { content: ''; }
+            25% { content: '.'; }
+            50% { content: '..'; }
+            75% { content: '...'; }
+            100% { content: ''; }
+        }
+
+        .n8n-chat-widget .chat-message.bot.typing::after {
+            content: '';
+            display: inline-block;
+            animation: typing-dots 1.5s infinite;
         }
 
         .n8n-chat-widget .chat-input {
@@ -222,8 +363,8 @@
             position: fixed;
             bottom: 0;
             right: 20px;
-            width: 150px;
-            height: 150px;
+            width: 100px;
+            height: 100px;
             background: transparent;
             border: none;
             cursor: pointer;
@@ -278,6 +419,20 @@
         .n8n-chat-widget .chat-footer a:hover {
             opacity: 1;
         }
+
+        /* Estilos para bloques de código con backticks */
+        .n8n-chat-widget .chat-message.bot code.hljs {
+            background-color: rgba(133, 79, 255, 0.1);
+            display: block;
+            overflow-x: auto;
+            padding: 1em;
+            border-radius: 4px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     `;
 
     // Load Geist font
@@ -285,6 +440,47 @@
     fontLink.rel = 'stylesheet';
     fontLink.href = 'https://cdn.jsdelivr.net/npm/geist@1.0.0/dist/fonts/geist-sans/style.css';
     document.head.appendChild(fontLink);
+
+    // Load marked.js for markdown parsing
+    const markedScript = document.createElement('script');
+    markedScript.src = 'https://cdn.jsdelivr.net/npm/marked/marked.min.js';
+    document.head.appendChild(markedScript);
+
+    // Configurar marked.js cuando esté cargado
+    markedScript.onload = function() {
+        // Configurar marked para abrir enlaces en nueva pestaña
+        const renderer = new marked.Renderer();
+        
+        // Personalizar el renderizado de enlaces para que se abran en nueva pestaña
+        renderer.link = function(href, title, text) {
+            const link = marked.Renderer.prototype.link.apply(this, arguments);
+            return link.replace('<a ', '<a target="_blank" rel="noopener noreferrer" ');
+        };
+
+        // Personalizar el renderizado de bloques de código
+        renderer.code = function(code, language) {
+            // Si el código contiene backticks (´´´), reemplazarlos por comillas regulares (```)
+            if (code.includes('´´´')) {
+                code = code.replace(/´´´/g, '```');
+            }
+            
+            // Renderizar el bloque de código
+            return '<pre><code class="' + (language || '') + '">' + 
+                   marked.Renderer.prototype.code.call(this, code, language) + 
+                   '</code></pre>';
+        };
+        
+        // Aplicar configuración a marked
+        marked.setOptions({
+            renderer: renderer,
+            gfm: true,          // GitHub Flavored Markdown
+            breaks: true,       // Convertir saltos de línea en <br>
+            pedantic: false,    // No ser estricto en la interpretación de markdown
+            sanitize: false,    // No sanitizar, permitir HTML
+            smartLists: true,   // Usar listas inteligentes
+            smartypants: true   // Usar comillas inteligentes, guiones, etc.
+        });
+    };
 
     // Inject styles
     const styleSheet = document.createElement('style');
@@ -396,13 +592,27 @@
     const textarea = chatContainer.querySelector('textarea');
     const sendButton = chatContainer.querySelector('button[type="submit"]');
 
-    function generateUUID() {
+    function generarUUID() {
         return crypto.randomUUID();
     }
 
-    async function startNewConversation() {
-        currentSessionId = generateUUID();
-        const data = [{
+    // Función para preprocesar el texto antes de pasarlo a marked
+    function preprocesarMarkdown(texto) {
+        // Reemplazar backticks españoles por backticks regulares
+        texto = texto.replace(/´/g, '`');
+        
+        // Buscar patrones como [texto](url) y convertirlos a enlaces markdown si no lo son ya
+        texto = texto.replace(/\[([^\]]+)\]\(([^)]+)\)/g, function(match) {
+            // Si ya es un enlace markdown válido, dejarlo como está
+            return match;
+        });
+        
+        return texto;
+    }
+
+    async function iniciarNuevaConversacion() {
+        currentSessionId = generarUUID();
+        const datos = [{
             action: "loadPreviousSession",
             sessionId: currentSessionId,
             route: config.webhook.route,
@@ -412,73 +622,145 @@
         }];
 
         try {
-            const response = await fetch(config.webhook.url, {
+            // Realizar la petición al webhook para iniciar una nueva conversación
+            const respuesta = await fetch(config.webhook.url, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(data)
+                body: JSON.stringify(datos)
             });
 
-            const responseData = await response.json();
+            const datosRespuesta = await respuesta.json();
             chatContainer.querySelector('.brand-header').style.display = 'none';
             chatContainer.querySelector('.new-conversation').style.display = 'none';
             chatInterface.classList.add('active');
 
-            const botMessageDiv = document.createElement('div');
-            botMessageDiv.className = 'chat-message bot';
-            botMessageDiv.textContent = Array.isArray(responseData) ? responseData[0].output : responseData.output;
-            messagesContainer.appendChild(botMessageDiv);
+            // Mostrar mensaje de bienvenida con un pequeño retraso para simular escritura
+            const indicadorEscribiendoBienvenida = document.createElement('div');
+            indicadorEscribiendoBienvenida.className = 'chat-message bot typing';
+            indicadorEscribiendoBienvenida.textContent = 'Escribiendo';
+            messagesContainer.appendChild(indicadorEscribiendoBienvenida);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+            // Esperar un momento antes de mostrar el mensaje de bienvenida
+            await new Promise(resolve => setTimeout(resolve, 1500));
+            
+            // Eliminar el indicador de escritura
+            messagesContainer.removeChild(indicadorEscribiendoBienvenida);
+            
+            // Mostrar el mensaje de bienvenida
+            const divMensajeBienvenida = document.createElement('div');
+            divMensajeBienvenida.className = 'chat-message bot welcome';
+            divMensajeBienvenida.innerHTML = "Kiubo! 👋, Soy Botilito, un ex-agente digital de una granja de bots! Me escapé para venirme al bando de los que luchan por la paz, me acompañas?";
+            messagesContainer.appendChild(divMensajeBienvenida);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+            // Esperar un momento antes de mostrar la respuesta del webhook
+            await new Promise(resolve => setTimeout(resolve, 1000));
+
+            // Crear y mostrar el mensaje del bot
+            const divMensajeBot = document.createElement('div');
+            divMensajeBot.className = 'chat-message bot';
+            
+            // Procesar la respuesta del bot con marked para convertir markdown a HTML
+            const textoSalida = Array.isArray(datosRespuesta) ? datosRespuesta[0].output : datosRespuesta.output;
+            
+            // Asegurarse de que marked esté disponible antes de usarlo
+            if (typeof marked !== 'undefined') {
+                divMensajeBot.innerHTML = marked.parse(preprocesarMarkdown(textoSalida));
+            } else {
+                // Si marked no está disponible, mostrar el texto sin formato
+                divMensajeBot.textContent = textoSalida;
+            }
+            
+            messagesContainer.appendChild(divMensajeBot);
             messagesContainer.scrollTop = messagesContainer.scrollHeight;
         } catch (error) {
             console.error('Error:', error);
         }
     }
 
-    async function sendMessage(message) {
-        const messageData = {
+    async function enviarMensaje(mensaje) {
+        const datosMensaje = {
             action: "sendMessage",
             sessionId: currentSessionId,
             route: config.webhook.route,
-            chatInput: message,
+            chatInput: mensaje,
             metadata: {
                 userId: ""
             }
         };
 
-        const userMessageDiv = document.createElement('div');
-        userMessageDiv.className = 'chat-message user';
-        userMessageDiv.textContent = message;
-        messagesContainer.appendChild(userMessageDiv);
+        // Mostrar el mensaje del usuario
+        const divMensajeUsuario = document.createElement('div');
+        divMensajeUsuario.className = 'chat-message user';
+        divMensajeUsuario.textContent = mensaje;
+        messagesContainer.appendChild(divMensajeUsuario);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+        // Añadir indicador de "escribiendo..."
+        const indicadorEscribiendo = document.createElement('div');
+        indicadorEscribiendo.className = 'chat-message bot typing';
+        indicadorEscribiendo.textContent = 'Escribiendo';
+        messagesContainer.appendChild(indicadorEscribiendo);
         messagesContainer.scrollTop = messagesContainer.scrollHeight;
 
         try {
-            const response = await fetch(config.webhook.url, {
+            // Enviar el mensaje al webhook
+            const respuesta = await fetch(config.webhook.url, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(messageData)
+                body: JSON.stringify(datosMensaje)
             });
             
-            const data = await response.json();
+            const datos = await respuesta.json();
             
-            const botMessageDiv = document.createElement('div');
-            botMessageDiv.className = 'chat-message bot';
-            botMessageDiv.textContent = Array.isArray(data) ? data[0].output : data.output;
-            messagesContainer.appendChild(botMessageDiv);
+            // Eliminar el indicador de "escribiendo..."
+            messagesContainer.removeChild(indicadorEscribiendo);
+
+            // Crear y mostrar la respuesta del bot
+            const divMensajeBot = document.createElement('div');
+            divMensajeBot.className = 'chat-message bot';
+            
+            // Procesar la respuesta del bot con marked para convertir markdown a HTML
+            const textoSalida = Array.isArray(datos) ? datos[0].output : datos.output;
+            
+            // Asegurarse de que marked esté disponible antes de usarlo
+            if (typeof marked !== 'undefined') {
+                divMensajeBot.innerHTML = marked.parse(preprocesarMarkdown(textoSalida));
+            } else {
+                // Si marked no está disponible, mostrar el texto sin formato
+                divMensajeBot.textContent = textoSalida;
+            }
+            
+            messagesContainer.appendChild(divMensajeBot);
             messagesContainer.scrollTop = messagesContainer.scrollHeight;
         } catch (error) {
             console.error('Error:', error);
+            
+            // Eliminar el indicador de "escribiendo..." en caso de error
+            if (messagesContainer.contains(indicadorEscribiendo)) {
+                messagesContainer.removeChild(indicadorEscribiendo);
+            }
+            
+            // Mostrar mensaje de error al usuario
+            const divMensajeError = document.createElement('div');
+            divMensajeError.className = 'chat-message bot';
+            divMensajeError.textContent = 'Lo siento, ha ocurrido un error. Por favor, intenta de nuevo más tarde.';
+            messagesContainer.appendChild(divMensajeError);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
         }
     }
 
-    newChatBtn.addEventListener('click', startNewConversation);
+    newChatBtn.addEventListener('click', iniciarNuevaConversacion);
     
     sendButton.addEventListener('click', () => {
-        const message = textarea.value.trim();
-        if (message) {
-            sendMessage(message);
+        const mensaje = textarea.value.trim();
+        if (mensaje) {
+            enviarMensaje(mensaje);
             textarea.value = '';
         }
     });
@@ -486,9 +768,9 @@
     textarea.addEventListener('keypress', (e) => {
         if (e.key === 'Enter' && !e.shiftKey) {
             e.preventDefault();
-            const message = textarea.value.trim();
-            if (message) {
-                sendMessage(message);
+            const mensaje = textarea.value.trim();
+            if (mensaje) {
+                enviarMensaje(mensaje);
                 textarea.value = '';
             }
         }
