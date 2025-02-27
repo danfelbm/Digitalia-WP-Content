@@ -127,39 +127,51 @@ get_header(); ?>
                     </div>
                 </div>
 
-                <!-- Episode Appearances -->
+                <!-- Series Appearances -->
                 <div class="bg-white rounded-xl p-8">
                     <h2 class="text-2xl font-semibold mb-6">Apariciones</h2>
                     <div class="space-y-4">
                         <?php 
-                        $episodios = get_field('episodios');
-                        if ($episodios):
-                            foreach ($episodios as $episode):
-                                // Get the temporada taxonomy term
-                                $temporadas = get_the_terms($episode->ID, 'temporadas');
-                                if ($temporadas && !empty($temporadas)):
-                                    $temporada = get_field('numero_temporada', 'temporadas_' . $temporadas[0]->term_id);
-                                    $episodio_numero = get_field('episodio_numero', $episode->ID);
-                                    $sinopsis = get_field('sinopsis_single', $episode->ID);
+                        // Obtener las series en las que aparece el personaje
+                        $series = get_field('aparece_en');
+                        if ($series):
+                            foreach ($series as $serie): 
+                                // Obtener información de la serie
+                                $permalink = get_permalink($serie->ID);
+                                $titulo = get_the_title($serie->ID);
+                                $sinopsis = get_field('sinopsis', $serie->ID);
+                                $fecha_estreno = get_field('fecha_estreno', $serie->ID);
+                                // Obtener la imagen destacada de la serie
+                                $thumbnail = get_the_post_thumbnail_url($serie->ID, 'medium');
                         ?>
-                        <a href="<?php echo esc_url(get_permalink($episode->ID)); ?>" 
+                        <a href="<?php echo esc_url($permalink); ?>" 
                            class="block border-b border-gray-100 pb-4 hover:bg-gray-50 transition-colors rounded-lg px-4 py-2 -mx-4 -my-2">
-                            <div class="flex justify-between items-start mb-2">
-                                <h3 class="text-lg font-medium group-hover:text-blue-600 transition-colors">
-                                    T<?php echo $temporada; ?>:E<?php echo $episodio_numero; ?> - "<?php echo get_the_title($episode->ID); ?>"
-                                </h3>
-                                <span class="text-sm text-gray-500"><?php 
-                                    $fecha_estreno = get_field('detalles_produccion_fecha_estreno', $episode->ID);
-                                    echo $fecha_estreno ? date_i18n('d M Y', strtotime($fecha_estreno)) : '';
-                                ?></span>
+                            <div class="grid grid-cols-3 gap-4">
+                                <?php if ($thumbnail): ?>
+                                <div class="col-span-1">
+                                    <img src="<?php echo esc_url($thumbnail); ?>" alt="<?php echo esc_attr($titulo); ?>" 
+                                         class="w-full h-auto object-cover rounded">
+                                </div>
+                                <?php endif; ?>
+                                <div class="<?php echo $thumbnail ? 'col-span-2' : 'col-span-3'; ?>">
+                                    <div class="flex justify-between items-start mb-2">
+                                        <h3 class="text-lg font-medium group-hover:text-blue-600 transition-colors">
+                                            <?php echo esc_html($titulo); ?>
+                                        </h3>
+                                        <span class="text-sm text-gray-500">
+                                            <?php echo $fecha_estreno ? date_i18n('d M Y', strtotime($fecha_estreno)) : ''; ?>
+                                        </span>
+                                    </div>
+                                    <p class="text-gray-600 text-sm"><?php echo esc_html($sinopsis); ?></p>
+                                </div>
                             </div>
-                            <p class="text-gray-600 text-sm"><?php echo esc_html($sinopsis); ?></p>
                         </a>
                         <?php 
-                                endif;
                             endforeach;
-                        endif;
+                        else:
                         ?>
+                        <p class="text-gray-500">Este personaje no aparece en ninguna serie.</p>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>

@@ -36,6 +36,8 @@ while (have_posts()) :
                         $episodes_query = new WP_Query([
                             'post_type' => 'episodio',
                             'posts_per_page' => -1,
+                            'orderby' => 'date',
+                            'order' => 'ASC',
                             'meta_query' => [
                                 [
                                     'key' => 'serie',
@@ -128,6 +130,8 @@ while (have_posts()) :
                 $episodes_query = new WP_Query([
                     'post_type' => 'episodio',
                     'posts_per_page' => -1,
+                    'orderby' => 'date',
+                    'order' => 'ASC',
                     'meta_query' => [
                         [
                             'key' => 'serie',
@@ -173,6 +177,8 @@ while (have_posts()) :
                 $args = [
                     'post_type' => 'episodio',
                     'posts_per_page' => -1,
+                    'orderby' => 'date',
+                    'order' => 'ASC',
                     'meta_query' => [
                         [
                             'key' => 'serie',

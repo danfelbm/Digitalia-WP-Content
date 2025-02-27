@@ -2,6 +2,10 @@
 
 ## 2025-02-27
 
+### Mejoras en la visualización de episodios en series
+
+- **11:47** - Se ha modificado el archivo `single-series.php` para ordenar los episodios con los más antiguos arriba y los más recientes abajo, aplicando `orderby='date'` y `order='ASC'` en todas las consultas de episodios.
+
 ### Mejoras en la sección "Qué es Digitalia"
 
 - **01:17** - Se ha modificado el campo ACF `qd_commitment` para permitir tanto imágenes como videos en la sección de compromiso.
