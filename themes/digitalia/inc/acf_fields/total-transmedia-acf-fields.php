@@ -614,35 +614,6 @@ if (!function_exists('digitalia_register_total_transmedia_acf_fields')) {
                                 'sub_fields' => array(
                                     // Narrativas Expandidas
                                     array(
-                                        'key' => 'narratives_media_type',
-                                        'label' => 'Tipo de Media',
-                                        'name' => 'media_type',
-                                        'type' => 'select',
-                                        'choices' => array(
-                                            'image' => 'Imagen',
-                                            'video' => 'Video MP4'
-                                        ),
-                                        'default_value' => 'image',
-                                        'return_format' => 'value'
-                                    ),
-                                    array(
-                                        'key' => 'narratives_video',
-                                        'label' => 'Video Narrativas',
-                                        'name' => 'video',
-                                        'type' => 'file',
-                                        'return_format' => 'url',
-                                        'mime_types' => 'mp4',
-                                        'conditional_logic' => array(
-                                            array(
-                                                array(
-                                                    'field' => 'narratives_media_type',
-                                                    'operator' => '==',
-                                                    'value' => 'video',
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                    array(
                                         'key' => 'narratives_image',
                                         'label' => 'Imagen Narrativas',
                                         'name' => 'narratives_image',
@@ -650,15 +621,6 @@ if (!function_exists('digitalia_register_total_transmedia_acf_fields')) {
                                         'return_format' => 'array',
                                         'preview_size' => 'medium',
                                         'instructions' => 'Dimensiones recomendadas: 800x600px',
-                                        'conditional_logic' => array(
-                                            array(
-                                                array(
-                                                    'field' => 'narratives_media_type',
-                                                    'operator' => '==',
-                                                    'value' => 'image',
-                                                ),
-                                            ),
-                                        ),
                                     ),
                                     array(
                                         'key' => 'narratives_title',
@@ -709,35 +671,6 @@ if (!function_exists('digitalia_register_total_transmedia_acf_fields')) {
                                     ),
                                     // Alfabetización Digital
                                     array(
-                                        'key' => 'literacy_media_type',
-                                        'label' => 'Tipo de Media',
-                                        'name' => 'media_type',
-                                        'type' => 'select',
-                                        'choices' => array(
-                                            'image' => 'Imagen',
-                                            'video' => 'Video MP4'
-                                        ),
-                                        'default_value' => 'image',
-                                        'return_format' => 'value'
-                                    ),
-                                    array(
-                                        'key' => 'literacy_video',
-                                        'label' => 'Video Alfabetización',
-                                        'name' => 'video',
-                                        'type' => 'file',
-                                        'return_format' => 'url',
-                                        'mime_types' => 'mp4',
-                                        'conditional_logic' => array(
-                                            array(
-                                                array(
-                                                    'field' => 'literacy_media_type',
-                                                    'operator' => '==',
-                                                    'value' => 'video',
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                    array(
                                         'key' => 'literacy_image',
                                         'label' => 'Imagen Alfabetización',
                                         'name' => 'literacy_image',
@@ -745,15 +678,6 @@ if (!function_exists('digitalia_register_total_transmedia_acf_fields')) {
                                         'return_format' => 'array',
                                         'preview_size' => 'medium',
                                         'instructions' => 'Dimensiones recomendadas: 800x600px',
-                                        'conditional_logic' => array(
-                                            array(
-                                                array(
-                                                    'field' => 'literacy_media_type',
-                                                    'operator' => '==',
-                                                    'value' => 'image',
-                                                ),
-                                            ),
-                                        ),
                                     ),
                                     array(
                                         'key' => 'literacy_title',
