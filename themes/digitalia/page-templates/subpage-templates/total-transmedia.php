@@ -397,12 +397,24 @@ get_header();
             <?php if ($cards['narratives_title'] && $cards['narratives_description']): ?>
               <div class="flex flex-col overflow-clip rounded-xl border border-slate-200 bg-slate-200 md:col-span-2 md:grid md:grid-cols-2 md:gap-6 lg:gap-8">
                 <div class="md:min-h-[24rem] lg:min-h-[28rem] xl:min-h-[32rem]">
-                  <?php if ($cards['narratives_image']): ?>
-                    <img 
-                      src="<?php echo esc_url($cards['narratives_image']['url']); ?>" 
-                      alt="<?php echo esc_attr($cards['narratives_image']['alt']); ?>" 
-                      class="aspect-[16/9] h-full w-full object-cover object-center"
-                    >
+                  <?php if ($cards['narratives_media']): 
+                    $file_type = wp_check_filetype($cards['narratives_media']['url'])['type'];
+                    if (strpos($file_type, 'video') !== false): ?>
+                      <video 
+                        src="<?php echo esc_url($cards['narratives_media']['url']); ?>" 
+                        class="aspect-[16/9] h-full w-full object-cover object-center"
+                        controls
+                        playsinline
+                      >
+                        <p>Tu navegador no soporta videos HTML5.</p>
+                      </video>
+                    <?php else: ?>
+                      <img 
+                        src="<?php echo esc_url($cards['narratives_media']['url']); ?>" 
+                        alt="<?php echo esc_attr($cards['narratives_title']); ?>" 
+                        class="aspect-[16/9] h-full w-full object-cover object-center"
+                      >
+                    <?php endif; ?>
                   <?php else: ?>
                     <img 
                       src="https://placehold.co/800x600/1f3a8a/bfdbfe" 
@@ -453,12 +465,24 @@ get_header();
                   <?php endif; ?>
                 </div>
                 <div class="md:min-h-[24rem] lg:min-h-[28rem] xl:min-h-[32rem]">
-                  <?php if ($cards['literacy_image']): ?>
-                    <img 
-                      src="<?php echo esc_url($cards['literacy_image']['url']); ?>" 
-                      alt="<?php echo esc_attr($cards['literacy_image']['alt']); ?>" 
-                      class="aspect-[16/9] h-full w-full object-cover object-center"
-                    >
+                  <?php if ($cards['literacy_media']): 
+                    $file_type = wp_check_filetype($cards['literacy_media']['url'])['type'];
+                    if (strpos($file_type, 'video') !== false): ?>
+                      <video 
+                        src="<?php echo esc_url($cards['literacy_media']['url']); ?>" 
+                        class="aspect-[16/9] h-full w-full object-cover object-center"
+                        controls
+                        playsinline
+                      >
+                        <p>Tu navegador no soporta videos HTML5.</p>
+                      </video>
+                    <?php else: ?>
+                      <img 
+                        src="<?php echo esc_url($cards['literacy_media']['url']); ?>" 
+                        alt="<?php echo esc_attr($cards['literacy_title']); ?>" 
+                        class="aspect-[16/9] h-full w-full object-cover object-center"
+                      >
+                    <?php endif; ?>
                   <?php else: ?>
                     <img 
                       src="https://placehold.co/800x600/1f3a8a/bfdbfe" 

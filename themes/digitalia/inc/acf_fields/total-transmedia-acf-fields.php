@@ -614,13 +614,14 @@ if (!function_exists('digitalia_register_total_transmedia_acf_fields')) {
                                 'sub_fields' => array(
                                     // Narrativas Expandidas
                                     array(
-                                        'key' => 'narratives_image',
-                                        'label' => 'Imagen Narrativas',
-                                        'name' => 'narratives_image',
-                                        'type' => 'image',
+                                        'key' => 'narratives_media',
+                                        'label' => 'Imagen o Video de Narrativas',
+                                        'name' => 'narratives_media',
+                                        'type' => 'file',
                                         'return_format' => 'array',
-                                        'preview_size' => 'medium',
-                                        'instructions' => 'Dimensiones recomendadas: 800x600px',
+                                        'library' => 'all',
+                                        'mime_types' => 'jpg,jpeg,png,gif,mp4,webm',
+                                        'instructions' => 'Seleccione una imagen o video MP4. Para videos, se recomienda MP4.',
                                     ),
                                     array(
                                         'key' => 'narratives_title',
@@ -671,13 +672,14 @@ if (!function_exists('digitalia_register_total_transmedia_acf_fields')) {
                                     ),
                                     // Alfabetización Digital
                                     array(
-                                        'key' => 'literacy_image',
-                                        'label' => 'Imagen Alfabetización',
-                                        'name' => 'literacy_image',
-                                        'type' => 'image',
+                                        'key' => 'literacy_media',
+                                        'label' => 'Imagen o Video de Alfabetización',
+                                        'name' => 'literacy_media',
+                                        'type' => 'file',
                                         'return_format' => 'array',
-                                        'preview_size' => 'medium',
-                                        'instructions' => 'Dimensiones recomendadas: 800x600px',
+                                        'library' => 'all',
+                                        'mime_types' => 'jpg,jpeg,png,gif,mp4,webm',
+                                        'instructions' => 'Seleccione una imagen o video MP4. Para videos, se recomienda MP4.',
                                     ),
                                     array(
                                         'key' => 'literacy_title',
