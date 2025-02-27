@@ -924,7 +924,7 @@ get_header();
           <?php if (!empty($alianzas['partners'])): ?>
             <div class="grid grid-cols-2 border-t border-blue-400 md:border-l md:border-t-0">
               <?php 
-              $partners = array('partner1', 'partner2', 'partner3', 'partner4', 'partner5', 'partner6');
+              $partners = array('partner1', 'partner2');
               foreach ($partners as $partner):
                 if (!empty($alianzas['partners'][$partner])):
                   $current_partner = $alianzas['partners'][$partner];
