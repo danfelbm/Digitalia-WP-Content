@@ -98,9 +98,15 @@ get_header();
                             <!-- Posts Grid -->
                             <section class="py-8">
                                 <div class="lg:container">
-                                    <h1 class="mb-10 px-4 text-3xl font-semibold md:mb-8 md:text-4xl" v-if="selectedPostType">
+                                    <h1 class="mb-4 px-4 text-3xl font-semibold md:text-4xl" v-if="selectedPostType">
                                         {{ selectedPostType.name }}
                                     </h1>
+                                    <h2 class="mb-3 px-4 text-2xl font-medium md:text-3xl" v-if="Object.keys(selectedTerms).length > 0 && Object.keys(selectedTerms).some(key => key !== 'post_tag')">
+                                        {{ Object.entries(selectedTerms).filter(([key]) => key !== 'post_tag').map(([_, terms]) => terms.map(term => term.name).join(', ')).join(' - ') }}
+                                    </h2>
+                                    <h3 class="mb-6 px-4 text-xl font-normal md:text-2xl text-muted-foreground" v-if="selectedTerms['post_tag'] && selectedTerms['post_tag'].length > 0">
+                                        {{ selectedTerms['post_tag'].map(term => term.name).join(', ') }}
+                                    </h3>
                                     <div class="flex flex-col">
                                         <hr class="border-t border-border" />
                                         <template v-for="post in posts" :key="post.id">
