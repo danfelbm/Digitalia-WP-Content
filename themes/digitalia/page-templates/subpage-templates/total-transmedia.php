@@ -165,7 +165,7 @@ get_header();
         <?php if ($strategy['media']): 
           $mime_type = $strategy['media']['mime_type'];
           if (strpos($mime_type, 'video') !== false): ?>
-            <video class="ml-auto max-h-[450px] w-full rounded-xl object-cover" controls autoplay muted loop>
+            <video class="ml-auto max-h-[450px] w-full rounded-xl object-cover" controls muted loop>
               <source src="<?php echo esc_url($strategy['media']['url']); ?>" type="<?php echo esc_attr($mime_type); ?>">
               Your browser does not support the video tag.
             </video>
