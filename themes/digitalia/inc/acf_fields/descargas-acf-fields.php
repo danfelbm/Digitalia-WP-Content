@@ -57,6 +57,52 @@ function digitalia_register_descargas_acf_fields() {
                     ),
                 ),
                 array(
+                    'key' => 'field_descarga_formato_manual',
+                    'label' => 'Formato del Archivo',
+                    'name' => 'formato_archivo_manual',
+                    'type' => 'select',
+                    'required' => 1,
+                    'choices' => array(
+                        'pdf' => 'PDF',
+                        'doc' => 'DOC',
+                        'docx' => 'DOCX',
+                        'xls' => 'XLS',
+                        'xlsx' => 'XLSX',
+                        'ppt' => 'PPT',
+                        'pptx' => 'PPTX',
+                        'zip' => 'ZIP',
+                        'rar' => 'RAR',
+                        'otro' => 'Otro',
+                    ),
+                    'conditional_logic' => array(
+                        array(
+                            array(
+                                'field' => 'field_descarga_file_type',
+                                'operator' => '==',
+                                'value' => 'external',
+                            ),
+                        ),
+                    ),
+                ),
+                array(
+                    'key' => 'field_descarga_tamano_manual',
+                    'label' => 'Tamaño del Archivo (en MB)',
+                    'name' => 'tamano_archivo_manual',
+                    'type' => 'number',
+                    'required' => 1,
+                    'min' => 0.01,
+                    'step' => 0.01,
+                    'conditional_logic' => array(
+                        array(
+                            array(
+                                'field' => 'field_descarga_file_type',
+                                'operator' => '==',
+                                'value' => 'external',
+                            ),
+                        ),
+                    ),
+                ),
+                array(
                     'key' => 'field_descarga_version',
                     'label' => 'Versión',
                     'name' => 'version',
