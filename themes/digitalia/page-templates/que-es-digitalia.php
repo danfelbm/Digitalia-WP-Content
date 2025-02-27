@@ -23,7 +23,7 @@ get_header();
     
     <?php get_template_part('template-parts/page-content'); ?>
 
-    <section class="magicpattern py-32">
+    <section class="magicpattern py-32 bg-slate-100">
         <div class="container flex flex-col gap-28">
             <div class="flex flex-col gap-7">
                 <h1 class="text-4xl font-semibold lg:text-7xl"><?php echo get_field('qd_hero')['title'] ?: 'Educomunicación para la'; ?> <span class="bg-slate-400/30">paz</span></h1>
