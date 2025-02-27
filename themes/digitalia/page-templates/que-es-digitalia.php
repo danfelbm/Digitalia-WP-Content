@@ -84,7 +84,7 @@ get_header();
             <div class="grid gap-10 md:grid-cols-2">
                 <div>
                     <p class="mb-10 text-sm font-medium text-muted-foreground"><?php echo get_field('qd_commitment')['label']; ?></p>
-                    <h2 class="mb-2.5 text-3xl font-semibold md:text-5xl"><?php echo get_field('qd_commitment')['title']; ?></h2>
+                    <h2 class="mb-4 text-3xl font-semibold md:text-5xl"><?php echo get_field('qd_commitment')['title']; ?></h2>
                     <p class="text-muted-foreground"><?php echo get_field('qd_commitment')['description']; ?></p>
                 </div>
                 <div>
@@ -95,13 +95,14 @@ get_header();
                     if ($media_type === 'image' && !empty($commitment_media['image'])): ?>
                         <img src="<?php echo esc_url($commitment_media['image']['url']); ?>" 
                              alt="<?php echo esc_attr($commitment_media['image']['alt']); ?>" 
-                             class="mb-6 max-h-36 w-full rounded-xl object-cover">
+                             class="mb-6 w-full rounded-xl object-cover">
                     <?php elseif ($media_type === 'video'): ?>
                         <?php if (!empty($commitment_media['video'])): ?>
                             <video 
                                 src="<?php echo esc_url($commitment_media['video']['url']); ?>" 
                                 controls
-                                class="mb-6 max-h-36 w-full rounded-xl object-cover">
+                                class="mb-6 w-full rounded-xl object-cover" 
+                                style="max-height: 350px;">
                             </video>
                         <?php elseif (!empty($commitment_media['video_url'])): 
                             // Extraer ID de video de YouTube o Vimeo
@@ -123,12 +124,11 @@ get_header();
                                 <div class="mb-6 w-full rounded-xl overflow-hidden">
                                     <iframe 
                                         width="100%" 
-                                        height="200" 
+                                        height="350" 
                                         src="https://www.youtube.com/embed/<?php echo esc_attr($youtube_id); ?>" 
                                         frameborder="0" 
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                        allowfullscreen
-                                        class="max-h-36 object-cover">
+                                        allowfullscreen>
                                     </iframe>
                                 </div>
                             <?php elseif ($vimeo_id): ?>
@@ -136,11 +136,10 @@ get_header();
                                     <iframe 
                                         src="https://player.vimeo.com/video/<?php echo esc_attr($vimeo_id); ?>" 
                                         width="100%" 
-                                        height="200" 
+                                        height="350" 
                                         frameborder="0" 
                                         allow="autoplay; fullscreen; picture-in-picture" 
-                                        allowfullscreen
-                                        class="max-h-36 object-cover">
+                                        allowfullscreen>
                                     </iframe>
                                 </div>
                             <?php else: ?>
@@ -153,12 +152,12 @@ get_header();
                         <?php else: ?>
                             <img src="https://www.shadcnblocks.com/images/block/placeholder-2.svg" 
                                  alt="Ciudadanía Digital" 
-                                 class="mb-6 max-h-36 w-full rounded-xl object-cover">
+                                 class="mb-6 w-full rounded-xl object-cover">
                         <?php endif; ?>
                     <?php else: ?>
                         <img src="https://www.shadcnblocks.com/images/block/placeholder-2.svg" 
                              alt="Ciudadanía Digital" 
-                             class="mb-6 max-h-36 w-full rounded-xl object-cover">
+                             class="mb-6 w-full rounded-xl object-cover">
                     <?php endif; ?>
                 </div>
             </div>
