@@ -418,6 +418,16 @@ get_header();
                   <p class="text-blue-900 lg:text-lg">
                     <?php echo esc_html($cards['narratives_description']); ?>
                   </p>
+                  <?php if (isset($cards['narratives_cta']) && !empty($cards['narratives_cta']['text']) && !empty($cards['narratives_cta']['url'])): ?>
+                    <div class="mt-6">
+                      <a href="<?php echo esc_url($cards['narratives_cta']['url']); ?>" class="inline-flex items-center rounded-md bg-blue-700 px-4 py-2 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                        <?php echo esc_html($cards['narratives_cta']['text']); ?>
+                        <svg class="ml-2 -mr-1 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                      </a>
+                    </div>
+                  <?php endif; ?>
                 </div>
               </div>
             <?php endif; ?>
@@ -431,6 +441,16 @@ get_header();
                   <p class="text-blue-900 lg:text-lg">
                     <?php echo esc_html($cards['literacy_description']); ?>
                   </p>
+                  <?php if (isset($cards['literacy_cta']) && !empty($cards['literacy_cta']['text']) && !empty($cards['literacy_cta']['url'])): ?>
+                    <div class="mt-6">
+                      <a href="<?php echo esc_url($cards['literacy_cta']['url']); ?>" class="inline-flex items-center rounded-md bg-blue-700 px-4 py-2 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                        <?php echo esc_html($cards['literacy_cta']['text']); ?>
+                        <svg class="ml-2 -mr-1 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                      </a>
+                    </div>
+                  <?php endif; ?>
                 </div>
                 <div class="md:min-h-[24rem] lg:min-h-[28rem] xl:min-h-[32rem]">
                   <?php if ($cards['literacy_image']): ?>

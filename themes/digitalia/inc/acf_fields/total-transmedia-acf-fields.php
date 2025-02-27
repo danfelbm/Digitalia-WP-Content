@@ -637,6 +637,29 @@ if (!function_exists('digitalia_register_total_transmedia_acf_fields')) {
                                         'rows' => 3,
                                         'default_value' => 'Creamos experiencias omnicanal que integran storytelling, gamificación y marketing de contenidos. Nuestras narrativas interactivas fomentan el user-generated content y aprovechan micromomentos para maximizar el engagement con diferentes audiencias.',
                                     ),
+                                    array(
+                                        'key' => 'narratives_cta',
+                                        'label' => 'CTA Narrativas',
+                                        'name' => 'narratives_cta',
+                                        'type' => 'group',
+                                        'layout' => 'block',
+                                        'sub_fields' => array(
+                                            array(
+                                                'key' => 'narratives_cta_text',
+                                                'label' => 'Texto del CTA',
+                                                'name' => 'text',
+                                                'type' => 'text',
+                                                'default_value' => 'Conocer más',
+                                            ),
+                                            array(
+                                                'key' => 'narratives_cta_url',
+                                                'label' => 'URL del CTA',
+                                                'name' => 'url',
+                                                'type' => 'url',
+                                                'default_value' => '#',
+                                            ),
+                                        ),
+                                    ),
                                     // Alfabetización Digital
                                     array(
                                         'key' => 'literacy_image',
@@ -661,6 +684,29 @@ if (!function_exists('digitalia_register_total_transmedia_acf_fields')) {
                                         'type' => 'textarea',
                                         'rows' => 3,
                                         'default_value' => 'Desarrollamos contenidos especializados para superar discursos de odio, identificar desinformación y fortalecer el periodismo ciudadano. Integramos tecnologías de IA para la detección de fake news y la promoción de una paz mediática.',
+                                    ),
+                                    array(
+                                        'key' => 'literacy_cta',
+                                        'label' => 'CTA Alfabetización',
+                                        'name' => 'literacy_cta',
+                                        'type' => 'group',
+                                        'layout' => 'block',
+                                        'sub_fields' => array(
+                                            array(
+                                                'key' => 'literacy_cta_text',
+                                                'label' => 'Texto del CTA',
+                                                'name' => 'text',
+                                                'type' => 'text',
+                                                'default_value' => 'Conocer más',
+                                            ),
+                                            array(
+                                                'key' => 'literacy_cta_url',
+                                                'label' => 'URL del CTA',
+                                                'name' => 'url',
+                                                'type' => 'url',
+                                                'default_value' => '#',
+                                            ),
+                                        ),
                                     ),
                                 ),
                             ),
