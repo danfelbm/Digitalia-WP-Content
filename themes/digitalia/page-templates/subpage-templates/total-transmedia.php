@@ -922,7 +922,7 @@ get_header();
             </div>
           </div>
           <?php if (!empty($alianzas['partners'])): ?>
-            <div class="grid grid-cols-3 border-t border-blue-400 md:border-l md:border-t-0">
+            <div class="grid grid-cols-2 border-t border-blue-400 md:border-l md:border-t-0">
               <?php 
               $partners = array('partner1', 'partner2', 'partner3', 'partner4', 'partner5', 'partner6');
               foreach ($partners as $partner):
@@ -933,12 +933,12 @@ get_header();
                   <?php if (!empty($current_partner['image'])): ?>
                     <img src="<?php echo esc_url($current_partner['image']['url']); ?>" 
                          alt="<?php echo esc_attr($current_partner['name']); ?>" 
-                         class="size-12 object-contain object-center sm:size-16 lg:size-24"
+                         class="size-12 object-contain object-center sm:size-16 lg:size-64"
                          onerror="this.src='https://placehold.co/800x600/1f3a8a/bfdbfe?text=<?php echo esc_attr($current_partner['name']); ?>'">
                   <?php else: ?>
                     <img src="https://placehold.co/800x600/1f3a8a/bfdbfe?text=<?php echo esc_attr($current_partner['name']); ?>" 
                          alt="<?php echo esc_attr($current_partner['name']); ?>" 
-                         class="size-12 object-contain object-center sm:size-16 lg:size-24">
+                         class="size-12 object-contain object-center sm:size-16 lg:size-64">
                   <?php endif; ?>
                 </div>
               <?php 
