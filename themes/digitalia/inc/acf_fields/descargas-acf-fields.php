@@ -148,6 +148,32 @@ function digitalia_register_descargas_acf_fields() {
                     'type' => 'number',
                     'required' => 0,
                     'min' => 1,
+                    'conditional_logic' => array(
+                        array(
+                            array(
+                                'field' => 'field_descarga_file_type',
+                                'operator' => '==',
+                                'value' => 'internal',
+                            ),
+                            array(
+                                'field' => 'field_descarga_file',
+                                'operator' => 'MATCHES',
+                                'value' => '.(pdf|doc|docx|ppt|pptx)$',
+                            ),
+                        ),
+                        array(
+                            array(
+                                'field' => 'field_descarga_file_type',
+                                'operator' => '==',
+                                'value' => 'external',
+                            ),
+                            array(
+                                'field' => 'field_descarga_formato_manual',
+                                'operator' => 'IN',
+                                'value' => array('pdf', 'doc', 'docx', 'ppt', 'pptx'),
+                            ),
+                        ),
+                    ),
                 ),
                 array(
                     'key' => 'field_descarga_license',

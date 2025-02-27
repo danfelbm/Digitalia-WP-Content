@@ -122,10 +122,25 @@ get_header(); ?>
                                     ?>
                                 </dd>
                             </div>
+                            <?php 
+                            $show_pages = false;
+                            if ($file_type === 'internal') {
+                                $file = get_field('archivo');
+                                if ($file) {
+                                    $ext = strtolower(pathinfo($file['url'], PATHINFO_EXTENSION));
+                                    $show_pages = in_array($ext, ['pdf', 'doc', 'docx', 'ppt', 'pptx']);
+                                }
+                            } else {
+                                $formato = get_field('formato_archivo_manual');
+                                $show_pages = in_array($formato, ['pdf', 'doc', 'docx', 'ppt', 'pptx']);
+                            }
+                            
+                            if ($show_pages) : ?>
                             <div>
                                 <dt class="text-sm font-medium text-gray-500">Número de Páginas</dt>
                                 <dd class="mt-1 text-sm text-gray-900"><?php echo get_field('numero_paginas'); ?></dd>
                             </div>
+                            <?php endif; ?>
                             <div>
                                 <dt class="text-sm font-medium text-gray-500">Licencia</dt>
                                 <dd class="mt-1 text-sm text-gray-900">

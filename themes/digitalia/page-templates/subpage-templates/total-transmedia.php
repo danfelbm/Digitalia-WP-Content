@@ -748,6 +748,15 @@ get_header();
                 <?php endforeach; ?>
               </ul>
             <?php endif; ?>
+            <?php if (!empty($training['show_cta']) && $training['show_cta'] && !empty($training['cta'])): ?>
+              <div class="mt-8">
+                <a href="<?php echo esc_url($training['cta']['url']); ?>" 
+                   class="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-6 py-3 text-white transition hover:bg-blue-700">
+                  <?php echo esc_html($training['cta']['text']); ?>
+                  <i class="fa-solid fa-arrow-right"></i>
+                </a>
+              </div>
+            <?php endif; ?>
         </div>
         <?php endif; ?>
       </div>

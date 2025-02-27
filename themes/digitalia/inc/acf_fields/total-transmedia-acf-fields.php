@@ -1140,6 +1140,46 @@ if (!function_exists('digitalia_register_total_transmedia_acf_fields')) {
                                     ),
                                 ),
                             ),
+                            array(
+                                'key' => 'training_show_cta',
+                                'label' => 'Mostrar CTA',
+                                'name' => 'show_cta',
+                                'type' => 'true_false',
+                                'ui' => 1,
+                                'default_value' => 0,
+                                'instructions' => 'Activa esta opción para mostrar el botón CTA',
+                            ),
+                            array(
+                                'key' => 'training_cta',
+                                'label' => 'CTA',
+                                'name' => 'cta',
+                                'type' => 'group',
+                                'conditional_logic' => array(
+                                    array(
+                                        array(
+                                            'field' => 'training_show_cta',
+                                            'operator' => '==',
+                                            'value' => '1',
+                                        ),
+                                    ),
+                                ),
+                                'sub_fields' => array(
+                                    array(
+                                        'key' => 'training_cta_text',
+                                        'label' => 'Texto del CTA',
+                                        'name' => 'text',
+                                        'type' => 'text',
+                                        'default_value' => 'Conocer más',
+                                    ),
+                                    array(
+                                        'key' => 'training_cta_url',
+                                        'label' => 'URL del CTA',
+                                        'name' => 'url',
+                                        'type' => 'url',
+                                        'default_value' => '#',
+                                    ),
+                                ),
+                            ),
                         ),
                     ),
                     array(
