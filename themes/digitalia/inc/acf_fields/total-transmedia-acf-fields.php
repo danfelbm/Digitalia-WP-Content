@@ -614,6 +614,35 @@ if (!function_exists('digitalia_register_total_transmedia_acf_fields')) {
                                 'sub_fields' => array(
                                     // Narrativas Expandidas
                                     array(
+                                        'key' => 'narratives_media_type',
+                                        'label' => 'Tipo de Media',
+                                        'name' => 'media_type',
+                                        'type' => 'select',
+                                        'choices' => array(
+                                            'image' => 'Imagen',
+                                            'video' => 'Video MP4'
+                                        ),
+                                        'default_value' => 'image',
+                                        'return_format' => 'value'
+                                    ),
+                                    array(
+                                        'key' => 'narratives_video',
+                                        'label' => 'Video Narrativas',
+                                        'name' => 'video',
+                                        'type' => 'file',
+                                        'return_format' => 'url',
+                                        'mime_types' => 'mp4',
+                                        'conditional_logic' => array(
+                                            array(
+                                                array(
+                                                    'field' => 'narratives_media_type',
+                                                    'operator' => '==',
+                                                    'value' => 'video',
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                    array(
                                         'key' => 'narratives_image',
                                         'label' => 'Imagen Narrativas',
                                         'name' => 'narratives_image',
@@ -621,6 +650,15 @@ if (!function_exists('digitalia_register_total_transmedia_acf_fields')) {
                                         'return_format' => 'array',
                                         'preview_size' => 'medium',
                                         'instructions' => 'Dimensiones recomendadas: 800x600px',
+                                        'conditional_logic' => array(
+                                            array(
+                                                array(
+                                                    'field' => 'narratives_media_type',
+                                                    'operator' => '==',
+                                                    'value' => 'image',
+                                                ),
+                                            ),
+                                        ),
                                     ),
                                     array(
                                         'key' => 'narratives_title',
@@ -636,6 +674,15 @@ if (!function_exists('digitalia_register_total_transmedia_acf_fields')) {
                                         'type' => 'textarea',
                                         'rows' => 3,
                                         'default_value' => 'Creamos experiencias omnicanal que integran storytelling, gamificación y marketing de contenidos. Nuestras narrativas interactivas fomentan el user-generated content y aprovechan micromomentos para maximizar el engagement con diferentes audiencias.',
+                                    ),
+                                    array(
+                                        'key' => 'narratives_show_cta',
+                                        'label' => 'Mostrar CTA Narrativas',
+                                        'name' => 'narratives_show_cta',
+                                        'type' => 'true_false',
+                                        'ui' => 1,
+                                        'default_value' => 0,
+                                        'instructions' => 'Activa esta opción para mostrar el botón CTA',
                                     ),
                                     array(
                                         'key' => 'narratives_cta',
@@ -662,6 +709,35 @@ if (!function_exists('digitalia_register_total_transmedia_acf_fields')) {
                                     ),
                                     // Alfabetización Digital
                                     array(
+                                        'key' => 'literacy_media_type',
+                                        'label' => 'Tipo de Media',
+                                        'name' => 'media_type',
+                                        'type' => 'select',
+                                        'choices' => array(
+                                            'image' => 'Imagen',
+                                            'video' => 'Video MP4'
+                                        ),
+                                        'default_value' => 'image',
+                                        'return_format' => 'value'
+                                    ),
+                                    array(
+                                        'key' => 'literacy_video',
+                                        'label' => 'Video Alfabetización',
+                                        'name' => 'video',
+                                        'type' => 'file',
+                                        'return_format' => 'url',
+                                        'mime_types' => 'mp4',
+                                        'conditional_logic' => array(
+                                            array(
+                                                array(
+                                                    'field' => 'literacy_media_type',
+                                                    'operator' => '==',
+                                                    'value' => 'video',
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                    array(
                                         'key' => 'literacy_image',
                                         'label' => 'Imagen Alfabetización',
                                         'name' => 'literacy_image',
@@ -669,6 +745,15 @@ if (!function_exists('digitalia_register_total_transmedia_acf_fields')) {
                                         'return_format' => 'array',
                                         'preview_size' => 'medium',
                                         'instructions' => 'Dimensiones recomendadas: 800x600px',
+                                        'conditional_logic' => array(
+                                            array(
+                                                array(
+                                                    'field' => 'literacy_media_type',
+                                                    'operator' => '==',
+                                                    'value' => 'image',
+                                                ),
+                                            ),
+                                        ),
                                     ),
                                     array(
                                         'key' => 'literacy_title',
@@ -684,6 +769,15 @@ if (!function_exists('digitalia_register_total_transmedia_acf_fields')) {
                                         'type' => 'textarea',
                                         'rows' => 3,
                                         'default_value' => 'Desarrollamos contenidos especializados para superar discursos de odio, identificar desinformación y fortalecer el periodismo ciudadano. Integramos tecnologías de IA para la detección de fake news y la promoción de una paz mediática.',
+                                    ),
+                                    array(
+                                        'key' => 'literacy_show_cta',
+                                        'label' => 'Mostrar CTA Alfabetización',
+                                        'name' => 'literacy_show_cta',
+                                        'type' => 'true_false',
+                                        'ui' => 1,
+                                        'default_value' => 0,
+                                        'instructions' => 'Activa esta opción para mostrar el botón CTA',
                                     ),
                                     array(
                                         'key' => 'literacy_cta',

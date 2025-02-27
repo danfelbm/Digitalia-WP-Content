@@ -397,7 +397,16 @@ get_header();
             <?php if ($cards['narratives_title'] && $cards['narratives_description']): ?>
               <div class="flex flex-col overflow-clip rounded-xl border border-slate-200 bg-slate-200 md:col-span-2 md:grid md:grid-cols-2 md:gap-6 lg:gap-8">
                 <div class="md:min-h-[24rem] lg:min-h-[28rem] xl:min-h-[32rem]">
-                  <?php if ($cards['narratives_image']): ?>
+                  <?php if ($cards['narratives_media_type'] === 'video' && !empty($cards['narratives_video'])): ?>
+                    <video 
+                      src="<?php echo esc_url($cards['narratives_video']); ?>"
+                      class="aspect-[16/9] h-full w-full object-cover object-center"
+                      autoplay
+                      muted
+                      loop
+                      playsinline
+                    ></video>
+                  <?php elseif ($cards['narratives_media_type'] === 'image' && $cards['narratives_image']): ?>
                     <img 
                       src="<?php echo esc_url($cards['narratives_image']['url']); ?>" 
                       alt="<?php echo esc_attr($cards['narratives_image']['alt']); ?>" 
@@ -418,7 +427,7 @@ get_header();
                   <p class="text-blue-900 lg:text-lg">
                     <?php echo esc_html($cards['narratives_description']); ?>
                   </p>
-                  <?php if (isset($cards['narratives_cta']) && !empty($cards['narratives_cta']['text']) && !empty($cards['narratives_cta']['url'])): ?>
+                  <?php if (isset($cards['narratives_show_cta']) && $cards['narratives_show_cta'] && isset($cards['narratives_cta']) && !empty($cards['narratives_cta']['text']) && !empty($cards['narratives_cta']['url'])): ?>
                     <div class="mt-6">
                       <a target="_blank" href="<?php echo esc_url($cards['narratives_cta']['url']); ?>" class="inline-flex items-center rounded-md bg-blue-700 px-4 py-2 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
                         <?php echo esc_html($cards['narratives_cta']['text']); ?>
@@ -441,7 +450,7 @@ get_header();
                   <p class="text-blue-900 lg:text-lg">
                     <?php echo esc_html($cards['literacy_description']); ?>
                   </p>
-                  <?php if (isset($cards['literacy_cta']) && !empty($cards['literacy_cta']['text']) && !empty($cards['literacy_cta']['url'])): ?>
+                  <?php if (isset($cards['literacy_show_cta']) && $cards['literacy_show_cta'] && isset($cards['literacy_cta']) && !empty($cards['literacy_cta']['text']) && !empty($cards['literacy_cta']['url'])): ?>
                     <div class="mt-6">
                       <a target="_blank" href="<?php echo esc_url($cards['literacy_cta']['url']); ?>" class="inline-flex items-center rounded-md bg-blue-700 px-4 py-2 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
                         <?php echo esc_html($cards['literacy_cta']['text']); ?>
@@ -453,7 +462,16 @@ get_header();
                   <?php endif; ?>
                 </div>
                 <div class="md:min-h-[24rem] lg:min-h-[28rem] xl:min-h-[32rem]">
-                  <?php if ($cards['literacy_image']): ?>
+                  <?php if ($cards['literacy_media_type'] === 'video' && !empty($cards['literacy_video'])): ?>
+                    <video 
+                      src="<?php echo esc_url($cards['literacy_video']); ?>"
+                      class="aspect-[16/9] h-full w-full object-cover object-center"
+                      autoplay
+                      muted
+                      loop
+                      playsinline
+                    ></video>
+                  <?php elseif ($cards['literacy_media_type'] === 'image' && $cards['literacy_image']): ?>
                     <img 
                       src="<?php echo esc_url($cards['literacy_image']['url']); ?>" 
                       alt="<?php echo esc_attr($cards['literacy_image']['alt']); ?>" 
@@ -567,7 +585,16 @@ get_header();
                   <a href="#" class="group rounded-xl">
                     <div class="bg-blue-200 text-blue-900 flex flex-col text-clip rounded-xl border border-border md:col-span-2 md:grid md:grid-cols-2 md:gap-6 lg:gap-8">
                       <div class="md:min-h-[24rem] lg:min-h-[28rem] xl:min-h-[32rem]">
-                        <?php if ($tabs[$key . '_image']): ?>
+                        <?php if ($tabs[$key . '_media_type'] === 'video' && !empty($tabs[$key . '_video'])): ?>
+                          <video 
+                            src="<?php echo esc_url($tabs[$key . '_video']); ?>"
+                            class="aspect-[16/9] h-full w-full object-cover object-center"
+                            autoplay
+                            muted
+                            loop
+                            playsinline
+                          ></video>
+                        <?php elseif ($tabs[$key . '_media_type'] === 'image' && $tabs[$key . '_image']): ?>
                           <img 
                             src="<?php echo esc_url($tabs[$key . '_image']['url']); ?>" 
                             alt="<?php echo esc_attr($tabs[$key . '_image']['alt'] ?: $item['alt']); ?>" 
