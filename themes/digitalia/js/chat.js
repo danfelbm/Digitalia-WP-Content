@@ -220,21 +220,20 @@
 
         .n8n-chat-widget .chat-toggle {
             position: fixed;
-            bottom: 120px;
+            bottom: 0;
             right: 20px;
-            width: 60px;
-            height: 60px;
-            border-radius: 30px;
-            background: linear-gradient(135deg, var(--chat--color-primary) 0%, var(--chat--color-secondary) 100%);
-            color: white;
+            width: 150px;
+            height: 150px;
+            background: transparent;
             border: none;
             cursor: pointer;
-            box-shadow: 0 4px 12px rgba(133, 79, 255, 0.3);
             z-index: 999;
-            transition: transform 0.3s;
             display: flex;
             align-items: center;
             justify-content: center;
+            padding: 0;
+            box-shadow: none;
+            border-radius: 0;
         }
 
         .n8n-chat-widget .chat-toggle.position-left {
@@ -243,13 +242,21 @@
         }
 
         .n8n-chat-widget .chat-toggle:hover {
-            transform: scale(1.05);
+            transform: none;
         }
 
-        .n8n-chat-widget .chat-toggle svg {
-            width: 24px;
-            height: 24px;
-            fill: currentColor;
+        .n8n-chat-widget .chat-toggle img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 0;
+        }
+
+        /* Media query para dispositivos móviles */
+        @media (max-width: 768px) {
+            .n8n-chat-widget .chat-toggle {
+                bottom: 64px;
+            }
         }
 
         .n8n-chat-widget .chat-footer {
@@ -377,9 +384,7 @@
     const toggleButton = document.createElement('button');
     toggleButton.className = `chat-toggle${config.style.position === 'left' ? ' position-left' : ''}`;
     toggleButton.innerHTML = `
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path d="M12 2C6.477 2 2 6.477 2 12c0 1.821.487 3.53 1.338 5L2.5 21.5l4.5-.838A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18c-1.476 0-2.886-.313-4.156-.878l-3.156.586.586-3.156A7.962 7.962 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/>
-        </svg>`;
+        <img src="/wp-content/themes/digitalia/assets/images/bot.png" alt="Chat Bot">`;
     
     widgetContainer.appendChild(chatContainer);
     widgetContainer.appendChild(toggleButton);

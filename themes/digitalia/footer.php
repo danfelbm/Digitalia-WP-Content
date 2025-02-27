@@ -93,31 +93,31 @@ if (function_exists('get_field')) {
                     </div>
                     <ul class="flex flex-wrap lg:flex-nowrap items-center space-x-6">
                         <li class="font-medium duration-200 hover:scale-110 hover:text-muted-foreground">
-                            <a href="https://bit.ly/49vhs86"><i class="fa-brands fa-instagram size-6"></i></a>
+                            <a href="https://www.instagram.com/digitalia_col/"><i class="fa-brands fa-instagram size-6"></i></a>
                         </li>
                         <li class="font-medium duration-200 hover:scale-110 hover:text-muted-foreground">
-                            <a href="https://bit.ly/3BldRwD"><i class="fa-brands fa-facebook size-6"></i></a>
+                            <a href="https://www.facebook.com/digitaliacol/"><i class="fa-brands fa-facebook size-6"></i></a>
                         </li>
                         <li class="font-medium duration-200 hover:scale-110 hover:text-muted-foreground">
                             <a href="https://x.com/Digitalia_Col"><i class="fa-brands fa-x-twitter size-6"></i></a>
                         </li>
                         <li class="font-medium duration-200 hover:scale-110 hover:text-muted-foreground">
-                            <a href="https://bit.ly/3ZL9Z1u"><i class="fa-brands fa-linkedin size-6"></i></a>
+                            <a href="https://www.linkedin.com/company/digital-ia-educomunicaci%c3%b3n-para-la-paz/"><i class="fa-brands fa-linkedin size-6"></i></a>
                         </li>
                         <li class="font-medium duration-200 hover:scale-110 hover:text-muted-foreground">
-                            <a href="https://shorturl.at/Q7IwB"><i class="fa-brands fa-youtube size-6"></i></a>
+                            <a href="https://www.youtube.com/@Digitalia_Col"><i class="fa-brands fa-youtube size-6"></i></a>
                         </li>
                         <li class="font-medium duration-200 hover:scale-110 hover:text-muted-foreground">
-                            <a href="https://bit.ly/4gnZOFh"><i class="fa-brands fa-tiktok size-6"></i></a>
+                            <a href="https://www.tiktok.com/@digitalia_col"><i class="fa-brands fa-tiktok size-6"></i></a>
                         </li>
                         <li class="font-medium duration-200 hover:scale-110 hover:text-muted-foreground">
-                            <a href="https://bit.ly/4fXB1bo"><i class="fa-brands fa-spotify size-6"></i></a>
+                            <a href="https://open.spotify.com/user/31gtjr6y7rept5zfp7xyjssst2qq"><i class="fa-brands fa-spotify size-6"></i></a>
                         </li>
                         <li class="font-medium duration-200 hover:scale-110 hover:text-muted-foreground">
-                            <a href="https://bit.ly/3D2Eebj"><i class="fa-brands fa-flickr size-6"></i></a>
+                            <a href="https://www.flickr.com/photos/digitalia/"><i class="fa-brands fa-flickr size-6"></i></a>
                         </li>
                         <li class="font-medium duration-200 hover:scale-110 hover:text-muted-foreground">
-                            <a href="https://bit.ly/3ZDJKd3"><i class="fa-brands fa-pinterest size-6"></i></a>
+                            <a href="https://co.pinterest.com/digitalia_col/"><i class="fa-brands fa-pinterest size-6"></i></a>
                         </li>
                     </ul>
                 </div>
