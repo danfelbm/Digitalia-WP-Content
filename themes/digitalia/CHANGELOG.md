@@ -1,5 +1,13 @@
 # Registro de Cambios (Changelog)
 
+## 2025-02-28
+
+### Mejoras en la sección de Blog de Total Transmedia
+
+- **12:51** - Se han agregado campos ACF para el botón "Ver todos los artículos" en el archivo `tt-blog-acf-field.php`, permitiendo personalizar el texto y la URL del botón.
+- **12:51** - Se ha actualizado el archivo `blog.php` para utilizar los campos ACF en lugar de valores estáticos.
+- **12:51** - Se ha reemplazado el icono SVG por un icono de Font Awesome para mejorar la consistencia del diseño.
+
 ## 2025-02-27
 
 ### Mejoras en la visualización de episodios en series

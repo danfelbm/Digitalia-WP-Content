@@ -42,6 +42,24 @@ if (function_exists('acf_add_local_field_group')) :
                 'required' => 1,
                 'default_value' => '#',
             ),
+            array(
+                'key' => 'field_tt_blog_all_articles_text',
+                'label' => 'Texto del Botón Ver Todos los Artículos',
+                'name' => 'tt_blog_all_articles_text',
+                'type' => 'text',
+                'instructions' => 'Ingresa el texto para el botón que lleva a todos los artículos',
+                'required' => 1,
+                'default_value' => 'Ver todos los artículos',
+            ),
+            array(
+                'key' => 'field_tt_blog_all_articles_url',
+                'label' => 'URL del Botón Ver Todos los Artículos',
+                'name' => 'tt_blog_all_articles_url',
+                'type' => 'url',
+                'instructions' => 'Ingresa la URL para el botón que lleva a todos los artículos',
+                'required' => 1,
+                'default_value' => '/blog',
+            ),
         ),
         'location' => array(
             array(
