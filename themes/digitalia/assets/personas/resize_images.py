@@ -35,6 +35,14 @@ def process_directory(directory):
                     print(f"Error processing {file}: {str(e)}")
 
 if __name__ == "__main__":
-    root_directory = os.path.dirname(os.path.abspath(__file__))
-    process_directory(root_directory)
-    print("Resizing complete!")
+    # Get the directory where this script is located
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    # Target only the 'nuevo' directory
+    target_directory = os.path.join(script_dir, 'nuevo')
+    
+    if os.path.exists(target_directory):
+        print(f"Processing images in: {target_directory}")
+        process_directory(target_directory)
+        print("Resizing complete!")
+    else:
+        print(f"Error: Directory not found: {target_directory}")
