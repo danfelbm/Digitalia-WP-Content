@@ -254,11 +254,27 @@ get_header();
             if ($a['priority'] !== $b['priority']) {
                 return $a['priority'] - $b['priority'];
             }
-            // Then compare team
-            $teamCompare = strcmp($a['team'], $b['team']);
-            if ($teamCompare !== 0) {
-                return $teamCompare;
+            
+            // Custom team order: Direccion Transversal, Academia, En Linea, Total Transmedia
+            $team_order = [
+                'Direccion Transversal' => 1,
+                'Academia' => 2,
+                'En Linea' => 3,
+                'Total Transmedia' => 4,
+                'Ready' => 5,
+                'Colaboratorio' => 6,
+                'Sin Equipo' => 7
+            ];
+            
+            // Get the order value for each team (default to 999 if not in the list)
+            $a_order = isset($team_order[$a['team']]) ? $team_order[$a['team']] : 999;
+            $b_order = isset($team_order[$b['team']]) ? $team_order[$b['team']] : 999;
+            
+            // Compare team order
+            if ($a_order !== $b_order) {
+                return $a_order - $b_order;
             }
+            
             // Finally compare name
             return strcmp($a['name'], $b['name']);
         });
