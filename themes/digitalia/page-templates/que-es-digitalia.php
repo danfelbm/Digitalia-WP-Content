@@ -369,12 +369,12 @@ get_header();
             } else {
                 // Get and display personas data
                 $personas = get_personas_data();
-                $current_team = '';
+                $displayed_teams = []; // Track which teams have already been displayed
                 
                 foreach ($personas as $persona) :
-                    // Add team header if team changes
-                    if ($current_team !== $persona['team']) :
-                        $current_team = $persona['team'];
+                    // Add team header if this team hasn't been displayed yet
+                    if (!in_array($persona['team'], $displayed_teams)) :
+                        $displayed_teams[] = $persona['team']; // Mark this team as displayed
                         ?>
                         <div class="col-span-2 mt-8 first:mt-0">
                             <h3 class="text-xl font-semibold"><?php echo esc_html($persona['team']); ?></h3>
